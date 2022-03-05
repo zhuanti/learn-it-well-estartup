@@ -34,11 +34,11 @@ def droom(request):
 
 
 def achievement(request):
-    return render(request, 'achievement.html')
+    return render(request, 'achievement.html') #完成
 
 
 def report(request):
-    return render(request, 'report.html')
+    return render(request, 'report.html') #完成
 
 
 def Splan(request):
