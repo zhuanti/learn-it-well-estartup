@@ -30,5 +30,5 @@ urlpatterns = [
     path('discusroom/', views.droom),
     path('achievement/', views.achievement),
     path('report', views.report),
-    path('register/', views.register),
+    path('studyplan/', views.Splan),
 ]
