@@ -23,6 +23,12 @@ urlpatterns = [
     path('', views.index),
     path('inner/', views.inner),
     path('login/', views.login),
-    path('ForgetPwd/', views.ForgetPwd),
+    path('forgetPwd/', views.forgetPwd),
+    path('register/', views.register),
+    path('userdetail/', views.Udetail),
+    path('studyroom/', views.sroom),
+    path('discusroom/', views.droom),
+    path('achievement/', views.achievement),
+    path('report', views.report),
     path('register/', views.register),
 ]
