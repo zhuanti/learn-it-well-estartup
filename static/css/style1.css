@@ -1,0 +1,69 @@
+body{
+    width:100%;
+    height: 100%;
+    padding:0;
+    margin:0;
+    background-color: rgb(221, 198, 150);
+    background-size:cover;
+    background-attachment: fixed;
+    background-position:center;
+}
+.login{
+   
+    position: fixed;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    background: rgba(48, 11, 12, 0.5);
+    text-align: center;
+    color:#fff;
+    font-family: "微軟正黑體",sans-serif;
+    border-radius: 10px;
+    padding: 30px;
+}
+.FTPwd{
+   
+    position: fixed;
+    left: 50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+    background: rgba(48, 11, 12, 0.5);
+    text-align: center;
+    color:#fff;
+    font-family: "微軟正黑體",sans-serif;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+/* .login i{
+    font-size: 100px;
+    margin: 20px auto;
+}
+input[type="text"], input[type="password"]{
+    font-size: 16px;
+    font-family: "微軟正黑體",sans-serif;
+    padding: 5px;
+    border-radius: 4px;
+    margin: 0 auto;
+    display: block;
+    width: 100px;
+} */
+button{
+    border:0;
+    padding:6px 12px;
+    font-size: 18px;
+    font-family: "微軟正黑體",sans-serif;
+    background:#fff;
+    color: #000;
+}
+/* @media(max-width: 450px){
+    .login{
+        width: 70px;
+    }
+}     */
+
+.container{
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
