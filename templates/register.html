@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>註冊頁面</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="../static/css/style.css" rel="stylesheet">
+
+    <script type="text/javascript">
+		function check(form)
+		{
+			if(form.id.value==""||form.pwd.value==""||form.name.value==""||form.birthday.value=="")
+			{
+				alert("未輸入完整資料!");
+				return false;
+			}
+            alert("註冊成功");
+			return true;
+		}
+	
+	</script>
+
+</head>
+<body>
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-6">
+                    <form role="form" name="myregister" id="myregister" action="" class="register" onsubmit="return check(this)"  required>
+                        <div class="form-group mb-3">
+                            <label for="id" class="h5 font-weight-bold" >帳號</label>
+                            <input type="email" class="form-control" name="id" placeholder="請輸入帳號">
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="pwd" class="h5 font-weight-bold">密碼</label>
+                            <input type="password" class="form-control" name="pwd" placeholder="請輸入密碼">
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="name" class="h5 font-weight-bold">名稱</label>
+                            <input type="text" class="form-control" maxlength="10" name="name" placeholder="請輸入名稱">
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="h5 font-weight-bold">居住地</label>
+                            <div class="g-col-6">
+                                <select name="department" class="form-control">
+                                    <option selected disabled value="">選擇縣市</option>
+                                    <option>...</option>
+                                </select>
+                            </div>
+                            <div class="g-col-6">
+                                <select name="department" class="form-control">
+                                    <option selected disabled value="">選擇區域</option>
+                                    <option>...</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="birthday" class="h5 font-weight-bold">生日</label>
+                            <input type="date" class="form-control" name="birthday">
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="h5 font-weight-bold">性別</label>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender">
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    男
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" checked>
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    女
+                                </label>
+                            </div>
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" checked>
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    不願透漏
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label class="h5 font-weight-bold">上傳照片</label>
+                            <input type="file" class="form-control-file" name="photo">
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <button type="submit" class="btn btn-primary h5 font-weight-bold">
+                                確定送出
+                            </button>
+                            <a href="login">已經有帳號</a><br>
+                            <a href="/login/">回到登入</a><br>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-3">
+                </div>
+            </div>
+        </div>
+    
+
+<script src="js/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+<script src="js/scripts.js"></script>
+</body>
+</html>
