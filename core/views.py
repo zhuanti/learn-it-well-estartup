@@ -43,3 +43,11 @@ def report(request):
 
 def Splan(request):
     return render(request, 'StudyPlan.html')
+
+
+def SroomSelf(request):
+    return render(request, 'Sroom-self.html')
+
+
+def Sroomtogether(request):
+    return render(request, 'Sroom-together.html')

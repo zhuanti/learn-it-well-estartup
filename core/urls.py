@@ -29,6 +29,9 @@ urlpatterns = [
     path('studyroom/', views.sroom),
     path('discusroom/', views.droom),
     path('achievement/', views.achievement),
-    path('report', views.report),
+    path('report/', views.report),
     path('studyplan/', views.Splan),
+    path('studyroom-self/', views.SroomSelf),
+    path('studyroom-together/', views.Sroomtogether),
+
 ]

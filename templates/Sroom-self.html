@@ -67,13 +67,15 @@
     </div>
   </header><!-- End Header -->
 
-        <!-- ======= Contact Section ======= -->
+    <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
     <section id="contact" class="padd-section">
 
       <div class="container" data-aos="fade-up">
         <div class="section-title text-center">
-         <br><br><h2>登入</h2>
-          <p class="separator">請於下方登入</p>
+         <br><br><h2>自習室</h2>
+<!--          <p class="separator">請於下方登入</p>-->
         </div>
 
         <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
@@ -83,7 +85,7 @@
             <div class="info">
               <div>
                 <i class=" bi bi-geo-alt"></i>
-                <p>帳號</p>
+                <p>課目</p>
               </div>
 
 <!--              <div class="email">-->
@@ -93,7 +95,7 @@
 
               <div>
                 <i class="bi bi-phone"></i>
-                <p>密碼</p>
+                <p>時間</p>
               </div>
             </div>
 
@@ -110,10 +112,10 @@
             <div class="form">
               <form action="/forms/contact.php" method="post" role="form" class="php-email-form">
                 <div class="form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="請輸入帳號" required>
+                  <input type="text" name="name" class="form-control" id="name" placeholder="請輸入科目" required>
                 </div>
                 <div class="form-group mt-3">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="請輸入密碼" required>
+                  <input type="email" class="form-control" name="email" id="email" placeholder="請輸入時間" required>
                 </div>
 <!--                <div class="form-group mt-3">-->
 <!--                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>-->
@@ -133,6 +135,8 @@
         </div>
       </div>
     </section><!-- End Contact Section -->
+</body>
+<!-- 表格結束-->
 
   <!-- ======= Footer ======= -->
   <footer class="footer">
@@ -243,48 +247,3 @@
 </body>
 
 </html>
-
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale1.0">-->
-<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
-<!--    <link rel="stylesheet" href="../static/css/style1.css">-->
-<!--    <title>登入介面</title>-->
-<!--    <link rel="stylesheet" href="https://ionic.io/ionicons">-->
-<!--    <script type="text/javascript">-->
-<!--		function check(form)-->
-<!--		{-->
-<!--			if(form.id.value==""||form.pwd.value=="")-->
-<!--			{-->
-<!--				alert("未輸入帳號或密碼!");-->
-<!--				return false;-->
-<!--			}-->
-<!--            alert("登入成功");-->
-<!--			return true;-->
-<!--		}-->
-<!--	-->
-<!--	</script>-->
-<!--</head>-->
-<!--<body>-->
-<!--    <form name="mylogin" action="" class="login" onsubmit="return check(this)"  required>-->
-<!--        <h1>登入</h1>-->
-<!--        &lt;!&ndash; <ion-icon name="person-circle-outline"></ion-icon> &ndash;&gt;-->
-<!--        <h2>帳號</h2>-->
-<!--        <input type="text" name="id" placeholder="請輸入帳號">-->
-<!--        <h2>密碼</h2>-->
-<!--        <input type="password"  name="pwd" placeholder="請輸入密碼"><br><br>-->
-<!--        <button type="submit" value="確認" >確認</button><br>-->
-<!--        <a href="/forgetPwd/">忘記密碼</a><br>-->
-<!--        <a href="/register/">註冊新帳號</a><br>-->
-<!--        <a href='/'>回到主頁</a><br>-->
-
-
-<!--    </form>-->
-
-<!--</body>-->
-<!--</html>-->
-
-
-<!--&lt;!&ndash; onclick="window.alert('登入成功')" &ndash;&gt;-->
