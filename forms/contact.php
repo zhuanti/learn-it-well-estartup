@@ -6,10 +6,10 @@
   * For more info and help: https://bootstrapmade.com/php-email-form/
   */
 
-  // Replace contact@example.com with your real receiving email address
+  // Replace contact@example.com with your real receiving email address php-email-form.php
   $receiving_email_address = 'contact@example.com';
 
-  if( file_exists($php_email_form = '../static/vendor/php-email-form/php-email-form.php' )) {
+  if( file_exists($php_email_form = '../static/vendor/php-email-form/validate.js' )) {
     include( $php_email_form );
   } else {
     die( 'Unable to load the "PHP Email Form" Library!');
