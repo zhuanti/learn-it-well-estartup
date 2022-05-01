@@ -1325,3 +1325,14 @@ background-color: #D7E5E1;
   display: inline-block;
   font-size: 15px;
 }
+/*about*/
+.progress {
+    height: 5px;
+}
+
+.progress .progress-bar {
+    width: 0px;
+    transition: 3s;
+}
+
+

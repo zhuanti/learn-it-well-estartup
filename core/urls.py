@@ -33,5 +33,6 @@ urlpatterns = [
     path('studyplan/', views.Splan),
     path('studyroom-self/', views.SroomSelf),
     path('studyroom-together/', views.Sroomtogether),
-
+    path('register/', views.register),
+    path('developer/', views.developer),
 ]

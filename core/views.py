@@ -34,11 +34,11 @@ def droom(request):
 
 
 def achievement(request):
-    return render(request, 'achievement.html') #完成
+    return render(request, 'achievement.html')  # 完成
 
 
 def report(request):
-    return render(request, 'report.html') #完成
+    return render(request, 'report.html')  # 完成
 
 
 def Splan(request):
@@ -51,3 +51,11 @@ def SroomSelf(request):
 
 def Sroomtogether(request):
     return render(request, 'Sroom-together.html')
+
+
+def register(request):
+    return render(request, 'register.html')
+
+
+def developer(request):
+    return render(request, 'developer.html')
