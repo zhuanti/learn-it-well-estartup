@@ -59,3 +59,6 @@ def register(request):
 
 def developer(request):
     return render(request, 'developer.html')
+
+def inpage(request):
+    return render(request, 'inpage.html')

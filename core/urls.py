@@ -35,4 +35,5 @@ urlpatterns = [
     path('studyroom-together/', views.Sroomtogether),
     path('register/', views.register),
     path('developer/', views.developer),
+    path('inpage/', views.inpage),
 ]
