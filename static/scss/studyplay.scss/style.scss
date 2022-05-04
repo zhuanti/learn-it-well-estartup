@@ -1,0 +1,151 @@
+@import 'bootstrap/bootstrap';
+@import 'bootstrap/variables';
+@import 'bootstrap/mixins';
+
+$font-primary: 'Poppins',Arial, sans-serif;
+$primary: #7ecfc0;
+
+body{
+	font-family: $font-primary;
+	font-size: 14px;
+	line-height: 1.8;
+	font-weight: normal;
+	background: #fafafa;
+	color: lighten($black,50%);
+}
+a {
+	transition: .3s all ease;
+	color: $primary;
+	&:hover, &:focus {
+		text-decoration: none !important;
+		outline: none !important;
+		box-shadow: none;
+	}
+}
+button {
+	transition: .3s all ease;
+	&:hover, &:focus {
+		text-decoration: none !important;
+		outline: none !important;
+		box-shadow: none !important;
+	}
+}
+h1, h2, h3, h4, h5,
+.h1, .h2, .h3, .h4, .h5 {
+	line-height: 1.5;
+	font-weight: 400;
+	font-family: $font-primary;
+	color: $black;
+}
+
+
+.ftco-section{
+	padding: 7em 0;
+}
+
+.ftco-no-pt{
+	padding-top: 0;
+}
+.ftco-no-pb{
+	padding-bottom: 0;
+}
+//HEADING SECTION
+.heading-section{
+	font-size: 28px;
+	color: $black;
+	small{
+		font-size: 18px;
+	}
+}
+
+//COVER BG
+.img{
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+}
+
+.wrap{
+	// border: 1px solid rgba(0,0,0,.1);
+	padding: 30px;
+	background: $primary;
+	border-radius: 4px;
+}
+.heading-title{
+	h3{
+		color: $white;
+		font-size: 24px;
+	}
+}
+
+
+//CHECKBOX
+ul.ks-cboxtags {
+  list-style: none;
+  padding: 20px;
+  li{
+  	display: block;
+  	label{
+			display: inline-block;
+	    background-color: rgba(255, 255, 255, .9);
+	    // border: 1px solid rgba(0, 0, 0,.1);
+	    color: lighten($black,20%);
+	    font-size: 18px;
+	    border-radius: 4px;
+	    white-space: nowrap;
+	    margin: 0 0 10px 0;
+	    -webkit-touch-callout: none;
+	    -webkit-user-select: none;
+	    -moz-user-select: none;
+	    -ms-user-select: none;
+	    user-select: none;
+	    -webkit-tap-highlight-color: transparent;
+	    transition: all .3s;
+	    display: block;
+
+  	}
+  }
+}
+
+ul.ks-cboxtags li label {
+  padding: 10px 20px;
+  cursor: pointer;
+  &::before{
+  	display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "FontAwesome";
+    font-weight: 900;
+    font-size: 24px;
+    padding: 0;
+    margin-right: 15px;
+    content: "\f1db";
+    color: rgba(0,0,0,.2);
+    transition: transform .3s ease-in-out;
+    position: absolute;
+    right: 50px;
+    margin-top: -5px;
+    @include transition(.3s);
+  }
+}
+
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
+  content: "\f058";
+  transition: transform .3s ease-in-out;
+  color: $primary;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label {
+  transition: all .2s;
+}
+
+ul.ks-cboxtags li input[type="checkbox"] {
+  display: absolute;
+}
+ul.ks-cboxtags li input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}

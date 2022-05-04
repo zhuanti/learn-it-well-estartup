@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="utf-8">
@@ -26,6 +26,11 @@
 
     <!-- Template Main CSS File -->
     <link href="/static/css/style.css" rel="stylesheet">
+    <!-- 勾選方塊 -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/static/css/studyplan.css">
 
     <!-- =======================================================
     * Template Name: eStartup - v4.7.1
@@ -43,8 +48,8 @@
 
         <div id="logo">
             <h1>
-            <img src="/static/images/hello.png">
-            <a href="/"><span >一</span>起來讀冊</a>
+                <img src="/static/images/hello.png">
+                <a href="/"><span>一</span>起來讀冊</a>
             </h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" title="" /></a>-->
@@ -71,19 +76,45 @@
     </div>
 </header><!-- End Header -->
 <!-- ======= Hero Section ======= -->
-<section id="hero">
-    <div class="hero-container" data-aos="fade-in">
-        <h1>開始規畫學習</h1>
-        <!--      <h2>Elegant Bootstrap Template for Startups, Apps &amp; more...</h2>-->
-        <img src="/static/images/hero-img.png" alt="Hero Imgs" data-aos="zoom-out" data-aos-delay="100">
-        <a href="#get-started" class="btn-get-started scrollto">Get Started</a>
-        <div class="btns">
-            <a href="#"><i class="fa fa-apple fa-3x"></i> App Store</a>
-            <a href="#"><i class="fa fa-play fa-3x"></i> Google Play</a>
-            <a href="#"><i class="fa fa-windows fa-3x"></i> windows</a>
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <br>
+                <h2 class="heading-section mb-5 pb-md-4">開始學習吧!</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <div class="wrap w-100">
+                    <div class="heading-title mb-4 text-center">
+                        <h3>選擇你要完成的項目</h3>
+                    </div>
+                    <ul class="ks-cboxtags p-0 m-0">
+                        <li>
+                            <input type="checkbox" id="checkboxOne" value="Order one" checked>
+                            <label for="checkboxOne">自習一小時</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="checkboxTwo" value="Order Two">
+                            <label for="checkboxTwo">討論一小時</label>
+                        </li>
+                        <li>
+                            <input type="checkbox" id="checkboxThree" value="Order Two">
+                            <label for="checkboxThree">複習數學</label>
+                        </li>
+
+                    </ul>
+
+                </div>
+                <br>
+               <center><button type="button" class="btn btn-outline-success">新增</button></center>
+            </div>
         </div>
     </div>
-</section><!-- End Hero Section -->
+
+</section>
+
 
 <!-- ======= Footer ======= -->
 <footer class="footer">
@@ -192,7 +223,11 @@
 
 <!-- Template Main JS File -->
 <script src="/static/js/main.js"></script>
-
+<!-- Template Main JS File -->
+<script src="/static/js/studyplan.js/jquery.min.js"></script>
+<script src="/static/js/studyplan.js/popper.js"></script>
+<script src="/static/js/studyplan.js/bootstrap.min.js"></script>
+<script src="/static/js/studyplan.js/main.js"></script>
 </body>
 
 </html>
