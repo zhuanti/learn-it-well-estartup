@@ -75,72 +75,7 @@
     </div>
 </header><!-- End Header -->
 
-<!-- ======= Contact Section =======-->
-<!--    <section id="contact" class="padd-section">-->
 
-<!--      <div class="container" data-aos="fade-up">-->
-<!--        <div class="section-title text-center">-->
-<!--         <br><br><h2>登入</h2>-->
-<!--          <p class="separator">請於下方登入</p>-->
-<!--        </div>-->
-
-<!--        <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">-->
-
-<!--          <div class="col-lg-3 col-md-4">-->
-
-<!--            <div class="info">-->
-<!--              <div>-->
-<!--                <i class=" bi bi-person-circle"></i>-->
-<!--                <p>帳號</p>-->
-<!--              </div>-->
-
-<!--&lt;!&ndash;              <div class="email">&ndash;&gt;-->
-<!--&lt;!&ndash;                <i class="bi bi-envelope"></i>&ndash;&gt;-->
-<!--&lt;!&ndash;                <p>密碼</p>&ndash;&gt;-->
-<!--&lt;!&ndash;              </div>&ndash;&gt;-->
-
-<!--              <div>-->
-<!--                <i class="bi bi-key"></i>-->
-<!--                <p>密碼</p>-->
-<!--              </div>-->
-<!--            </div>-->
-
-<!--            <div class="social-links">-->
-<!--              <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>-->
-<!--              <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>-->
-<!--              <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>-->
-<!--              <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>-->
-<!--            </div>-->
-
-<!--          </div>-->
-
-<!--          <div class="col-lg-5 col-md-8">-->
-<!--            <div class="form">-->
-<!--              <form action="/forms/contact.php" method="post" role="form" class="php-email-form">-->
-<!--                <div class="form-group">-->
-<!--                  <input type="email" name="email" class="form-control" id="email" placeholder="請輸入帳號" required>-->
-<!--                </div>-->
-<!--                <div class="form-group mt-3">-->
-<!--                  <input type="text" class="form-control" name="name" id="name" placeholder="請輸入密碼" required>-->
-<!--                </div>-->
-<!--&lt;!&ndash;                <div class="form-group mt-3">&ndash;&gt;-->
-<!--&lt;!&ndash;                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>&ndash;&gt;-->
-<!--&lt;!&ndash;                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                <div class="form-group mt-3">&ndash;&gt;-->
-<!--&lt;!&ndash;                  <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>&ndash;&gt;-->
-<!--&lt;!&ndash;                </div>&ndash;&gt;-->
-<!--                <div class="my-3">-->
-<!--                  <div class="loading">Loading</div>-->
-<!--                  <div class="error-message"></div>-->
-<!--                  <div class="sent-message">Your message has been sent. Thank you!</div>-->
-<!--                </div>-->
-<!--                <div class="btn-get-started scrollto"><button type="submit">確認</button></div>-->
-<!--              </form>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </section>&lt;!&ndash; End Contact Section &ndash;&gt;-->
 <section>
     <div class="main">
         <section class="sign-in">
@@ -156,11 +91,11 @@
                         <form method="POST" class="register-form" id="login-form">
                             <div class="form-group">
                                 <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="your_name" id="your_name" placeholder="請輸入帳號或電子郵件"/>
+                                <input type="text" name="your_name" id="your_name" placeholder="請輸入帳號或電子郵件" required="required"/>
                             </div>
                             <div class="form-group">
                                 <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="your_pass" id="your_pass" placeholder="請輸入密碼"/>
+                                <input type="password" name="your_pass" id="your_pass" placeholder="請輸入密碼" required="required"/>
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" name="remember-me" id="remember-me" class="agree-term"/>
@@ -168,7 +103,7 @@
                                     </label>
                             </div>
                             <div class="form-group form-button">
-                              <a class="btn btn-primary" href="/" role="button">Link</a>
+                             <button class="btn btn-primary" type="submit">登入</button>
                             </div>
                         </form>
                         <div class="social-login">
