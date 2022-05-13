@@ -11265,7 +11265,9 @@ html {
   overflow: auto; }
 
 .container-scroller {
-  overflow: hidden; }
+  overflow: hidden;
+  width: 1355px;
+  margin: 0 auto;}
 
 pre {
   background: color(gray-lighter);

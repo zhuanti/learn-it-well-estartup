@@ -27,17 +27,16 @@
     <!-- Template Main CSS File -->
     <link href="/static/css/style.css" rel="stylesheet">
     <!-- 勾選方塊 -->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+<!--    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">-->
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/static/css/studyplan.css">
+<!--    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">-->
+<!--    <link rel="stylesheet" href="/static/css/studyplan.css">-->
 
-    <!-- =======================================================
-    * Template Name: eStartup - v4.7.1
-    * Template URL: https://bootstrapmade.com/estartup-bootstrap-landing-page-template/
-    * Author: BootstrapMade.com
-    * License: https://bootstrapmade.com/license/
-    ======================================================== -->
+    <!-- 勾選新增方塊 -->
+    <link rel="stylesheet" href="/static/vendor/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="/static/vendor/css/vendor.bundle.base.css">
+    <link rel="stylesheet" href="/static/css/report-mainstyle.css">
+    <link rel="shortcut icon" href="/static/images/favicon.ico"/>
 </head>
 
 <body>
@@ -85,32 +84,98 @@
             </div>
         </div>
         <div class="row justify-content-center">
-            <div class="col-md-4">
-                <div class="wrap w-100">
-                    <div class="heading-title mb-4 text-center">
-                        <h3>選擇你要完成的項目</h3>
+            <div class="col-md-5 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="add-items d-flex">
+                            <input type="text" class="form-control todo-list-input"
+                                   placeholder="寫下今天的學習規劃吧!">
+                            <button class="add btn btn-gradient-primary font-weight-bold todo-list-add-btn"
+                                    id="add-task" style="white-space:nowrap" >新增
+                            </button>
+                            <!--style="white-space:nowrap" 強制不換行-->
+                        </div>
+                        <div class="list-wrapper">
+                            <ul class="d-flex flex-column-reverse todo-list todo-list-custom">
+                                <li>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input class="checkbox" type="checkbox"> 複習數學
+                                        </label>
+                                    </div>
+                                    <i class="remove mdi mdi-close-circle-outline"></i>
+                                </li>
+                                <li class="completed">
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input class="checkbox" type="checkbox" checked> 預習統計學
+                                        </label>
+                                    </div>
+                                    <i class="remove mdi mdi-close-circle-outline"></i>
+                                </li>
+                                <li>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input class="checkbox" type="checkbox"> 讀書一小時 </label>
+                                    </div>
+                                    <i class="remove mdi mdi-close-circle-outline"></i>
+                                </li>
+                                <li>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input class="checkbox" type="checkbox"> 整理化學筆記
+                                        </label>
+                                    </div>
+                                    <i class="remove mdi mdi-close-circle-outline"></i>
+                                </li>
+                                <li class="completed">
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input class="checkbox" type="checkbox" checked> 期中考重點複習 </label>
+                                    </div>
+                                    <i class="remove mdi mdi-close-circle-outline"></i>
+                                </li>
+                                <li>
+                                    <div class="form-check">
+                                        <label class="form-check-label">
+                                            <input class="checkbox" type="checkbox"> 完成數學作業</label>
+                                    </div>
+                                    <i class="remove mdi mdi-close-circle-outline"></i>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <ul class="ks-cboxtags p-0 m-0">
-                        <li>
-                            <input type="checkbox" id="checkboxOne" value="Order one" checked>
-                            <label for="checkboxOne">自習一小時</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="checkboxTwo" value="Order Two">
-                            <label for="checkboxTwo">討論一小時</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="checkboxThree" value="Order Two">
-                            <label for="checkboxThree">複習數學</label>
-                        </li>
-
-                    </ul>
-
                 </div>
-                <br>
-               <center><button type="button" class="btn btn-outline-success">新增</button></center>
             </div>
         </div>
+
+<!--                <div class="row justify-content-center">-->
+<!--                    <div class="col-md-4">-->
+<!--                        <div class="wrap w-100">-->
+<!--                            <div class="heading-title mb-4 text-center">-->
+<!--                                <h3>選擇你要完成的項目</h3>-->
+<!--                            </div>-->
+<!--                            <ul class="ks-cboxtags p-0 m-0">-->
+<!--                                <li>-->
+<!--                                    <input type="checkbox" id="checkboxOne" value="Order one" checked>-->
+<!--                                    <label for="checkboxOne">自習一小時</label>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <input type="checkbox" id="checkboxTwo" value="Order Two">-->
+<!--                                    <label for="checkboxTwo">討論一小時</label>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <input type="checkbox" id="checkboxThree" value="Order Two">-->
+<!--                                    <label for="checkboxThree">複習數學</label>-->
+<!--                                </li>-->
+
+<!--                            </ul>-->
+
+<!--                        </div>-->
+<!--                        <br>-->
+<!--                       <center><button type="button" class="btn btn-outline-success">新增</button></center>-->
+<!--                    </div>-->
+<!--                </div>-->
     </div>
 
 </section>
@@ -224,10 +289,19 @@
 <!-- Template Main JS File -->
 <script src="/static/js/main.js"></script>
 <!-- Template Main JS File -->
-<script src="/static/js/studyplan.js/jquery.min.js"></script>
-<script src="/static/js/studyplan.js/popper.js"></script>
-<script src="/static/js/studyplan.js/bootstrap.min.js"></script>
-<script src="/static/js/studyplan.js/main.js"></script>
+<!--<script src="/static/js/studyplan.js/jquery.min.js"></script>-->
+<!--<script src="/static/js/studyplan.js/popper.js"></script>-->
+<!--<script src="/static/js/studyplan.js/bootstrap.min.js"></script>-->
+<!--<script src="/static/js/studyplan.js/main.js"></script>-->
+<!-- 報表 -->
+<script src="/static/vendor/js/vendor.bundle.base.js"></script>
+<script src="/static/vendor/chart.js/Chart.min.js"></script>
+<script src="/static/js/jquery.cookie.js" type="text/javascript"></script>
+<script src="/static/js/off-canvas.js"></script>
+<script src="/static/js/hoverable-collapse.js"></script>
+<script src="/static/js/misc.js"></script>
+<script src="/static/js/dashboard.js"></script>
+<script src="/static/js/todolist.js"></script>
 </body>
 
 </html>
