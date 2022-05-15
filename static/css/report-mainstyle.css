@@ -2720,7 +2720,7 @@ progress {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 auto;
     flex: 0 0 auto;
-    width: 33.33333%; }
+    width: 50%; }
   .col-md-5 {
     -webkit-box-flex: 0;
     -ms-flex: 0 0 auto;
@@ -11266,7 +11266,7 @@ html {
 
 .container-scroller {
   overflow: hidden;
-  width: 20000px;
+  width: 1800px;
   margin: 0 auto;}
 
 pre {
