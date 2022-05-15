@@ -1,0 +1,116 @@
+/*-------------------------------------------------------------------
+  ===== Table of Contents =====
+
+  * Bootstrap functions
+  * Template variables
+  * SCSS Compass Functions
+  * Boostrap Main SCSS
+  * Template mixins
+    + Animation Mixins
+    + Background Mixins
+    + Badge Mixins
+    + Button Mixins
+    + Miscellaneous Mixins
+    + BlockQuote Mixins
+    + Cards Mixins
+    + Color Functions Mixins
+    + Tooltips
+    + popovers
+  * Core Styles
+    + Reset Styles
+    + Fonts
+    + Functions
+    + Backgrounds
+    + Typography
+    + Miscellaneous
+    + Footer
+    + Layouts
+    + Utilities
+    + Demo styles
+  * Components
+    + Badges
+    + Boostrap Progress
+    + Buttons
+    + Breadcrumbs
+    + Cards
+    + Checkboxes and Radios
+    + Dropdowns
+    + Forms
+    + Icons
+    + Preview
+    + Tables
+    + Todo List
+  * Landing screens
+    + Auth
+-------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------*/
+/* === Import Bootstrap functions and variables === */
+@import "/static/report_node_modules/bootstrap/scss/functions";
+@import "/static/report_node_modules/bootstrap/scss/variables";
+
+/*-------------------------------------------------------------------*/
+/* === Import template variables === */
+@import './variables';
+
+/*-------------------------------------------------------------------*/
+/* === SCSS Compass Functions === */
+@import "/static/report_node_modules/compass-mixins/lib/compass";
+@import "/static/report_node_modules/compass-mixins/lib/animate";
+
+/*-------------------------------------------------------------------*/
+/* === Boostrap Main SCSS === */
+@import "/static/report_node_modules/bootstrap/scss/bootstrap";
+
+/*-------------------------------------------------------------------*/
+/* === Template mixins === */
+@import "/static/report-scss/mixins/misc";
+@import "/static/report-scss/mixins/animation";
+@import "/static/report-scss/mixins/background";
+@import "/static/report-scss/mixins/badges";
+@import "/static/report-scss/mixins/blockqoute";
+@import "/static/report-scss/mixins/buttons";
+@import "/static/report-scss/mixins/breadcrumbs";
+@import "/static/report-scss/mixins/cards";
+@import "/static/report-scss/mixins/pagination";
+@import "/static/report-scss/mixins/popovers";
+@import "/static/report-scss/mixins/tooltips";
+@import "/static/report-scss/mixins/text";
+
+/*-------------------------------------------------------------------*/
+/* === Core Styles === */
+@import "/static/report-scss/reset";
+@import "/static/report-scss/fonts";
+@import "/static/report-scss/functions";
+@import "/static/report-scss/typography";
+@import "/static/report-scss/misc";
+@import "/static/report-scss/footer";
+@import "/static/report-scss/utilities";
+@import "/static/report-scss/demo";
+@import "/static/report-scss/dashboard";
+
+/*-------------------------------------------------------------------*/
+/* === Components === */
+@import "/static/report-scss/components/badges";
+@import "/static/report-scss/components/bootstrap-progress";
+@import "/static/report-scss/components/buttons";
+@import "/static/report-scss/components/breadcrumbs";
+@import "/static/report-scss/components/cards";
+@import "/static/report-scss/components/checkbox-radio";
+@import "/static/report-scss/components/dropdown";
+@import "/static/report-scss/components/forms";
+@import "/static/report-scss/components/icons";
+@import "/static/report-scss/components/lists";
+@import "/static/report-scss/components/preview";
+@import "/static/report-scss/components/tables";
+@import "/static/report-scss/components/todo-list";
+
+/*-------------------------------------------------------------------*/
+/* === Landing screens === */
+@import "./landing-screens/auth";
+
+
+@import './navbar';
+@import './sidebar';
+@import './layouts';
+@import './vertical-wrapper';
