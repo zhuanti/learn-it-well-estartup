@@ -27,7 +27,11 @@
     <link href="/static/css/style.css" rel="stylesheet">
 
     <link rel="stylesheet" href="/static/css/inpage.css">
-    
+    <script>
+        document.getElementById("demo1").addEventListener("click",function(){
+        swal("Good job!", "You clicked the button!", "success");
+        });
+    </script>
 
 </head>
 <body>
@@ -82,7 +86,8 @@
     <!--聊天 block-->
 
     <div class="msger-inputarea">
-        <button type="button" id="QA" class="btn" style="margin-right:5px" >提問</button><br>
+        <button type="button" id="demo1" class="btn" style="margin-right:5px">提問</button>
+        <br>
         <input type="text" class="msger-input" id="msg" placeholder="說些什麼吧～">
         <button type="button" id="send" class="msger-send-btn">發送訊息</button>
     </div>
@@ -100,6 +105,8 @@
 <script src="/static/vendor/glightbox/js/glightbox.min.js"></script>
 <script src="/static/vendor/swiper/swiper-bundle.min.js"></script>
 <script src="/static/vendor/php-email-form/validate.js"></script>
+<!-- SweetAlert -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <!-- Template Main JS File -->
 <script src="/static/js/main.js"></script>
