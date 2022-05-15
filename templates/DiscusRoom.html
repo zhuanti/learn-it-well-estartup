@@ -61,63 +61,6 @@
 
 
 
-
-    </style>
-    <script type="text/javascript">
- function popDiv(){
-  // 獲取div元素
-  var popBox = document.getElementById("popDiv");
-  var popLayer = document.getElementById("popLayer");
-
-  // 控制兩個div的顯示與隱藏
-  popBox.style.display = "block";
-  popLayer.style.display = "block";
- }
-
- function closePop(){
-  // 獲取彈出視窗元素
-  let popDiv = document.getElementById("popDiv");
-
-  popDiv.style.display = "none";
- }
-
-
-    </script>
-    <style type="text/css">
- body{
-  background-color: cyan;
- }
- #popDiv{
-  display: none;
-  background-color: crimson;
-  z-index: 11;
-  width: 600px;
-  height: 600px;
-  position:fixed;
-  top:0;
-  right:0;
-  left:0;
-  bottom:0;
-  margin:auto;
- }
- /* 關閉按鈕樣式 */
- #popDiv .close a {
-  text-decoration: none;
-  color: #2D2C3B;
- }
- /* 彈出介面的關閉按鈕 */
- #popDiv .close{
-  text-align: right;
-  margin-right: 5px;
-  background-color: #F8F8F8;
- }
- #popDiv p{
-  text-align: center;
-  font-size: 25px;
-  font-weight: bold;
- }
-
-
     </style>
 </head>
 
@@ -206,7 +149,7 @@
                             <td>5/10</td>
                             <td>
                                 <center><a class="nav-link scrollto active" href="/inpage/">加入</a></center>
-                                <!--                                <button class="button" herf="/inpage/">加入</button>-->
+<!--                                <button class="button" herf="/inpage/">加入</button>-->
                             </td>
                         </tr>
                         <tr>
@@ -273,17 +216,6 @@
 
 </body>
 <!-- 表格結束-->
-<div id="popLayer">
-        <button onclick="popDiv();">彈窗</button>
-    </div>
-
-    <div id="popDiv">
-        <div class="close">
-            <a href="javascript:void(0)" onclick="closePop()">關閉</a>
-        </div>
-        <p>此處為彈出視窗</p>
-    </div>
-</body>
 
 <!-- ======= Footer ======= -->
 <footer class="footer">

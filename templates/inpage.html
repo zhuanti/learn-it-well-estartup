@@ -27,61 +27,7 @@
     <link href="/static/css/style.css" rel="stylesheet">
 
     <link rel="stylesheet" href="/static/css/inpage.css">
-
-    <script type="text/javascript">
- function popDiv(){
-  // 獲取div元素
-  var popBox = document.getElementById("popDiv");
-  var popLayer = document.getElementById("popLayer");
-
-  // 控制兩個div的顯示與隱藏
-  popBox.style.display = "block";
-  popLayer.style.display = "block";
- }
-
- function closePop(){
-  // 獲取彈出視窗元素
-  let popDiv = document.getElementById("popDiv");
-
-  popDiv.style.display = "none";
- }
-
-    </script>
-    <style type="text/css">
- body{
-  background-color: cyan;
- }
- #popDiv{
-  display: none;
-  background-color: crimson;
-  z-index: 11;
-  width: 600px;
-  height: 600px;
-  position:fixed;
-  top:0;
-  right:0;
-  left:0;
-  bottom:0;
-  margin:auto;
- }
- /* 關閉按鈕樣式 */
- #popDiv .close a {
-  text-decoration: none;
-  color: #2D2C3B;
- }
- /* 彈出介面的關閉按鈕 */
- #popDiv .close{
-  text-align: right;
-  margin-right: 5px;
-  background-color: #F8F8F8;
- }
- #popDiv p{
-  text-align: center;
-  font-size: 25px;
-  font-weight: bold;
- }
-
-    </style>
+    
 
 </head>
 <body>
@@ -136,25 +82,13 @@
     <!--聊天 block-->
 
     <div class="msger-inputarea">
-        <button type="button" id="QA" class="btn" style="margin-right:5px">提問</button>
-        <br>
+        <button type="button" id="QA" class="btn" style="margin-right:5px" >提問</button><br>
         <input type="text" class="msger-input" id="msg" placeholder="說些什麼吧～">
         <button type="button" id="send" class="msger-send-btn">發送訊息</button>
     </div>
 </section>
 <script src="/static/js/webChat.js"></script>
 <!--</center>-->
-
-<div id="popLayer">
-        <button onclick="popDiv();">彈窗</button>
-    </div>
-
-    <div id="popDiv">
-        <div class="close">
-            <a href="javascript:void(0)" onclick="closePop()">關閉</a>
-        </div>
-        <p>此處為彈出視窗</p>
-    </div>
 </body>
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
