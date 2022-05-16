@@ -82,7 +82,7 @@ body {
 	}
 .container1 .pickedTime .time span {
 	font-size: 2.5rem;
-	color: #b6281b;
+	color: #71c55d;
 	}
 .container1 .pickedTime .time p {
 	color: #000000;
@@ -103,7 +103,7 @@ body {
 	text-align: center;
 	}
 .container1 .boxes .box span {
-	color: #b6281b;
+	color: #71c55d;
 	font-weight: bold;
 	font-size: 4rem;
 }
