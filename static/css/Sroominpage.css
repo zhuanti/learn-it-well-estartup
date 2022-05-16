@@ -43,12 +43,12 @@ body {
 	border: none;
 	padding: 10px 15px;
 	background: #ffffff;
-	color: #b6281b;
+	color: #71c55d;
 	cursor: pointer;
 	transition: 0.2s linear;
 	}
 .container1 form button:hover {
-	background: #b6281b;
+	background: #71c55d;
 	color: #ffffff;
 	}
 
@@ -56,8 +56,8 @@ body {
 	font-size: 3rem;
 	text-transform: uppercase;
 	}
-.container1 h5, .container h1, .container p {
-	color: #ffffff;
+.container1 h5, .container1 h1, .container1 p {
+	color: #71c55d;
 	text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 	}
 .container1 p {
@@ -82,7 +82,7 @@ body {
 	}
 .container1 .pickedTime .time span {
 	font-size: 2.5rem;
-	color: #b6281b;
+	color: #71c55d;
 	}
 .container1 .pickedTime .time p {
 	color: #000000;
@@ -103,7 +103,7 @@ body {
 	text-align: center;
 	}
 .container1 .boxes .box span {
-	color: #b6281b;
+	color: #71c55d;
 	font-weight: bold;
 	font-size: 4rem;
 }
