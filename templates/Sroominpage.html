@@ -25,13 +25,8 @@
 
     <!-- Template Main CSS File -->
     <link href="/static/css/style.css" rel="stylesheet">
+    <link href="/static/css/Sroominpage.css" rel="stylesheet">
 
-    <!-- =======================================================
-    * Template Name: eStartup - v4.7.1
-    * Template URL: https://bootstrapmade.com/estartup-bootstrap-landing-page-template/
-    * Author: BootstrapMade.com
-    * License: https://bootstrapmade.com/license/
-    ======================================================== -->
 </head>
 <body>
 <!-- ======= Header ======= -->
@@ -41,7 +36,7 @@
         <div id="logo">
             <h1>
                 <img src="/static/images/hello.png">
-                <a href="/"><span>做伙</span>起來讀冊</a>
+                <a href="/"><span>做伙</span>來讀冊</a>
             </h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" title="" /></a>-->
@@ -68,7 +63,34 @@
     </div>
 </header><!-- End Header -->
 
-<h1 class="text-center" id="count-down-timer"></h1>
+<body class="hm-gradient">
+
+<main>
+    <br>
+    <br>
+    <br>
+    <div class="container1">
+        <h5>新增時間</h5>
+        <form id="addDate">
+            <input type="time" name="time" id="time">
+            <button type="submit">提交</button>
+        </form>
+        <p class="hidden">還剩的時間</p>
+        <div class="pickedTime">
+            <div class="time">
+                <span id="time-hours">-</span>
+                <p>時</p>
+            </div>
+            <div class="time">
+                <span id="time-minutes">-</span>
+                <p>分</p>
+            </div>
+        </div>
+    </div>
+</main>
+
+</body>
+
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
         class="bi bi-arrow-up-short"></i></a>
@@ -79,10 +101,10 @@
 <script src="/static/vendor/glightbox/js/glightbox.min.js"></script>
 <script src="/static/vendor/swiper/swiper-bundle.min.js"></script>
 <script src="/static/vendor/php-email-form/validate.js"></script>
-<script src="/static/js/timer.js"></script>
 
 <!-- Template Main JS File -->
 <script src="/static/js/main.js"></script>
+<script src="/static/js/timer.js"></script>
 
 </body>
 </html>

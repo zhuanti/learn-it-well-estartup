@@ -5,7 +5,7 @@ $(function () {
    */
   'use strict';
   var data = {
-    labels: ["2013", "2014", "2014", "2015", "2016", "2017"],
+    labels: ["國文", "數學", "社會", "自然", "英文", "其他"],
     datasets: [{
       label: '# of Votes',
       data: [10, 19, 3, 5, 2, 3],
@@ -30,7 +30,7 @@ $(function () {
     }]
   };
   var dataDark = {
-    labels: ["2013", "2014", "2014", "2015", "2016", "2017"],
+    labels: ["國文", "數學", "社會", "自然", "英文", "其他"],
     datasets: [{
       label: '# of Votes',
       data: [10, 19, 3, 5, 2, 3],
@@ -55,7 +55,7 @@ $(function () {
     }]
   };
   var multiLineData = {
-    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+    labels: ["國文", "數學", "社會", "自然", "英文", "其他"],
     datasets: [{
       label: 'Dataset 1',
       data: [12, 19, 3, 5, 2, 3],
@@ -135,7 +135,7 @@ $(function () {
   };
   var doughnutPieData = {
     datasets: [{
-      data: [30, 40, 30],
+      data: [20, 40, 30,10],
       backgroundColor: [
         'rgba(255, 99, 132, 0.5)',
         'rgba(54, 162, 235, 0.5)',
@@ -156,9 +156,10 @@ $(function () {
 
     // These labels appear in the legend and in the tooltips when hovering different arcs
     labels: [
-      'Pink',
-      'Blue',
-      'Yellow',
+      '國文',
+      '數學',
+      '社會',
+      '英文',
     ]
   };
   var doughnutPieOptions = {
@@ -169,7 +170,7 @@ $(function () {
     }
   };
   var areaData = {
-    labels: ["2013", "2014", "2015", "2016", "2017"],
+    labels: ["國文", "英文", "自然", "社會", "數學"],
     datasets: [{
       label: '# of Votes',
       data: [12, 19, 3, 5, 2, 3],

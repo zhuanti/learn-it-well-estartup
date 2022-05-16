@@ -24,20 +24,20 @@
     <link href="/static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="/static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-<!--    &lt;!&ndash; Template Main CSS File &ndash;&gt;-->
+    <!--    &lt;!&ndash; Template Main CSS File &ndash;&gt;-->
 
-<!--    <link href="/static/lib/animate/animate.min.css" rel="stylesheet">-->
-<!--    <link href="/static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">-->
-<!--    <link href="/static/lib/lightbox/css/lightbox.min.css" rel="stylesheet">-->
+    <!--    <link href="/static/lib/animate/animate.min.css" rel="stylesheet">-->
+    <!--    <link href="/static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">-->
+    <!--    <link href="/static/lib/lightbox/css/lightbox.min.css" rel="stylesheet">-->
 
-<!--    <link href="/static/css/bootstrap.min.css" rel="stylesheet">-->
+    <!--    <link href="/static/css/bootstrap.min.css" rel="stylesheet">-->
 
     <!-- Template Stylesheet -->
     <link href="/static/css/style.css" rel="stylesheet">
     <!-- 報表 -->
     <link rel="stylesheet" href="/static/vendor/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="/static/vendor/css/vendor.bundle.base.css">
-    <link rel="stylesheet" href="/static/css/report-mainstyle.css">
+    <link rel="stylesheet" href="/static/css/report-main.css">
     <link rel="shortcut icon" href="/static/images/favicon.ico"/>
 
 </head>
@@ -163,190 +163,195 @@
     <!-- partial -->
     <div class="main-panel">
         <div class="content-wrapper">
-            <div class="page-header">
-                <h3 class="page-title">
+            <div class="row justify-content-center">
+                <div class="page-header">
+                    <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white me-2">
                   <i class="mdi mdi-home"></i>
                 </span> Dashboard
-                </h3>
-                <nav aria-label="breadcrumb">
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item active" aria-current="page">
-                            <span></span>Overview <i
-                                class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-            <div class="row">
-                <div class="col-md-4 stretch-card grid-margin">
-                    <div class="card bg-gradient-danger card-img-holder text-white">
-                        <div class="card-body">
-                            <img src="/static/images/dashboard/circle.svg" class="card-img-absolute"
-                                 alt="circle-image"/>
-                            <h4 class="font-weight-normal mb-3">累積天數 <i
-                                    class="mdi mdi-chart-line mdi-24px float-right"></i>
-                            </h4>
-                            <h2 class="mb-5">總天數為 110 天</h2>
-                            <h6 class="card-text">數據從2022.05.01開始計算</h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 stretch-card grid-margin">
-                    <div class="card bg-gradient-info card-img-holder text-white">
-                        <div class="card-body">
-                            <img src="/static/images/dashboard/circle.svg" class="card-img-absolute"
-                                 alt="circle-image"/>
-                            <h4 class="font-weight-normal mb-3">累積時長<i
-                                    class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
-                            </h4>
-                            <h2 class="mb-5">總時長為 63 小時</h2>
-                            <h6 class="card-text">數據從2022.05.01開始計算</h6>
-                        </div>
-                    </div>
+                    </h3>
+                    <nav aria-label="breadcrumb">
+                        <ul class="breadcrumb">
+                            <li class="breadcrumb-item active" aria-current="page">
+                                <span></span>Overview <i
+                                    class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
+                            </li>
+                        </ul>
+                    </nav>
                 </div>
                 <div class="row">
-                    <div class="col-md-7 grid-margin stretch-card">
-                        <div class="card">
+                    <div class="col-md-4 stretch-card grid-margin">
+                        <div class="card bg-gradient-danger card-img-holder text-white">
                             <div class="card-body">
-                                <div class="clearfix">
-                                    <h4 class="card-title float-left">大範圍長條圖</h4>
-                                    <div id="visit-sale-chart-legend"
-                                         class="rounded-legend legend-horizontal legend-top-right float-right"></div>
+                                <img src="/static/images/dashboard/circle.svg" class="card-img-absolute"
+                                     alt="circle-image"/>
+                                <h4 class="font-weight-normal mb-3">累積天數 <i
+                                        class="mdi mdi-chart-line mdi-24px float-right"></i>
+                                </h4>
+                                <h2 class="mb-5">總天數為 110 天</h2>
+                                <h6 class="card-text">數據從2022.05.01開始計算</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 stretch-card grid-margin">
+                        <div class="card bg-gradient-info card-img-holder text-white">
+                            <div class="card-body">
+                                <img src="/static/images/dashboard/circle.svg" class="card-img-absolute"
+                                     alt="circle-image"/>
+                                <h4 class="font-weight-normal mb-3">累積時長<i
+                                        class="mdi mdi-bookmark-outline mdi-24px float-right"></i>
+                                </h4>
+                                <h2 class="mb-5">總時長為 63 小時</h2>
+                                <h6 class="card-text">數據從2022.05.01開始計算</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-7 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="clearfix">
+                                        <h4 class="card-title float-left">大範圍長條圖</h4>
+                                        <div id="visit-sale-chart-legend"
+                                             class="rounded-legend legend-horizontal legend-top-right float-right"></div>
+                                    </div>
+                                    <canvas id="visit-sale-chart" class="mt-4"></canvas>
                                 </div>
-                                <canvas id="visit-sale-chart" class="mt-4"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-md-5 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">圓餅圖1</h4>
+                                    <canvas id="traffic-chart"></canvas>
+                                    <div id="traffic-chart-legend"
+                                         class="rounded-legend legend-vertical legend-bottom-left pt-4"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-5 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">圓餅圖1</h4>
-                                <canvas id="traffic-chart"></canvas>
-                                <div id="traffic-chart-legend"
-                                     class="rounded-legend legend-vertical legend-bottom-left pt-4"></div>
+                    <div class="row">
+                        <div class="col-md-7 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">折線圖</h4>
+                                    <canvas id="lineChart" style="height:250px"></canvas>
+                                </div>
                             </div>
+                        </div>
+                        <div class="col-md-5 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">環圈圖</h4>
+                                    <canvas id="doughnutChart" style="height:250px"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-7 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">小範圍長條圖</h4>
+                                    <canvas id="barChart" style="height:230px"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">圓餅圖2</h4>
+                                    <canvas id="pieChart" style="height:250px"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-7 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">面積圖</h4>
+                                    <canvas id="areaChart" style="height:250px"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 grid-margin">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title">最近的活動</h4>
+                                    <div class="table-responsive">
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th> Assignee</th>
+                                                <th> Subject</th>
+                                                <th> Status</th>
+                                                <th> Last Update</th>
+                                                <th> Tracking ID</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>
+                                                    <img src="/static/images/faces/face1.jpg" class="me-2" alt="image">
+                                                    David
+                                                    Grey
+                                                </td>
+                                                <td> Fund is not recieved</td>
+                                                <td>
+                                                    <label class="badge badge-gradient-success">DONE</label>
+                                                </td>
+                                                <td> Dec 5, 2017</td>
+                                                <td> WD-12345</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <img src="/static/images/faces/face2.jpg" class="me-2" alt="image">
+                                                    Stella Johnson
+                                                </td>
+                                                <td> High loading time</td>
+                                                <td>
+                                                    <label class="badge badge-gradient-warning">PROGRESS</label>
+                                                </td>
+                                                <td> Dec 12, 2017</td>
+                                                <td> WD-12346</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <img src="/static/images/faces/face3.jpg" class="me-2" alt="image">
+                                                    Marina Michel
+                                                </td>
+                                                <td> Website down for one week</td>
+                                                <td>
+                                                    <label class="badge badge-gradient-info">ON HOLD</label>
+                                                </td>
+                                                <td> Dec 16, 2017</td>
+                                                <td> WD-12347</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <img src="/static/images/faces/face4.jpg" class="me-2" alt="image">
+                                                    John
+                                                    Doe
+                                                </td>
+                                                <td> Loosing control on server</td>
+                                                <td>
+                                                    <label class="badge badge-gradient-danger">REJECTED</label>
+                                                </td>
+                                                <td> Dec 3, 2017</td>
+                                                <td> WD-12348</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-                  <div class="row">
-                    <div class="col-md-7 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">折線圖</h4>
-                                <canvas id="lineChart" style="height:250px"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">環圈圖</h4>
-                                <canvas id="doughnutChart" style="height:250px"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-7 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">小範圍長條圖</h4>
-                                <canvas id="barChart" style="height:230px"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-5 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">圓餅圖2</h4>
-                                <canvas id="pieChart" style="height:250px"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                  <div class="row">
-                    <div class="col-md-7 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">面積圖</h4>
-                                <canvas id="areaChart" style="height:250px"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                 <div class="row">
-                <div class="col-12 grid-margin">
-                    <div class="card">
-                        <div class="card-body">
-                            <h4 class="card-title">最近的活動</h4>
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th> Assignee</th>
-                                        <th> Subject</th>
-                                        <th> Status</th>
-                                        <th> Last Update</th>
-                                        <th> Tracking ID</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>
-                                            <img src="/static/images/faces/face1.jpg" class="me-2" alt="image"> David
-                                            Grey
-                                        </td>
-                                        <td> Fund is not recieved</td>
-                                        <td>
-                                            <label class="badge badge-gradient-success">DONE</label>
-                                        </td>
-                                        <td> Dec 5, 2017</td>
-                                        <td> WD-12345</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="/static/images/faces/face2.jpg" class="me-2" alt="image">
-                                            Stella Johnson
-                                        </td>
-                                        <td> High loading time</td>
-                                        <td>
-                                            <label class="badge badge-gradient-warning">PROGRESS</label>
-                                        </td>
-                                        <td> Dec 12, 2017</td>
-                                        <td> WD-12346</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="/static/images/faces/face3.jpg" class="me-2" alt="image">
-                                            Marina Michel
-                                        </td>
-                                        <td> Website down for one week</td>
-                                        <td>
-                                            <label class="badge badge-gradient-info">ON HOLD</label>
-                                        </td>
-                                        <td> Dec 16, 2017</td>
-                                        <td> WD-12347</td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <img src="/static/images/faces/face4.jpg" class="me-2" alt="image"> John
-                                            Doe
-                                        </td>
-                                        <td> Loosing control on server</td>
-                                        <td>
-                                            <label class="badge badge-gradient-danger">REJECTED</label>
-                                        </td>
-                                        <td> Dec 3, 2017</td>
-                                        <td> WD-12348</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
                 <div class="row">
                     <div class="col-12 grid-margin stretch-card">
                         <div class="card">

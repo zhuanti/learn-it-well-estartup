@@ -1390,4 +1390,8 @@ background-color: #D7E5E1;
     height:auto;
 }
 
+.container-scroller {
+  overflow: hidden;
+  width: 1800px;
+  margin: 0 auto;}
 
