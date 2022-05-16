@@ -11267,7 +11267,8 @@ html {
 .container-scroller {
   overflow: hidden;
   width: 1800px;
-  margin: 0 auto;}
+  margin: 0 auto;
+  }
 
 pre {
   background: color(gray-lighter);
