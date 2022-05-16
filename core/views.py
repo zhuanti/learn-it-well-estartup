@@ -1,4 +1,8 @@
+import requests
 from django.shortcuts import render
+from core.settings import API_URL as root
+
+root += 'discusroom'
 
 
 def index(request):
@@ -30,7 +34,10 @@ def sroom(request):
 
 
 def droom(request):
-    return render(request, 'DiscusRoom.html')
+    r = requests.get(f'{root}/all/')
+    result = r.json()
+    discussrooms = result['data']
+    return render(request, 'DiscusRoom.html', {'discussrooms': discussrooms})
 
 
 def achievement(request):

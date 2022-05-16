@@ -23,10 +23,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-$^cj&s%f6ehv=aa44rh1l*j-_2ke%%y_#m3=)$e-09e^bggjxv'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = ['learn-it-well-estartup.herokuapp.com']
+
+# 在Heroku連線時用
+# DEBUG = True
+# ALLOWED_HOSTS = ['learn-it-well-estartup.herokuapp.com']
 #learn-it-well-estartup.herokuapp.com
+
+# 在本地連線時用
+DEBUG = True
+ALLOWED_HOSTS = []
+
+
 
 # Application definition
 
@@ -130,3 +138,10 @@ STATICFILES_DIRS = (
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# API_URL = 'http://localhost:9001/api/'
+
+API_URL = 'https://learn-it-well-estartup-api.herokuapp.com/api/'
+
+# https://learn-it-well-estartup-api.herokuapp.com/
