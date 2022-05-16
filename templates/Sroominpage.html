@@ -69,8 +69,23 @@
 </header><!-- End Header -->
 
 <main id="main">
-    <div class="container mt-4">
-        <div><h1 class="text-center" id="count-down-timer">Timer</h1></div>
+    <div class="container">
+        <h5>新增日期</h5>
+        <form id="addDate">
+            <input type="time" name="time" id="time">
+            <button type="submit">提交</button>
+        </form>
+        <p class="hidden">還剩的時間</p>
+        <div class="pickedTime">
+            <div class="time">
+                <span id="time-hours">-</span>
+                <p>時</p>
+            </div>
+            <div class="time">
+                <span id="time-minutes">-</span>
+                <p>分</p>
+            </div>
+        </div>
     </div>
 </main>
 
