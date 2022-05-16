@@ -36,4 +36,5 @@ urlpatterns = [
     path('register/', views.register),
     path('developer/', views.developer),
     path('inpage/', views.inpage),
+    path('Sroominpage/', views.inpage),
 ]

@@ -62,3 +62,7 @@ def developer(request):
 
 def inpage(request):
     return render(request, 'inpage.html')
+
+def Sroominpage(request):
+    return render(request, 'Sroominpage.html')
+
