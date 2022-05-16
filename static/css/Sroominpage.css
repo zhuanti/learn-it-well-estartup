@@ -15,3 +15,99 @@ body {
   align-items: center;
   position: relative;
 }
+
+.container {
+	  text-align: center;
+	  margin: 2rem auto 0;
+	  padding: 0 15px;
+	}
+
+.container > * {
+      padding: 1rem;
+}
+
+.container h5 {
+	 font-size: 2rem;
+}
+
+.container form input {
+	padding: 10px 15px;
+	font-size: 1.2rem;
+	border: none;
+	border-right: 1px solid rgba(0, 0, 0, 0.5);
+	}
+
+.container form button {
+	font-size: 1.2rem;
+	outline: none;
+	border: none;
+	padding: 10px 15px;
+	background: #ffffff;
+	color: #b6281b;
+	cursor: pointer;
+	transition: 0.2s linear;
+	}
+.container form button:hover {
+	background: #b6281b;
+	color: #ffffff;
+	}
+
+.container h1 {
+	font-size: 3rem;
+	text-transform: uppercase;
+	}
+.container h5, .container h1, .container p {
+	color: #ffffff;
+	text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+	}
+.container p {
+	font-size: 1.2rem;
+	width: 80%;
+	margin: auto;
+	}
+
+.container .hidden {
+	display: none;
+	}
+.container .pickedTime {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	}
+.container .pickedTime .time {
+	margin: 0.5rem;
+	padding: 0.5rem 1rem;
+	background: #ffffff;
+	}
+.container .pickedTime .time span {
+	font-size: 2.5rem;
+	color: #b6281b;
+	}
+.container .pickedTime .time p {
+	color: #000000;
+	width: 100%;
+	}
+.container .boxes {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	}
+.container .boxes .box {
+	background: #ffffff;
+	margin: 1rem;
+	padding: 1rem 2rem;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	}
+.container .boxes .box span {
+	color: #b6281b;
+	font-weight: bold;
+	font-size: 4rem;
+}
+.container .boxes .box p {
+	color: #000000;
+	width: 100%;
+	}
