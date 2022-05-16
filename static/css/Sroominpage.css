@@ -43,12 +43,12 @@ body {
 	border: none;
 	padding: 10px 15px;
 	background: #ffffff;
-	color: #b6281b;
+	color: #71c55d;
 	cursor: pointer;
 	transition: 0.2s linear;
 	}
 .container1 form button:hover {
-	background: #b6281b;
+	background: #71c55d;
 	color: #ffffff;
 	}
 
@@ -57,7 +57,7 @@ body {
 	text-transform: uppercase;
 	}
 .container1 h5, .container1 h1, .container1 p {
-	color: #ffffff;
+	color: #71c55d;
 	text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
 	}
 .container1 p {
