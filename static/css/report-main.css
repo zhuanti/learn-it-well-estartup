@@ -14428,7 +14428,7 @@ dl {
 .main-panel {
   -webkit-transition: width 0.25s ease, margin 0.25s ease;
   transition: width 0.25s ease, margin 0.25s ease;
-  width: calc(100% - 260px);
+  width: calc(100%); /*原本的(100% - 260px)後面背景寬度*/
   min-height: calc(100vh - 70px);
   display: -webkit-box;
   display: -ms-flexbox;
