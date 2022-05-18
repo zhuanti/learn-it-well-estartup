@@ -1,4 +1,4 @@
-import requests
+from django.contrib.sites import requests
 from django.shortcuts import render
 from core.settings import API_URL as root
 
