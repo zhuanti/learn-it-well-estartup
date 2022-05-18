@@ -67,9 +67,14 @@ def register(request):
 def developer(request):
     return render(request, 'developer.html')
 
+
 def inpage(request):
     return render(request, 'inpage.html')
+
 
 def Sroominpage(request):
     return render(request, 'Sroominpage.html')
 
+
+def Sroominpageself(request):
+    return render(request, 'Sroominpage-self.html')

@@ -37,4 +37,5 @@ urlpatterns = [
     path('developer/', views.developer),
     path('inpage/', views.inpage),
     path('Sroominpage/', views.Sroominpage),
+    path('Sroominpage-self/', views.Sroominpage-self),
 ]
