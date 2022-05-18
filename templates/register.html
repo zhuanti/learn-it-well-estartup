@@ -46,9 +46,9 @@
     <div class="container d-flex align-items-center justify-content-between">
 
         <div id="logo">
-           <h1>
-            <img src="/static/images/hello.png">
-            <a href="/"><span >做伙</span>來讀冊</a>
+            <h1>
+                <img src="/static/images/hello.png">
+                <a href="/"><span>做伙</span>來讀冊</a>
             </h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" title="" /></a>-->
@@ -84,38 +84,42 @@
                         <h2 class="form-title">註冊</h2>
                         <!--<h2 class="form-title">Sign up</h2>-->
                         <form method="POST" class="register-form" id="register-form">
+                            {% csrf_token %}
                             <div class="form-group">
                                 <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                                <input type="text" name="name" id="name" placeholder="名稱"/>
+                                <input type="text" name="name" id="name" placeholder="名稱" required="required"/>
                             </div>
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                <input type="email" name="email" id="email" placeholder="帳號"/>
+                                <input type="email" name="email" id="email" placeholder="帳號" required="required"/>
                             </div>
                             <div class="form-group">
                                 <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="pass" id="pass" placeholder="密碼"/>
+                                <input type="password" name="pass" id="pass" placeholder="密碼" required="required"/>
                             </div>
                             <div class="form-group">
                                 <label for="re_pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                                <input type="password" name="re_pass" id="re_pass" placeholder="重複密碼"/>
+                                <input type="password" name="re_pass" id="re_pass" placeholder="重複密碼"
+                                       required="required"/>
                             </div>
                             <div class="form-group">
-                                <label for="gender"><i class="zmdi zmdi-lock-outline"></i></label>
-                                <input type="gender" name="gemder" id="gender" placeholder="性別"/>
+                                <label for="gender"><i class="zmdi zmdi-male-female"></i></label>
+                                <input type="gender" name="gemder" id="gender" placeholder="性別" required="required"/>
                             </div>
                             <div class="form-group">
-                                <label for="address"><i class="zmdi zmdi-lock-outline"></i></label>
-                                <input type="address" name="addrss" id="address" placeholder="居住縣市"/>
+                                <label for="address"><i class="zmdi zmdi-home" required="required"></i></label>
+                                <input type="address" name="addrss" id="address" placeholder="居住縣市"
+                                       required="required"/>
                             </div>
                             <div class="form-group">
-                                <label for="bir"><i class="zmdi zmdi-lock-outline"></i></label>
-                                <input type="birthday" name="birthday" id="bir" placeholder="生日日期"/>
+                                <label for="bir"><i class="zmdi zmdi-calendar-note"></i></label>
+                                <input type="birthday" name="birthday" id="bir" placeholder="生日日期" required="required"/>
                             </div>
                             <div class="form-group">
-                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term"/>
+                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term"
+                                       required="required"/>
                                 <label for="agree-term" class="label-agree-term"><span><span></span></span>我同意所有
-                                     <a href="#" class="term-service">使用原則</a></label>
+                                    <a href="#" class="term-service">使用原則</a></label>
                             </div>
                             <!--<div class="form-group">
                                  <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
@@ -150,7 +154,7 @@
                                  <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
                              </div>-->
                             <div class="form-group form-button">
-                               <a class="btn btn-primary" href="/login/" role="button">註冊</a>
+                                <input type="submit" name="signin" id="signin" class="form-submit" value="註冊"/>
                             </div>
                         </form>
                     </div>
