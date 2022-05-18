@@ -73,3 +73,6 @@ def inpage(request):
 def Sroominpage(request):
     return render(request, 'Sroominpage.html')
 
+def Sroominpageself(request):
+    return render(request, 'Sroominpage-self.html')
+
