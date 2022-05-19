@@ -9,7 +9,7 @@ body {
   width: 100%;
   min-height: 100vh;
   font-family: "Roboto", sans-serif;
-  background: url("/static/images/多人自習室.png") no-repeat center/cover;
+  background: url("/static/images/個人自習室.png") no-repeat center/cover;
   display: flex;
   flex-direction: column;
   align-items: center;
