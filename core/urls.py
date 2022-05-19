@@ -38,4 +38,6 @@ urlpatterns = [
     path('inpage/', views.inpage),
     path('Sroominpage/', views.Sroominpage),
     path('Sroominpage-self/', views.Sroominpageself),
+    path('day-report/', views.DayReport),
+    path('week-report/', views.WeekReport),
 ]
