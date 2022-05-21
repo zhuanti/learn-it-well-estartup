@@ -5,7 +5,7 @@ const s = 1000,
     y = d * 365;
 
 setInterval(() => {
-    counting();
+//    counting();
 }, 1000);
 
 
