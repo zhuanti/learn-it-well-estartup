@@ -4,9 +4,11 @@ const s = 1000,
     d = h * 24,
     y = d * 365;
 
-setInterval(() => {
+//setInterval(() => {
 //    counting();
-}, 1000);
+//}, 1000);
+
+setInterval(() => 1000);
 
 
 const formAddDate = document.getElementById('addDate');
