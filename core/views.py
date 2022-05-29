@@ -85,3 +85,7 @@ def DayReport(request):
 
 def WeekReport(request):
     return render(request, 'week-report.html')
+
+#測試的自習室內部
+def test(request):
+    return render(request, 'test.html')
