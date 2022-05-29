@@ -26,12 +26,15 @@
     <!-- Template Main CSS File -->
     <link href="/static/css/style.css" rel="stylesheet">
 
-    <link href="/static/css/inpage.css" rel="stylesheet">
+    <link href="/static/css/inpage.css?v=<?=time()?>" rel="stylesheet">
 
 
 </head>
 <body>
-
+<dialog id="Dialog" class="dialog">   <!--提問版dialog-->
+    提問版
+    <button onclick="closeDialog2()">關閉</button>
+</dialog>
 <!--<center>-->
 <section class="msger">
     <header class="msger-header">
@@ -50,7 +53,35 @@
     <!--聊天 block-->
 
     <div class="msger-inputarea">
-        <button type="button" id="demo1" class="btn" style="margin-right:5px;background-color:#71c55d;">提問</button>
+        <button type="button" id="demo1" class="btn" onclick="showDialog2()"
+                style="margin-right:5px;background-color:#71c55d;">提問
+        </button>
+        <script>
+                var z = document.getElementById("Dialog");
+                function showDialog2() {
+                z.show();
+                }
+
+                function closeDialog2() {
+                z.close();
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </script>
         <br>
         <input type="text" class="msger-input" id="msg" placeholder="說些什麼吧～">
         <button type="button" id="send" class="msger-send-btn">發送訊息</button>
