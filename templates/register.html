@@ -23,13 +23,16 @@
     <link href="/static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="/static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
     <link href="/static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"
+          id="bootstrap-css">
+
 
     <!-- Template Main CSS File -->
     <link href="/static/css/style.css" rel="stylesheet">
 
     <!-- login css -->
     <link rel="stylesheet" href="/static/fonts/material-icon/css/material-design-iconic-font.min.css">
-    <link rel="stylesheet" href="/static/css/login-style.css">
+    <link rel="stylesheet" href="/static/css/login-style.css?v=<?=time()?>">
 
     <!-- =======================================================
     * Template Name: eStartup - v4.7.1
@@ -106,6 +109,14 @@
                                 <label for="gender"><i class="zmdi zmdi-male-female"></i></label>
                                 <input type="gender" name="gemder" id="gender" placeholder="性別" required="required"/>
                             </div>
+                            <div class="form-group input-group">
+                                <select class="form-control">
+                                    <option selected="" disabled> 選擇性別</option>
+                                    <option>男</option>
+                                    <option>女</option>
+                                    <option>不願透漏</option>
+                                </select>
+                            </div>
                             <div class="form-group">
                                 <label for="address"><i class="zmdi zmdi-home" required="required"></i></label>
                                 <input type="address" name="addrss" id="address" placeholder="居住縣市"
@@ -113,7 +124,8 @@
                             </div>
                             <div class="form-group">
                                 <label for="bir"><i class="zmdi zmdi-calendar-note"></i></label>
-                                <input type="birthday" name="birthday" id="bir" placeholder="生日日期" required="required"/>
+                                <input type="birthday" name="birthday" id="bir" placeholder="生日日期"
+                                       required="required"/>
                             </div>
                             <div class="form-group">
                                 <input type="checkbox" name="agree-term" id="agree-term" class="agree-term"
@@ -182,6 +194,9 @@
 <script src="/static/js/main.js"></script>
 <script src="/static/vendor/jquery/jquery.min.js"></script>
 <script src="/static/js/main.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </body>
 
