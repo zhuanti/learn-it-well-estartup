@@ -40,6 +40,7 @@ urlpatterns = [
     path('Sroominpage-self/', views.Sroominpageself),
     path('day-report/', views.DayReport),
     path('week-report/', views.WeekReport),
+    path('edit user-detail/', views.EditUserDetail),
     #測試的自習室內部
     path('test-study/', views.test),
 ]

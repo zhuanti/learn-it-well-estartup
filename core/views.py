@@ -83,9 +83,15 @@ def Sroominpageself(request):
 def DayReport(request):
     return render(request, 'day-report.html')
 
+
 def WeekReport(request):
     return render(request, 'week-report.html')
 
-#測試的自習室內部
+
+def EditUserDetail(request):
+    return render(request, 'edit UserDetail.html')
+
+
+# 測試的自習室內部
 def test(request):
     return render(request, 'test.html')
