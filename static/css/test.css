@@ -46,6 +46,43 @@
     transform: translate(0, -5%);
 }
 
+.dialoginsidebtn{
+    display: inline-block;
+    margin: 5px 3px;
+    font-weight: 400;
+    text-align: left;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: 2px 13px;
+    font-size: 14px;
+    line-height: 30px;
+    min-height: 35px;
+    border-radius: 2px;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    color: #ffffff;
+    background-color: rgb(131, 209, 111);
+    border-radius: 8px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    box-shadow: 2px 2px 3px grey;
+    border: none;
+    padding-right: 11px;
+
+    /* 新增按鈕寬度 */
+    width: 55px;
+}
+
+i:hover + .dialoginsidebtn, .dialoginsidebtn:hover {
+    color: white;
+    box-shadow: none;
+    border: none;
+    background-color: rgb(95, 148, 84);
+}
+
 .ctrlbutton {
     display: inline-block;
     margin: 5px 3px;
