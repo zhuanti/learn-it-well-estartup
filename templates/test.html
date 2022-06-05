@@ -42,17 +42,37 @@
         </dialog>
     </div>
     <div>
-        <dialog id="soundDialog" class="dialog">   <!--白噪音-->
-            白噪音
+        <dialog id="soundDialog" class="sounddialog">   <!--白噪音-->
+            <b>夏天夜晚-蟬聲</b>
+            <audio controls loop>
+                <source src="/static/music/autumn_insects1.mp3" type="audio/ogg">
+            </audio>
+            <b>水流聲</b>
+            <audio controls loop>
+                <source src="/static/music/brook1.mp3" type="audio/ogg">
+            </audio>
+            <b>雨聲</b>
+            <audio controls loop>
+                <source src="/static/music/hearing_rain.mp3" type="audio/ogg">
+            </audio>
+            <b>暴風雪聲</b>
+            <audio controls loop>
+                <source src="/static/music/storm_land.mp3" type="audio/ogg">
+            </audio>
+            <b>咖啡廳聲</b>
+            <audio controls loop>
+                <source src="/static/music/hubbub_at_a_cafe1.mp3" type="audio/ogg">
+            </audio>
+            <br>
             <button onclick="closeDialog2()" class="dialoginsidebtn">關閉</button>
         </dialog>
     </div>
-<!--    <div>-->
-<!--        <dialog id="todoDialog" class="dialog">   &lt;!&ndash;待辦事項&ndash;&gt;-->
-<!--            待辦事項-->
-<!--            <button onclick="closeDialog3()" class="dialoginsidebtn">關閉</button>-->
-<!--        </dialog>-->
-<!--    </div>-->
+    <!--    <div>-->
+    <!--        <dialog id="todoDialog" class="dialog">   &lt;!&ndash;待辦事項&ndash;&gt;-->
+    <!--            待辦事項-->
+    <!--            <button onclick="closeDialog3()" class="dialoginsidebtn">關閉</button>-->
+    <!--        </dialog>-->
+    <!--    </div>-->
     <div>
         <dialog id="timeDialog" class="timedialog">   <!--計時器-->
             <div>
@@ -91,12 +111,12 @@
             <button onclick="closeDialog1()" class="dialoginsidebtn">關閉</button>
         </dialog>
     </div>
-<!--    <div>-->
-<!--        <dialog id="soulDialog" class="dialog">   &lt;!&ndash;每日一句&ndash;&gt;-->
-<!--            每日一句-->
-<!--            <button onclick="closeDialog()" class="dialoginsidebtn">關閉</button>-->
-<!--        </dialog>-->
-<!--    </div>-->
+    <!--    <div>-->
+    <!--        <dialog id="soulDialog" class="dialog">   &lt;!&ndash;每日一句&ndash;&gt;-->
+    <!--            每日一句-->
+    <!--            <button onclick="closeDialog()" class="dialoginsidebtn">關閉</button>-->
+    <!--        </dialog>-->
+    <!--    </div>-->
 
     <div id="radius">
         <div class="btnI1">            <!-- 貼上圖示的程式碼 返回主頁-->
@@ -113,6 +133,9 @@
                 function closeDialog1() {
                 y.close();
                 }
+
+
+
 
 
 
@@ -155,6 +178,9 @@
 
 
 
+
+
+
             </script>
 
         </div>
@@ -183,63 +209,42 @@
 
 
 
+
+
+
             </script>
         </div>
-<!--        <div class="btnI1">            &lt;!&ndash; 貼上圖示的程式碼 待辦清單&ndash;&gt;-->
-<!--            <button class="ctrlbutton" onclick="showDialog3()"><i class="bi bi-list-ul"></i></button>-->
-<!--            <script>-->
-<!--                var w = document.getElementById("todoDialog");-->
-<!--                function showDialog3() {-->
-<!--                w.show();-->
-<!--                }-->
+        <!--        <div class="btnI1">            &lt;!&ndash; 貼上圖示的程式碼 待辦清單&ndash;&gt;-->
+        <!--            <button class="ctrlbutton" onclick="showDialog3()"><i class="bi bi-list-ul"></i></button>-->
+        <!--            <script>-->
+        <!--                var w = document.getElementById("todoDialog");-->
+        <!--                function showDialog3() {-->
+        <!--                w.show();-->
+        <!--                }-->
 
-<!--                function closeDialog3() {-->
-<!--                w.close();-->
-<!--                }-->
-
-
+        <!--                function closeDialog3() {-->
+        <!--                w.close();-->
+        <!--                }-->
 
 
+        <!--            </script>-->
+
+        <!--        </div>-->
+        <!--        <div class="btnI1">            &lt;!&ndash; 貼上圖示的程式碼 每日一句&ndash;&gt;-->
+        <!--            <button class="ctrlbutton" onclick="showDialog()"><i class="bi bi-moon-stars-fill"></i></button>-->
+        <!--            <script>-->
+        <!--                var x = document.getElementById("soulDialog");-->
+        <!--                function showDialog() {-->
+        <!--                x.show();-->
+        <!--                }-->
+
+        <!--                function closeDialog() {-->
+        <!--                x.close();-->
+        <!--                }-->
 
 
-
-
-
-
-
-
-
-
-<!--            </script>-->
-
-<!--        </div>-->
-<!--        <div class="btnI1">            &lt;!&ndash; 貼上圖示的程式碼 每日一句&ndash;&gt;-->
-<!--            <button class="ctrlbutton" onclick="showDialog()"><i class="bi bi-moon-stars-fill"></i></button>-->
-<!--            <script>-->
-<!--                var x = document.getElementById("soulDialog");-->
-<!--                function showDialog() {-->
-<!--                x.show();-->
-<!--                }-->
-
-<!--                function closeDialog() {-->
-<!--                x.close();-->
-<!--                }-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--            </script>-->
-<!--        </div>-->
+        <!--            </script>-->
+        <!--        </div>-->
         <div class="btnI1">
             <button class="ctrlbutton" onclick="openFullscreen();"><i class="bi bi-arrows-fullscreen"></i></button>
             <script>
@@ -253,6 +258,9 @@
                 elem.msRequestFullscreen();
               }
             }
+
+
+
 
             </script>
 
@@ -296,6 +304,9 @@
 
     },1000
 );
+
+
+
 
 
 
