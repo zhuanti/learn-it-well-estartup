@@ -1,6 +1,6 @@
 /*CSS*/
 .banner{
-  background-image: url("https://i.pinimg.com/originals/b7/38/e8/b738e85cad3d9aee9fa1ff15b6e4faaf.gif");
+  background: url("/static/images/單人自習室.png") no-repeat center/cover;
   background-position: center;
   background-size:cover;
   padding-top: 250px;
@@ -37,7 +37,8 @@
 
 #radius{
 	width: 46px;
-	height: 318px;
+	height: 226px;
+	/*height: 318px;*/
 	background:  rgb(114, 197, 93);
 	border-radius: 10px;
     position: fixed;
