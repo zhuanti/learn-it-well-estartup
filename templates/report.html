@@ -43,8 +43,8 @@
 
         <div id="logo">
             <h1>
-            <img src="/static/images/hello.png">
-            <a href="/"><span >做伙</span>來讀冊</a>
+                <img src="/static/images/hello.png">
+                <a href="/"><span>做伙</span>來讀冊</a>
             </h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" title="" /></a>-->
@@ -59,7 +59,13 @@
                         <li><a href="/userdetail/">個人資料</a></li>
                         <li><a href="/achievement/">成就</a></li>
                         <li><a href="/studyplan/">學習規劃</a></li>
-                        <li><a href="/report">讀書報表</a></li>
+                        <li class="dropdown"><a href="/report/"><span>讀書報表</span> <i
+                                class="bi bi-chevron-right"></i></a>
+                            <ul>
+                                <li><a href="/week-report/">週報表</a></li>
+                                <li><a href="/day-report/">日報表</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 <li><a class="nav-link scrollto" href="/studyroom/">自習室</a></li>
                 <li><a class="nav-link scrollto" href="/discusroom/">討論室</a></li>

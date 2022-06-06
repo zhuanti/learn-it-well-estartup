@@ -61,6 +61,7 @@
 
 
 
+
     </style>
 </head>
 
@@ -86,7 +87,13 @@
                         <li><a href="/userdetail/">個人資料</a></li>
                         <li><a href="/achievement/">成就</a></li>
                         <li><a href="/studyplan/">學習規劃</a></li>
-                        <li><a href="/report">讀書報表</a></li>
+                        <li class="dropdown"><a href="/report/"><span>讀書報表</span> <i
+                                class="bi bi-chevron-right"></i></a>
+                            <ul>
+                                <li><a href="/week-report/">週報表</a></li>
+                                <li><a href="/day-report/">日報表</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 <li><a class="nav-link scrollto" href="/studyroom/">自習室</a></li>
                 <li><a class="nav-link scrollto active" href="/discusroom/">討論室</a></li>
@@ -135,8 +142,8 @@
                         <thead>
                         <tr>
                             <th>房號</th>
-<!--                            <th>學制</th>-->
-<!--                            <th>科目</th>-->
+                            <!--                            <th>學制</th>-->
+                            <!--                            <th>科目</th>-->
                             <th>房名</th>
                             <th>最多容納人數</th>
                             <th></th>
@@ -147,89 +154,89 @@
 
                         <tbody>
                         {% for discussroom in discussrooms %}
-                            <tr>
-                                <td>
-<!--                                    <a href="/reviews/{{discussroom.id}}/"> </a>-->
-                                    {{discussroom.no}}
-                                </td>
-<!--                                <td>-->
-<!--                                    {{discussroom.schoolsys_no}}-->
-<!--                                </td>-->
-<!--                                <td>-->
-<!--                                    {{discussroom.subject_no}}-->
-<!--                                </td>-->
-                                <td>
-                                    {{discussroom.name}}
-                                </td>
-                                <td>
-                                    {{discussroom.total_people}}
-                                </td>
-                                <td>
-<!--                                    <a href="/discusroom/inpage/{{discussroom.no}}/">-->
-<!--                                            <button class="button" herf="/inpage/{{discussroom.no}}/"> 加入 </button>-->
-<!--                                    </a>-->
-                                    <!--api 連線時使用的button-->
-<!--                                <center><a class="nav-link scrollto active" href="/discusroom/inpage/{{discussroom.no}}/">加入</a></center>-->
-                                    <center><a class="nav-link scrollto active" href="/inpage/">加入</a></center>
+                        <tr>
+                            <td>
+                                <!--                                    <a href="/reviews/{{discussroom.id}}/"> </a>-->
+                                {{discussroom.no}}
+                            </td>
+                            <!--                                <td>-->
+                            <!--                                    {{discussroom.schoolsys_no}}-->
+                            <!--                                </td>-->
+                            <!--                                <td>-->
+                            <!--                                    {{discussroom.subject_no}}-->
+                            <!--                                </td>-->
+                            <td>
+                                {{discussroom.name}}
+                            </td>
+                            <td>
+                                {{discussroom.total_people}}
+                            </td>
+                            <td>
+                                <!--                                    <a href="/discusroom/inpage/{{discussroom.no}}/">-->
+                                <!--                                            <button class="button" herf="/inpage/{{discussroom.no}}/"> 加入 </button>-->
+                                <!--                                    </a>-->
+                                <!--api 連線時使用的button-->
+                                <!--                                <center><a class="nav-link scrollto active" href="/discusroom/inpage/{{discussroom.no}}/">加入</a></center>-->
+                                <center><a class="nav-link scrollto active" href="/inpage/">加入</a></center>
 
-                                </td>
+                            </td>
 
-                            </tr>
+                        </tr>
                         {% endfor %}
                         </tbody>
 
-<!--                        <tbody>-->
-<!--                        <tr class="table-green">-->
-<!--                            <th scope="row">101</th>-->
-<!--                            <td>來讀冊辣</td>-->
-<!--                            <td>5/10</td>-->
-<!--                            <td>-->
-<!--                                <center><a class="nav-link scrollto active" href="/inpage/">加入</a></center>-->
-<!--&lt;!&ndash;                                <button class="button" herf="/inpage/">加入</button>&ndash;&gt;-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <th scope="row">202</th>-->
-<!--                            <td>來讀冊欸</td>-->
-<!--                            <td>5/20</td>-->
-<!--                            <td>-->
-<!--                                <button class="button" type="submit">加入</button>-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                        <tr class="table-green">-->
-<!--                            <th scope="row">303</th>-->
-<!--                            <td>來讀冊喔</td>-->
-<!--                            <td>9/10</td>-->
-<!--                            <td>-->
-<!--                                <button class="button" type="submit">加入</button>-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <th scope="row">404</th>-->
-<!--                            <td>來讀冊阿</td>-->
-<!--                            <td>3/15</td>-->
-<!--                            <td>-->
-<!--                                <button class="button" type="submit">加入</button>-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                        <tr class="table-green">-->
-<!--                            <th scope="row">505</th>-->
-<!--                            <td>來讀冊呀</td>-->
-<!--                            <td>2/22</td>-->
-<!--                            <td>-->
-<!--                                <button class="button" type="submit">加入</button>-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <th scope="row">606</th>-->
-<!--                            <td>來讀冊吧</td>-->
-<!--                            <td>7/10</td>-->
-<!--                            <td>-->
-<!--                                <button class="button" type="submit">加入</button>-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                        </tbody>-->
-<!--                        &lt;!&ndash;Table body&ndash;&gt;-->
+                        <!--                        <tbody>-->
+                        <!--                        <tr class="table-green">-->
+                        <!--                            <th scope="row">101</th>-->
+                        <!--                            <td>來讀冊辣</td>-->
+                        <!--                            <td>5/10</td>-->
+                        <!--                            <td>-->
+                        <!--                                <center><a class="nav-link scrollto active" href="/inpage/">加入</a></center>-->
+                        <!--&lt;!&ndash;                                <button class="button" herf="/inpage/">加入</button>&ndash;&gt;-->
+                        <!--                            </td>-->
+                        <!--                        </tr>-->
+                        <!--                        <tr>-->
+                        <!--                            <th scope="row">202</th>-->
+                        <!--                            <td>來讀冊欸</td>-->
+                        <!--                            <td>5/20</td>-->
+                        <!--                            <td>-->
+                        <!--                                <button class="button" type="submit">加入</button>-->
+                        <!--                            </td>-->
+                        <!--                        </tr>-->
+                        <!--                        <tr class="table-green">-->
+                        <!--                            <th scope="row">303</th>-->
+                        <!--                            <td>來讀冊喔</td>-->
+                        <!--                            <td>9/10</td>-->
+                        <!--                            <td>-->
+                        <!--                                <button class="button" type="submit">加入</button>-->
+                        <!--                            </td>-->
+                        <!--                        </tr>-->
+                        <!--                        <tr>-->
+                        <!--                            <th scope="row">404</th>-->
+                        <!--                            <td>來讀冊阿</td>-->
+                        <!--                            <td>3/15</td>-->
+                        <!--                            <td>-->
+                        <!--                                <button class="button" type="submit">加入</button>-->
+                        <!--                            </td>-->
+                        <!--                        </tr>-->
+                        <!--                        <tr class="table-green">-->
+                        <!--                            <th scope="row">505</th>-->
+                        <!--                            <td>來讀冊呀</td>-->
+                        <!--                            <td>2/22</td>-->
+                        <!--                            <td>-->
+                        <!--                                <button class="button" type="submit">加入</button>-->
+                        <!--                            </td>-->
+                        <!--                        </tr>-->
+                        <!--                        <tr>-->
+                        <!--                            <th scope="row">606</th>-->
+                        <!--                            <td>來讀冊吧</td>-->
+                        <!--                            <td>7/10</td>-->
+                        <!--                            <td>-->
+                        <!--                                <button class="button" type="submit">加入</button>-->
+                        <!--                            </td>-->
+                        <!--                        </tr>-->
+                        <!--                        </tbody>-->
+                        <!--                        &lt;!&ndash;Table body&ndash;&gt;-->
                     </table>
                 </div>
                 <!--Table-->
