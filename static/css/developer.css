@@ -4,3 +4,4 @@ body{
   overflow: -moz-hidden-scrollable; /*-moz-hidden-scrollable頁面旁邊的卷軸就會出現 hidden完全不見*/
   background: linear-gradient(135deg, #8BD07B, #71C55D);
 }
+.r1 { color: #FFFFFF; }
