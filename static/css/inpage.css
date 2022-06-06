@@ -29,13 +29,13 @@ body {
 
 .dialog{
   width: 600px;
-  height: 250px;
+  height: 600px;
   border: none;
   box-shadow: 0 2px 6px #ccc;
   border-radius: 10px;
   position: fixed;
   top: 50%;
-  left: 20%;
+  left: 50%;
   transform: translate(0, -50%);
 }
 
