@@ -1,77 +1,338 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
+    <meta charset="UTF-8">
     <title>做伙來讀冊 - Learn it well</title>
-    <meta content="" name="description">
-    <meta content="" name="keywords">
-
-    <!-- Favicons -->
     <link href="/static/images/hello.png" rel="icon">
-    <link href="/static/images/apple-touch-icon.png" rel="apple-touch-icon">
+    <link rel="stylesheet" href="/static/css/test.css?v=<?=time()?>">
+    <!-- Bootstrap 連結 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+            crossorigin="anonymous"></script>
+    <!--popover-->
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"/>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i"
-          rel="stylesheet">
-
-    <!-- Vendor CSS Files -->
-    <link href="/static/vendor/aos/aos.css" rel="stylesheet">
-    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="/static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="/static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-    <!-- Template Main CSS File -->
-    <link href="/static/css/style.css" rel="stylesheet">
-    <link href="/static/css/Sroominpage-self.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <!-- JS連結 -->
+    <script src="/static/js/test.js"></script>
+    <!-- 時鐘 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.0.0/moment.min.js"></script>
+    <!--Google Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
 
 </head>
 <body>
+<!-- HTML -->
+<div class="banner">
+    <div>
+        <dialog class="dialog"> <!--音樂-->
+            <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/playlist/37i9dQZF1DWXUpC6mczRpA?utm_source=generator"
+                    width="100%"
+                    height="250" frameBorder="0" allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+            <button id="close" class="dialoginsidebtn">關閉</button>
+        </dialog>
+    </div>
+    <div>
+        <dialog id="soundDialog" class="sounddialog">   <!--白噪音-->
+            <b>夏天夜晚-蟬聲</b>
+            <audio controls loop>
+                <source src="/static/music/autumn_insects1.mp3" type="audio/ogg">
+            </audio>
+            <b>水流聲</b>
+            <audio controls loop>
+                <source src="/static/music/brook1.mp3" type="audio/ogg">
+            </audio>
+            <b>雨聲</b>
+            <audio controls loop>
+                <source src="/static/music/hearing_rain.mp3" type="audio/ogg">
+            </audio>
+            <b>暴風雪聲</b>
+            <audio controls loop>
+                <source src="/static/music/storm_land.mp3" type="audio/ogg">
+            </audio>
+            <b>咖啡廳聲</b>
+            <audio controls loop>
+                <source src="/static/music/hubbub_at_a_cafe1.mp3" type="audio/ogg">
+            </audio>
+            <br>
+            <button onclick="closeDialog2()" class="dialoginsidebtn">關閉</button>
+        </dialog>
+    </div>
+    <!--    <div>-->
+    <!--        <dialog id="todoDialog" class="dialog">   &lt;!&ndash;待辦事項&ndash;&gt;-->
+    <!--            待辦事項-->
+    <!--            <button onclick="closeDialog3()" class="dialoginsidebtn">關閉</button>-->
+    <!--        </dialog>-->
+    <!--    </div>-->
+    <div>
+        <dialog id="timeDialog" class="timedialog">   <!--計時器-->
+            <div>
 
-<body class="hm-gradient">
+                <div class="mode">讀書時長倒數計時:</div>
 
-<main>
-    <div class="container1">
-        <h5>自習室</h5>
-<!--        <form id="addDate">-->
-<!--            <input type="time" name="time" id="time">-->
-<!--            <button type="submit">提交</button>-->
-<!--        </form>-->
-        <p class="hidden">還剩的時間</p>
-        <div class="pickedTime">
-            <div class="time">
-                <span id="time-hours">-</span>
-                <p>時</p>
+                <div class="clock">25:00</div>
+
+                <div class="controls">
+
+                    <div class="labels">
+                        <div class="label-break">休息</div>
+                        <div class="label-session">讀書</div>
+                    </div>
+
+                    <div class="setting break">
+                        <i class="bi bi-caret-left-fill break-down"></i>
+                        <!--                        <i class="fa fa-caret-left break-down"></i>-->
+                        <div class="break-time"></div>
+                        <!--                        <i class="fa fa-caret-right break-up"></i>-->
+                        <i class="bi bi-caret-right-fill break-up"></i>
+                    </div>
+
+                    <div class="setting session">
+                        <i class="bi bi-caret-left-fill session-down"></i>
+                        <!--                        <i class="fa fa-caret-left session-down"></i>-->
+                        <div class="session-time"></div>
+                        <!--                        <i class="fa fa-caret-right session-up"></i>-->
+                        <i class="bi bi-caret-right-fill session-up"></i>
+                    </div>
+
+                </div>
+
+                <button class="pause">開始計時</button>
             </div>
-            <div class="time">
-                <span id="time-minutes">-</span>
-                <p>分</p>
-            </div>
+            <button onclick="closeDialog1()" class="dialoginsidebtn">關閉</button>
+        </dialog>
+    </div>
+    <!--    <div>-->
+    <!--        <dialog id="soulDialog" class="dialog">   &lt;!&ndash;每日一句&ndash;&gt;-->
+    <!--            每日一句-->
+    <!--            <button onclick="closeDialog()" class="dialoginsidebtn">關閉</button>-->
+    <!--        </dialog>-->
+    <!--    </div>-->
+
+    <div id="radius">
+        <div class="btnI1">            <!-- 貼上圖示的程式碼 返回主頁-->
+            <button class="ctrlbutton" onclick="window.location.href='/'"><i class="bi bi-house-door-fill"></i></button>
+        </div>
+        <div class="btnI1">            <!-- 貼上圖示的程式碼 計時器-->
+            <button class="ctrlbutton" onclick="showDialog1()"><i class="bi bi-alarm-fill"></i></button>
+            <script>
+                var y = document.getElementById("timeDialog");
+                function showDialog1() {
+                y.show();
+                }
+
+                function closeDialog1() {
+                y.close();
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </script>
+        </div>
+        <div class="btnI1">            <!-- 貼上圖示的程式碼 音樂-->
+            <button id="show" class="ctrlbutton"><i class="bi bi-music-note-list"></i></button>
+            <script>
+                /* Thanks to Eiji Kitamura for the dialog demo which you can see at https://demo.agektmr.com/dialog/ */
+                var dialog = document.querySelector('dialog');
+                document.querySelector('#show').onclick = function() {
+                    dialog.show();
+                };
+                document.querySelector('#close').onclick = function() {
+                    dialog.close();
+                };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </script>
+
+        </div>
+        <div class="btnI1">            <!-- 貼上圖示的程式碼 白噪音-->
+            <button class="ctrlbutton" onclick="showDialog2()"><i class="bi bi-sliders"></i></button>
+            <script>
+                var z = document.getElementById("soundDialog");
+                function showDialog2() {
+                z.show();
+                }
+
+                function closeDialog2() {
+                z.close();
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </script>
+        </div>
+        <!--        <div class="btnI1">            &lt;!&ndash; 貼上圖示的程式碼 待辦清單&ndash;&gt;-->
+        <!--            <button class="ctrlbutton" onclick="showDialog3()"><i class="bi bi-list-ul"></i></button>-->
+        <!--            <script>-->
+        <!--                var w = document.getElementById("todoDialog");-->
+        <!--                function showDialog3() {-->
+        <!--                w.show();-->
+        <!--                }-->
+
+        <!--                function closeDialog3() {-->
+        <!--                w.close();-->
+        <!--                }-->
+
+
+        <!--            </script>-->
+
+        <!--        </div>-->
+        <!--        <div class="btnI1">            &lt;!&ndash; 貼上圖示的程式碼 每日一句&ndash;&gt;-->
+        <!--            <button class="ctrlbutton" onclick="showDialog()"><i class="bi bi-moon-stars-fill"></i></button>-->
+        <!--            <script>-->
+        <!--                var x = document.getElementById("soulDialog");-->
+        <!--                function showDialog() {-->
+        <!--                x.show();-->
+        <!--                }-->
+
+        <!--                function closeDialog() {-->
+        <!--                x.close();-->
+        <!--                }-->
+
+
+        <!--            </script>-->
+        <!--        </div>-->
+        <div class="btnI1">
+            <button class="ctrlbutton" onclick="openFullscreen();"><i class="bi bi-arrows-fullscreen"></i></button>
+            <script>
+            var elem = document.documentElement;
+            function openFullscreen() {
+              if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+              } else if (elem.webkitRequestFullscreen) { /* Safari */
+                elem.webkitRequestFullscreen();
+              } else if (elem.msRequestFullscreen) { /* IE11 */
+                elem.msRequestFullscreen();
+              }
+            }
+
+
+
+
+
+            </script>
+
+
+            </script>
         </div>
     </div>
-    <center><a class="link_button" href="/studyroom-self/">退出</a></center>
-</main>
+    <div class="clock1">
+        <div id="hour">00</div>
+        <span>:</span>
+        <div id="minute">00</div>
+        <span>:</span>
+        <div id="seconds">00</div>
+        <script>
+        var hour = document.getElementById("hour");
+        var minute = document.getElementById("minute");
+        var seconds = document.getElementById("seconds");
 
-</body>
+        var clock1 = setInterval(
+            function time(){
+              var date_now = new Date();
+              var hr = date_now.getHours();
+              var min = date_now.getMinutes();
+              var sec = date_now.getSeconds();
+
+              if(hr < 10){
+                  hr = "0" + hr;
+              }
+              if(min < 10){
+                  min = "0" + min;
+              }
+              if(sec < 10){
+                  sec = "0" + sec;
+              }
+
+              hour.textContent = hr;
+              minute.textContent = min;
+              seconds.textContent = sec;
 
 
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-        class="bi bi-arrow-up-short"></i></a>
 
-<!-- Vendor JS Files -->
-<script src="/static/vendor/aos/aos.js"></script>
-<script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script src="/static/vendor/glightbox/js/glightbox.min.js"></script>
-<script src="/static/vendor/swiper/swiper-bundle.min.js"></script>
-<script src="/static/vendor/php-email-form/validate.js"></script>
+    },1000
+);
 
-<!-- Template Main JS File -->
-<!--<script src="/static/vendor/jquery/jquery.min.js"></script>-->
-<!--<script src="/static/js/main.js?v=<?=time()?>"></script>-->
-<script src="/static/js/timer.js?v=<?=time()?>"></script>
 
+
+
+
+
+
+
+
+        </script>
+    </div>
+    <!--    <div id="clock" class="light">-->
+    <!--        <div class="display">-->
+    <!--            <div class="weekdays"></div>-->
+    <!--            <div class="ampm"></div>-->
+    <!--            <div class="alarm"></div>-->
+    <!--            <div class="digits"></div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+
+    <!--    <div class="button-holder">-->
+    <!--        <a class="button">Switch Theme</a>-->
+    <!--    </div>-->
+</div>
 
 </body>
 </html>

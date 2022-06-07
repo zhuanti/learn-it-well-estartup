@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+  background: url("/static/images/多人自習室.png") no-repeat center/cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.container1 {
+	  text-align: center;
+	  margin: 2rem auto 0;
+	  padding: 0 15px;
+	}
+
+.container1 > * {
+      padding: 1rem;
+}
+
+.container1 h5 {
+	 font-size: 2rem;
+}
+
+.container1 form input {
+	padding: 10px 15px;
+	font-size: 1.2rem;
+	border: none;
+	border-right: 1px solid rgba(0, 0, 0, 0.5);
+	}
+
+.container1 form button {
+	font-size: 1.2rem;
+	outline: none;
+	border: none;
+	padding: 10px 15px;
+	background: #ffffff;
+	color: #71c55d;
+	cursor: pointer;
+	transition: 0.2s linear;
+	}
+.container1 form button:hover {
+	background: #71c55d;
+	color: #ffffff;
+	}
+
+.container1 h1 {
+	font-size: 3rem;
+	text-transform: uppercase;
+	}
+.container1 h5, .container1 h1, .container1 p {
+	color: #71c55d;
+	text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+	}
+.container1 p {
+	font-size: 1.2rem;
+	width: 80%;
+	margin: auto;
+	}
+
+.container1 .hidden {
+	display: none;
+	}
+.container1 .pickedTime {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	}
+.container1 .pickedTime .time {
+	margin: 0.5rem;
+	padding: 0.5rem 1rem;
+	background: #ffffff;
+	}
+.container1 .pickedTime .time span {
+	font-size: 2.5rem;
+	color: #71c55d;
+	}
+.container1 .pickedTime .time p {
+	color: #000000;
+	width: 100%;
+	}
+.container1 .boxes {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	}
+.container1 .boxes .box {
+	background: #ffffff;
+	margin: 1rem;
+	padding: 1rem 2rem;
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	}
+.container1 .boxes .box span {
+	color: #71c55d;
+	font-weight: bold;
+	font-size: 4rem;
+}
+.container1 .boxes .box p {
+	color: #000000;
+	width: 100%;
+	}
