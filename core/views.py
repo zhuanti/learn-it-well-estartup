@@ -2,9 +2,6 @@ import requests
 from django.shortcuts import render
 from core.settings import API_URL as root
 
-root += 'discusroom'
-
-
 def index(request):
     return render(request, 'index.html')
 
@@ -34,7 +31,7 @@ def sroom(request):
 
 
 def droom(request):
-    r = requests.get(f'{root}/all/')
+    r = requests.get(f'{root}discusroom/all/')
     result = r.json()
     discussrooms = result['data']
     return render(request, 'DiscusRoom.html', {'discussrooms': discussrooms})
@@ -57,7 +54,11 @@ def SroomSelf(request):
 
 
 def Sroomtogether(request):
-    return render(request, 'Sroom-together.html')
+    r = requests.get(f'{root}studyroom/all/')
+    result = r.json()
+    studyrooms = result['data']
+    return render(request, 'Sroom-together.html', {'studyrooms': studyrooms})
+    # return render(request, 'Sroom-together.html')
 
 
 def register(request):

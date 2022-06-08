@@ -146,7 +146,7 @@
                         <thead>
                         <tr>
                             <th>房號</th>
-                            <th>科目</th>
+                            <th>類別</th>
                             <th>房名</th>
                             <th>目前人數</th>
 
@@ -155,68 +155,100 @@
                         </thead>
                         <!--Table head-->
                         <!--Table body-->
-                        <tbody>
-                        <tr class="table-green">
-                            <th scope="row">101</th>
-                            <th>國文</th>
-                            <td>來讀冊辣</td>
-                            <td>5/10</td>
+                            <tbody>
+                            {% for studyroom in studyrooms %}
+                            <tr>
+                                <td>
+                                    <!--                                    <a href="/reviews/{{discussroom.id}}/"> </a>-->
+                                    {{studyroom.no}}
+                                </td>
+                                <!--                                <td>-->
+                                <!--                                    {{discussroom.schoolsys_no}}-->
+                                <!--                                </td>-->
+                                <!--                                <td>-->
+                                <!--                                    {{discussroom.subject_no}}-->
+                                <!--                                </td>-->
+                                <td>
+                                    {{studyroom.name}}
+                                </td>
+                                <td>
+                                    {{studyroom.total_people}}
+                                </td>
+                                <td>
+                                    <!--                                    <a href="/discusroom/inpage/{{discussroom.no}}/">-->
+                                    <!--                                            <button class="button" herf="/inpage/{{discussroom.no}}/"> 加入 </button>-->
+                                    <!--                                    </a>-->
+                                    <!--api 連線時使用的button-->
+                                    <!--                                <center><a class="nav-link scrollto active" href="/discusroom/inpage/{{discussroom.no}}/">加入</a></center>-->
+                                    <center><a class="nav-link scrollto active" href="/inpage/">加入</a></center>
 
-                            <td>
-                                <center><a class="nav-link scrollto active" href="/Sroominpage/">加入</a></center>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">202</th>
-                            <th>數學</th>
-                            <td>來讀冊欸</td>
-                            <td>5/20</td>
+                                </td>
 
-                            <td>
-                                <center><a class="nav-link scrollto active" href="/Sroominpage/">加入</a></center>
-                            </td>
-                        </tr>
-                        <tr class="table-green">
-                            <th scope="row">303</th>
-                            <th>英文</th>
-                            <td>來讀冊喔</td>
-                            <td>9/10</td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+<!--                        <tbody>-->
+<!--                        <tr class="table-green">-->
+<!--                            <th scope="row">101</th>-->
+<!--                            <th>國文</th>-->
+<!--                            <td>來讀冊辣</td>-->
+<!--                            <td>5/10</td>-->
 
-                            <td>
-                                <center><a class="nav-link scrollto active" href="/test-study/">加入</a></center>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">404</th>
-                            <th>其他</th>
-                            <td>來讀冊阿</td>
-                            <td>3/15</td>
+<!--                            <td>-->
+<!--                                <center><a class="nav-link scrollto active" href="/Sroominpage/">加入</a></center>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <th scope="row">202</th>-->
+<!--                            <th>數學</th>-->
+<!--                            <td>來讀冊欸</td>-->
+<!--                            <td>5/20</td>-->
 
-                            <td>
-                                <center><a class="nav-link scrollto active" href="/test-study/">加入</a></center>
-                            </td>
-                        </tr>
-                        <tr class="table-green">
-                            <th scope="row">505</th>
-                            <th>自然</th>
-                            <td>來讀冊呀</td>
-                            <td>2/22</td>
+<!--                            <td>-->
+<!--                                <center><a class="nav-link scrollto active" href="/Sroominpage/">加入</a></center>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!--                        <tr class="table-green">-->
+<!--                            <th scope="row">303</th>-->
+<!--                            <th>英文</th>-->
+<!--                            <td>來讀冊喔</td>-->
+<!--                            <td>9/10</td>-->
 
-                            <td>
-                                <center><a class="nav-link scrollto active" href="/test-study/">加入</a></center>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row">606</th>
-                            <th>社會</th>
-                            <td>來讀冊吧</td>
-                            <td>7/10</td>
+<!--                            <td>-->
+<!--                                <center><a class="nav-link scrollto active" href="/test-study/">加入</a></center>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <th scope="row">404</th>-->
+<!--                            <th>其他</th>-->
+<!--                            <td>來讀冊阿</td>-->
+<!--                            <td>3/15</td>-->
 
-                            <td>
-                                <center><a class="nav-link scrollto active" href="/test-study/">加入</a></center>
-                            </td>
-                        </tr>
-                        </tbody>
+<!--                            <td>-->
+<!--                                <center><a class="nav-link scrollto active" href="/test-study/">加入</a></center>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!--                        <tr class="table-green">-->
+<!--                            <th scope="row">505</th>-->
+<!--                            <th>自然</th>-->
+<!--                            <td>來讀冊呀</td>-->
+<!--                            <td>2/22</td>-->
+
+<!--                            <td>-->
+<!--                                <center><a class="nav-link scrollto active" href="/test-study/">加入</a></center>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <th scope="row">606</th>-->
+<!--                            <th>社會</th>-->
+<!--                            <td>來讀冊吧</td>-->
+<!--                            <td>7/10</td>-->
+
+<!--                            <td>-->
+<!--                                <center><a class="nav-link scrollto active" href="/test-study/">加入</a></center>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+<!--                        </tbody>-->
                         <!--Table body-->
                     </table>
                 </div>
