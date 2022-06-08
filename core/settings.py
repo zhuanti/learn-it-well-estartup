@@ -25,13 +25,12 @@ SECRET_KEY = 'django-insecure-$^cj&s%f6ehv=aa44rh1l*j-_2ke%%y_#m3=)$e-09e^bggjxv
 
 
 # 在Heroku連線時用
-# DEBUG = False
-# ALLOWED_HOSTS = ['learn-it-well-estartup.herokuapp.com']
-# learn-it-well-estartup.herokuapp.com
+DEBUG = False
+ALLOWED_HOSTS = ['learn-it-well-estartup.herokuapp.com']
 
 # 在本地連線時用
-DEBUG = True
-ALLOWED_HOSTS = []
+# DEBUG = True
+# ALLOWED_HOSTS = []
 
 
 
