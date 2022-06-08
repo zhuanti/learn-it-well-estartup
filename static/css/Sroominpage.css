@@ -1,4 +1,11 @@
 /*CSS*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
 .banner{
   background: url("/static/images/多人自習室.png") no-repeat center/cover;
   background-position: center;
