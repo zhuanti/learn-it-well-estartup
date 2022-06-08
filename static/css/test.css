@@ -1,13 +1,20 @@
 /*CSS*/
-.banner{
-  width:100%;
-  height:800px;
-  background: url("/static/images/單人自習室.png") no-repeat center bottom;
-  background-position: center;
-  background-size:cover;
-  background-attachment:fixed;
-  padding-top: 250px;
-  overflow: -moz-hidden-scrollable;
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.banner {
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif;
+  background: url("/static/images/單人自習室.png") no-repeat center/cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
 .time{
