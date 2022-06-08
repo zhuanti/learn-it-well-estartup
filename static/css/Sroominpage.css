@@ -23,6 +23,12 @@
   right: 0;
 }
 
+.time{
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
 .dialog{
   width: 300px;
   border: none;
