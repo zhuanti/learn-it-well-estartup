@@ -6,14 +6,15 @@
   margin: 0;
 }
 
-.banner{
+.banner {
+  width: 100%;
+  min-height: 100vh;
+  font-family: "Roboto", sans-serif;
   background: url("/static/images/多人自習室.png") no-repeat center/cover;
-  background-position: center;
-  background-size:cover;
-  padding-top: 250px;
-  width:100%;
-  height:650px;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
 }
 
 .time{
