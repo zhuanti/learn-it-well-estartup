@@ -22,7 +22,7 @@
   border-radius: 10px;
   position: fixed;
   top: 50%;
-  transform: translate(50, -50%);
+  transform: translate(0, -50%);
 }
 
 .sounddialog{
@@ -32,7 +32,7 @@
   border-radius: 10px;
   position: fixed;
   top: 50%;
-  transform: translate(0, -50%);
+  transform: translate(50%, -50%);
 }
 
 .timedialog{
