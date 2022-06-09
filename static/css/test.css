@@ -35,16 +35,15 @@
 }
 
 .sounddialog{
-  width: 350px;
+  width: 330px;
   border: none;
   box-shadow: 0 2px 6px #ccc;
   border-radius: 10px;
   position: fixed;
   top: 50%;
-  left: 40%;
+  left:40%;
   transform: translate(0, -50%);
 }
-
 .timedialog{
   width: 500px;
   border: none;
