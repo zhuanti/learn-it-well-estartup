@@ -30,16 +30,18 @@
   border-radius: 10px;
   position: fixed;
   top: 50%;
+  left: 40%;
   transform: translate(0, -50%);
 }
 
 .sounddialog{
-  width: 330px;
+  width: 350px;
   border: none;
   box-shadow: 0 2px 6px #ccc;
   border-radius: 10px;
   position: fixed;
   top: 50%;
+  left: 40%;
   transform: translate(0, -50%);
 }
 
@@ -50,6 +52,7 @@
   border-radius: 10px;
   position: fixed;
   top: 50%;
+  left: 30%;
   transform: translate(0, -50%);
 }
 
