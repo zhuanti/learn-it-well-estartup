@@ -35,11 +35,14 @@
 <div class="banner">
     <div>
         <dialog class="dialog"> <!--音樂-->
-            <iframe style="border-radius:12px"
+            <br>
+            <center>
+                <iframe style="border-radius:12px"
                     src="https://open.spotify.com/embed/playlist/37i9dQZF1DWXUpC6mczRpA?utm_source=generator"
-                    width="100%"
+                    width="80%"
                     height="250" frameBorder="0" allowfullscreen=""
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+            </center>
             <button id="close" class="dialoginsidebtn">關閉</button>
         </dialog>
     </div>
@@ -47,35 +50,35 @@
         <dialog id="soundDialog" class="sounddialog">   <!--白噪音-->
             <center>
                 <b>夏天夜晚-蟬聲</b>
-            <br>
-            <audio controls loop>
-                <source src="/static/music/autumn_insects1.mp3" type="audio/ogg">
-            </audio>
-            <br>
-            <b>水流聲</b>
-            <br>
-            <audio controls loop>
-                <source src="/static/music/brook1.mp3" type="audio/ogg">
-            </audio>
-            <br>
-            <b>雨聲</b>
-            <br>
-            <audio controls loop>
-                <source src="/static/music/hearing_rain.mp3" type="audio/ogg">
-            </audio>
-            <br>
-            <b>暴風雪聲</b>
-            <br>
-            <audio controls loop>
-                <source src="/static/music/storm_land.mp3" type="audio/ogg">
-            </audio>
-            <br>
-            <b>咖啡廳聲</b>
-            <br>
-            <audio controls loop>
-                <source src="/static/music/hubbub_at_a_cafe1.mp3" type="audio/ogg">
-            </audio>
-            <br>
+                <br>
+                <audio controls loop>
+                    <source src="/static/music/autumn_insects1.mp3" type="audio/ogg">
+                </audio>
+                <br>
+                <b>水流聲</b>
+                <br>
+                <audio controls loop>
+                    <source src="/static/music/brook1.mp3" type="audio/ogg">
+                </audio>
+                <br>
+                <b>雨聲</b>
+                <br>
+                <audio controls loop>
+                    <source src="/static/music/hearing_rain.mp3" type="audio/ogg">
+                </audio>
+                <br>
+                <b>暴風雪聲</b>
+                <br>
+                <audio controls loop>
+                    <source src="/static/music/storm_land.mp3" type="audio/ogg">
+                </audio>
+                <br>
+                <b>咖啡廳聲</b>
+                <br>
+                <audio controls loop>
+                    <source src="/static/music/hubbub_at_a_cafe1.mp3" type="audio/ogg">
+                </audio>
+                <br>
             </center>
             <button onclick="closeDialog2()" class="dialoginsidebtn">關閉</button>
         </dialog>
@@ -89,36 +92,36 @@
     <div>
         <dialog id="timeDialog" class="timedialog">   <!--計時器-->
             <div>
+                <center>
+                    <div class="mode">讀書時長倒數計時:</div>
 
-                <div class="mode">讀書時長倒數計時:</div>
+                    <div class="clock">25:00</div>
 
-                <div class="clock">25:00</div>
+                    <div class="controls">
 
-                <div class="controls">
+                        <div class="labels">
+                            <div class="label-break">休息</div>
+                            <div class="label-session">讀書</div>
+                        </div>
 
-                    <div class="labels">
-                        <div class="label-break">休息</div>
-                        <div class="label-session">讀書</div>
+                        <div class="setting break">
+                            <i class="bi bi-caret-left-fill break-down"></i>
+                            <!--                        <i class="fa fa-caret-left break-down"></i>-->
+                            <div class="break-time"></div>
+                            <!--                        <i class="fa fa-caret-right break-up"></i>-->
+                            <i class="bi bi-caret-right-fill break-up"></i>
+                        </div>
+
+                        <div class="setting session">
+                            <i class="bi bi-caret-left-fill session-down"></i>
+                            <!--                        <i class="fa fa-caret-left session-down"></i>-->
+                            <div class="session-time"></div>
+                            <!--                        <i class="fa fa-caret-right session-up"></i>-->
+                            <i class="bi bi-caret-right-fill session-up"></i>
+                        </div>
+
                     </div>
-
-                    <div class="setting break">
-                        <i class="bi bi-caret-left-fill break-down"></i>
-                        <!--                        <i class="fa fa-caret-left break-down"></i>-->
-                        <div class="break-time"></div>
-                        <!--                        <i class="fa fa-caret-right break-up"></i>-->
-                        <i class="bi bi-caret-right-fill break-up"></i>
-                    </div>
-
-                    <div class="setting session">
-                        <i class="bi bi-caret-left-fill session-down"></i>
-                        <!--                        <i class="fa fa-caret-left session-down"></i>-->
-                        <div class="session-time"></div>
-                        <!--                        <i class="fa fa-caret-right session-up"></i>-->
-                        <i class="bi bi-caret-right-fill session-up"></i>
-                    </div>
-
-                </div>
-
+                </center>
                 <button class="pause">開始計時</button>
             </div>
             <button onclick="closeDialog1()" class="dialoginsidebtn">關閉</button>
@@ -146,6 +149,7 @@
                 function closeDialog1() {
                 y.close();
                 }
+
 
 
 
@@ -198,6 +202,7 @@
 
 
 
+
             </script>
 
         </div>
@@ -212,6 +217,7 @@
                 function closeDialog2() {
                 z.close();
                 }
+
 
 
 
@@ -283,6 +289,7 @@
 
 
 
+
             </script>
 
 
@@ -325,6 +332,7 @@
 
     },1000
 );
+
 
 
 
