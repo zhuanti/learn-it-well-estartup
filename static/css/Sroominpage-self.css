@@ -22,7 +22,7 @@
   border-radius: 10px;
   position: fixed;
   top: 50%;
-  transform: translate(0, -50%);
+  transform: translate(50, -50%);
 }
 
 .sounddialog{
@@ -30,7 +30,7 @@
   border: none;
   box-shadow: 0 2px 6px #ccc;
   border-radius: 10px;
-  position: relative;
+  position: fixed;
   top: 50%;
   transform: translate(0, -50%);
 }
@@ -40,7 +40,7 @@
   border: none;
   box-shadow: 0 2px 6px #ccc;
   border-radius: 10px;
-  position: relative;
+  position: fixed;
   top: 50%;
   transform: translate(0, -50%);
 }
