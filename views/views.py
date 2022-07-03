@@ -26,9 +26,6 @@ def inner(request):
 def forgetPwd(request):
     return render(request, 'ForgetPwd.html')
 
-@user_login_required
-def register(request):
-    return render(request, 'register.html')
 
 @user_login_required
 def Udetail(request):
@@ -75,7 +72,6 @@ def Sroomtogether(request):
     return render(request, 'Sroom-together.html', {'studyrooms': studyrooms})
     # return render(request, 'Sroom-together.html')
 
-@user_login_required
 def register(request):
     return render(request, 'register.html')
 
