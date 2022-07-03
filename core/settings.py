@@ -135,7 +135,7 @@ STATICFILES_DIRS = (
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-API_URL = 'http://localhost:9001/api/'
+# API_URL = 'http://localhost:9001/api/'
 
-# API_URL = 'https://learn-it-well-estartup-api.herokuapp.com/api/'
+API_URL = 'https://learn-it-well-estartup-api.herokuapp.com/api/'
 
