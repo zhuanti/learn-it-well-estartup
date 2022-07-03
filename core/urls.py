@@ -20,7 +20,7 @@ from views import views, auth_views
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('', views.index),
-    path('front/', views.beforelogin_index), # 登入前的首頁畫面
+    # path('front/', views.beforelogin_index), # 登入前的首頁畫面
     path('login/', auth_views.login),
     path('logout/', auth_views.logout),
 
@@ -36,7 +36,7 @@ urlpatterns = [
     path('studyroom-self/', views.SroomSelf),
     path('studyroom-together/', views.Sroomtogether),
     path('register/', views.register),
-    path('developers/', views.beforelogin_developer), # 登入前開發人員頁面
+    # path('developers/', views.beforelogin_developer), # 登入前開發人員頁面
     path('developer/', views.developer),
     path('inpage/', views.inpage),
     path('Sroominpage/', views.Sroominpage),
