@@ -4,6 +4,12 @@ from core.settings import API_URL as root
 from utils.decorators import user_login_required
 
 
+
+# 登入前首頁畫面
+def beforelogin_index(request):
+    return render(request, 'beforelogin_index.html')
+
+# 登入後首頁畫面
 @user_login_required
 def index(request):
     return render(request, 'index.html')
@@ -73,6 +79,11 @@ def Sroomtogether(request):
 def register(request):
     return render(request, 'register.html')
 
+# 登入前開發人員頁面
+def beforelogin_developer(request):
+    return render(request, 'beforelogin_developer.html')
+
+# 登入後開發人員頁面
 @user_login_required
 def developer(request):
     return render(request, 'developer.html')
