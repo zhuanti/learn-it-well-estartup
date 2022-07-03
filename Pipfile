@@ -8,6 +8,8 @@ django = "*"
 gunicorn = "*"
 whitenoise = "*"
 requests = "*"
+flask = "*"
+flask-login = "==0.4.1"
 
 [dev-packages]
 

@@ -82,6 +82,13 @@
 <!-- ======= Hero Section ======= -->
 <section id="hero">
     <div class="hero-container" data-aos="fade-in">
+        {% for message in messages %}
+            <div class="alert alert-success">
+                <a class="close" href="#" data-dismiss="alert"></a>
+                {{ message }}
+
+            </div>
+        {% endfor %}
         <br><br>
         <h1>做伙來讀冊</h1>
         <h2>LEARN IT WELL</h2>

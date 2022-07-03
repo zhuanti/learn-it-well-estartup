@@ -93,6 +93,12 @@
                     </div>
 
                     <div class="signin-form">
+                            {% for message in messages %}
+                                <div class="alert alert-success">
+                                    <a class="close" href="#" data-dismiss="alert"></a>
+                                        {{ message }}
+                                </div>
+                            {% endfor %}
                         <h2 class="form-title">登入</h2>
                         <form method="POST" class="register-form" id="login-form">
                             {% csrf_token %}
@@ -114,9 +120,6 @@
                             </div>
                             <div class="form-group form-button">
                                 <input type="submit" name="signin" id="signin" class="form-submit" value="登入"/>
-
-                                
-
                             </div>
                         </form>
                         <div class="social-login">
