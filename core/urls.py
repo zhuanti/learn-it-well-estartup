@@ -44,6 +44,7 @@ urlpatterns = [
     path('day-report/', views.DayReport),
     path('week-report/', views.WeekReport),
     path('edit user-detail/', views.EditUserDetail),
+    path('PrivacyPolicies/', views.PrivacyPolicies),
 
     #測試的自習室內部
     path('test-study/', views.test),

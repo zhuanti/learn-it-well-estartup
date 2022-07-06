@@ -75,6 +75,8 @@ def Sroomtogether(request):
 def register(request):
     return render(request, 'register.html')
 
+def PrivacyPolicies(request):
+    return render(request, 'PrivacyPolicies.html')
 # # 登入前開發人員頁面
 # def beforelogin_developer(request):
 #     return render(request, 'beforelogin_developer.html')
@@ -112,3 +114,5 @@ def EditUserDetail(request):
 # 測試的自習室內部
 def test(request):
     return render(request, 'test.html')
+
+
