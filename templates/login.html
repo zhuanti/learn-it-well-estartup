@@ -10,7 +10,8 @@
     <meta content="" name="keywords">
 
     <!--google第三方登入-->
-    <meta name="google-signin-client_id" content="945884865124-ms1igvlhuofd7gtd2db999r256vstc9e.apps.googleusercontent.com">
+    <meta name="google-signin-client_id"
+          content="945884865124-ms1igvlhuofd7gtd2db999r256vstc9e.apps.googleusercontent.com">
 
     <!-- Favicons -->
     <link href="/static/images/hello.png" rel="icon">
@@ -96,12 +97,12 @@
                     </div>
 
                     <div class="signin-form">
-                            {% for message in messages %}
-                                <div class="alert alert-success">
-                                    <a class="close" href="#" data-dismiss="alert"></a>
-                                        {{ message }}
-                                </div>
-                            {% endfor %}
+                        {% for message in messages %}
+                        <div class="alert alert-success">
+                            <a class="close" href="#" data-dismiss="alert"></a>
+                            {{ message }}
+                        </div>
+                        {% endfor %}
                         <h2 class="form-title">登入</h2>
                         <form method="POST" class="register-form" id="login-form">
                             {% csrf_token %}
@@ -128,9 +129,33 @@
                         <div class="social-login">
                             <span class="social-label">或使用</span>
                             <ul class="socials">
-                                <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
-                                <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
-                                <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
+<!--                                <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>-->
+<!--                                <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>-->
+<!--                                <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>-->
+                                <div id="my-signin2"></div>
+                                <script>
+                                  function onSuccess(googleUser) {
+                                    console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+                                  }
+                                  function onFailure(error) {
+                                    console.log(error);
+                                  }
+                                  function renderButton() {
+                                    gapi.signin2.render('my-signin2', {
+                                      'scope': 'profile email',
+                                      'width': 240,
+                                      'height': 50,
+                                      'longtitle': true,
+                                      'theme': 'dark',
+                                      'onsuccess': onSuccess,
+                                      'onfailure': onFailure
+                                    });
+                                  }
+
+                                </script>
+
+                                <script src="https://apis.google.com/js/platform.js?onload=renderButton" async
+                                        defer></script>
                             </ul>
                             <span class="social-label">登入</span>
                         </div>
@@ -158,7 +183,7 @@
 <script src="/static/js/main.js"></script>
 
 <!--google登入-->
-<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
 
 
 </body>
