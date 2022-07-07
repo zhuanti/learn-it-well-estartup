@@ -128,7 +128,7 @@
                         </form>
                         <div class="social-login">
                             <span class="social-label">或使用</span>
-                            <ul class="socials">
+<!--                            <ul class="socials">-->
 <!--                                <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>-->
 <!--                                <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>-->
 <!--                                <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>-->
@@ -143,9 +143,9 @@
                                   function renderButton() {
                                     gapi.signin2.render('my-signin2', {
                                       'scope': 'profile email',
-                                      'width': 240,
-                                      'height': 50,
-                                      'longtitle': true,
+                                      'width': 40,
+                                      'height': 40,
+                                      'longtitle': false,
                                       'theme': 'dark',
                                       'onsuccess': onSuccess,
                                       'onfailure': onFailure
