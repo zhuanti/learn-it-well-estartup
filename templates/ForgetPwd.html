@@ -94,70 +94,71 @@
                         <!--<h2 class="form-title">Sign up</h2>-->
                         <form method="POST" class="register-form" id="register-form">
                             {% csrf_token %}
-<!--                            <div class="form-group">-->
-<!--                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>-->
-<!--                                <input type="text" name="name" id="name" placeholder="名稱" required="required"/>-->
-<!--                            </div>-->
+                            <!--                            <div class="form-group">-->
+                            <!--                                <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>-->
+                            <!--                                <input type="text" name="name" id="name" placeholder="名稱" required="required"/>-->
+                            <!--                            </div>-->
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                <input type="email" name="email" id="email" placeholder="帳號(請輸入郵件)" required="required"/>
+                                <input type="email" name="email" id="email" placeholder="帳號(請輸入郵件)"
+                                       required="required"/>
                             </div>
-<!--                            <div class="form-group">-->
-<!--                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>-->
-<!--                                <input type="password" name="pass" id="pass" placeholder="密碼" required="required"/>-->
-<!--                            </div>-->
-<!--                            <div class="form-group">-->
-<!--                                <label for="re_pass"><i class="zmdi zmdi-lock-outline"></i></label>-->
-<!--                                <input type="password" name="re_pass" id="re_pass" placeholder="重複密碼"-->
-<!--                                       required="required"/>-->
-<!--                            </div>-->
+                            <!--                            <div class="form-group">-->
+                            <!--                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>-->
+                            <!--                                <input type="password" name="pass" id="pass" placeholder="密碼" required="required"/>-->
+                            <!--                            </div>-->
+                            <!--                            <div class="form-group">-->
+                            <!--                                <label for="re_pass"><i class="zmdi zmdi-lock-outline"></i></label>-->
+                            <!--                                <input type="password" name="re_pass" id="re_pass" placeholder="重複密碼"-->
+                            <!--                                       required="required"/>-->
+                            <!--                            </div>-->
                             <!--                            <div class="form-group">-->
                             <!--                                <label for="gender"><i class="zmdi zmdi-male-female"></i></label>-->
                             <!--                                <input type="gender" name="gemder" id="gender" placeholder="性別" required="required"/>-->
                             <!--                            </div>-->
-<!--                            <div class="form-group">-->
-<!--                                <label for="bir"><i class="zmdi zmdi-calendar-note"></i></label>-->
-<!--                                <input type="date" id="bir" name="birthday">-->
-<!--                            </div>-->
+                            <!--                            <div class="form-group">-->
+                            <!--                                <label for="bir"><i class="zmdi zmdi-calendar-note"></i></label>-->
+                            <!--                                <input type="date" id="bir" name="birthday">-->
+                            <!--                            </div>-->
 
-<!--                            <div class="form-group input-group">-->
-<!--                                <i class="zmdi zmdi-male-female"></i> &ensp;-->
-<!--                                <select class="form-control">-->
-<!--                                    <option selected="" disabled> 選擇性別</option>-->
-<!--                                    <option>男</option>-->
-<!--                                    <option>女</option>-->
-<!--                                    <option>不願透漏</option>-->
-<!--                                </select>-->
-<!--                            </div>-->
+                            <!--                            <div class="form-group input-group">-->
+                            <!--                                <i class="zmdi zmdi-male-female"></i> &ensp;-->
+                            <!--                                <select class="form-control">-->
+                            <!--                                    <option selected="" disabled> 選擇性別</option>-->
+                            <!--                                    <option>男</option>-->
+                            <!--                                    <option>女</option>-->
+                            <!--                                    <option>不願透漏</option>-->
+                            <!--                                </select>-->
+                            <!--                            </div>-->
 
-<!--                            <div class="form-group input-group">-->
-<!--                                <i class="zmdi zmdi-home" required="required"></i>&ensp;-->
-<!--                                <select class="form-control">-->
-<!--                                    <option selected="" disabled> 選擇居住縣市</option>-->
-<!--                                    <option>臺北市</option>-->
-<!--                                    <option>新北市</option>-->
-<!--                                    <option>基隆市</option>-->
-<!--                                    <option>桃園市</option>-->
-<!--                                    <option>新竹市</option>-->
-<!--                                    <option>新竹縣</option>-->
-<!--                                    <option>宜蘭縣</option>-->
-<!--                                    <option>臺中市</option>-->
-<!--                                    <option>苗栗縣</option>-->
-<!--                                    <option>彰化縣</option>-->
-<!--                                    <option>南投縣</option>-->
-<!--                                    <option>雲林縣</option>-->
-<!--                                    <option>高雄市</option>-->
-<!--                                    <option>臺南市</option>-->
-<!--                                    <option>嘉義市</option>-->
-<!--                                    <option>嘉義縣</option>-->
-<!--                                    <option>屏東縣</option>-->
-<!--                                    <option>澎湖縣</option>-->
-<!--                                    <option>花蓮縣</option>-->
-<!--                                    <option>臺東縣</option>-->
-<!--                                    <option>金門縣</option>-->
-<!--                                    <option>連江縣</option>-->
-<!--                                </select>-->
-<!--                            </div>-->
+                            <!--                            <div class="form-group input-group">-->
+                            <!--                                <i class="zmdi zmdi-home" required="required"></i>&ensp;-->
+                            <!--                                <select class="form-control">-->
+                            <!--                                    <option selected="" disabled> 選擇居住縣市</option>-->
+                            <!--                                    <option>臺北市</option>-->
+                            <!--                                    <option>新北市</option>-->
+                            <!--                                    <option>基隆市</option>-->
+                            <!--                                    <option>桃園市</option>-->
+                            <!--                                    <option>新竹市</option>-->
+                            <!--                                    <option>新竹縣</option>-->
+                            <!--                                    <option>宜蘭縣</option>-->
+                            <!--                                    <option>臺中市</option>-->
+                            <!--                                    <option>苗栗縣</option>-->
+                            <!--                                    <option>彰化縣</option>-->
+                            <!--                                    <option>南投縣</option>-->
+                            <!--                                    <option>雲林縣</option>-->
+                            <!--                                    <option>高雄市</option>-->
+                            <!--                                    <option>臺南市</option>-->
+                            <!--                                    <option>嘉義市</option>-->
+                            <!--                                    <option>嘉義縣</option>-->
+                            <!--                                    <option>屏東縣</option>-->
+                            <!--                                    <option>澎湖縣</option>-->
+                            <!--                                    <option>花蓮縣</option>-->
+                            <!--                                    <option>臺東縣</option>-->
+                            <!--                                    <option>金門縣</option>-->
+                            <!--                                    <option>連江縣</option>-->
+                            <!--                                </select>-->
+                            <!--                            </div>-->
                             <!--                            <div class="form-group">-->
                             <!--                                <label for="address"><i class="zmdi zmdi-home" required="required"></i></label>-->
                             <!--                                <input type="address" name="addrss" id="address" placeholder="居住縣市"-->
@@ -168,12 +169,12 @@
                             <!--                                <input type="birthday" name="birthday" id="bir" placeholder="生日日期"-->
                             <!--                                       required="required"/>-->
                             <!--                            </div>-->
-<!--                            <div class="form-group">-->
-<!--                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term"-->
-<!--                                       required="required"/>-->
-<!--                                <label for="agree-term" class="label-agree-term"><span><span></span></span>我已經閱讀並同意-->
-<!--                                    <a href="/PrivacyPolicies/" class="term-service">隱私權政策</a></label>-->
-<!--                            </div>-->
+                            <!--                            <div class="form-group">-->
+                            <!--                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term"-->
+                            <!--                                       required="required"/>-->
+                            <!--                                <label for="agree-term" class="label-agree-term"><span><span></span></span>我已經閱讀並同意-->
+                            <!--                                    <a href="/PrivacyPolicies/" class="term-service">隱私權政策</a></label>-->
+                            <!--                            </div>-->
                             <!--<div class="form-group">
                                  <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
                                  <input type="text" name="name" id="name" placeholder="Your Name"/>
@@ -211,10 +212,14 @@
                             </div>
                         </form>
                     </div>
-                    <div class="signup-image">
+                    <div class="signup-image " style="float:left;">
                         <figure><img src="/static/images/signup-image.jpg" alt="sing up image"></figure>
-                        <a href="/login/" class="signup-image-link">回到登入</a>&ensp;&ensp;
-                        <a href="/register/" class="signup-image-link">還沒有帳號</a>
+                        <div style="width: 100%; display: table;">
+                            <div style="display: table-row">
+                                <a href="/login/" class="signup-image-link" style=" display: table-cell;">回到登入</a>
+                                <a href="/register/" class="signup-image-link">還沒有帳號</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
