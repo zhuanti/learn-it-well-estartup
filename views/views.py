@@ -10,7 +10,6 @@ from utils.decorators import user_login_required
 #     return render(request, 'beforelogin_index.html')
 
 # 登入後首頁畫面
-@user_login_required
 def index(request):
     return render(request, 'index.html')
 
@@ -88,7 +87,6 @@ def PrivacyPolicies(request):
 #     return render(request, 'beforelogin_developer.html')
 
 # 登入後開發人員頁面
-@user_login_required
 def developer(request):
     return render(request, 'developer.html')
 
