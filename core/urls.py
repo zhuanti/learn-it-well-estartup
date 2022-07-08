@@ -25,7 +25,7 @@ urlpatterns = [
     path('logout/', auth_views.logout),
 
     path('inner/', views.inner),
-    path('forgetPwd/', views.forgetPwd),
+    # path('forgetPwd/', views.forgetPwd),
     path('register/', views.register),
     path('userdetail/', views.Udetail),
     path('studyroom/', views.sroom),
@@ -45,6 +45,7 @@ urlpatterns = [
     path('week-report/', views.WeekReport),
     path('edit user-detail/', views.EditUserDetail),
     path('PrivacyPolicies/', views.PrivacyPolicies),
+    path('ForgetPwd/',views.ForgetPwd),
 
     #測試的自習室內部
     path('test-study/', views.test),

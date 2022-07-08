@@ -24,7 +24,7 @@ def inner(request):
 
 @user_login_required
 def forgetPwd(request):
-    return render(request, 'ForgetPwd.html')
+    return render(request, 'forgetPwd.html')
 
 
 @user_login_required
@@ -74,6 +74,12 @@ def Sroomtogether(request):
 
 def register(request):
     return render(request, 'register.html')
+
+# def forgetPwd(request):
+#     return render(request, 'forgetPwd.html')
+
+def ForgetPwd(request):
+    return render(request, 'ForgetPwd.html')
 
 def PrivacyPolicies(request):
     return render(request, 'PrivacyPolicies.html')

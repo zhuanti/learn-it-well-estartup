@@ -298,6 +298,18 @@ figure {
   display: block;
   text-align: center; }
 
+.signup-image-link1 {
+  font-size: 14px;
+  color: #222;
+  display: block;
+  text-align: center; }
+
+.forgetpwd-image-link {
+  font-size: 14px;
+  color: #222;
+  display: block;
+  text-align: center;}
+
 .term-service {
   font-size: 13px;
   color: #222; }
