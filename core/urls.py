@@ -49,4 +49,7 @@ urlpatterns = [
 
     #測試的自習室內部
     path('test-study/', views.test),
+
+    # 測試用討論室內部
+    path('web-chat-test/', views.WebChatTest),
 ]
