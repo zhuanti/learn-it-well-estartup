@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/css/style1.css">
+    <title>忘記密碼</title>
+    <link rel="stylesheet" href="https://ionic.io/ionicons">
+    <script type="text/javascript">
+		function check(form)
+		{
+			if(form.myFtPwd.value=="")
+			{
+				alert("請輸入電子郵件!");
+				return false;
+			}
+
+            alert("已傳送驗證碼");
+			return true;
+		}
+	
+	</script>
+</head>
+<body>
+    <form  action="" class="FTPwd" onsubmit="return check(this)"  required>
+        <h3>請輸入電子郵件</h3>
+        <input type="email"name="myFtPwd" placeholder="請輸入電子郵件"><br><br>
+        <button type="submit" value="確認" >確認</button><br>
+        <a href="/login/">回到登入</a><br>
+
+    </form>
+
+</body>
+</html>

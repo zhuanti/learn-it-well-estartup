@@ -23,7 +23,7 @@ def inner(request):
 
 @user_login_required
 def forgetPwd(request):
-    return render(request, 'ForgetPwd.html')
+    return render(request, 'forgetPwd.html')
 
 
 @user_login_required
@@ -74,6 +74,12 @@ def Sroomtogether(request):
 def register(request):
     return render(request, 'register.html')
 
+# def forgetPwd(request):
+#     return render(request, 'forgetPwd.html')
+
+def ForgetPwd(request):
+    return render(request, 'ForgetPwd.html')
+
 def PrivacyPolicies(request):
     return render(request, 'PrivacyPolicies.html')
 # # 登入前開發人員頁面
@@ -112,5 +118,9 @@ def EditUserDetail(request):
 # 測試的自習室內部
 def test(request):
     return render(request, 'test.html')
+
+# 測試用討論室內部
+def WebChatTest(request):
+    return render(request, 'web_chat_test.html')
 
 
