@@ -39,7 +39,7 @@ function appendMessage(name, img, side, text) {
 
       <div class="msg-bubble">
         <div class="msg-info">
-          <div class="msg-info-name">${name}</div>
+          <div class="msg-info-name">${{user.name}}</div>
           <div class="msg-info-time">${formatDate(new Date())}</div>
         </div>
 
