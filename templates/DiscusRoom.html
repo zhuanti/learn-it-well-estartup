@@ -26,6 +26,8 @@
 
     <!-- Template Main CSS File -->
     <link href="/static/css/style.css" rel="stylesheet">
+    <!--    <link href="/static/css/inpage.css" rel="stylesheet">-->
+
 
     <!-- =======================================================
     * Template Name: eStartup - v4.7.1
@@ -56,6 +58,85 @@
 				background-color:#4ACF50;
 				color:white;
 			}
+
+            <!--popup-->
+            .wrap {
+              text-align: center;
+              padding-top: 20%;
+            }
+            .btn {
+              background-color: #FFB80C;
+              text-decoration: none;
+              color: #1e1e1e;
+              padding: 16px;
+              border-radius: 5px;
+            }
+
+            .popup-wrap {
+              width: 100%;
+              height: 100%;
+              display: none;
+              position: fixed;
+              top: 0px;
+              left: 0px;
+              content: '';
+              background: rgba(0, 0, 0, 0.85);
+            }
+
+            .popup-box {
+              width: 50%;
+              padding: 50px 75px;
+              transform: translate(-50%, -50%) scale(0.5);
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.5);
+              border-radius: 3px;
+              background: #fff;
+              text-align: center;
+            }
+            h2 {
+              font-size: 32px;
+              color: #1a1a1a;
+            }
+
+            h3 {
+              font-size: 24px;
+              color: #888;
+            }
+
+            .close-btn {
+              width: 50px;
+              height: 50px;
+              display: inline-block;
+              position: absolute;
+              top: 10px;
+              right: 10px;
+              border-radius: 100%;
+              background: #d75f70;
+              font-weight: bold;
+              text-decoration: none;
+              color: #fff;
+              line-height: 40px;
+              font-size: 32px;
+            }
+
+            .transform-in, .transform-out {
+              display: block;
+              -webkit-transition: all ease 0.5s;
+              transition: all ease 0.5s;
+            }
+
+            .transform-in {
+              -webkit-transform: translate(-50%, -50%) scale(1);
+              transform: translate(-50%, -50%) scale(1);
+            }
+
+            .transform-out {
+              -webkit-transform: translate(-50%, -50%) scale(0.5);
+              transform: translate(-50%, -50%) scale(0.5);
+            }
+
 
 
 
@@ -133,7 +214,7 @@
                         </div>
                     </div>
                     <!-- Grid column -->
-                </div>
+                </div><br>
                 <!-- Grid row -->
                 <!--Table-->
                 <div class="vertical-menu">
@@ -184,67 +265,47 @@
                         </tr>
                         {% endfor %}
                         </tbody>
-
-                        <!--                        <tbody>-->
-                        <!--                        <tr class="table-green">-->
-                        <!--                            <th scope="row">101</th>-->
-                        <!--                            <td>來讀冊辣</td>-->
-                        <!--                            <td>5/10</td>-->
-                        <!--                            <td>-->
-                        <!--                                <center><a class="nav-link scrollto active" href="/inpage/">加入</a></center>-->
-                        <!--&lt;!&ndash;                                <button class="button" herf="/inpage/">加入</button>&ndash;&gt;-->
-                        <!--                            </td>-->
-                        <!--                        </tr>-->
-                        <!--                        <tr>-->
-                        <!--                            <th scope="row">202</th>-->
-                        <!--                            <td>來讀冊欸</td>-->
-                        <!--                            <td>5/20</td>-->
-                        <!--                            <td>-->
-                        <!--                                <button class="button" type="submit">加入</button>-->
-                        <!--                            </td>-->
-                        <!--                        </tr>-->
-                        <!--                        <tr class="table-green">-->
-                        <!--                            <th scope="row">303</th>-->
-                        <!--                            <td>來讀冊喔</td>-->
-                        <!--                            <td>9/10</td>-->
-                        <!--                            <td>-->
-                        <!--                                <button class="button" type="submit">加入</button>-->
-                        <!--                            </td>-->
-                        <!--                        </tr>-->
-                        <!--                        <tr>-->
-                        <!--                            <th scope="row">404</th>-->
-                        <!--                            <td>來讀冊阿</td>-->
-                        <!--                            <td>3/15</td>-->
-                        <!--                            <td>-->
-                        <!--                                <button class="button" type="submit">加入</button>-->
-                        <!--                            </td>-->
-                        <!--                        </tr>-->
-                        <!--                        <tr class="table-green">-->
-                        <!--                            <th scope="row">505</th>-->
-                        <!--                            <td>來讀冊呀</td>-->
-                        <!--                            <td>2/22</td>-->
-                        <!--                            <td>-->
-                        <!--                                <button class="button" type="submit">加入</button>-->
-                        <!--                            </td>-->
-                        <!--                        </tr>-->
-                        <!--                        <tr>-->
-                        <!--                            <th scope="row">606</th>-->
-                        <!--                            <td>來讀冊吧</td>-->
-                        <!--                            <td>7/10</td>-->
-                        <!--                            <td>-->
-                        <!--                                <button class="button" type="submit">加入</button>-->
-                        <!--                            </td>-->
-                        <!--                        </tr>-->
-                        <!--                        </tbody>-->
-                        <!--                        &lt;!&ndash;Table body&ndash;&gt;-->
                     </table>
-                </div>
-                <!--Table-->
+                </div><br>
                 <center>
-                    <button style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">
-                        新增房間
-                    </button>
+                    <div class="wrap">
+                        <a class="btn popup-btn" href="#letmeopen">新增房間</a>
+                    </div>
+                    <div class="popup-wrap" id="letmeopen">
+                        <div class="popup-box transform-out">
+                            <h2>標題請下在這裡</h2>
+                            <h3>內容可以打很多在這裡</h3>
+                            <a class="close-btn popup-close" href="#">x</a>
+                        </div>
+                    </div>
                 </center>
+
+                <!--Table-->
+
+                <!--                <dialog id="Dialog" class="dialog">   &lt;!&ndash;提問版dialog&ndash;&gt;-->
+
+                <!--                    <button onclick="closeDialog2()" class="dialoginsidebtn">關閉</button>-->
+                <!--                </dialog>-->
+
+                <!--                <center>-->
+                <!--                    <button type="button" id="demo1" class="btn" onclick="showDialog2()"-->
+                <!--                            style="margin-right:5px;background-color:#71c55d;">新增房間-->
+                <!--                    </button>-->
+                <!--                    <script>-->
+                <!--                var z = document.getElementById("Dialog");-->
+                <!--                function showDialog2() {-->
+                <!--                z.show();-->
+                <!--                }-->
+
+                <!--                function closeDialog2() {-->
+                <!--                z.close();-->
+                <!--                }-->
+
+
+                <!--                    </script>-->
+                <!--                </center>-->
+
+
             </div>
         </div>
         <hr class="my-4">
@@ -272,6 +333,7 @@
 
 <!-- Template Main JS File -->
 <script src="/static/js/main.js"></script>
+<script src="/static/js/popup.js"></script>
 
 </body>
 
