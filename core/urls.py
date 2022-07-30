@@ -23,10 +23,10 @@ urlpatterns = [
     # path('front/', views.beforelogin_index), # 登入前的首頁畫面
     path('login/', auth_views.login),
     path('logout/', auth_views.logout),
+    path('register/', auth_views.register),
 
     path('inner/', views.inner),
     # path('forgetPwd/', views.forgetPwd),
-    path('register/', views.register),
     path('userdetail/', views.Udetail),
     path('studyroom/', views.sroom),
     path('discusroom/', views.droom),
@@ -35,7 +35,7 @@ urlpatterns = [
     path('studyplan/', views.Splan),
     path('studyroom-self/', views.SroomSelf),
     path('studyroom-together/', views.Sroomtogether),
-    path('register/', views.register),
+    # path('register/', views.register),
     # path('developers/', views.beforelogin_developer), # 登入前開發人員頁面
     path('developer/', views.developer),
     path('inpage/', views.inpage),

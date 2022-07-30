@@ -78,8 +78,8 @@ def Sroomtogether(request):
     return render(request, 'Sroom-together.html', {'studyrooms': studyrooms})
     # return render(request, 'Sroom-together.html')
 
-def register(request):
-    return render(request, 'register.html')
+# def register(request):
+#     return render(request, 'register.html')
 
 # def forgetPwd(request):
 #     return render(request, 'forgetPwd.html')

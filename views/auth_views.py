@@ -5,6 +5,7 @@ from django.contrib import messages
 
 root += 'auth'
 
+# 登入
 def login(request):
     # return render(request, 'login.html')
 
@@ -22,7 +23,6 @@ def login(request):
     data = {
         'id': user_id,
         'pwd': pwd
-
     }
 
     r = requests.post(
@@ -43,6 +43,7 @@ def login(request):
         messages.error(request, '帳號或密碼錯誤')
         return redirect('/login/')
 
+# 登出
 def logout(request):
     r = requests.post(
         f'{root}/logout/',
@@ -54,3 +55,34 @@ def logout(request):
     ret.delete_cookie('user_id')
     messages.success(request, '已成功登出')
     return ret
+
+# 註冊
+def register(request):
+    return render(request, 'register.html')
+
+    r = requests.get(
+        f'{root}/register/',
+        cookies={'sessionid': request.COOKIES['sessionid']}
+    )
+    result = r.json()
+    studyrooms = result['data']
+    return render(request, 'Sroom-together.html', {'studyrooms': studyrooms})
+
+                            if request.method == 'GET':
+                                return render(request, 'add_form.html')
+
+    title = request.POST['title']
+    name = request.POST['name']
+    comment = request.POST['comment']
+    data = {
+        'user_id': test_user_id,
+        'title': title,
+        'name': name,
+        'comment': comment
+    }
+    r = requests.post(
+        f'{root}/add/',
+        data=data,
+    )
+    result = r.json()
+    return render(request, 'result.html', {'message': result['message']})
