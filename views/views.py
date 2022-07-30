@@ -27,8 +27,15 @@ def forgetPwd(request):
 
 
 @user_login_required
-def Udetail(request):
-    return render(request, 'UserDetail.html')
+def Udetail(request, pk):
+    r = requests.get(f'{root}/get/{pk}/')
+    result = r.json()
+    if result['success'] is True:
+        user = result['data']
+        return render(request, 'UserDetail.html', {'user': user})
+    else:
+        message = result['message']
+        return render(request, 'result.html', {'message': message})
 
 @user_login_required
 def sroom(request):
