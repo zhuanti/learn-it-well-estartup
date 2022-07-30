@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="easy-sidebar-active">
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -108,74 +108,16 @@
               transform: translate(-50%, -50%) scale(0.5);
             }
 
+
+
+
+
+
     </style>
 
 </head>
 <body>
-<dialog id="Dialog" class="dialog">   <!--提問版dialog-->
-    <center>提問版</center>
-    <div class="vertical-menu">
-        <div class="accordion accordion-flush" id="accordionFlushExample">
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingOne">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#flush-collapseOne" aria-expanded="false"
-                            aria-controls="flush-collapseOne">
-                        問題一
-                    </button>
-                </h2>
-                <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne"
-                     data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">
-                        <div class="vertical-menu">
-                            答案：
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingTwo">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#flush-collapseTwo" aria-expanded="false"
-                            aria-controls="flush-collapseTwo">
-                        問題二
-                    </button>
-                </h2>
-                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo"
-                     data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">
-                        <div class="vertical-menu">
-                            答案：
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingThree">
-                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#flush-collapseThree" aria-expanded="false"
-                            aria-controls="flush-collapseThree">
-                        問題三
-                    </button>
-                </h2>
-                <div id="flush-collapseThree" class="accordion-collapse collapse"
-                     aria-labelledby="flush-headingThree"
-                     data-bs-parent="#accordionFlushExample">
-                    <div class="accordion-body">
-                        <div class="vertical-menu">
-                            答案：
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <center>
-        <button onclick="closeDialog2()" class="dialoginsidebtn">關閉</button>
-        <button onclick="submit" class="dialoginsidebtn">新增</button>
-    </center>
 
-</dialog>
 <!--<center>-->
 <section class="msger">
     <header class="msger-header">
@@ -191,39 +133,11 @@
     <!--    <div class="msger-chat">-->
     <main class="msger-chat">
         <div class="msg left-msg">
-            <!--                        <div-->
-            <!--                                class="msg-img"-->
-            <!--                                style="background-image: url(https://image.flaticon.com/icons/svg/327/327779.svg)"-->
-            <!--                        ></div>-->
 
-            <!--                        <div class="msg-bubble">-->
-            <!--                            <div class="msg-info">-->
-            <!--                                <div class="msg-info-name">BOT</div>-->
-            <!--                                <div class="msg-info-time">12:45</div>-->
-            <!--                            </div>-->
-
-            <!--                            <div class="msg-text">-->
-            <!--                                Hi, welcome to SimpleChat! Go ahead and send me a message. 😄-->
-            <!--                            </div>-->
-            <!--                        </div>-->
         </div>
 
         <div class="msg right-msg">
-            <!--                        <div-->
-            <!--                                class="msg-img"-->
-            <!--                                style="background-image: url(https://image.flaticon.com/icons/svg/145/145867.svg)"-->
-            <!--                        ></div>-->
 
-            <!--                        <div class="msg-bubble">-->
-            <!--                            <div class="msg-info">-->
-            <!--                                <div class="msg-info-name">Sajad</div>-->
-            <!--                                <div class="msg-info-time">12:46</div>-->
-            <!--                            </div>-->
-
-            <!--                            <div class="msg-text">-->
-            <!--                                You can change your name in JS section!-->
-            <!--                            </div>-->
-            <!--                        </div>-->
         </div>
     </main>
 
@@ -237,26 +151,116 @@
         </div>
         <div class="popup-wrap" id="letmeopen">
             <div class="popup-box transform-out">
-                <h2>標題請下在這裡</h2>
+                <h2>提問版</h2>
                 <h3>內容可以打很多在這裡</h3>
+                <div class="vertical-menu">
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                        aria-controls="flush-collapseOne">
+                                    問題一
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                 aria-labelledby="flush-headingOne"
+                                 data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="vertical-menu">
+                                        答案：
+                                    </div>
+                                </div>
+                                <div class="wrap">
+                                    <a class="btn popup-btn" href="#letmeopen">回答</a>
+                                </div>
+                            </div>
+
+                            <div class="popup-wrap" id="letmeopen2">
+                                <div class="popup-box transform-out">
+                                    <h2>你的答案</h2><br>
+                                        <h3>問題<textarea></textarea></h3><br>
+                                        <button type="submit" style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">確認</button>
+                                    <a class="close-btn popup-close" href="#">x</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                        aria-controls="flush-collapseTwo">
+                                    問題二
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                 aria-labelledby="flush-headingTwo"
+                                 data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="vertical-menu">
+                                        答案：
+                                    </div>
+                                </div>
+                                <div class="wrap">
+                                    <a class="btn popup-btn" href="#letmeopen">回答</a>
+                                </div>
+                            </div>
+
+                            <div class="popup-wrap" id="letmeopen3">
+                                <div class="popup-box transform-out">
+                                    <h2>你的答案</h2><br>
+                                        <h3>問題<textarea></textarea></h3><br>
+                                        <button type="submit" style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">確認</button>
+                                    <a class="close-btn popup-close" href="#">x</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#flush-collapseThree" aria-expanded="false"
+                                        aria-controls="flush-collapseThree">
+                                    問題三
+                                </button>
+                            </h2>
+                            <div id="flush-collapseThree" class="accordion-collapse collapse"
+                                 aria-labelledby="flush-headingThree"
+                                 data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="vertical-menu">
+                                        答案：
+                                    </div>
+                                    <div class="wrap">
+                                        <a class="btn popup-btn" href="#letmeopen">回答問題</a>
+                                    </div>
+                                </div>
+                                <div class="popup-wrap" id="letmeopen4">
+                                    <div class="popup-box transform-out">
+                                        <h2>你的答案</h2><br>
+                                        <h3>問題<textarea></textarea></h3><br>
+                                        <button type="submit" style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">確認</button>
+                                        <a class="close-btn popup-close" href="#">x</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <a class="close-btn popup-close" href="#">x</a>
+                <div class="wrap">
+                    <a class="btn popup-btn" href="#letmeopen">新增問題</a>
+                </div>
+                <div class="popup-wrap" id="letmeopen1">
+                    <div class="popup-box transform-out">
+                        <h2>新增問題</h2><br>
+                        <h3>問題<textarea></textarea></h3><br>
+                        <button type="submit" style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">確認</button>
+                        <a class="close-btn popup-close" href="#">x</a>
+                    </div>
+                </div>
             </div>
         </div>
-<!--        <button type="button" id="demo1" class="btn" onclick="showDialog2()"-->
-<!--                style="margin-right:5px;background-color:#71c55d;">提問-->
-<!--        </button>-->
-<!--        <script>-->
-<!--                var z = document.getElementById("Dialog");-->
-<!--                function showDialog2() {-->
-<!--                z.show();-->
-<!--                }-->
 
-<!--                function closeDialog2() {-->
-<!--                z.close();-->
-<!--                }-->
-
-
-<!--        </script>-->
         <br>
         <input type="text" class="msger-input" placeholder="說些什麼吧～">
         <button type="submit" class="msger-send-btn">發送訊息</button>

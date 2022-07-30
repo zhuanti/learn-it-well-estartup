@@ -137,6 +137,7 @@
               transform: translate(-50%, -50%) scale(0.5);
             }
 
+
     </style>
 </head>
 
@@ -208,7 +209,8 @@
                         </div>
                     </div>
                     <!-- Grid column -->
-                </div><br>
+                </div>
+                <br>
                 <!-- Grid row -->
                 <!--Table-->
                 <div class="vertical-menu">
@@ -260,15 +262,28 @@
                         {% endfor %}
                         </tbody>
                     </table>
-                </div><br>
+                </div>
+                <br>
                 <center>
                     <div class="wrap">
                         <a class="btn popup-btn" href="#letmeopen">新增房間</a>
                     </div>
                     <div class="popup-wrap" id="letmeopen">
                         <div class="popup-box transform-out">
-                            <h2>標題請下在這裡</h2>
-                            <h3>內容可以打很多在這裡</h3>
+                            <h2>新增房間 </h2><br>
+                            <h3>名稱 <input type="text"></h3><br>
+                            <h3>人數上限 <input type="number"></h3><br>
+                            <h3>科目 <select>
+                                <option>
+                                <option value="Taipei">國文</option>
+                                　
+                                <option value="Taoyuan">英文</option>
+                                　
+                                <option value="Hsinchu">數學</option>
+                                　
+                                <option value="Miaoli">其他</option>
+                                </option></select></h3><br>
+                            <button type="submit" style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">確認</button>
                             <a class="close-btn popup-close" href="#">x</a>
                         </div>
                     </div>
