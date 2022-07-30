@@ -17,6 +17,7 @@ def login(request):
     if request.method == 'GET':
         return render(request, 'login.html')
 
+    # html中輸入欄位，有id=xxx，把xxx填入至後面''中的文字內
     user_id = request.POST['your_name']
     pwd = request.POST['your_pass']
 
@@ -56,33 +57,41 @@ def logout(request):
     messages.success(request, '已成功登出')
     return ret
 
-# 註冊
 def register(request):
-    return render(request, 'register.html')
+    if request.method == 'GET':
+        return render(request, 'register.html')
 
-    r = requests.get(
-        f'{root}/register/',
-        cookies={'sessionid': request.COOKIES['sessionid']}
-    )
-    result = r.json()
-    studyrooms = result['data']
-    return render(request, 'Sroom-together.html', {'studyrooms': studyrooms})
-
-                            if request.method == 'GET':
-                                return render(request, 'add_form.html')
-
-    title = request.POST['title']
+    id = request.POST['email']
     name = request.POST['name']
-    comment = request.POST['comment']
+    pwd = request.POST['pass']
+    borth = request.POST.get('bir', False)
+    gender = request.POST.get('gender', False)
+    live = request.POST.get('live', False)
+
     data = {
-        'user_id': test_user_id,
-        'title': title,
+        'id': id,
         'name': name,
-        'comment': comment
+        'pwd': pwd,
+        'borth': borth,
+        'gender': gender,
+        'live': live,
     }
+
     r = requests.post(
-        f'{root}/add/',
+        f'{root}/register/',
         data=data,
     )
     result = r.json()
-    return render(request, 'result.html', {'message': result['message']})
+
+    ret = redirect('/login')
+    messages.success(request, '已註冊成功')
+    return ret
+
+    # if result['success'] is True:
+    #     ret = redirect('/login')
+    #     messages.success(request, '已註冊成功')
+    #     return ret
+    # else:
+    #     messages.error(request, '此信箱已被註冊')
+    #     return redirect('/login')
+    #     return ret
