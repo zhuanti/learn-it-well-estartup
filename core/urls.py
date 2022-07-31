@@ -45,9 +45,10 @@ urlpatterns = [
     path('week-report/', views.WeekReport),
     path('edit user-detail/', views.EditUserDetail),
     path('PrivacyPolicies/', views.PrivacyPolicies),
-    path('ForgetPwd/',views.ForgetPwd),
+    path('ForgetPwd/', views.ForgetPwd),
+    path('ForgetPwdUpdate/', views.ForgetPwdUpdate),
 
-    #測試的自習室內部
+    # 測試的自習室內部
     path('test-study/', views.test),
 
     # 測試用討論室內部
