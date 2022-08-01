@@ -98,171 +98,7 @@
             <br>
             <main class="app">
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-                <script src="/static/js/countdowntimer.js"></script>
-                <script>
-                  //讀書時間(pomodore)為 25 分鐘，短暫的休息時間(shortBreak)為 5 分鐘。連續四次番茄工作後，將啟動長時間的休息(longBreak)（15 分鐘）
-                   const timer = {
-                     pomodoro: 0.1,
-                    };
-
-                   //聲明一個interval變量timer
-                   let interval;
-
-                   const buttonSound = new Audio('/static/music/button-sound.mp3');
-                   const mainButton = document.getElementById('js-btn');
-                   mainButton.addEventListener('click', () => {
-                     buttonSound.play();
-                     const { action } = mainButton.dataset;
-                     if (action === 'start') {
-                       startTimer();
-                     } else {
-                       stopTimer();
-                     }
-                   });
-
-                   const modeButtons = document.querySelector('#js-mode-buttons');
-                   modeButtons.addEventListener('click', handleMode);
-
-                   function getRemainingTime(endTime) {
-                     const currentTime = Date.parse(new Date());
-                     const difference = endTime - currentTime;
-
-                     const total = Number.parseInt(difference / 1000, 10);
-                     const minutes = Number.parseInt((total / 60) % 60, 10);
-                     const seconds = Number.parseInt(total % 60, 10);
-
-                     return {
-                       total,
-                       minutes,
-                       seconds,
-                     };
-                   }
-
-                   function startTimer() {
-                     let { total } = timer.remainingTime;
-                     const endTime = Date.parse(new Date()) + total * 1000;
-
-                     if (timer.mode === 'pomodoro') timer.sessions++;
-
-                     mainButton.dataset.action = 'stop';
-                     mainButton.textContent = '暫停';
-                     mainButton.classList.add('active');
-
-                     interval = setInterval(function() {
-                       timer.remainingTime = getRemainingTime(endTime);
-                       updateClock();
-
-                       total = timer.remainingTime.total;
-                       if (total <= 0) {
-                         clearInterval(interval);
-
-                         switch (timer.mode) {
-                           case 'pomodoro':
-                             if (timer.sessions % timer.longBreakInterval === 0) {
-                               switchMode('shortBreak');
-                             } else {
-                               switchMode('overtime');
-                               document.getElementById('js-overbtn').disabled = false;
-                             }
-                             break;
-                           default:
-                             switchMode('pomodoro');
-                         }
-                         if (Notification.permission === 'granted') {
-                           const text =
-                             timer.mode === 'pomodoro' ? 'Get back to work!' : 'Take a break!';
-                           new Notification(text);
-                         }
-                         if (Notification.permission === 'granted') {
-                           const text =
-                             timer.mode === 'pomodoro' ? 'Get back to work!' : 'Take a break!';
-                           new Notification(text);
-                         }
-
-                         document.querySelector(`[data-sound="${timer.mode}"]`).play();
-
-                         startTimer();
-                       }
-                     }, 1000);
-                   }
-
-                   function stopTimer() {
-                     clearInterval(interval);
-
-                     mainButton.dataset.action = 'start';
-                     mainButton.textContent = '開始';
-                     mainButton.classList.remove('active');
-                   }
-
-                   function updateClock() {
-                     const { remainingTime } = timer;
-                     const minutes = `${remainingTime.minutes}`.padStart(2, '0');
-                     const seconds = `${remainingTime.seconds}`.padStart(2, '0');
-
-                     const min = document.getElementById('js-minutes');
-                     const sec = document.getElementById('js-seconds');
-                     min.textContent = minutes;
-                     sec.textContent = seconds;
-
-                     const text =
-                       timer.mode === 'pomodoro' ? 'Get back to work!' : 'Take a break!';
-                     document.title = `${minutes}:${seconds} — ${text}`;
-
-                     const progress = document.getElementById('js-progress');
-                     progress.value = timer[timer.mode] * 60 - timer.remainingTime.total;
-                   }
-
-                   function switchMode(mode) {
-                     timer.mode = mode;
-                     timer.remainingTime = {
-                       total: timer[mode] * 60,
-                       minutes: timer[mode],
-                       seconds: 0,
-                     };
-
-                     document
-                       .querySelectorAll('button[data-mode]')
-                       .forEach(e => e.classList.remove('active'));
-                     document.querySelector(`[data-mode="${mode}"]`).classList.add('active');
-                     document.body.style.backgroundColor = `var(--${mode})`;
-                     document
-                       .getElementById('js-progress')
-                       .setAttribute('max', timer.remainingTime.total);
-
-                     updateClock();
-                   }
-
-                   function handleMode(event) {
-                     const { mode } = event.target.dataset;
-
-                     if (!mode) return;
-
-                     switchMode(mode);
-                     stopTimer();
-                   }
-
-                   document.addEventListener('DOMContentLoaded', () => {
-                     if ('Notification' in window) {
-                       if (
-                         Notification.permission !== 'granted' &&
-                         Notification.permission !== 'denied'
-                       ) {
-                         Notification.requestPermission().then(function(permission) {
-                           if (permission === 'granted') {
-                             new Notification(
-                               'Awesome! You will be notified at the start of each session'
-                             );
-                           }
-                         });
-                       }
-                     }
-
-                     switchMode('pomodoro');
-                   });
-
-
-
-                </script>
+                <script type="text/javascript" src="countdowntimer"></script>
                 <progress id="js-progress" value="0"></progress>
                 <div class="progress-bar"></div>
                 <div class="timer">
@@ -286,7 +122,7 @@
                         開始
                     </button>
                     <button class="main-button" data-action="over" id="js-overbtn"
-                            onclick="history.back();" disabled>
+                            onclick="window.location.href='https://w3docs.com';" disabled>
                         結束
                     </button>
                 </div>
@@ -295,48 +131,48 @@
             </main>
 
             <div class="hidden">
-                <audio src="/static/music/backtowork.mp3" data-sound="pomodoro"></audio>
-                <audio src="/static/music/break.mp3" data-sound="shortBreak"></audio>
-                <audio src="/static/music/break.mp3" data-sound="longBreak"></audio>
+                <audio src="backtowork.mp3" data-sound="pomodoro"></audio>
+                <audio src="break.mp3" data-sound="shortBreak"></audio>
+                <audio src="break.mp3" data-sound="longBreak"></audio>
             </div>
-            <!--            <div>-->
-            <!--                <center>-->
-            <!--                    <div class="mode">讀書時長倒數計時:</div>-->
-
-            <!--                    <div class="clock">25:00</div>-->
-
-            <!--                    <div class="controls">-->
-            <!--                        <center>-->
-            <!--                            <div class="labels">-->
-            <!--                                <div class="label-break">休息</div>-->
-            <!--                                <div class="label-session">讀書</div>-->
-            <!--                            </div>-->
-
-            <!--                            <div class="setting break">-->
-            <!--                                <i class="bi bi-caret-left-fill break-down"></i>-->
-            <!--                                &lt;!&ndash;                        <i class="fa fa-caret-left break-down"></i>&ndash;&gt;-->
-            <!--                                <div class="break-time"></div>-->
-            <!--                                &lt;!&ndash;                        <i class="fa fa-caret-right break-up"></i>&ndash;&gt;-->
-            <!--                                <i class="bi bi-caret-right-fill break-up"></i>-->
-            <!--                            </div>-->
-
-            <!--                            <div class="setting session">-->
-            <!--                                <i class="bi bi-caret-left-fill session-down"></i>-->
-            <!--                                &lt;!&ndash;                        <i class="fa fa-caret-left session-down"></i>&ndash;&gt;-->
-            <!--                                <div class="session-time"></div>-->
-            <!--                                &lt;!&ndash;                        <i class="fa fa-caret-right session-up"></i>&ndash;&gt;-->
-            <!--                                <i class="bi bi-caret-right-fill session-up"></i>-->
-            <!--                            </div>-->
-            <!--                        </center>-->
-
-
-            <!--                    </div>-->
-            <!--                    <button class="pause">開始計時</button>-->
-            <!--                </center>-->
-            <!--            </div>-->
-            <!--            <button onclick="closeDialog1()" class="dialoginsidebtn">關閉</button>-->
         </dialog>
     </div>
+    <!--            <div>-->
+    <!--                <center>-->
+    <!--                    <div class="mode">讀書時長倒數計時:</div>-->
+
+    <!--                    <div class="clock">25:00</div>-->
+
+    <!--                    <div class="controls">-->
+    <!--                        <center>-->
+    <!--                            <div class="labels">-->
+    <!--                                <div class="label-break">休息</div>-->
+    <!--                                <div class="label-session">讀書</div>-->
+    <!--                            </div>-->
+
+    <!--                            <div class="setting break">-->
+    <!--                                <i class="bi bi-caret-left-fill break-down"></i>-->
+    <!--                                &lt;!&ndash;                        <i class="fa fa-caret-left break-down"></i>&ndash;&gt;-->
+    <!--                                <div class="break-time"></div>-->
+    <!--                                &lt;!&ndash;                        <i class="fa fa-caret-right break-up"></i>&ndash;&gt;-->
+    <!--                                <i class="bi bi-caret-right-fill break-up"></i>-->
+    <!--                            </div>-->
+
+    <!--                            <div class="setting session">-->
+    <!--                                <i class="bi bi-caret-left-fill session-down"></i>-->
+    <!--                                &lt;!&ndash;                        <i class="fa fa-caret-left session-down"></i>&ndash;&gt;-->
+    <!--                                <div class="session-time"></div>-->
+    <!--                                &lt;!&ndash;                        <i class="fa fa-caret-right session-up"></i>&ndash;&gt;-->
+    <!--                                <i class="bi bi-caret-right-fill session-up"></i>-->
+    <!--                            </div>-->
+    <!--                        </center>-->
+
+
+    <!--                    </div>-->
+    <!--                    <button class="pause">開始計時</button>-->
+    <!--                </center>-->
+    <!--            </div>-->
+    <!--            <button onclick="closeDialog1()" class="dialoginsidebtn">關閉</button>-->
     <!--    <div>-->
     <!--        <dialog id="soulDialog" class="dialog">   &lt;!&ndash;每日一句&ndash;&gt;-->
     <!--            每日一句-->
@@ -359,6 +195,7 @@
                 function closeDialog1() {
                 y.close();
                 }
+
 
 
 
@@ -402,6 +239,7 @@
 
 
 
+
             </script>
 
         </div>
@@ -416,6 +254,7 @@
                 function closeDialog2() {
                 z.close();
                 }
+
 
 
 
@@ -493,6 +332,7 @@
 
 
 
+
             </script>
 
 
@@ -535,6 +375,7 @@
 
     },1000
 );
+
 
 
 
