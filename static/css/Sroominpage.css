@@ -24,7 +24,7 @@
 }
 
 .dialog{
-  width: 350px;
+  width: 300px;
   border: none;
   box-shadow: 0 2px 6px #ccc;
   border-radius: 10px;
@@ -44,16 +44,17 @@
   left:40%;
   transform: translate(0, -50%);
 }
-
 .timedialog{
-  width: 500px;
+  width: 400px;
+  height: 300px;
   border: none;
   box-shadow: 0 2px 6px #ccc;
   border-radius: 10px;
   position: fixed;
   top: 50%;
-  left:30%;
+  left: 30%;
   transform: translate(0, -50%);
+  background-color: #8bd07b;
 }
 
 #radius{
@@ -99,6 +100,43 @@
 }
 
 i:hover + .dialoginsidebtn, .dialoginsidebtn:hover {
+    color: white;
+    box-shadow: none;
+    border: none;
+    background-color: rgb(95, 148, 84);
+}
+
+.dialoginsidetimebtn{
+    display: inline-block;
+    margin: 5px 3px;
+    font-weight: 400;
+    text-align: left;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    padding: 2px 13px;
+    font-size: 14px;
+    line-height: 30px;
+    min-height: 35px;
+    border-radius: 2px;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    color: rgb(131, 209, 111);
+    background-color: #ffffff;
+    border-radius: 8px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    box-shadow: 2px 2px 3px grey;
+    border: none;
+    padding-right: 11px;
+
+    /* 新增按鈕寬度 */
+    width: 55px;
+}
+
+i:hover + .dialoginsidetimebtn, .dialoginsidetimebtn:hover {
     color: white;
     box-shadow: none;
     border: none;
@@ -180,7 +218,7 @@ i.bi-house-door-fill:hover{
 }*/
 
 
-.mode {
+/*.mode {
   font-size: 20px;
   text-align: center;
   color: rgb(114, 197, 93);
@@ -252,7 +290,145 @@ i.bi-house-door-fill:hover{
 .pause:hover {
   width: 74%;
   cursor: pointer;
+}*/
+
+/* ==========================================================================
+   #POMODORO APP STYLES
+   ========================================================================== */
+
+/**
+ *
+ * Inheriting box sizing slightly better best-practice
+ * https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ *
+ */
+
+/*html {
+  box-sizing: border-box;
 }
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --pomodoro: hsl(108, 48%, 65%);
+  --overtime: hsl(9, 67%, 80%);
+  --shortBreak: hsl(159, 22%, 62%);
+  --longBreak: hsl(58, 35%, 71%);
+}
+
+body {
+  background-color: var(--pomodoro);
+  transition: background-color 1s ease;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  user-select: none;
+}*/
+
+progress {
+  border-radius: 0.2px;
+  width: 90%;
+  height: 10px;
+  left: 5%;
+  position: fixed;
+  top: 0;
+}
+
+progress::-webkit-progress-bar {
+ background-color: rgba(0, 0, 0, 0.1);;
+}
+
+progress::-webkit-progress-value {
+  background-color: #fff;
+}
+
+.timer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  text-align: center;
+}
+
+.clock {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-size: 8rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  font-family: arial, sans-serif;
+  color:#fff;
+}
+
+.mode-button {
+  font-size: 16px;
+  font-weight:bold;
+  height: 28px;
+  cursor: pointer;
+  box-shadow: none;
+  font-weight: 150px;
+  color: #fff;
+  border: 1px solid transparent;
+  margin: 0px;
+  border-radius: 4px;
+  padding: 2px 12px;
+  background: none;
+}
+
+.mode-button.active {
+  border-width:1.3px;
+  border-color: #fff;
+}
+
+.main-button {
+  cursor: pointer;
+  box-shadow: rgb(235, 235, 235) 0px 6px 0px;
+  font-size: 18px;
+  height: 45px;
+  text-transform: uppercase;
+  color: hsl(175, 26%, 41%);
+  font-weight: bold;
+  width: 90px;
+  background-color: white;
+  border-width: initial;
+  border-style: none;
+  margin: 20px 0px 0px;
+  padding: 0px 12px;
+  border-radius: 4px;
+  transition: color 0.5s ease-in-out 0s;
+}
+
+button:focus, button:active {
+  outline: none;
+}
+
+.main-button.active {
+  transform: translateY(6px);
+  box-shadow: none;
+  outline: none;
+}
+
+.hidden {
+  display: none;
+}
+
+@media screen and (max-width: 550px) {
+  .clock {
+    font-size: 8rem;
+  }
+}
+/*切換按鈕時頁面的背景顏色被更新
+:root {
+  --pomodoro: hsl(108, 48%, 65%);
+  --shortBreak: hsl(159, 22%, 62%);
+  --longBreak: hsl(58, 35%, 71%);
+}*/
+
+
 /*時鐘*/
 
 .clock1{
@@ -744,3 +920,24 @@ footer #tzine-actions iframe{
 	float: left;
 	margin-top: 11px;
 }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -421,12 +421,12 @@ button:focus, button:active {
     font-size: 8rem;
   }
 }
-/*切換按鈕時頁面的背景顏色被更新*/
+/*切換按鈕時頁面的背景顏色被更新
 :root {
   --pomodoro: hsl(108, 48%, 65%);
   --shortBreak: hsl(159, 22%, 62%);
   --longBreak: hsl(58, 35%, 71%);
-}
+}*/
 
 
 /*時鐘*/

@@ -132,7 +132,7 @@
             </main>
 
             <div class="hidden">
-                <audio src="/static/music/backtowork.mp3" data-sound="pomodoro"></audio>
+                <audio src="/static/music/It's time for break..wav" data-sound="pomodoro"></audio>
                 <!--                <audio src="/static/music/break.mp3" data-sound="shortBreak"></audio>-->
                 <!--                <audio src="/static/music/break.mp3" data-sound="longBreak"></audio>-->
             </div>
@@ -208,12 +208,12 @@
                           }
                           if (Notification.permission === 'granted') {
                             const text =
-                              timer.mode === 'pomodoro' ? 'Get back to work!' : 'Take a break!';
+                              timer.mode === 'pomodoro' ? 'LEARN IT WELL' : 'Take a break!';
                             new Notification(text);
                           }
                           if (Notification.permission === 'granted') {
                             const text =
-                              timer.mode === 'pomodoro' ? 'Get back to work!' : 'Take a break!';
+                              timer.mode === 'pomodoro' ? 'LEARN IT WELL!' : 'Take a break!';
                             new Notification(text);
                           }
 
@@ -245,7 +245,7 @@
                       sec.textContent = seconds;
 
                       const text =
-                        timer.mode === 'pomodoro' ? 'Get back to work!' : 'Take a break!';
+                        timer.mode === 'pomodoro' ? 'LEARN IT WELL' : 'Take a break!';
                       document.title = `${minutes}:${seconds} — ${text}`;
 
                       const progress = document.getElementById('js-progress');
