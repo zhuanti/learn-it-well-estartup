@@ -10,6 +10,7 @@ const timer = {
 //聲明一個interval變量timer
 let interval;
 
+
 const buttonSound = new Audio('/static/music/button-sound.mp3');
 const mainButton = document.getElementById('js-btn');
 mainButton.addEventListener('click', () => {
