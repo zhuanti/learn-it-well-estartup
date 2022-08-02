@@ -47,7 +47,7 @@
                         height="250" frameBorder="0" allowfullscreen=""
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
             </center>
-            <button id="close" class="dialoginsidebtn">關閉</button>
+            <button id="close" class="dialoginsidebtn" >關閉</button>
         </dialog>
     </div>
     <div>
@@ -123,7 +123,7 @@
                         開始
                     </button>
                     <button class="main-button" data-action="over" id="js-overbtn"
-                            onclick="window.location.href='/studyroom-self/'" disabled>
+                            onclick="window.location.href='/studyroom-self/'"  title="倒數計時結束才能按下!" disabled>
                         結束
                     </button>
                 </div>
@@ -140,7 +140,7 @@
                     //讀書時間(pomodore)為 25 分鐘，短暫的休息時間(shortBreak)為 5 分鐘。連續四次番茄工作後，將啟動長時間的休息(longBreak)（15 分鐘）
                     window.onload = function(){
                     const timer = {
-                      pomodoro: 0.1,
+                      pomodoro: 120,
                     };
 
                     //聲明一個interval變量timer

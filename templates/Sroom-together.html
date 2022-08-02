@@ -63,6 +63,16 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
     </style>
 </head>
 
@@ -137,7 +147,8 @@
                         </div>
                     </div>
                     <!-- Grid column -->
-                </div><br>
+                </div>
+                <br>
                 <!-- Grid row -->
                 <!--Table-->
                 <div class="vertical-menu">
@@ -146,7 +157,7 @@
                         <thead>
                         <tr>
                             <th>房號</th>
-<!--                            <th>科目</th>-->
+                            <!--                            <th>科目</th>-->
                             <th>房名</th>
                             <th>最多容納人數</th>
 
@@ -155,103 +166,286 @@
                         </thead>
                         <!--Table head-->
                         <!--Table body-->
-                            <tbody>
-                            {% for studyroom in studyrooms %}
-                            <tr>
-                                <td>
-                                    <!--                                    <a href="/reviews/{{discussroom.id}}/"> </a>-->
-                                    {{studyroom.no}}
-                                </td>
-                                <!--                                <td>-->
-                                <!--                                    {{discussroom.schoolsys_no}}-->
-                                <!--                                </td>-->
-                                <!--                                <td>-->
-                                <!--                                    {{discussroom.subject_no}}-->
-                                <!--                                </td>-->
-                                <td>
-                                    {{studyroom.name}}
-                                </td>
-                                <td>
-                                    {{studyroom.total_people}}
-                                </td>
-                                <td>
-                                    <!--                                    <a href="/discusroom/inpage/{{discussroom.no}}/">-->
-                                    <!--                                            <button class="button" herf="/inpage/{{discussroom.no}}/"> 加入 </button>-->
-                                    <!--                                    </a>-->
-                                    <!--api 連線時使用的button-->
-                                    <!--                                <center><a class="nav-link scrollto active" href="/discusroom/inpage/{{discussroom.no}}/">加入</a></center>-->
-                                    <center><a class="nav-link scrollto active" href="/Sroominpage/">加入</a></center>
+                        <tbody>
+                        {% for studyroom in studyrooms %}
+                        <tr>
+                            <td>
+                                <!--                                    <a href="/reviews/{{discussroom.id}}/"> </a>-->
+                                {{studyroom.no}}
+                            </td>
+                            <!--                                <td>-->
+                            <!--                                    {{discussroom.schoolsys_no}}-->
+                            <!--                                </td>-->
+                            <!--                                <td>-->
+                            <!--                                    {{discussroom.subject_no}}-->
+                            <!--                                </td>-->
+                            <td>
+                                {{studyroom.name}}
+                            </td>
+                            <td>
+                                {{studyroom.total_people}}
+                            </td>
+                            <td>
+                                <!--                                    <a href="/discusroom/inpage/{{discussroom.no}}/">-->
+                                <!--                                            <button class="button" herf="/inpage/{{discussroom.no}}/"> 加入 </button>-->
+                                <!--                                    </a>-->
+                                <!--api 連線時使用的button-->
+                                <!--                                <center><a class="nav-link scrollto active" href="/discusroom/inpage/{{discussroom.no}}/">加入</a></center>-->
+                                <!--                                    <center><a class="nav-link scrollto active" href="/Sroominpage/">加入</a></center>-->
 
-                                </td>
 
-                            </tr>
-                            {% endfor %}
-                            </tbody>
-<!--                        <tbody>-->
-<!--                        <tr class="table-green">-->
-<!--                            <th scope="row">101</th>-->
-<!--                            <th>國文</th>-->
-<!--                            <td>來讀冊辣</td>-->
-<!--                            <td>5/10</td>-->
+                                <div>
+                                    <dialog id="Dialog" class="dialog">
+                                        <center>
+                                            <div class="row justify-content-center" data-aos="fade-up"
+                                                 data-aos-delay="100">
 
-<!--                            <td>-->
-<!--                                <center><a class="nav-link scrollto active" href="/Sroominpage/">加入</a></center>-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <th scope="row">202</th>-->
-<!--                            <th>數學</th>-->
-<!--                            <td>來讀冊欸</td>-->
-<!--                            <td>5/20</td>-->
+                                                <div class="col-lg-3 col-md-4">
 
-<!--                            <td>-->
-<!--                                <center><a class="nav-link scrollto active" href="/Sroominpage/">加入</a></center>-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                        <tr class="table-green">-->
-<!--                            <th scope="row">303</th>-->
-<!--                            <th>英文</th>-->
-<!--                            <td>來讀冊喔</td>-->
-<!--                            <td>9/10</td>-->
+                                                    <div class="info">
+                                                        <div>
+                                                            <i class=" bi bi-pencil"></i>
+                                                            <p>科目</p>
+                                                        </div>
+                                                        <div>
+                                                            <i class="bi bi-alarm"></i>
+                                                            <p>時間</p>
+                                                        </div>
+                                                    </div>
 
-<!--                            <td>-->
-<!--                                <center><a class="nav-link scrollto active" href="/test-study/">加入</a></center>-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <th scope="row">404</th>-->
-<!--                            <th>其他</th>-->
-<!--                            <td>來讀冊阿</td>-->
-<!--                            <td>3/15</td>-->
+                                                </div>
 
-<!--                            <td>-->
-<!--                                <center><a class="nav-link scrollto active" href="/test-study/">加入</a></center>-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                        <tr class="table-green">-->
-<!--                            <th scope="row">505</th>-->
-<!--                            <th>自然</th>-->
-<!--                            <td>來讀冊呀</td>-->
-<!--                            <td>2/22</td>-->
+                                                <div class="col-lg-5 col-md-8">
+                                                    <div class="form">
+                                                        <form action="/forms/contact.php" method="post" role="form"
+                                                              class="php-email-form">
+                                                            <div class="form-group">
+                                                                <input type="text" name="name" class="form-control"
+                                                                       id="name" placeholder="請輸入科目"
+                                                                       required>
+                                                            </div>
+                                                            <br><br>
+                                                            <div class="form-group">
+                                                                <select name="set_time" id="set_time"
+                                                                        class="form-control">
+                                                                    <option value="">請選擇預計讀書時長</option>
+                                                                    <option value="5">5分鐘</option>
+                                                                    <option value="10">10分鐘</option>
+                                                                    <option value="15">15分鐘</option>
+                                                                    <option value="20">20分鐘</option>
+                                                                    <option value="25">25分鐘</option>
+                                                                    <option value="30">30分鐘</option>
+                                                                    <option value="35">35分鐘</option>
+                                                                    <option value="40">40分鐘</option>
+                                                                    <option value="45">45分鐘</option>
+                                                                    <option value="50">50分鐘</option>
+                                                                    <option value="60">1小時</option>
+                                                                    <option value="70">1小時10分鐘</option>
+                                                                    <option value="80">1小時20分鐘</option>
+                                                                    <option value="90">1小時30分鐘</option>
+                                                                    <option value="100">1小時40分鐘</option>
+                                                                    <option value="110">1小時50分鐘</option>
+                                                                    <option value="120">2小時</option>
+                                                                </select>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </center>
+                                        <button onclick="closeDialog()" class="dialoginsidebtn">關閉</button>
+                                        <button class="dialoginsideaddbtn"
+                                                onclick="window.location.href='/Sroominpage/'">
+                                            加入
+                                        </button>
+                                        <style>
+                                            .dialog{
+                                              width: 480px;
+                                              border: none;
+                                              box-shadow: 0 2px 6px #ccc;
+                                              border-radius: 10px;
+                                              position: fixed;
+                                              top: 50%;
+                                              left: 40%;
+                                              transform: translate(0, -50%);
+                                            }
+                                            .dialoginsidebtn{
+                                                display: inline-block;
+                                                margin: 5px 3px;
+                                                font-weight: 400;
+                                                text-align: left;
+                                                white-space: nowrap;
+                                                vertical-align: middle;
+                                                -webkit-user-select: none;
+                                                -moz-user-select: none;
+                                                -ms-user-select: none;
+                                                user-select: none;
+                                                padding: 2px 13px;
+                                                font-size: 14px;
+                                                line-height: 30px;
+                                                min-height: 35px;
+                                                border-radius: 2px;
+                                                transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+                                                color: #ffffff;
+                                                background-color: rgb(131, 209, 111);
+                                                border-radius: 8px;
+                                                cursor: pointer;
+                                                letter-spacing: 2px;
+                                                box-shadow: 2px 2px 3px grey;
+                                                border: none;
+                                                padding-right: 11px;
 
-<!--                            <td>-->
-<!--                                <center><a class="nav-link scrollto active" href="/test-study/">加入</a></center>-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <th scope="row">606</th>-->
-<!--                            <th>社會</th>-->
-<!--                            <td>來讀冊吧</td>-->
-<!--                            <td>7/10</td>-->
+                                                /* 新增按鈕寬度 */
+                                                width: 55px;
+                                            }
 
-<!--                            <td>-->
-<!--                                <center><a class="nav-link scrollto active" href="/test-study/">加入</a></center>-->
-<!--                            </td>-->
-<!--                        </tr>-->
-<!--                        </tbody>-->
+                                            i:hover + .dialoginsidebtn, .dialoginsidebtn:hover {
+                                                color: white;
+                                                box-shadow: none;
+                                                border: none;
+                                                background-color: rgb(95, 148, 84);
+                                            }
+                                            .dialoginsideaddbtn{
+                                                position: absolute;
+                                                right: 19px;
+                                                display: inline-block;
+                                                margin: 5px 3px;
+                                                font-weight: 400;
+                                                text-align: left;
+                                                white-space: nowrap;
+                                                vertical-align: middle;
+                                                -webkit-user-select: none;
+                                                -moz-user-select: none;
+                                                -ms-user-select: none;
+                                                user-select: none;
+                                                padding: 2px 13px;
+                                                font-size: 14px;
+                                                line-height: 30px;
+                                                min-height: 35px;
+                                                border-radius: 2px;
+                                                transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+                                                color: #ffffff;
+                                                background-color: rgb(131, 209, 111);
+                                                border-radius: 8px;
+                                                cursor: pointer;
+                                                letter-spacing: 2px;
+                                                box-shadow: 2px 2px 3px grey;
+                                                border: none;
+                                                padding-right: 11px;
+
+                                                /* 新增按鈕寬度 */
+                                                width: 55px;
+                                            }
+
+                                            i:hover + .dialoginsideaddbtn, .dialoginsideaddbtn:hover {
+                                                color: white;
+                                                box-shadow: none;
+                                                border: none;
+                                                background-color: rgb(95, 148, 84);
+                                            }
+
+
+
+
+
+
+
+                                        </style>
+                                    </dialog>
+                                </div>
+                                <center><a class="nav-link scrollto active" onclick="showDialog()">加入</a></center>
+                                <script>
+                                    var y = document.getElementById("Dialog");
+                                                        function showDialog() {
+                                                        y.show();
+                                                        }
+
+                                                        function closeDialog() {
+                                                        y.close();
+                                                        }
+
+
+
+
+
+
+
+
+
+
+
+                                </script>
+                            </td>
+
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                        <!--                        <tbody>-->
+                        <!--                        <tr class="table-green">-->
+                        <!--                            <th scope="row">101</th>-->
+                        <!--                            <th>國文</th>-->
+                        <!--                            <td>來讀冊辣</td>-->
+                        <!--                            <td>5/10</td>-->
+
+                        <!--                            <td>-->
+                        <!--                                <center><a class="nav-link scrollto active" href="/Sroominpage/">加入</a></center>-->
+                        <!--                            </td>-->
+                        <!--                        </tr>-->
+                        <!--                        <tr>-->
+                        <!--                            <th scope="row">202</th>-->
+                        <!--                            <th>數學</th>-->
+                        <!--                            <td>來讀冊欸</td>-->
+                        <!--                            <td>5/20</td>-->
+
+                        <!--                            <td>-->
+                        <!--                                <center><a class="nav-link scrollto active" href="/Sroominpage/">加入</a></center>-->
+                        <!--                            </td>-->
+                        <!--                        </tr>-->
+                        <!--                        <tr class="table-green">-->
+                        <!--                            <th scope="row">303</th>-->
+                        <!--                            <th>英文</th>-->
+                        <!--                            <td>來讀冊喔</td>-->
+                        <!--                            <td>9/10</td>-->
+
+                        <!--                            <td>-->
+                        <!--                                <center><a class="nav-link scrollto active" href="/test-study/">加入</a></center>-->
+                        <!--                            </td>-->
+                        <!--                        </tr>-->
+                        <!--                        <tr>-->
+                        <!--                            <th scope="row">404</th>-->
+                        <!--                            <th>其他</th>-->
+                        <!--                            <td>來讀冊阿</td>-->
+                        <!--                            <td>3/15</td>-->
+
+                        <!--                            <td>-->
+                        <!--                                <center><a class="nav-link scrollto active" href="/test-study/">加入</a></center>-->
+                        <!--                            </td>-->
+                        <!--                        </tr>-->
+                        <!--                        <tr class="table-green">-->
+                        <!--                            <th scope="row">505</th>-->
+                        <!--                            <th>自然</th>-->
+                        <!--                            <td>來讀冊呀</td>-->
+                        <!--                            <td>2/22</td>-->
+
+                        <!--                            <td>-->
+                        <!--                                <center><a class="nav-link scrollto active" href="/test-study/">加入</a></center>-->
+                        <!--                            </td>-->
+                        <!--                        </tr>-->
+                        <!--                        <tr>-->
+                        <!--                            <th scope="row">606</th>-->
+                        <!--                            <th>社會</th>-->
+                        <!--                            <td>來讀冊吧</td>-->
+                        <!--                            <td>7/10</td>-->
+
+                        <!--                            <td>-->
+                        <!--                                <center><a class="nav-link scrollto active" href="/test-study/">加入</a></center>-->
+                        <!--                            </td>-->
+                        <!--                        </tr>-->
+                        <!--                        </tbody>-->
                         <!--Table body-->
                     </table>
-                </div><br>
+                </div>
+                <br>
                 <!--Table-->
             </div>
         </div>

@@ -98,10 +98,11 @@
                             <i class=" bi bi-pencil"></i>
                             <p>科目</p>
                         </div>
-<!--                        <div>-->
-<!--                            <i class="bi bi-alarm"></i>-->
-<!--                            <p>時間</p>-->
-<!--                        </div>-->
+                        <br>
+                        <div>
+                            <i class="bi bi-alarm"></i>
+                            <p>時間</p>
+                        </div>
                     </div>
 
                 </div>
@@ -113,10 +114,34 @@
                                 <input type="text" name="name" class="form-control" id="name" placeholder="請輸入科目"
                                        required>
                             </div>
-<!--                            <div class="form-group mt-3">-->
-<!--                                <input type="time" class="form-control" name="time" id="time" placeholder="請輸入時間"-->
-<!--                                       required>-->
-<!--                            </div>-->
+                            <br>
+                            <div class="form-group">
+                                <select name="set_time" id="set_time"
+                                        class="form-control">
+                                    <option value="">請選擇預計讀書時長</option>
+                                    <option value="5">5分鐘</option>
+                                    <option value="10">10分鐘</option>
+                                    <option value="15">15分鐘</option>
+                                    <option value="20">20分鐘</option>
+                                    <option value="25">25分鐘</option>
+                                    <option value="30">30分鐘</option>
+                                    <option value="35">35分鐘</option>
+                                    <option value="40">40分鐘</option>
+                                    <option value="45">45分鐘</option>
+                                    <option value="50">50分鐘</option>
+                                    <option value="60">1小時</option>
+                                    <option value="70">1小時10分鐘</option>
+                                    <option value="80">1小時20分鐘</option>
+                                    <option value="90">1小時30分鐘</option>
+                                    <option value="100">1小時40分鐘</option>
+                                    <option value="110">1小時50分鐘</option>
+                                    <option value="120">2小時</option>
+                                </select>
+                            </div>
+                            <!--                            <div class="form-group mt-3">-->
+                            <!--                                <input type="time" class="form-control" name="time" id="time" placeholder="請輸入時間"-->
+                            <!--                                       required>-->
+                            <!--                            </div>-->
                             <div class="my-3">
                                 <div class="loading">Loading</div>
                                 <div class="error-message"></div>
