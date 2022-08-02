@@ -96,8 +96,8 @@ def ForgetPwd(request):
     return render(request, 'ForgetPwd.html')
 
 
-def ForgetPwdUpdate(request):
-    return render(request, 'ForgetPwdUpdate.html')
+def ForgetPwdReset(request):
+    return render(request, 'ForgetPwdReset.html')
 
 
 def PrivacyPolicies(request):

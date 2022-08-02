@@ -46,7 +46,7 @@ urlpatterns = [
     path('edit user-detail/', views.EditUserDetail),
     path('PrivacyPolicies/', views.PrivacyPolicies),
     path('ForgetPwd/', views.ForgetPwd),
-    path('ForgetPwdUpdate/', views.ForgetPwdUpdate),
+    path('ForgetPwdReset/', views.ForgetPwdReset),
 
     # 測試的自習室內部
     path('test-study/', views.test),
