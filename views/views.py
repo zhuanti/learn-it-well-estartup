@@ -30,7 +30,7 @@ def forgetPwd(request):
 def Udetail(request):
 
     r = requests.get(
-        f'{root}user/test/',
+        f'{root}user/detail/',
         cookies={'sessionid': request.COOKIES['sessionid']}
     )
     result = r.json()
