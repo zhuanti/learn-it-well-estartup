@@ -27,10 +27,10 @@ def forgetPwd(request):
 
 
 @user_login_required
-def Udetail(request, pk):
+def Udetail(request):
 
     r = requests.get(
-        f'{root}user/get/{pk}/',
+        f'{root}user/test/',
         cookies={'sessionid': request.COOKIES['sessionid']}
     )
     result = r.json()

@@ -27,7 +27,7 @@ urlpatterns = [
 
     path('inner/', views.inner),
     # path('forgetPwd/', views.forgetPwd),
-    path('userdetail/<int:pk>/', views.Udetail),
+    path('userdetail/', views.Udetail),
     path('studyroom/', views.sroom),
     path('discusroom/', views.droom),
     path('achievement/', views.achievement),
