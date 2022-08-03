@@ -28,7 +28,6 @@ def forgetPwd(request):
 
 @user_login_required
 def Udetail(request):
-
     r = requests.get(
         f'{root}user/detail/',
         cookies={'sessionid': request.COOKIES['sessionid']}
@@ -36,16 +35,6 @@ def Udetail(request):
     result = r.json()
     user = result['data']
     return render(request, 'UserDetail.html', {'user': user})
-
-    #r = requests.get(f'{root}user/get/{pk}',
-    # cookies={'sessionid': request.COOKIES['sessionid']})
-    #result = r.json()
-    #if result['success'] is True:
-    #    user = result['data']
-    #    return render(request, 'UserDetail.html', {'user': user})
-    #else:
-    #    message = result['message']
-    #    return render(request, 'result.html', {'message': message})
 
 
 @user_login_required
