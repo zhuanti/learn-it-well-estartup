@@ -100,7 +100,7 @@
                             <!--                            </div>-->
                             <div class="form-group">
                                 <label for="email"><i class="zmdi zmdi-email"></i></label>
-                                <input type="email" name="email" id="email" placeholder="帳號(請輸入郵件)" onclick="sendmail()" required="required"/>
+                                <input type="email" name="email" id="email" placeholder="帳號(請輸入郵件)"  required="required"/>
                             </div>
                             <!--                            <div class="form-group">-->
                             <!--                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>-->
@@ -207,7 +207,7 @@
                                  <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in  <a href="#" class="term-service">Terms of service</a></label>
                              </div>-->
                             <div class="form-group form-button">
-                                <input type="submit" name="signin" id="signin" class="form-submit" value="確認"/>
+                                <input type="submit" name="signin" id="signin" class="form-submit" value="確認" onclick="sendmail()"/>
                             </div>
                         </form>
                     </div>
@@ -246,15 +246,16 @@
 
 <script src="https://smtpjs.com/v3/smtp.js"></script>
 <script>
+const inputs = document.querySelector('form');
 function sendmail(){
     Email.send({
         SecureToken : "f4e68a6f-7faf-40d1-9e27-ee2a17bb177f",
         Username : "jenny980132@gmail.com",
         Password : "csweqhmyqucysxxv",
-        To : 'document.querySelector('email').value',
+        To :inputs.elements["email"].value,
         From : "jenny980132@gmail.com",
         Subject : "測試",
-        Body : "<b>這是由smtpjs寄送</b>"
+        Body : "<b>您好，請點選以下網址，前往變更密碼</b><br> https://learn-it-well-estartup.herokuapp.com/ForgetPwdReset/"
     }).then(
       message => alert(message)
     );
