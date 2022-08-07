@@ -52,6 +52,33 @@ def droom(request):
     discussrooms = result['data']
     return render(request, 'DiscusRoom.html', {'discussrooms': discussrooms})
 
+#新增房間
+@user_login_required
+def addroom(request):
+    if request.method == 'GET':
+        return render(request, 'discusroom.html')
+
+    no = request.POST['no']
+    subject_no_id = request.POST['subject_no_id']
+    name = request.POST['name']
+    total_people = request.POST['total_people']
+
+    data = {
+        'no': request.COOKIES['no'],
+        'subject_no_id': subject_no_id,
+        'name': name,
+        'total_people': total_people
+    }
+
+    r = requests.post(
+        f'{root}/discusroom/addroom/',
+        data=data,
+        cookies={'sessionid': request.COOKIES['sessionid']}
+    )
+
+    result = r.json()
+    return render(request, 'result.html', {'message': result['message']})
+
 
 @user_login_required
 def achievement(request):

@@ -138,6 +138,8 @@
             }
 
 
+
+
     </style>
 </head>
 
@@ -270,51 +272,50 @@
                     </div>
                     <div class="popup-wrap" id="letmeopen">
                         <div class="popup-box transform-out">
-                            <h2>新增房間 </h2><br>
-                            <h3>名稱 <input type="text"></h3><br>
-                            <h3>人數上限 <input type="number"></h3><br>
-                            <h3>科目 <select>
-                                <option>
-                                <option value="Taipei">國文</option>
-                                　
-                                <option value="Taoyuan">英文</option>
-                                　
-                                <option value="Hsinchu">數學</option>
-                                　
-                                <option value="Miaoli">其他</option>
-                                </option></select></h3><br>
-                            <button type="submit" style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">確認</button>
-                            <a class="close-btn popup-close" href="#">x</a>
+                            <form action="" method="post">
+                                {% csrf_token %}
+                                <h2>新增房間 </h2><br>
+                                <div class="form-group">
+                                    <h3>no<input class="form-control" id="no" placeholder="no"
+                                           name="no" required="required"></h3>
+                                </div>
+                                <div class="form-group">
+                                    <h3>名稱<input class="form-control" id="name" placeholder="名稱"
+                                           name="name" required="required"></h3>
+                                </div>
+                                <div class="form-group">
+                                    <h3>人數上限<input class="form-control" id="total_people" placeholder="人數上限"
+                                           name="total_people" required="required"></h3>
+                                </div>
+                                <div class="form-group">
+                                    <h3>科目<input class="form-control" id="subject_no_id" placeholder="科目"
+                                           name="subject_no_id" required="required"></h3>
+                                </div><br>
+<!--                                <h3>名稱 <input type="text" id="name" name="name" required="required"></h3><br>-->
+<!--                                <h3>人數上限 <input type="text" id="total_people" name="total_people" required="required">-->
+<!--                                </h3><br>-->
+<!--                                <h3>科目 <input type="text" id="subject_no_id" name="subject_no_id" required="required">-->
+<!--                                </h3><br>-->
+                                <!--                                <h3>科目 <select name="total_people" required>-->
+                                <!--                                    <option>-->
+                                <!--                                    <option value="1">國文</option>-->
+
+                                <!--                                    <option value="2">數學</option>-->
+                                <!--                                    　-->
+                                <!--                                    <option value="3">英文</option>-->
+                                <!--                                    　-->
+                                <!--                                    <option value="4">其他</option>-->
+                                <!--                                    </option></select></h3>-->
+                                <!--                                <br>-->
+                                <button type="submit" class="btn btn-primary float-right"
+                                        style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">
+                                    確認
+                                </button>
+                                <a class="close-btn popup-close" href="#">x</a>
+                            </form>
                         </div>
                     </div>
                 </center>
-
-                <!--Table-->
-
-                <!--                <dialog id="Dialog" class="dialog">   &lt;!&ndash;提問版dialog&ndash;&gt;-->
-
-                <!--                    <button onclick="closeDialog2()" class="dialoginsidebtn">關閉</button>-->
-                <!--                </dialog>-->
-
-                <!--                <center>-->
-                <!--                    <button type="button" id="demo1" class="btn" onclick="showDialog2()"-->
-                <!--                            style="margin-right:5px;background-color:#71c55d;">新增房間-->
-                <!--                    </button>-->
-                <!--                    <script>-->
-                <!--                var z = document.getElementById("Dialog");-->
-                <!--                function showDialog2() {-->
-                <!--                z.show();-->
-                <!--                }-->
-
-                <!--                function closeDialog2() {-->
-                <!--                z.close();-->
-                <!--                }-->
-
-
-                <!--                    </script>-->
-                <!--                </center>-->
-
-
             </div>
         </div>
         <hr class="my-4">
