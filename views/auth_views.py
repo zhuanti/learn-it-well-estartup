@@ -75,23 +75,25 @@ def register(request):
         'borth': borth,
         'gender': gender,
         'live': live,
+        'purview': 0,
     }
 
     r = requests.post(
         f'{root}/register/',
         data=data,
     )
+
     result = r.json()
 
-    ret = redirect('/login')
-    messages.success(request, '已註冊成功')
-    return ret
+    # ret = redirect('/login')
+    # messages.success(request, '已註冊成功')
+    # return ret
 
-    # if result['success'] is True:
-    #     ret = redirect('/login')
-    #     messages.success(request, '已註冊成功')
-    #     return ret
-    # else:
-    #     messages.error(request, '此信箱已被註冊')
-    #     return redirect('/login')
-    #     return ret
+    if result['success'] is True:
+        ret = redirect('/login')
+        messages.success(request, '已註冊成功')
+        return ret
+    else:
+        messages.error(request, '此信箱已被註冊')
+        return redirect('/login')
+        return ret
