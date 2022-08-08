@@ -43,7 +43,7 @@ urlpatterns = [
     path('Sroominpage-self/', views.Sroominpageself),
     path('day-report/', views.DayReport),
     path('week-report/', views.WeekReport),
-    path('edit user-detail/', views.EditUserDetail),
+    path('edituser-detail/', views.EditUserDetail),
     path('PrivacyPolicies/', views.PrivacyPolicies),
     path('ForgetPwd/', views.ForgetPwd),
     path('ForgetPwdReset/', views.ForgetPwdReset),

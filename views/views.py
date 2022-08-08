@@ -169,7 +169,7 @@ def WeekReport(request):
 
 @user_login_required
 def EditUserDetail(request):
-    return render(request, 'edit UserDetail.html')
+    return render(request, 'editUserDetail.html')
 
 
 @user_login_required
