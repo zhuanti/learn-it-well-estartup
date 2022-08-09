@@ -140,6 +140,8 @@
 
 
 
+
+
     </style>
 </head>
 
@@ -284,42 +286,41 @@
                                 {% csrf_token %}
                                 <h2>新增房間 </h2><br>
                                 <div class="form-group">
-                                    <h3>no<input type="text" class="form-control" id="no" placeholder="no"
-                                           name="no" required="required"></h3>
+                                    <h3>no<input class="form-control" id="no" placeholder="no"
+                                                 name="no" required="required"></h3>
                                 </div>
                                 <div class="form-group">
-                                    <h3>名稱<input type="text" class="form-control" id="name" placeholder="名稱"
-                                           name="name" required="required"></h3>
+                                    <h3>名稱<input class="form-control" id="name" placeholder="名稱"
+                                                 name="name" required="required"></h3>
                                 </div>
                                 <div class="form-group">
-                                    <h3>人數上限<input type="text" class="form-control" id="total_people" placeholder="人數上限"
-                                           name="total_people" required="required"></h3>
+                                    <h3>人數上限<input class="form-control" id="total_people" placeholder="人數上限"
+                                                   name="total_people" required="required"></h3>
                                 </div>
                                 <div class="form-group">
-                                    <h3>科目<input type="text" class="form-control" id="subject_no" placeholder="科目"
-                                           name="subject_no" required="required"></h3>
-                                </div><br>
-<!--                                <h3>名稱 <input type="text" id="name" name="name" required="required"></h3><br>-->
-<!--                                <h3>人數上限 <input type="text" id="total_people" name="total_people" required="required">-->
-<!--                                </h3><br>-->
-<!--                                <h3>科目 <input type="text" id="subject_no_id" name="subject_no_id" required="required">-->
-<!--                                </h3><br>-->
-                                <!--                                <h3>科目 <select name="total_people" required>-->
-                                <!--                                    <option>-->
-                                <!--                                    <option value="1">國文</option>-->
-
-                                <!--                                    <option value="2">數學</option>-->
-                                <!--                                    　-->
-                                <!--                                    <option value="3">英文</option>-->
-                                <!--                                    　-->
-                                <!--                                    <option value="4">其他</option>-->
-                                <!--                                    </option></select></h3>-->
-                                <!--                                <br>-->
-                                <button type="submit" class="btn btn-primary float-right"
-                                        style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">
-                                    確認
-                                </button>
-                                <a class="close-btn popup-close" href="#">x</a>
+                                    <!--                                    <h3>科目<input class="form-control" id="subject_no_id" placeholder="科目"-->
+                                    <!--                                           name="subject_no_id" required="required"></h3>-->
+                                    <!--                                </div><br>-->
+                                    <!--                                <h3>名稱 <input type="text" id="name" name="name" required="required"></h3><br>-->
+                                    <!--                                <h3>人數上限 <input type="text" id="total_people" name="total_people" required="required">-->
+                                    <!--                                </h3><br>-->
+                                    <!--                                    <h3>科目 <input type="text" id="subject_no_id" name="subject_no_id"-->
+                                    <!--                                                  required="required">-->
+                                    <!--                                    </h3><br>-->
+                                    <br>
+                                    <h3>科目 <select name="total_people" required>
+                                        {% for subject in subjects %}
+                                        <option>
+                                            {{subject.name}}
+                                        </option>
+                                        {% endfor %}
+                                    </select></h3>
+                                    <br>
+                                    <button type="submit" class="btn btn-primary float-right"
+                                            style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">
+                                        確認
+                                    </button>
+                                    <a class="close-btn popup-close" href="#">x</a>
                             </form>
                         </div>
                     </div>
