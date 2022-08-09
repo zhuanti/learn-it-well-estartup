@@ -116,6 +116,7 @@
 
 
 
+
     </style>
 
 </head>
@@ -159,14 +160,15 @@
                 <div class="vertical-menu">
                     <div class="accordion accordion-flush" id="accordionFlushExample">
                         <div class="vertical-menu">
-                            {% for discussroom_ans in discussrooms_ans %}
+                            {% for discussroom_question in discussrooms_question %}
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="flush-headingOne">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                             data-bs-target="#flush-collapseOne" aria-expanded="false"
                                             aria-controls="flush-collapseOne">
-                                        {{discussroom_ans.comment}}
+                                        {{discussrooms_question.title}}
                                         問題一
+                                        提問者：{{discussrooms_question.quser_id}}
                                     </button>
                                 </h2>
                                 <div id="flush-collapseOne" class="accordion-collapse collapse"
@@ -176,7 +178,7 @@
                                         <div class="vertical-menu">
                                             答案：
                                             {% csrf_token %}
-                                            <textarea id="ans" name="ans" required="required"></textarea ><br>
+                                            <textarea id="ans" name="ans" required="required"></textarea><br>
                                             <button type="submit"
                                                     style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">
                                                 確認
@@ -209,58 +211,58 @@
                                     </div>
                                 </div>
                             </div>
-<!--                            <div class="accordion-item">-->
-<!--                                <h2 class="accordion-header" id="flush-headingThree">-->
-<!--                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"-->
-<!--                                            data-bs-target="#flush-collapseThree" aria-expanded="false"-->
-<!--                                            aria-controls="flush-collapseThree">-->
-<!--                                        問題三-->
-<!--                                    </button>-->
-<!--                                </h2>-->
-<!--                                <div id="flush-collapseThree" class="accordion-collapse collapse"-->
-<!--                                     aria-labelledby="flush-headingThree"-->
-<!--                                     data-bs-parent="#accordionFlushExample">-->
-<!--                                    <div class="accordion-body">-->
-<!--                                        <div class="vertical-menu">-->
-<!--                                            答案：-->
-<!--                                            <div class="vertical-menu">-->
-<!--                                                答案：-->
-<!--                                                <textarea></textarea><br>-->
-<!--                                                <button type="submit"-->
-<!--                                                        style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">-->
-<!--                                                    確認-->
-<!--                                                </button>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="accordion-item">-->
-<!--                                <h2 class="accordion-header" id="flush-heading4">-->
-<!--                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"-->
-<!--                                            data-bs-target="#flush-collapse4" aria-expanded="false"-->
-<!--                                            aria-controls="flush-collapse4">-->
-<!--                                        問題四-->
-<!--                                    </button>-->
-<!--                                </h2>-->
-<!--                                <div id="flush-collapse4" class="accordion-collapse collapse"-->
-<!--                                     aria-labelledby="flush-heading4"-->
-<!--                                     data-bs-parent="#accordionFlushExample">-->
-<!--                                    <div class="accordion-body">-->
-<!--                                        <div class="vertical-menu">-->
-<!--                                            答案：-->
-<!--                                            <div class="vertical-menu">-->
-<!--                                                答案：-->
-<!--                                                <textarea></textarea><br>-->
-<!--                                                <button type="submit"-->
-<!--                                                        style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">-->
-<!--                                                    確認-->
-<!--                                                </button>-->
-<!--                                            </div>-->
-<!--                                        </div>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
+                            <!--                            <div class="accordion-item">-->
+                            <!--                                <h2 class="accordion-header" id="flush-headingThree">-->
+                            <!--                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"-->
+                            <!--                                            data-bs-target="#flush-collapseThree" aria-expanded="false"-->
+                            <!--                                            aria-controls="flush-collapseThree">-->
+                            <!--                                        問題三-->
+                            <!--                                    </button>-->
+                            <!--                                </h2>-->
+                            <!--                                <div id="flush-collapseThree" class="accordion-collapse collapse"-->
+                            <!--                                     aria-labelledby="flush-headingThree"-->
+                            <!--                                     data-bs-parent="#accordionFlushExample">-->
+                            <!--                                    <div class="accordion-body">-->
+                            <!--                                        <div class="vertical-menu">-->
+                            <!--                                            答案：-->
+                            <!--                                            <div class="vertical-menu">-->
+                            <!--                                                答案：-->
+                            <!--                                                <textarea></textarea><br>-->
+                            <!--                                                <button type="submit"-->
+                            <!--                                                        style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">-->
+                            <!--                                                    確認-->
+                            <!--                                                </button>-->
+                            <!--                                            </div>-->
+                            <!--                                        </div>-->
+                            <!--                                    </div>-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
+                            <!--                            <div class="accordion-item">-->
+                            <!--                                <h2 class="accordion-header" id="flush-heading4">-->
+                            <!--                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"-->
+                            <!--                                            data-bs-target="#flush-collapse4" aria-expanded="false"-->
+                            <!--                                            aria-controls="flush-collapse4">-->
+                            <!--                                        問題四-->
+                            <!--                                    </button>-->
+                            <!--                                </h2>-->
+                            <!--                                <div id="flush-collapse4" class="accordion-collapse collapse"-->
+                            <!--                                     aria-labelledby="flush-heading4"-->
+                            <!--                                     data-bs-parent="#accordionFlushExample">-->
+                            <!--                                    <div class="accordion-body">-->
+                            <!--                                        <div class="vertical-menu">-->
+                            <!--                                            答案：-->
+                            <!--                                            <div class="vertical-menu">-->
+                            <!--                                                答案：-->
+                            <!--                                                <textarea></textarea><br>-->
+                            <!--                                                <button type="submit"-->
+                            <!--                                                        style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">-->
+                            <!--                                                    確認-->
+                            <!--                                                </button>-->
+                            <!--                                            </div>-->
+                            <!--                                        </div>-->
+                            <!--                                    </div>-->
+                            <!--                                </div>-->
+                            <!--                            </div>-->
                         </div>
                     </div>
                 </div>
