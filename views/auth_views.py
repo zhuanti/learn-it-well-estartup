@@ -46,9 +46,9 @@ def login(request):
 
 # 登出
 def logout(request):
-    r = requests.post(
+    requests.post(
         f'{root}/logout/',
-        cookies = {'sessionid': request.COOKIES['sessionid']}
+        cookies={'sessionid': request.COOKIES['sessionid']}
     )
 
     ret = redirect('/login/')
