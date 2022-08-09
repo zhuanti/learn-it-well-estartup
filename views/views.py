@@ -1,5 +1,6 @@
 import requests
-from django.shortcuts import render
+from django.contrib import messages
+from django.shortcuts import render, redirect
 from core.settings import API_URL as root
 from utils.decorators import user_login_required
 
@@ -59,18 +60,18 @@ def droom(request):
 @user_login_required
 def addroom(request):
     if request.method == 'GET':
-        return render(request, 'discusroom.html')
+        return render(request, 'DiscusRoom.html')
 
-    no = request.POST['no']
-    subject_no_id = request.POST['subject_no_id']
-    name = request.POST['name']
-    total_people = request.POST['total_people']
+    no = request.POST['ano']
+    subject_no = request.POST['asubject_no']
+    name = request.POST['aname']
+    total_people = request.POST['atotal_people']
 
     data = {
-        'no': request.COOKIES['no'],
-        'subject_no_id': subject_no_id,
+        'no': no,
+        'subject_no': subject_no,
         'name': name,
-        'total_people': total_people
+        'total_people': total_people,
     }
 
     r = requests.post(
@@ -80,7 +81,15 @@ def addroom(request):
     )
 
     result = r.json()
-    return render(request, 'result.html', {'message': result['message']})
+
+    if result['success'] is True:
+        ret = redirect('/discusroom')
+        messages.success(request, '已新增房間成功')
+        return ret
+    else:
+        messages.error(request, '新增房間失敗')
+        return redirect('/discusroom')
+        return ret
 
 
 @user_login_required
