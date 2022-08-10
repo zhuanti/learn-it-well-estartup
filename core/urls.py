@@ -56,4 +56,6 @@ urlpatterns = [
 
     # 測試用討論室內部
     path('web-chat-test/', views.WebChatTest),
+
+    path('text/',views.text),
 ]
