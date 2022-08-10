@@ -56,6 +56,17 @@ def droom(request):
     discussrooms = result['data']
     return render(request, 'DiscusRoom.html', {'discussrooms': discussrooms})
 
+#問題列表
+@user_login_required
+def addroom_subject(request):
+    r = requests.get(
+        f'{root}discusroom/qus/',
+        cookies={'sessionid': request.COOKIES['sessionid']}
+    )
+    result = r.json()
+    discussroom_questions = result['data']
+    return render(request, 'DiscusRoom.html', {'discussroom_questions': discussroom_questions})
+
 #新增房間-科目
 # @user_login_required
 # def addroom_subject(request):
