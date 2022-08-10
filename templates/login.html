@@ -10,8 +10,8 @@
     <meta content="" name="keywords">
 
     <!--google第三方登入-->
-    <meta name="google-signin-client_id"
-          content="945884865124-ms1igvlhuofd7gtd2db999r256vstc9e.apps.googleusercontent.com">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <script src="https://apis.google.com/js/api:client.js"></script>
 
     <!-- Favicons -->
     <link href="/static/images/hello.png" rel="icon">
@@ -130,34 +130,98 @@
                         </form>
                         <div class="social-login">
                             <span class="social-label">或使用</span>
-<!--                            <ul class="socials">-->
-<!--                                <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>-->
-<!--                                <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>-->
-<!--                                <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>-->
-                                <div id="my-signin2"></div>
-                                <script>
-                                  function onSuccess(googleUser) {
-                                    console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
-                                  }
-                                  function onFailure(error) {
-                                    console.log(error);
-                                  }
-                                  function renderButton() {
-                                    gapi.signin2.render('my-signin2', {
-                                      'scope': 'profile email',
-                                      'width': 40,
-                                      'height': 40,
-                                      'longtitle': false,
-                                      'theme': 'dark',
-                                      'onsuccess': onSuccess,
-                                      'onfailure': onFailure
-                                    });
-                                  }
+                            <!-- In the callback, you would hide the gSignInWrapper element on a
+ successful sign in -->
+                            <script>
+  var googleUser = {};
+  var startApp = function() {
+    gapi.load('auth2', function(){
+      // Retrieve the singleton for the GoogleAuth library and set up the client.
+      auth2 = gapi.auth2.init({
+        client_id: '945884865124-ms1igvlhuofd7gtd2db999r256vstc9e.apps.googleusercontent.com',
+        cookiepolicy: 'single_host_origin',
+        // Request scopes in addition to 'profile' and 'email'
+        //scope: 'additional_scope'
+      });
+      attachSignin(document.getElementById('customBtn'));
+    });
+  };
 
-                                </script>
+  function attachSignin(element) {
+    console.log(element.id);
+    auth2.attachClickHandler(element, {},
+        function(googleUser) {
+          document.getElementById('name').innerText = "Signed in: " +
+              googleUser.getBasicProfile().getName();
+        }, function(error) {
+          alert(JSON.stringify(error, undefined, 2));
+        });
+  }
 
-                                <script src="https://apis.google.com/js/platform.js?onload=renderButton" async
-                                        defer></script>
+
+
+
+
+                            </script>
+                            <style type="text/css">
+    span.label {
+      font-family: serif;
+      font-weight: normal;
+    }
+    span.icon {
+      background: url('/static/images/btn_google_signin_light_normal_web.png') transparent 5px 50% no-repeat;
+      display: inline-block;
+      vertical-align: middle;
+      width: 200px;
+      height: 42px;
+    }
+    span.buttonText {
+      display: inline-block;
+      vertical-align: middle;
+      padding-left: 42px;
+      padding-right: 42px;
+      font-size: 14px;
+      font-weight: bold;
+      /* Use the Roboto font that is loaded in the <head> */
+      font-family: 'Roboto', sans-serif;
+    }
+
+                            </style>
+                            <div id="gSignInWrapper">
+                                <div id="customBtn" >
+                                    <span class="icon"></span>
+                                </div>
+                            </div>
+                            <div id="name"></div>
+                            <script>startApp();</script>
+                            <!--                            <ul class="socials">-->
+                            <!--                                <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>-->
+                            <!--                                <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>-->
+                            <!--                                <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>-->
+                            <!--                                <div id="my-signin2"></div>-->
+                            <!--                                <script>-->
+                            <!--                                  function onSuccess(googleUser) {-->
+                            <!--                                    console.log('Logged in as: ' + googleUser.getBasicProfile().getName());-->
+                            <!--                                  }-->
+                            <!--                                  function onFailure(error) {-->
+                            <!--                                    console.log(error);-->
+                            <!--                                  }-->
+                            <!--                                  function renderButton() {-->
+                            <!--                                    gapi.signin2.render('my-signin2', {-->
+                            <!--                                      'scope': 'profile email',-->
+                            <!--                                      'width': 40,-->
+                            <!--                                      'height': 40,-->
+                            <!--                                      'longtitle': false,-->
+                            <!--                                      'theme': 'dark',-->
+                            <!--                                      'onsuccess': onSuccess,-->
+                            <!--                                      'onfailure': onFailure-->
+                            <!--                                    });-->
+                            <!--                                  }-->
+
+                            <!--                                </script>-->
+
+                            <!--                                <script src="https://apis.google.com/js/platform.js?onload=renderButton" async-->
+                            <!--                                        defer></script>-->
                             </ul>
                             <span class="social-label">&emsp;&nbsp;登入</span>
                         </div>

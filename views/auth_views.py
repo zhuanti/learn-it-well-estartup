@@ -57,6 +57,7 @@ def logout(request):
     messages.success(request, '已成功登出')
     return ret
 
+# 註冊
 def register(request):
     if request.method == 'GET':
         return render(request, 'register.html')
