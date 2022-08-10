@@ -56,6 +56,17 @@ def droom(request):
     discussrooms = result['data']
     return render(request, 'DiscusRoom.html', {'discussrooms': discussrooms})
 
+#新增房間-科目
+# @user_login_required
+# def addroom_subject(request):
+#     r = requests.get(
+#         f'{root}discusroom/addroom_subject/',
+#         cookies={'sessionid': request.COOKIES['sessionid']}
+#     )
+#     result = r.json()
+#     subjects = result['data']
+#     return render(request, 'DiscusRoom.html', {'subjects': subjects})
+
 #新增房間
 @user_login_required
 def addroom(request):
@@ -79,8 +90,11 @@ def addroom(request):
         data=data,
         cookies={'sessionid': request.COOKIES['sessionid']}
     )
-
     result = r.json()
+    subjects = result['data']
+    return render(request, 'DiscusRoom.html', {'subjects': subjects})
+
+
 
     if result['success'] is True:
         ret = redirect('/discusroom')
