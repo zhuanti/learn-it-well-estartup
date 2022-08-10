@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from core.settings import API_URL as root
 from django.contrib import messages
 
+
 root += 'auth'
 
 # 登入
@@ -95,6 +96,6 @@ def register(request):
         messages.success(request, '已註冊成功')
         return ret
     else:
-        messages.error(request, '此信箱已被註冊')
-        return redirect('/login')
+        messages.error(request, '信箱已被註冊或是註冊時欄位格式填寫錯誤，請重新註冊')
+        return redirect('/register')
         return ret

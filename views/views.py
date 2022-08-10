@@ -74,13 +74,13 @@ def addroom(request):
         return render(request, 'DiscusRoom.html')
 
     no = request.POST['ano']
-    subject_no = request.POST['asubject_no']
+    subject_no_id = request.POST['asubject_no']
     name = request.POST['aname']
     total_people = request.POST['atotal_people']
 
     data = {
-        'no': no,
-        'subject_no': subject_no,
+        'no': 'no',
+        'subject_no_id': subject_no_id,
         'name': name,
         'total_people': total_people,
     }
