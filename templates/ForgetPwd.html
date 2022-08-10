@@ -90,6 +90,12 @@
             <div class="containers">
                 <div class="signup-content">
                     <div class="signup-form">
+                        {% for message in messages %}
+                        <div class="alert alert-success">
+                            <a class="close" href="#" data-dismiss="alert"></a>
+                            {{ message }}
+                        </div>
+                        {% endfor %}
                         <h2 class="form-title">忘記密碼</h2>
                         <!--<h2 class="form-title">Sign up</h2>-->
                         <form method="POST" class="register-form" id="register-form">

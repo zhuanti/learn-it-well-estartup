@@ -130,7 +130,22 @@ def Sroomtogether(request):
 # def forgetPwd(request):
 #     return render(request, 'forgetPwd.html')
 
-def ForgetPwd(request):
+def ForgetPwd(request, pk):
+    r = requests.get(
+        f'{root}auth/forget/{pk}',
+    )
+    result = r.json()
+    # studyrooms = result['data']
+
+    if result['success'] is True:
+        ret = redirect('/ForgetPwd/')
+        messages.success(request, '已傳送郵件')
+        return ret
+    else:
+        messages.error(request, '查無此帳號')
+        return redirect('/ForgetPwd/')
+        return ret
+
     return render(request, 'ForgetPwd.html')
 
 
