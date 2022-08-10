@@ -42,6 +42,7 @@ urlpatterns = [
     # path('developers/', views.beforelogin_developer), # 登入前開發人員頁面
     path('developer/', views.developer),
     path('inpage/', views.inpage),
+    path('inpage/#letmeopen', views.qus),
     path('Sroominpage/', views.Sroominpage),
     path('Sroominpage-self/', views.Sroominpageself),
     path('day-report/', views.DayReport),
