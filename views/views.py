@@ -223,3 +223,6 @@ def test(request):
 # 測試用討論室內部
 def WebChatTest(request):
     return render(request, 'web_chat_test.html')
+
+def text(request):
+    return render(request, 'text.html')
