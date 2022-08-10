@@ -110,6 +110,7 @@
                 <div class="col-lg-5 col-md-8">
                     <div class="form">
                         <form action="/forms/contact.php" method="post" role="form" class="php-email-form">
+                            {% csrf_token %}
                             <div class="form-group">
                                 <input type="text" name="name" class="form-control" id="name" placeholder="請輸入科目"
                                        required>
