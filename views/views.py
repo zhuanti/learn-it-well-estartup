@@ -55,24 +55,27 @@ def EditUserDetail(request):
         user = result['data']
         return render(request, 'editUserDetail.html', {'user': user})
 
-    name = request.POST['user.name']
-    id = request.POST['user.id']
-    live = request.POST['user.live']
-    borth = request.POST['user.borth']
+    if request.method == "POST":
+        user_id = request.COOKIES['user_id'],
+        name = request.POST['user.name']
+        id = request.GET['user.id']
+        live = request.POST['user.live']
+        borth = request.POST['user.borth']
 
-    data = {
-        'name': name,
-        'id': id,
-        'live': live,
-        'borth': borth
-    }
-
-    r = requests.post(
-        f'{root}user/detail/edit/',
-        data=data
-    )
-    result = r.json()
-    return render(request, 'UserDetail.html', {'message': result['message']})
+        data = {
+            'name': name,
+            'id': id,
+            'live': live,
+            'borth': borth
+        }
+        r = requests.post(
+            f'{root}user/detail/edit/',
+            params={'user_id': user_id},
+            cookies={'sessionid': request.COOKIES['sessionid']},
+            data=data
+        )
+        result = r.json()
+        return render(request, 'result.html', {'message': result['message']})
 
     # user_id = request.COOKIES['user_id'],
     # r = requests.get(
