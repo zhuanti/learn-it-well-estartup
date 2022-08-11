@@ -31,7 +31,7 @@ urlpatterns = [
     path('studyroom/', views.sroom),
     # path('discusroom/', views.addroom),
     path('discusroom/', views.droom),
-    path('discusroom/#letmeopen/', views.addroom),
+    # path('discusroom/#letmeopen/', views.addroom),
     # path('discusroom/addroom_subject/', views.addroom_subject),
     path('achievement/', views.achievement),
     path('report/', views.report),
