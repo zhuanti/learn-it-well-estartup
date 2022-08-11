@@ -44,7 +44,7 @@ def Udetail(request):
 @user_login_required
 def EditUserDetail(request):
     if request.method == 'GET':
-        user_id = request.COOKIES['user_id'],
+        user_id = request.COOKIES['user_id']
         r = requests.get(
             f'{root}user/detail/',
             params={'user_id': user_id},
@@ -55,27 +55,28 @@ def EditUserDetail(request):
         user = result['data']
         return render(request, 'editUserDetail.html', {'user': user})
 
-    if request.method == "POST":
-        user_id = request.COOKIES['user_id'],
-        name = request.POST['user.name']
-        id = request.GET['user.id']
-        live = request.POST['user.live']
-        borth = request.POST['user.borth']
+    id = request.POST.get['user.id']
+    name = request.POST.get['user.name']
+    live = request.POST.get['user.live']
+    borth = request.POST.get['user.borth']
 
-        data = {
-            'name': name,
-            'id': id,
-            'live': live,
-            'borth': borth
-        }
-        r = requests.post(
-            f'{root}user/detail/edit/',
-            params={'user_id': user_id},
-            cookies={'sessionid': request.COOKIES['sessionid']},
-            data=data
-        )
-        result = r.json()
-        return render(request, 'result.html', {'message': result['message']})
+    data = {
+        'id': id,
+        'name': name,
+        'live': live,
+        'borth': borth
+    }
+
+    user_id = request.COOKIES['user_id']
+    r = requests.post(
+        f'{root}user/detail/edit/',
+        params={'user_id': user_id},
+        cookies={'sessionid': request.COOKIES['sessionid']},
+        data=data
+    )
+    result = r.json()
+    user = result['data']
+    return render(request, 'UserDetail.html', {'user': user})
 
     # user_id = request.COOKIES['user_id'],
     # r = requests.get(
