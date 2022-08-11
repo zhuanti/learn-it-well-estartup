@@ -141,7 +141,7 @@ def addroom(request):
     total_people = request.POST['atotal_people']
 
     data = {
-        'no': 'no',
+        'no':no,
         'subject_no_id': subject_no_id,
         'name': name,
         'total_people': total_people,
@@ -154,7 +154,7 @@ def addroom(request):
     )
     result = r.json()
     subjects = result['data']
-    return render(request, 'DiscusRoom.html', {'subjects': subjects})
+    # return render(request, 'DiscusRoom.html', {'subjects': subjects})
 
     if result['success'] is True:
         ret = redirect('/discusroom')

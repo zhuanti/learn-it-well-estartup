@@ -1,8 +1,8 @@
 $(".popup-btn").click(function() {
   var href = $(this).attr("href")
   $(href).fadeIn(250);
-  $(href).children$("popup-box").removeClass("transform-out").addClass("transform-in");
-  e.preventDefault();
+  $(href).children("popup-box").removeClass("transform-out").addClass("transform-in");
+
 });
 
 $(".popup-close").click(function() {
@@ -14,5 +14,6 @@ $(".popup-close").click(function() {
 function closeWindow(){
   $(".popup-wrap").fadeOut(200);
   $(".popup-box").removeClass("transform-in").addClass("transform-out");
-  event.preventDefault();
+
 }
+
