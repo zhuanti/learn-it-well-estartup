@@ -208,7 +208,7 @@ def addroom(request):
     )
     result = r.json()
     subjects = result['data']
-    return render(request, 'DiscusRoom.html', {'subjects': subjects})
+    # return render(request, 'DiscusRoom.html', {'subjects': subjects})
 
     if result['success'] is True:
         ret = redirect('/discusroom')
