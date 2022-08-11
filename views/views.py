@@ -89,7 +89,7 @@ def EditUserDetail(request):
         return ret
     else:
         messages.error(request, '生日格式填寫錯誤，請重新修改')
-        return redirect('/dedituser-detail')
+        return redirect('/edituser-detail')
         return ret
 
 
