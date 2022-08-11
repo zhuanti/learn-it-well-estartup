@@ -42,6 +42,51 @@ def Udetail(request):
 
 
 @user_login_required
+def EditUserDetail(request):
+    if request.method == 'GET':
+        user_id = request.COOKIES['user_id'],
+        r = requests.get(
+            f'{root}user/detail/',
+            params={'user_id': user_id},
+            # 'user_id': request.COOKIES['user_id'],
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
+        user = result['data']
+        return render(request, 'editUserDetail.html', {'user': user})
+
+    name = request.POST['user.name']
+    id = request.POST['user.id']
+    live = request.POST['user.live']
+    borth = request.POST['user.borth']
+
+    data = {
+        'name': name,
+        'id': id,
+        'live': live,
+        'borth': borth
+    }
+
+    r = requests.post(
+        f'{root}user/detail/edit/',
+        data=data
+    )
+    result = r.json()
+    return render(request, 'UserDetail.html', {'message': result['message']})
+
+    # user_id = request.COOKIES['user_id'],
+    # r = requests.get(
+    #    f'{root}user/detail/edit/',
+    #    params={'user_id': user_id},
+    #    # 'user_id': request.COOKIES['user_id'],
+    #    cookies={'sessionid': request.COOKIES['sessionid']}
+    # )
+    # result = r.json()
+    # user = result['data']
+    # return render(request, 'editUserDetail.html', {'user': user})
+
+
+@user_login_required
 def sroom(request):
     return render(request, 'StudyRoom.html')
 
@@ -56,7 +101,8 @@ def droom(request):
     discussrooms = result['data']
     return render(request, 'DiscusRoom.html', {'discussrooms': discussrooms})
 
-#問題列表
+
+# 問題列表
 @user_login_required
 def qus(request):
     r = requests.get(
@@ -67,7 +113,8 @@ def qus(request):
     discussroom_questions = result['data']
     return render(request, 'inpage.html', {'discussroom_questions': discussroom_questions})
 
-#新增房間-科目
+
+# 新增房間-科目
 # @user_login_required
 # def addroom_subject(request):
 #     r = requests.get(
@@ -78,7 +125,7 @@ def qus(request):
 #     subjects = result['data']
 #     return render(request, 'DiscusRoom.html', {'subjects': subjects})
 
-#新增房間
+# 新增房間
 @user_login_required
 def addroom(request):
     if request.method == 'GET':
@@ -104,8 +151,6 @@ def addroom(request):
     result = r.json()
     subjects = result['data']
     return render(request, 'DiscusRoom.html', {'subjects': subjects})
-
-
 
     if result['success'] is True:
         ret = redirect('/discusroom')
@@ -221,11 +266,6 @@ def WeekReport(request):
 
 
 @user_login_required
-def EditUserDetail(request):
-    return render(request, 'editUserDetail.html')
-
-
-@user_login_required
 # 測試的自習室內部
 def test(request):
     return render(request, 'test.html')
@@ -234,6 +274,7 @@ def test(request):
 # 測試用討論室內部
 def WebChatTest(request):
     return render(request, 'web_chat_test.html')
+
 
 def text(request):
     return render(request, 'text.html')
