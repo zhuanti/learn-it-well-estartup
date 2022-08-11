@@ -26,7 +26,7 @@ def inner(request):
 def forgetPwd(request):
     return render(request, 'forgetPwd.html')
 
-
+# 顯示個人資料
 @user_login_required
 def Udetail(request):
     user_id = request.COOKIES['user_id'],
@@ -40,7 +40,7 @@ def Udetail(request):
     user = result['data']
     return render(request, 'UserDetail.html', {'user': user})
 
-
+# 編輯個人資料(修改版)
 @user_login_required
 def EditUserDetail(request):
     if request.method == 'GET':
@@ -55,28 +55,82 @@ def EditUserDetail(request):
         user = result['data']
         return render(request, 'editUserDetail.html', {'user': user})
 
-    id = request.POST.get['user.id']
-    name = request.POST.get['user.name']
-    live = request.POST.get['user.live']
-    borth = request.POST.get['user.borth']
+    name = request.POST['name']
+    live = request.POST['live']
+    borth = request.POST['borth']
 
     data = {
-        'id': id,
+        'user_id': request.COOKIES['user_id'],
         'name': name,
         'live': live,
         'borth': borth
     }
-
-    user_id = request.COOKIES['user_id']
+    # user_id = request.COOKIES['user_id']
     r = requests.post(
         f'{root}user/detail/edit/',
-        params={'user_id': user_id},
-        cookies={'sessionid': request.COOKIES['sessionid']},
-        data=data
+        # params={'user_id': user_id},
+        data=data,
+        cookies={'sessionid': request.COOKIES['sessionid']}
     )
     result = r.json()
-    user = result['data']
-    return render(request, 'UserDetail.html', {'user': user})
+
+    # if result['success'] is True:
+    #     ret = redirect('/reviews/')
+    #     ret.set_cookie('sessionid', result['sessionid'])
+    #     # ret.set_cookie('sessionid', result['sessionid'], max_age=60 * 60) 登入時間
+    #     ret.set_cookie('user_id', user_id)
+    #     return ret
+    # else:
+    #     return redirect('/login/')
+
+    if result['success'] is True:
+        ret = redirect('/userdetail')
+        messages.success(request, '已修改資料成功')
+        return ret
+    else:
+        messages.error(request, '生日格式填寫錯誤，請重新修改')
+        return redirect('/dedituser-detail')
+        return ret
+
+
+    # return render(request, 'UserDetail.html', {'message': result['message']})
+
+# @user_login_required
+# def EditUserDetail(request):
+#     if request.method == 'GET':
+#         user_id = request.COOKIES['user_id']
+#         r = requests.get(
+#             f'{root}user/detail/',
+#             params={'user_id': user_id},
+#             # 'user_id': request.COOKIES['user_id'],
+#             cookies={'sessionid': request.COOKIES['sessionid']}
+#         )
+#         result = r.json()
+#         user = result['data']
+#         return render(request, 'editUserDetail.html', {'user': user})
+#
+#     id = request.POST.get['user.id']
+#     name = request.POST.get['user.name']
+#     live = request.POST.get['user.live']
+#     borth = request.POST.get['user.borth']
+#
+#     data = {
+#         'id': id,
+#         'name': name,
+#         'live': live,
+#         'borth': borth
+#     }
+#
+#     user_id = request.COOKIES['user_id']
+#     r = requests.post(
+#         f'{root}user/detail/edit/',
+#         params={'user_id': user_id},
+#         cookies={'sessionid': request.COOKIES['sessionid']},
+#         data=data
+#     )
+#     result = r.json()
+#     user = result['data']
+#     return render(request, 'UserDetail.html', {'user': user})
 
     # user_id = request.COOKIES['user_id'],
     # r = requests.get(
@@ -141,7 +195,7 @@ def addroom(request):
     total_people = request.POST['atotal_people']
 
     data = {
-        'no': 'no',
+        'no': no,
         'subject_no_id': subject_no_id,
         'name': name,
         'total_people': total_people,
