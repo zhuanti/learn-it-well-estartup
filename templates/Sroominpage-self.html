@@ -47,13 +47,13 @@
                         height="250" frameBorder="0" allowfullscreen=""
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
             </center>
-<!--            <div class="widget-footer hidden">-->
-<!--                <div>-->
-<!--                    <input name="media-widget-content-url-input" autocomplete="off" placeholder="在此輸入 YouTube、Spotify或Apple Music URL" data-for="media-widget-input-field" data-tip="Paste a link to YouTube video/playlist, or song, then press 'enter'" class="sc-djWRfJ gETCPN" currentitem="false">-->
-<!--                    <button></button>-->
-<!--                </div>-->
-<!--            </div>-->
-            <button id="close" class="dialoginsidebtn" >關閉</button>
+            <!--            <div class="widget-footer hidden">-->
+            <!--                <div>-->
+            <!--                    <input name="media-widget-content-url-input" autocomplete="off" placeholder="在此輸入 YouTube、Spotify或Apple Music URL" data-for="media-widget-input-field" data-tip="Paste a link to YouTube video/playlist, or song, then press 'enter'" class="sc-djWRfJ gETCPN" currentitem="false">-->
+            <!--                    <button></button>-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <button id="close" class="dialoginsidebtn">關閉</button>
         </dialog>
     </div>
     <div>
@@ -100,14 +100,14 @@
     <!--        </dialog>-->
     <!--    </div>-->
     <div>
-        <dialog id="timeDialog" class="timedialog">   <!--計時器-->
+        <progress id="js-progress" value="0"></progress>
+        <div class="progress-bar"></div>
+        <dialog id="timeDialog" class="timedialog" >   <!--計時器-->
             <br>
             <main class="app">
                 <!--佑慈提供可能js-->
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                 <script type="text/javascript" src="countdowntimer.js"></script>
-                <progress id="js-progress" value="0"></progress>
-                <div class="progress-bar"></div>
                 <div class="timer">
                     <div class="button-group mode-buttons" id="js-mode-buttons">
                         <div>
@@ -120,7 +120,7 @@
                             </button>
                         </div>
                     </div>
-                    <div  data-mode="pomodoro" class="clock" id="js-clock">
+                    <div data-mode="pomodoro" class="clock" id="js-clock">
                         <span id="js-minutes">25</span>
                         <span class="separator" style="font-size:65px; color:#fff">:</span>
                         <span id="js-seconds">00</span>
@@ -129,7 +129,7 @@
                         開始
                     </button>
                     <button class="main-button" data-action="over" id="js-overbtn"
-                            onclick="window.location.href='/studyroom-self/'"  title="倒數計時結束才能按下!" disabled>
+                            onclick="window.location.href='/studyroom-self/'" title="倒數計時結束才能按下!" disabled>
                         結束
                     </button>
                 </div>
@@ -138,7 +138,7 @@
             </main>
 
             <div class="hidden">
-                <audio src="/static/music/It's time for break..wav" data-sound="pomodoro"></audio>
+                <audio src="/static/music/softtimeout.wav" data-sound="pomodoro"></audio>
                 <!--                <audio src="/static/music/break.mp3" data-sound="shortBreak"></audio>-->
                 <!--                <audio src="/static/music/break.mp3" data-sound="longBreak"></audio>-->
             </div>
@@ -166,7 +166,6 @@
 
                     const modeButtons = document.querySelector('#js-mode-buttons');
                     modeButtons.addEventListener('click', handleMode);
-
 
                     function getRemainingTime(endTime) {
                       const currentTime = Date.parse(new Date());
@@ -202,16 +201,16 @@
                           clearInterval(interval);
 
                           switch (timer.mode) {
-<!--                            case 'pomodoro':-->
-<!--                              if (timer.sessions % timer.longBreakInterval === 0) {-->
-<!--                                switchMode('shortBreak');-->
-<!--                              } else {-->
+                            case 'pomodoro':
+                              if (timer.sessions % timer.longBreakInterval === 0) {
+                                switchMode('shortBreak');
+                              } else {
 <!--                                switchMode('overtime');-->
-<!--                                document.getElementById('js-overbtn').disabled = false;-->
-<!--                              }-->
-<!--                              break;-->
-<!--                            default:-->
-<!--                              switchMode('pomodoro');-->
+                                document.getElementById('js-overbtn').disabled = false;
+                              }
+                              break;
+                            default:
+                              switchMode('pomodoro');
                           }
                           if (Notification.permission === 'granted') {
                             const text =
@@ -312,6 +311,7 @@
                     });
                     }
 
+
             </script>
         </dialog>
     </div>
@@ -392,6 +392,7 @@
 
 
 
+
             </script>
         </div>
         <div class="btnI1">            <!-- 貼上圖示的程式碼 音樂-->
@@ -405,6 +406,7 @@
                 document.querySelector('#close').onclick = function() {
                     dialog.close();
                 };
+
 
 
 
@@ -438,6 +440,7 @@
                 function closeDialog2() {
                 z.close();
                 }
+
 
 
 
@@ -523,6 +526,7 @@
 
 
 
+
             </script>
 
 
@@ -565,6 +569,7 @@
 
     },1000
 );
+
 
 
 

@@ -94,14 +94,15 @@
     <!--        </dialog>-->
     <!--    </div>-->
     <div>
+        <progress id="js-progress" value="0"></progress>
+        <div class="progress-bar"></div>
         <dialog id="timeDialog" class="timedialog">   <!--計時器-->
             <br>
             <main class="app">
                 <!--佑慈提供可能js-->
                 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                 <script type="text/javascript" src="countdowntimer.js"></script>
-                <progress id="js-progress" value="0"></progress>
-                <div class="progress-bar"></div>
+
                 <div class="timer">
                     <div class="button-group mode-buttons" id="js-mode-buttons">
                         <div>
@@ -114,7 +115,7 @@
                             </button>
                         </div>
                     </div>
-                    <div  data-mode="pomodoro" class="clock" id="js-clock">
+                    <div data-mode="pomodoro" class="clock" id="js-clock">
                         <span id="js-minutes">25</span>
                         <span class="separator" style="font-size:65px; color:#fff">:</span>
                         <span id="js-seconds">00</span>
@@ -132,7 +133,7 @@
             </main>
 
             <div class="hidden">
-                <audio src="/static/music/It's time for break..wav" data-sound="pomodoro"></audio>
+                <audio src="/static/music/softtimeout.wav" data-sound="pomodoro"></audio>
                 <!--                <audio src="/static/music/break.mp3" data-sound="shortBreak"></audio>-->
                 <!--                <audio src="/static/music/break.mp3" data-sound="longBreak"></audio>-->
             </div>
@@ -305,6 +306,7 @@
                     });
                     }
 
+
             </script>
         </dialog>
     </div>
@@ -385,6 +387,7 @@
 
 
 
+
             </script>
         </div>
         <div class="btnI1">            <!-- 貼上圖示的程式碼 音樂-->
@@ -398,6 +401,7 @@
                 document.querySelector('#close').onclick = function() {
                     dialog.close();
                 };
+
 
 
 
@@ -431,6 +435,7 @@
                 function closeDialog2() {
                 z.close();
                 }
+
 
 
 
@@ -516,6 +521,7 @@
 
 
 
+
             </script>
 
 
@@ -558,6 +564,7 @@
 
     },1000
 );
+
 
 
 
