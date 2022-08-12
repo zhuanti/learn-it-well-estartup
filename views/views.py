@@ -284,7 +284,7 @@ def Splan(request):
 def SroomSelf(request):
     return render(request, 'Sroom-self.html')
 
-
+#自習室列表
 @user_login_required
 def Sroomtogether(request):
     r = requests.get(
@@ -295,6 +295,21 @@ def Sroomtogether(request):
     studyrooms = result['data']
     return render(request, 'Sroom-together.html', {'studyrooms': studyrooms})
     # return render(request, 'Sroom-together.html')
+
+#自習室查詢
+@user_login_required
+def Sserch(request):
+    no = request.GET.get('no')
+    name = request.GET.get('name')
+    r = requests.get(
+        f'{root}/get_critic_reviews/',
+        params={'no': no,'name':name},
+        cookies={'sessionid': request.COOKIES['sessionid']}
+    )
+
+    data = r.json()
+    studyrooms = data['data']
+    return render(request, 'Sroom-together.html', {'studyrooms': studyrooms})
 
 
 # def register(request):

@@ -38,6 +38,7 @@ urlpatterns = [
     path('studyplan/', views.Splan),
     path('studyroom-self/', views.SroomSelf),
     path('studyroom-together/', views.Sroomtogether),
+    # path('studyroom-together/', views.Sserch),
     # path('register/', views.register),
     # path('developers/', views.beforelogin_developer), # 登入前開發人員頁面
     path('developer/', views.developer),
