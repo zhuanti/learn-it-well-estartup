@@ -62,40 +62,53 @@ def logout(request):
 def register(request):
     if request.method == 'GET':
         return render(request, 'register.html')
+    if request.POST['pass'] == request.POST['re_pass']:
+        id = request.POST['email']
+        name = request.POST['name']
+        pwd = request.POST['pass']
+        borth = request.POST.get('bir', False)
+        gender = request.POST.get('gender', False)
+        live = request.POST.get('live', False)
 
-    id = request.POST['email']
-    name = request.POST['name']
-    pwd = request.POST['pass']
-    borth = request.POST.get('bir', False)
-    gender = request.POST.get('gender', False)
-    live = request.POST.get('live', False)
+        data = {
+            'id': id,
+            'name': name,
+            'pwd': pwd,
+            'borth': borth,
+            'gender': gender,
+            'live': live,
+            'purview': 0,
+        }
 
-    data = {
-        'id': id,
-        'name': name,
-        'pwd': pwd,
-        'borth': borth,
-        'gender': gender,
-        'live': live,
-        'purview': 0,
-    }
+        r = requests.post(
+            f'{root}/register/',
+            data=data,
+        )
 
-    r = requests.post(
-        f'{root}/register/',
-        data=data,
-    )
+        result = r.json()
 
-    result = r.json()
+        if result['success'] is True:
+            ret = redirect('/login')
+            messages.success(request, '已註冊成功')
+            return ret
+        else:
+            messages.error(request, '信箱已被註冊或是註冊時欄位格式填寫錯誤，請重新註冊')
+            return redirect('/register')
+            return ret
 
-    # ret = redirect('/login')
-    # messages.success(request, '已註冊成功')
-    # return ret
-
-    if result['success'] is True:
-        ret = redirect('/login')
-        messages.success(request, '已註冊成功')
-        return ret
+        # ret = redirect('/login')
+        # messages.success(request, '已註冊成功')
+        # return ret
     else:
-        messages.error(request, '信箱已被註冊或是註冊時欄位格式填寫錯誤，請重新註冊')
+        messages.error(request, '兩次所輸入密碼不同，請重新輸入')
         return redirect('/register')
         return ret
+
+    #if result['success'] is True:
+    #    ret = redirect('/login')
+    #    messages.success(request, '已註冊成功')
+    #    return ret
+    #else:
+    #    messages.error(request, '信箱已被註冊或是註冊時欄位格式填寫錯誤，請重新註冊')
+    #    return redirect('/register')
+    #    return ret
