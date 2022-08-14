@@ -15,49 +15,66 @@ Including another URLconf
 """
 from django.urls import path
 
-from views import views, auth_views
+from views import views, auth_views, discusroom_review_views, plan_review_views, report_review_views
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
     path('', views.index),
-    # path('front/', views.beforelogin_index), # 登入前的首頁畫面
+
+    # auth
     path('login/', auth_views.login),
     path('logout/', auth_views.logout),
     path('register/', auth_views.register),
-
-    path('inner/', views.inner),
     # path('forgetPwd/', views.forgetPwd),
-    path('userdetail/', views.Udetail),
-    path('studyroom/', views.sroom),
-    # path('discusroom/', views.addroom),
-    path('discusroom/', views.droom),
-    # path('discusroom/#letmeopen/', views.addroom),
-    # path('discusroom/addroom_subject/', views.addroom_subject),
+    # path('register/', views.register),
+    path('ForgetPwd/', auth_views.ForgetPwd),
+    path('ForgetPwdReset/', auth_views.ForgetPwdReset),
+
+    # discusroom
+    # path('discusroom/', discusroom_review_views.addroom),
+    path('discusroom/', discusroom_review_views.droom),
+    # path('discusroom/#letmeopen/', discusroom_review_views.addroom),
+    # path('discusroom/addroom_subject/', discusroom_review_views.addroom_subject),
+    path('inpage/', discusroom_review_views.inpage),
+    path('inpage/#letmeopen', discusroom_review_views.qus),
+
+    # plan
+    path('studyplan/', plan_review_views.Splan),
+
+    # report
+    path('report/', report_review_views.report),
+    path('day-report/', report_review_views.DayReport),
+    path('week-report/', report_review_views.WeekReport),
+
+    # success
     path('achievement/', views.achievement),
-    path('report/', views.report),
-    path('studyplan/', views.Splan),
+
+
+    # user
+    path('userdetail/', views.Udetail),
+    path('edituser-detail/', views.EditUserDetail),
+
+    # views (other)
+    # studyroom
+    path('studyroom/', views.sroom),
     path('studyroom-self/', views.SroomSelf),
     path('studyroom-together/', views.Sroomtogether),
     # path('studyroom-together/', views.Sserch),
-    # path('register/', views.register),
-    # path('developers/', views.beforelogin_developer), # 登入前開發人員頁面
-    path('developer/', views.developer),
-    path('inpage/', views.inpage),
-    path('inpage/#letmeopen', views.qus),
     path('Sroominpage/', views.Sroominpage),
     path('Sroominpage-self/', views.Sroominpageself),
-    path('day-report/', views.DayReport),
-    path('week-report/', views.WeekReport),
-    path('edituser-detail/', views.EditUserDetail),
-    path('PrivacyPolicies/', views.PrivacyPolicies),
-    path('ForgetPwd/', views.ForgetPwd),
-    path('ForgetPwdReset/', views.ForgetPwdReset),
 
+    path('developer/', views.developer),
+    path('PrivacyPolicies/', views.PrivacyPolicies),
+
+
+    # 各類測試用
     # 測試的自習室內部
     path('test-study/', views.test),
 
     # 測試用討論室內部
     path('web-chat-test/', views.WebChatTest),
 
-    path('text/',views.text),
+    path('text/', views.text),
+
+    # path('inner/', views.inner),
 ]

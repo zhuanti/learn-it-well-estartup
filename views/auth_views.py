@@ -96,19 +96,33 @@ def register(request):
             return redirect('/register')
             return ret
 
-        # ret = redirect('/login')
-        # messages.success(request, '已註冊成功')
-        # return ret
     else:
         messages.error(request, '兩次所輸入密碼不同，請重新輸入')
         return redirect('/register')
         return ret
 
-    #if result['success'] is True:
-    #    ret = redirect('/login')
-    #    messages.success(request, '已註冊成功')
-    #    return ret
-    #else:
-    #    messages.error(request, '信箱已被註冊或是註冊時欄位格式填寫錯誤，請重新註冊')
-    #    return redirect('/register')
-    #    return ret
+def ForgetPwd(request):
+    if request.method == 'GET':
+        return render(request, 'ForgetPwd.html')
+
+    user_id = request.POST['user_id']
+
+    r = requests.get(
+        f'{root}/forget/{user_id}',
+    )
+
+    result = r.json()
+    # studyrooms = result['data']
+
+    if result['success'] is True:
+        ret = redirect('/ForgetPwd/')
+        messages.success(request, '請去郵箱驗證，並重設密碼')
+        return ret
+    else:
+        messages.error(request, '查無此帳號')
+        return redirect('/ForgetPwd/')
+        return ret
+
+def ForgetPwdReset(request):
+    return render(request, 'ForgetPwdReset.html')
+
