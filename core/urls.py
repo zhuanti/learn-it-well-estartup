@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.urls import path
 
-from views import views, auth_views, discusroom_review_views, plan_review_views, report_review_views, success_review_views
+from views import views, auth_views, discusroom_review_views, \
+                  plan_review_views, report_review_views, success_review_views,\
+                  user_review_views
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
@@ -49,10 +51,9 @@ urlpatterns = [
     # success
     path('achievement/', success_review_views.achievement),
 
-
     # user
-    path('userdetail/', views.Udetail),
-    path('edituser-detail/', views.EditUserDetail),
+    path('userdetail/', user_review_views.Udetail),
+    path('edituser-detail/', user_review_views.EditUserDetail),
 
     # views (other)
     # studyroom
@@ -65,25 +66,28 @@ urlpatterns = [
 
     path('developer/', views.developer),
     path('PrivacyPolicies/', views.PrivacyPolicies),
-    path('award/', views.award),
+
+
 
 
     # 各類測試用
-    path('day-report/', report_review_views.DayReport),
-    path('week-report/', report_review_views.WeekReport),
-    path('edituser-detail/', views.EditUserDetail),
-    path('PrivacyPolicies/', views.PrivacyPolicies),
-    path('ForgetPwd/', auth_views.ForgetPwd),
-    path('ForgetPwdReset/', auth_views.ForgetPwdReset),
-    path('award/', views.award),
-
     # 測試的自習室內部
     path('test-study/', views.test),
 
-    # 測試用討論室內部
-    path('web-chat-test/', views.WebChatTest),
+    # 測試的獎勵頁面
+    path('award/', views.award),
 
     path('text/', views.text),
+
+    # path('day-report/', report_review_views.DayReport),
+    # path('week-report/', report_review_views.WeekReport),
+
+    # path('edituser-detail/', user_review_views.EditUserDetail),
+
+    # path('PrivacyPolicies/', views.PrivacyPolicies),
+
+    # path('ForgetPwd/', auth_views.ForgetPwd),
+    # path('ForgetPwdReset/', auth_views.ForgetPwdReset),
 
     # path('inner/', views.inner),
 ]
