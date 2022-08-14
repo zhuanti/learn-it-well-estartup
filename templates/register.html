@@ -91,6 +91,12 @@
                 <div class="signup-content">
                     <div class="signup-form">
                         <h2 class="form-title">註冊</h2>
+                        {% for message in messages %}
+                        <div class="alert alert-success">
+                            <a class="close" href="#" data-dismiss="alert"></a>
+                            {{ message }}
+                        </div>
+                        {% endfor %}
                         <!--<h2 class="form-title">Sign up</h2>-->
                         <form method="POST" class="register-form" id="register-form">
                             {% csrf_token %}
