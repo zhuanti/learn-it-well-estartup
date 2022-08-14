@@ -4,7 +4,8 @@
   "description": "A pomodoro timer application built with JavaScript",
   "main": "main.js",
   "scripts": {
-    "start": "npx browser-sync start -sw"
+    "start": "node index.js",
+    "test": "jest --coverage --forceExit"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,8 @@
   },
   "homepage": "https://github.com/Freshman-tech/pomodoro#readme",
   "dependencies": {
-    "browser-sync": "^2.26.12"
-  }
+    "browser-sync": "^2.26.12",
+    "server": "^1.0.37"
+  },
+  "devDependencies": {}
 }

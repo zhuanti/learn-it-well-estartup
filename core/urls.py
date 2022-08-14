@@ -82,7 +82,7 @@ urlpatterns = [
     path('test-study/', views.test),
 
     # 測試用討論室內部
-    path('web-chat-test/', views.WebChatTest),
+    # path('web-chat-test/', discusroom_review_views.WebChatTest),
 
     path('text/', views.text),
 

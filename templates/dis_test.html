@@ -5,8 +5,9 @@
     <title>First website</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-    /* ./public/style.css */
+<!--    <link rel="stylesheet" href="style.css">-->
+    <style>
+        /* ./public/style.css */
     * {
     box-sizing: border-box;
     transition: all .3s ease;
@@ -40,7 +41,7 @@
     .chat {
     content: '';
     width: 100%;
-    height: calc(100vh - 165px);
+    height: calc(100 - 165px);
     background: white;
     padding: 5px 10px;
     }
@@ -75,9 +76,11 @@
     width: 150px;
     }
     }
+
+    </style>
+
 </head>
 <body>
-
 <main>
     <header>
         <div class="user-count">0</div>
@@ -94,83 +97,13 @@
         <button>Send</button>
     </form>
 </main>
-<script>
-// ./public/javascript.js
+<script src="/static/js/java.js"></script>
+<!--<script src="/static/js/index.js"></script>-->
 
-// Get the current username from the cookies
-var user = cookie.get('user');
-if (!user) {
-
-  // Ask for the username if there is none set already
-  user = prompt('Choose a username:');
-  if (!user) {
-    alert('We cannot work with you like that!');
-  } else {
-    // Store it in the cookies for future use
-    cookie.set('user', user);
-  }
-}
-
-var socket = io();
-
-// The user count. Can change when someone joins/leaves
-socket.on('count', function (data) {
-  $('.user-count').html(data);
-});
-
-// When we receive a message
-// it will be like { user: 'username', message: 'text' }
-socket.on('message', function (data) {
-  $('.chat').append('<p><strong>' + data.user + '</strong>: ' + data.message + '</p>');
-});
-
-// When the form is submitted
-$('form').submit(function (e) {
-  // Avoid submitting it through HTTP
-  e.preventDefault();
-
-  // Retrieve the message from the user
-  var message = $(e.target).find('input').val();
-
-  // Send the message to the server
-  socket.emit('message', {
-    user: cookie.get('user') || 'Anonymous',
-    message: message
-  });
-
-  // Clear the input and focus it for a new message
-  e.target.reset();
-  $(e.target).find('input').focus();
-});
-
-// /index.js
-
-const server = require('server');
-const { get, socket } = server.router;
-const { render } = server.reply;
-
-// Update everyone with the current user count
-const updateCounter = ctx => {
-  ctx.io.emit('count', Object.keys(ctx.io.sockets.sockets).length);
-};
-
-// Send the new message to everyone
-const sendMessage = ctx => {
-  ctx.io.emit('message', ctx.data);
-};
-
-server([
-  get('/', ctx => render('index.html')),
-  socket('connect', updateCounter),
-  socket('disconnect', updateCounter),
-  socket('message', sendMessage)
-]);
-
-</script>
 <!-- Include jquery, cookies, socket.io (client-side) and your own code -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
 <script src="https://unpkg.com/cookie_js@1.2.2/cookie.min.js"></script>
 <script src="https://unpkg.com/socket.io-client@2/dist/socket.io.slim.js"></script>
-<script src="javascript.js"></script>
+<!--<script src="java.js"></script>-->
 </body>
 </html>

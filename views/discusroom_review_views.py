@@ -62,3 +62,25 @@ def qus(request):
     result = r.json()
     discussroom_questions = result['data']
     return render(request, 'inpage.html', {'discussroom_questions': discussroom_questions})
+
+# 測試用討論室內部
+@user_login_required
+def WebChatTest(request):
+
+    r = requests.get(
+        f'{root}discusroom/getuser/',
+        cookies={'sessionid': request.COOKIES['sessionid']}
+    )
+
+    result = r.json()
+    if result['success'] is True:
+        ret = redirect('/dis_test')
+        # messages.success(request, '已新增房間成功')
+        return ret
+    else:
+        messages.error(request, '查無此人')
+        return redirect('/dis_test')
+        return ret
+    users = result['data']
+    return render(request, 'dis_test.html', {'users': users})
+    # return render(request, 'dis_test.html')
