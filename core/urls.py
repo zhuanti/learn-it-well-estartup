@@ -65,9 +65,18 @@ urlpatterns = [
 
     path('developer/', views.developer),
     path('PrivacyPolicies/', views.PrivacyPolicies),
+    path('award/', views.award),
 
 
     # 各類測試用
+    path('day-report/', views.DayReport),
+    path('week-report/', views.WeekReport),
+    path('edituser-detail/', views.EditUserDetail),
+    path('PrivacyPolicies/', views.PrivacyPolicies),
+    path('ForgetPwd/', views.ForgetPwd),
+    path('ForgetPwdReset/', views.ForgetPwdReset),
+    path('award/', views.award),
+
     # 測試的自習室內部
     path('test-study/', views.test),
 

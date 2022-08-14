@@ -319,3 +319,7 @@ def WebChatTest(request):
 
 def text(request):
     return render(request, 'text.html')
+
+
+def award(request):
+    return render(request, 'award.html')
