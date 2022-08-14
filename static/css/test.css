@@ -335,6 +335,7 @@ progress {
   border-radius: 0.2px;
   width: 100%;
   height: 10px;
+  left: 0%;
   position: fixed;
   top: 0;
 }
