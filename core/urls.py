@@ -52,7 +52,7 @@ urlpatterns = [
     path('PrivacyPolicies/', views.PrivacyPolicies),
     path('ForgetPwd/', views.ForgetPwd),
     path('ForgetPwdReset/', views.ForgetPwdReset),
-
+    path('award/', views.award),
     # 測試的自習室內部
     path('test-study/', views.test),
 

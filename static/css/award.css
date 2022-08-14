@@ -1,0 +1,68 @@
+#radius{
+	width: 460px;
+	height: 550px;
+	/*height: 318px;*/
+	background:  rgb(114, 197, 93);
+	border-radius: 10px;
+    position: fixed;
+    top: 20%;
+    left:545px;
+    transform: translate(0, -5%);
+}
+
+#apart{
+	width: 150px;
+	height: 200px;
+	/*height: 318px;*/
+	background:  rgb(255, 255, 255);
+	border-radius: 10px;
+    position: fixed;
+    top: 10%;
+    left:50px;
+    transform: translate(0, -5%);
+}
+#apart_2{
+	width: 150px;
+	height: 200px;
+	/*height: 318px;*/
+	background:  rgb(255, 255, 255);
+	border-radius: 10px;
+    position: fixed;
+    top: 10%;
+    left:250px;
+    transform: translate(0, -5%);
+}
+#apart_3{
+	width: 150px;
+	height: 200px;
+	/*height: 318px;*/
+	background:  rgb(255, 255, 255);
+	border-radius: 10px;
+    position: fixed;
+    top: 55%;
+    left:50px;
+    transform: translate(0, -5%);
+}
+#apart_4{
+	width: 150px;
+	height: 200px;
+	/*height: 318px;*/
+	background:  rgb(255, 255, 255);
+	border-radius: 10px;
+    position: fixed;
+    top: 55%;
+    left:250px;
+    transform: translate(0, -5%);
+}
+
+#img{
+    width: 100px;
+    position: fixed;
+    border-radius: 10px;
+    top: 10%;
+    left:25px;
+}
+
+#text{
+    justify-content: center;
+}
