@@ -181,23 +181,10 @@ def Sroominpage(request):
 def Sroominpageself(request):
     return render(request, 'Sroominpage-self.html')
 
-
-
-
-
-
-
-
-
 # 測試的自習室內部
 @user_login_required
 def test(request):
     return render(request, 'test.html')
-
-
-# 測試用討論室內部
-def WebChatTest(request):
-    return render(request, 'dis_test.html')
 
 
 def text(request):

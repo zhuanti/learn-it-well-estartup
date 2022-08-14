@@ -62,3 +62,7 @@ def qus(request):
     result = r.json()
     discussroom_questions = result['data']
     return render(request, 'inpage.html', {'discussroom_questions': discussroom_questions})
+
+# 測試用討論室內部
+def WebChatTest(request):
+    return render(request, 'dis_test.html')
