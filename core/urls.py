@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.urls import path
 
-from views import views, auth_views, discusroom_review_views, plan_review_views, report_review_views,success_review_views
+from views import views, auth_views, discusroom_review_views, plan_review_views, report_review_views, success_review_views
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
@@ -70,12 +70,12 @@ urlpatterns = [
 
 
     # 各類測試用
-    path('day-report/', views.DayReport),
-    path('week-report/', views.WeekReport),
+    path('day-report/', report_review_views.DayReport),
+    path('week-report/', report_review_views.WeekReport),
     path('edituser-detail/', views.EditUserDetail),
     path('PrivacyPolicies/', views.PrivacyPolicies),
-    path('ForgetPwd/', views.ForgetPwd),
-    path('ForgetPwdReset/', views.ForgetPwdReset),
+    path('ForgetPwd/', auth_views.ForgetPwd),
+    path('ForgetPwdReset/', auth_views.ForgetPwdReset),
     path('award/', views.award),
 
     # 測試的自習室內部
