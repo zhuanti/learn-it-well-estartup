@@ -14,9 +14,9 @@ def index(request):
     return render(request, 'index.html')
 
 
-@user_login_required
-def inner(request):
-    return render(request, 'inner-page.html')
+# @user_login_required
+# def inner(request):
+#     return render(request, 'inner-page.html')
 
 
 # def login(request):
@@ -147,17 +147,6 @@ def EditUserDetail(request):
 def sroom(request):
     return render(request, 'StudyRoom.html')
 
-# 問題列表
-@user_login_required
-def qus(request):
-    r = requests.get(
-        f'{root}discusroom/qus/',
-        cookies={'sessionid': request.COOKIES['sessionid']}
-    )
-    result = r.json()
-    discussroom_questions = result['data']
-    return render(request, 'inpage.html', {'discussroom_questions': discussroom_questions})
-
 
 # 新增房間-科目
 # @user_login_required
@@ -170,52 +159,7 @@ def qus(request):
 #     subjects = result['data']
 #     return render(request, 'DiscusRoom.html', {'subjects': subjects})
 
-@user_login_required
-def droom(request):
 
-    if request.method == 'POST':
-        no = request.POST['ano']
-        subject_no_id = request.POST['asubject_no']
-        name = request.POST['aname']
-        total_people = request.POST['atotal_people']
-
-        data = {
-            'no': no,
-            'subject_no_id': subject_no_id,
-            'name': name,
-            'total_people': total_people,
-        }
-
-        r = requests.post(
-            f'{root}discusroom/addroom/',
-            data=data,
-            cookies={'sessionid': request.COOKIES['sessionid']}
-        )
-        result = r.json()
-        # subjects = result['data']
-        # return render(request, 'DiscusRoom.html', {'subjects': subjects})
-
-        if result['success'] is True:
-            ret = redirect('/discusroom')
-            messages.success(request, '已新增房間成功')
-            return ret
-        else:
-            messages.error(request, '新增房間失敗')
-            return redirect('/discusroom')
-            return ret
-
-    if request.method == 'GET':
-        r = requests.get(
-            f'{root}discusroom/all/',
-            cookies={'sessionid': request.COOKIES['sessionid']}
-        )
-        result = r.json()
-        discussrooms = result['data']
-        return render(request, 'DiscusRoom.html', {'discussrooms': discussrooms})
-
-    # ret = redirect('/discusroom/#letmeopen')
-    # messages.success(request, '已新增房間成功')
-    # return ret
 
 
 # 新增房間
@@ -265,19 +209,7 @@ def droom(request):
 #         return ret
 
 
-@user_login_required
-def achievement(request):
-    return render(request, 'achievement.html')  # 完成
 
-
-@user_login_required
-def report(request):
-    return render(request, 'report.html')  # 完成
-
-
-@user_login_required
-def Splan(request):
-    return render(request, 'StudyPlan.html')
 
 
 @user_login_required
@@ -318,31 +250,31 @@ def Sserch(request):
 # def ForgetPwd(request):
 #     return render(request, 'ForgetPwd.html')
 
-def ForgetPwd(request):
-    if request.method == 'GET':
-        return render(request, 'ForgetPwd.html')
+# def ForgetPwd(request):
+#     if request.method == 'GET':
+#         return render(request, 'ForgetPwd.html')
+#
+#     user_id = request.POST['user_id']
+#
+#     r = requests.get(
+#         f'{root}auth/forget/{user_id}',
+#     )
+#
+#     result = r.json()
+#     # studyrooms = result['data']
+#
+#     if result['success'] is True:
+#         ret = redirect('/ForgetPwd/')
+#         messages.success(request, '請去郵箱驗證，並重設密碼')
+#         return ret
+#     else:
+#         messages.error(request, '查無此帳號')
+#         return redirect('/ForgetPwd/')
+#         return ret
 
-    user_id = request.POST['user_id']
 
-    r = requests.get(
-        f'{root}auth/forget/{user_id}',
-    )
-
-    result = r.json()
-    # studyrooms = result['data']
-
-    if result['success'] is True:
-        ret = redirect('/ForgetPwd/')
-        messages.success(request, '請去郵箱驗證，並重設密碼')
-        return ret
-    else:
-        messages.error(request, '查無此帳號')
-        return redirect('/ForgetPwd/')
-        return ret
-
-
-def ForgetPwdReset(request):
-    return render(request, 'ForgetPwdReset.html')
+# def ForgetPwdReset(request):
+#     return render(request, 'ForgetPwdReset.html')
 
 
 def PrivacyPolicies(request):
@@ -357,12 +289,6 @@ def PrivacyPolicies(request):
 def developer(request):
     return render(request, 'developer.html')
 
-
-@user_login_required
-def inpage(request):
-    return render(request, 'inpage.html')
-
-
 @user_login_required
 def Sroominpage(request):
     return render(request, 'Sroominpage.html')
@@ -373,18 +299,15 @@ def Sroominpageself(request):
     return render(request, 'Sroominpage-self.html')
 
 
-@user_login_required
-def DayReport(request):
-    return render(request, 'day-report.html')
 
 
-@user_login_required
-def WeekReport(request):
-    return render(request, 'week-report.html')
 
 
-@user_login_required
+
+
+
 # 測試的自習室內部
+@user_login_required
 def test(request):
     return render(request, 'test.html')
 
