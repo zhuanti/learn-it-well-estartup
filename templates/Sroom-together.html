@@ -75,6 +75,7 @@
 
 
 
+
     </style>
 </head>
 
@@ -233,15 +234,43 @@
                                                     <div class="form">
                                                         <form action="/forms/contact.php" method="post" role="form"
                                                               class="php-email-form">
+                                                            {% csrf_token %}
                                                             <div class="form-group">
-                                                                <input type="text" name="name" class="form-control"
-                                                                       id="name" placeholder="請輸入科目"
-                                                                       required>
+                                                                <select class="form-control" name="subject_no_id"
+                                                                        id="subject_no_id"
+                                                                        value={{ report.subject_no_id }}>
+                                                                    <option value="">請選擇要讀的科目</option>
+                                                                    <option value="1">國文</option>
+                                                                    <option value="2">英文</option>
+                                                                    <option value="3">數學</option>
+                                                                    <option value="4">社會</option>
+                                                                    <option value="5">地理</option>
+                                                                    <option value="6">歷史</option>
+                                                                    <option value="7">公民</option>
+                                                                    <!--                                    <option value="8">自然與生活科技</option>-->
+                                                                    <option value="9">生物</option>
+                                                                    <option value="10">理化</option>
+                                                                    <option value="11">物理</option>
+                                                                    <option value="11">地球科學</option>
+                                                                    <!--                                    <option value="12">化學</option>-->
+                                                                    <!--                                    <option value="13">健康教育</option>-->
+                                                                    <!--                                    <option value="14">輔導</option>-->
+                                                                    <!--                                    <option value="15">國防通識</option>-->
+                                                                    <!--                                    <option value="16">童軍</option>-->
+                                                                    <!--                                    <option value="17">家政</option>-->
+                                                                    <!--                                    <option value="18">美術</option>-->
+                                                                </select>
+                                                            </div>
+                                                            <br><br>
+                                                            <div class="form-group">
+                                                                <input type="text" name="subject_detail" class="form-control"
+                                                                       id="subject_detail" placeholder="請輸入科目詳細資料"
+                                                                       required value={{ report.subject_detail }}>
                                                             </div>
                                                             <br><br>
                                                             <div class="form-group">
                                                                 <select name="set_time" id="set_time"
-                                                                        class="form-control">
+                                                                        class="form-control"  value={{ report.set_time }}>
                                                                     <option value="">請選擇預計讀書時長</option>
                                                                     <option value="5">5分鐘</option>
                                                                     <option value="10">10分鐘</option>
@@ -366,6 +395,7 @@
 
 
 
+
                                         </style>
                                     </dialog>
                                 </div>
@@ -379,6 +409,7 @@
                                                         function closeDialog() {
                                                         y.close();
                                                         }
+
 
 
 
