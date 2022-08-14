@@ -173,9 +173,25 @@ def developer(request):
     return render(request, 'developer.html')
 
 @user_login_required
-def Sroominpage(request):
-    return render(request, 'Sroominpage.html')
+def Sroominpage(request, pk):
+    r = requests.get(
+        f'{root}studyroom/get/{pk}',
+        cookies={'sessionid': request.COOKIES['sessionid']}
+    )
+    result = r.json()
+    if result['success'] is True:
+        studyroom = result['data']
+        return render(request, 'Sroominpage.html', {'studyroom': studyroom})
+    else:
+        messages.error(request, '查無此房間')
+        return redirect('/studyroom-together/')
+        return ret
+        #
+        # message = result['message']
+        # return render(request, 'Sroom-together.html', {'message': message})
 
+
+    # return render(request, 'Sroominpage.html')
 
 @user_login_required
 def Sroominpageself(request):

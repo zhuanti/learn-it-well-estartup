@@ -63,7 +63,8 @@ urlpatterns = [
     path('studyroom-self/', views.SroomSelf),
     path('studyroom-together/', views.Sroomtogether),
     # path('studyroom-together/', views.Sserch),
-    path('Sroominpage/', views.Sroominpage),
+    # path('Sroominpage/', views.Sroominpage),
+    path('Sroominpage/<int:pk>/', views.Sroominpage),
     path('Sroominpage-self/', views.Sroominpageself),
 
     path('developer/', views.developer),

@@ -60,11 +60,13 @@ def inpage(request, pk):
         discussroom = result['data']
         return render(request, 'inpage.html', {'discussroom': discussroom})
     else:
-        message = result['message']
-        return render(request, 'result.html', {'message': message})
+        messages.error(request, '查無此房間')
+        return redirect('/discusroom/')
+        return ret
 
+        # message = result['message']
+        # return render(request, 'inpage.html', {'message': message})
 
-    return render(request, 'inpage.html')
 
 # 問題列表
 @user_login_required

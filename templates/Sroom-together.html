@@ -151,8 +151,13 @@
                         </form>
                     </div>
                     <!-- Grid column -->
+                    {% for message in messages %}
+                        <div class="alert alert-success">
+                            <a class="close" href="#" data-dismiss="alert"></a>
+                            {{ message }}
+                        </div>
+                    {% endfor %}
                 </div>
-                <br>
                 <!-- Grid row -->
                 <!--Table-->
                 <div class="vertical-menu">
@@ -174,8 +179,8 @@
                         {% for studyroom in studyrooms %}
                         <tr>
                             <td>
-                                <a href="/reviews/{{studyroom.no}}/">{{studyroom.no}}</a>
-
+<!--                                <a href="/reviews/{{studyroom.no}}/">{{studyroom.no}}</a>-->
+                                    {{studyroom.no}}
                             </td>
                             <!--                                <td>-->
                             <!--                                    {{discussroom.schoolsys_no}}-->
@@ -264,7 +269,7 @@
                                         </center>
                                         <button onclick="closeDialog()" class="dialoginsidebtn">關閉</button>
                                         <button class="dialoginsideaddbtn"
-                                                onclick="window.location.href='/Sroominpage/'">
+                                                onclick="window.location.href='/Sroominpage/{{studyroom.no}}/'">
                                             加入
                                         </button>
                                         <style>
