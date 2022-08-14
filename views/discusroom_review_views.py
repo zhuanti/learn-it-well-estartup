@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from core.settings import API_URL as root
 from utils.decorators import user_login_required
 
+root+='discusroom'
 
 @user_login_required
 def droom(request):
@@ -22,7 +23,7 @@ def droom(request):
         }
 
         r = requests.post(
-            f'{root}discusroom/addroom/',
+            f'{root}/addroom/',
             data=data,
             cookies={'sessionid': request.COOKIES['sessionid']}
         )
@@ -41,7 +42,7 @@ def droom(request):
 
     if request.method == 'GET':
         r = requests.get(
-            f'{root}discusroom/all/',
+            f'{root}/all/',
             cookies={'sessionid': request.COOKIES['sessionid']}
         )
         result = r.json()
@@ -49,8 +50,23 @@ def droom(request):
         return render(request, 'DiscusRoom.html', {'discussrooms': discussrooms})
 
 @user_login_required
-def inpage(request):
-    return render(request, 'inpage.html')
+def inpage(request, pk):
+    r = requests.get(
+        f'{root}/get/{pk}',
+        cookies={'sessionid': request.COOKIES['sessionid']}
+    )
+    result = r.json()
+    if result['success'] is True:
+        discussroom = result['data']
+        return render(request, 'inpage.html', {'discussroom': discussroom})
+    else:
+        messages.error(request, '查無此房間')
+        return redirect('/discusroom/')
+        return ret
+
+        # message = result['message']
+        # return render(request, 'inpage.html', {'message': message})
+
 
 # 問題列表
 @user_login_required

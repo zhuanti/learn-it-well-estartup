@@ -15,7 +15,9 @@ Including another URLconf
 """
 from django.urls import path
 
-from views import views, auth_views, discusroom_review_views, plan_review_views, report_review_views, success_review_views
+from views import views, auth_views, discusroom_review_views, \
+                  plan_review_views, report_review_views, success_review_views,\
+                  user_review_views
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
@@ -35,9 +37,10 @@ urlpatterns = [
     path('discusroom/', discusroom_review_views.droom),
     # path('discusroom/#letmeopen/', discusroom_review_views.addroom),
     # path('discusroom/addroom_subject/', discusroom_review_views.addroom_subject),
-    path('inpage/', discusroom_review_views.inpage),
+    # path('inpage/', discusroom_review_views.inpage),
+    path('inpage/<int:pk>/', discusroom_review_views.inpage),
     path('inpage/#letmeopen', discusroom_review_views.qus),
-    path('dis_test/',discusroom_review_views.WebChatTest),
+    path('dis_test/', discusroom_review_views.WebChatTest),
 
     # plan
     path('studyplan/', plan_review_views.Splan),
@@ -50,10 +53,9 @@ urlpatterns = [
     # success
     path('achievement/', success_review_views.achievement),
 
-
     # user
-    path('userdetail/', views.Udetail),
-    path('edituser-detail/', views.EditUserDetail),
+    path('userdetail/', user_review_views.Udetail),
+    path('edituser-detail/', user_review_views.EditUserDetail),
 
     # views (other)
     # studyroom
@@ -61,30 +63,36 @@ urlpatterns = [
     path('studyroom-self/', views.SroomSelf),
     path('studyroom-together/', views.Sroomtogether),
     # path('studyroom-together/', views.Sserch),
-    path('Sroominpage/', views.Sroominpage),
+    # path('Sroominpage/', views.Sroominpage),
+    path('Sroominpage/<int:pk>/', views.Sroominpage),
     path('Sroominpage-self/', views.Sroominpageself),
 
     path('developer/', views.developer),
     path('PrivacyPolicies/', views.PrivacyPolicies),
-    path('award/', views.award),
+
+
 
 
     # 各類測試用
-    path('day-report/', report_review_views.DayReport),
-    path('week-report/', report_review_views.WeekReport),
-    path('edituser-detail/', views.EditUserDetail),
-    path('PrivacyPolicies/', views.PrivacyPolicies),
-    path('ForgetPwd/', auth_views.ForgetPwd),
-    path('ForgetPwdReset/', auth_views.ForgetPwdReset),
-    path('award/', views.award),
-
     # 測試的自習室內部
     path('test-study/', views.test),
 
+    # 測試的獎勵頁面
+    path('award/', views.award),
     # 測試用討論室內部
     # path('web-chat-test/', discusroom_review_views.WebChatTest),
 
     path('text/', views.text),
+
+    # path('day-report/', report_review_views.DayReport),
+    # path('week-report/', report_review_views.WeekReport),
+
+    # path('edituser-detail/', user_review_views.EditUserDetail),
+
+    # path('PrivacyPolicies/', views.PrivacyPolicies),
+
+    # path('ForgetPwd/', auth_views.ForgetPwd),
+    # path('ForgetPwdReset/', auth_views.ForgetPwdReset),
 
     # path('inner/', views.inner),
 ]
