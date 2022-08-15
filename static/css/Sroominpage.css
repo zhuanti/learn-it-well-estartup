@@ -64,7 +64,7 @@
 	background:  rgb(114, 197, 93);
 	border-radius: 10px;
     position: fixed;
-    top: 20%;
+    top: 40%;
     left:10px;
     transform: translate(0, -5%);
 }

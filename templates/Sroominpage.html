@@ -31,6 +31,9 @@
     <!--timer-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <!--收納名稱-->
+    <link rel="stylesheet" href=" https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0 /font/bootstrap-icons.css ">
 
 
 </head>
@@ -39,7 +42,102 @@
 
 <!-- HTML -->
 <div class="banner">
-    <center><h3>當前房間名稱：{{studyroom.name}}</h3></center>
+    <div class="sidebar-contact">
+        <div class="toggle"></div>
+        <center>
+            <b><font size="6">科目</font></b> <b>科目詳情</b><br>
+            <b>預計讀書時長:30分鐘</b><br>
+            <b><font size="4">當前房名：{{studyroom.name}}</font></b>
+           <div class="position-absolute bottom-0 end-0 "><i class="bi bi-info-circle"></i></div>
+        </center>
+        <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+        <script src="/static/js/studyroomtitle.js"></script>
+        <style>
+            .content {
+              padding: 50px 100px;
+            }
+            .content h2 {
+              margin:0 0 20px;
+              padding: 0;
+              font-size: 30px;
+            }
+            .content p {
+              font-size: 18px;
+            }
+            .sidebar-contact {
+              position: fixed;
+              top: 22%;
+              left: -350px;
+              transform: translateY(-50%);
+              width: 350px;
+              height: auto;
+              padding: 40px;
+              background: #fff;
+              box-shadow: 0 20px 50px rgba(0,0,0,.5);
+              box-sizing: border-box;
+              transition: 0.5s;
+              /*
+              border: 1px solid rgba(0,0,0,.5);
+              outline: none;
+              */
+            }
+            .sidebar-contact.active {
+              left: 0px;
+            }
+            .sidebar-contact input,
+            .sidebar-contact textarea {
+              width: 100%;
+              height: 36px;
+              padding: 5px;
+              margin-bottom:10px;
+            }
+            .sidebar-contact textarea {
+              height: 60px;
+              resize: none;
+            }
+            .sidebar-contact input[type="submit"] {
+              background: #00bcd4;
+              color: #fff;
+              cursor: pointer;
+              border: none;
+              font-style:18px;
+            }
+            .sidebar-contact h2 {
+              margin: 0 0 20px;
+              padding: 0;
+            }
+            .toggle {
+              position: absolute;
+              top: 0;
+              right: -48px;
+              width: 48px;
+              height: 48px;
+              line-height:48px;
+              text-align: center;
+              cursor: pointer;
+              background: #8bd07b;
+            }
+            .toggle:before {
+              content: '\F138';
+              font-family: fontAwesome;
+              color: #fff;
+              font-size:18px;
+            }
+            .toggle.active:before {
+              content: '\f00d';
+            }
+
+
+
+
+
+
+
+
+
+        </style>
+
+    </div>
     <div>
         <dialog class="dialog"> <!--音樂-->
             <br>
@@ -310,6 +408,11 @@
                     }
 
 
+
+
+
+
+
             </script>
         </dialog>
     </div>
@@ -391,6 +494,11 @@
 
 
 
+
+
+
+
+
             </script>
         </div>
         <div class="btnI1">            <!-- 貼上圖示的程式碼 音樂-->
@@ -404,6 +512,11 @@
                 document.querySelector('#close').onclick = function() {
                     dialog.close();
                 };
+
+
+
+
+
 
 
 
@@ -438,6 +551,11 @@
                 function closeDialog2() {
                 z.close();
                 }
+
+
+
+
+
 
 
 
@@ -525,6 +643,11 @@
 
 
 
+
+
+
+
+
             </script>
 
 
@@ -567,6 +690,11 @@
 
     },1000
 );
+
+
+
+
+
 
 
 

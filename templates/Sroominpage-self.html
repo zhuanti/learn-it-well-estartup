@@ -40,19 +40,13 @@
 <body>
 <!-- HTML -->
 <div class="banner">
-    <div>
-        <div class="sidebar-contact">
+    <div class="sidebar-contact">
         <div class="toggle"></div>
-        <h2>科目</h2>
-        <b>科目詳情</b>
-        <b>預計讀書時長:30分鐘</b>
-        <!--        <form>-->
-        <!--            <input type="text" name="" placeholder="Name">-->
-        <!--            <input type="email" name="" placeholder="Email">-->
-        <!--            <input type="rel" name="" placeholder="Phone Number">-->
-        <!--            <textarea placeholder="Message"></textarea>-->
-        <!--            <input type="submit" name="" value="Send">-->
-        <!--        </form>-->
+           <center>
+            <b><font size="6">科目</font></b> <b>科目詳情</b><br>
+            <b>預計讀書時長:30分鐘</b><br>
+           <div class="position-absolute bottom-0 end-0 "><i class="bi bi-info-circle"></i></div>
+        </center>
         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
         <script src="/static/js/studyroomtitle.js"></script>
         <style>
@@ -70,9 +64,9 @@
             .sidebar-contact {
               position: fixed;
               top: 20%;
-              left: -350px;
+              left: -270px;
               transform: translateY(-50%);
-              width: 350px;
+              width: 270px;
               height: auto;
               padding: 40px;
               background: #fff;
@@ -132,9 +126,11 @@
 
 
 
+
         </style>
 
     </div>
+    <div>
         <dialog class="dialog"> <!--音樂-->
             <br>
             <center>
@@ -199,7 +195,7 @@
     <div>
         <progress id="js-progress" value="0"></progress>
         <div class="progress-bar"></div>
-        <dialog id="timeDialog" class="timedialog" >   <!--計時器-->
+        <dialog id="timeDialog" class="timedialog">   <!--計時器-->
             <br>
             <main class="app">
                 <!--佑慈提供可能js-->
@@ -409,6 +405,7 @@
                     }
 
 
+
             </script>
         </dialog>
     </div>
@@ -490,6 +487,7 @@
 
 
 
+
             </script>
         </div>
         <div class="btnI1">            <!-- 貼上圖示的程式碼 音樂-->
@@ -503,6 +501,7 @@
                 document.querySelector('#close').onclick = function() {
                     dialog.close();
                 };
+
 
 
 
@@ -537,6 +536,7 @@
                 function closeDialog2() {
                 z.close();
                 }
+
 
 
 
@@ -624,6 +624,7 @@
 
 
 
+
             </script>
 
 
@@ -666,6 +667,7 @@
 
     },1000
 );
+
 
 
 
