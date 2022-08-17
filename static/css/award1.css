@@ -107,7 +107,6 @@
     position: fixed;
     top: 100%;
     left:250px;
-    bottom:10%
     transform: translate(0, -5%);
 }
 &::-webkit-scrollbar {
