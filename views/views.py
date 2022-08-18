@@ -1,13 +1,10 @@
-
-
 import requests
+from django.conf import settings
 
 from django.contrib import messages
-from django.core.mail import EmailMessage
+from django.core.mail import EmailMessage, send_mail
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
-
-
 from core.settings import API_URL as root
 from utils.decorators import user_login_required
 
@@ -344,19 +341,23 @@ def ForgetPwd(request):
 
     if result['success'] is True:
         ret = redirect('/ForgetPwd/')
-
-        email_template = render_to_string(
-            'templates/ResetPasswordEmail.html',
-            {'name': request.user.name}
-        )
-        email = EmailMessage(
-            '做伙來讀冊-更新密碼網址',  # 電子郵件標題
-            email_template,  # 電子郵件內容
-            settings.EMAIL_HOST_USER,  # 寄件者
-            ['jenny980132@gmail.com']  # 收件者
-        )
-        email.fail_silently = False
-        email.send()
+        # email_template = render_to_string(
+        #     'templates/ResetPasswordEmail.html',
+        #     {'name': request.user.name}
+        # )
+        # email = EmailMessage(
+        #     '做伙來讀冊-更新密碼網址',  # 電子郵件標題
+        #     email_template,  # 電子郵件內容
+        #     settings.EMAIL_HOST_USER,  # 寄件者
+        #     ['jenny980132@gmail.com']  # 收件者
+        # )
+        # email.fail_silently = False
+        # email.send()
+        # subject = 'Thank you for registering to our site'
+        # message = ' it  means a world to us '
+        # email_from = settings.EMAIL_HOST_USER
+        # recipient_list = ['jenny980132@gmail.com', ]
+        # send_mail(subject, message, email_from, recipient_list)
         messages.success(request, '請去郵箱驗證，並重設密碼')
         return ret
     else:
@@ -421,5 +422,8 @@ def WebChatTest(request):
 def text(request):
     return render(request, 'text.html')
 
+
 def award(request):
-    return render(request, 'award.html')
+    return render(request, 'text.html')
+
+

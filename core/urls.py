@@ -78,12 +78,12 @@ urlpatterns = [
     path('test-study/', views.test),
 
     # 測試的獎勵頁面
-
+    path('award/', views.award),
     # 測試用討論室內部
     # path('web-chat-test/', discusroom_review_views.WebChatTest),
 
     path('text/', views.text),
-    path('award/', views.award),
+
     # path('day-report/', report_review_views.DayReport),
     # path('week-report/', report_review_views.WeekReport),
 
