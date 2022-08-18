@@ -2,7 +2,7 @@
 	width: 460px;
 	height: 550px;
 	/*height: 318px;*/
-	background:  #8dd586;
+	background:  #93FF93;
 	border-radius: 10px;
     position: fixed;
     top: 20%;
@@ -63,7 +63,7 @@
     border-radius: 10px;
     top: 10%;
     left:25px;
-    border-color:#8dd586;
+    border-color:rgb(114, 197, 93);
 }
 
 #apart_5{
@@ -76,7 +76,7 @@
           top: 75%;
           left:25px;
           transform: translate(0, -5%);
-          border-color:#8dd586;
+          border-color:rgb(114, 197, 93);
         }
 
 .apart_6{
@@ -89,7 +89,7 @@
           top: 75%;
           left:25px;
           transform: translate(0, -5%);
-          border-color:#8dd586;
+          border-color:rgb(114, 197, 93);
         }
 .img_2{
     width: 100px;
