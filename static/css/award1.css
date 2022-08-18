@@ -2,12 +2,14 @@
 	width: 460px;
 	height: 550px;
 	/*height: 318px;*/
-	background:  rgb(114, 197, 93);
+	background:  #93FF93;
 	border-radius: 10px;
     position: fixed;
     top: 20%;
     left:545px;
     transform: translate(0, -5%);
+    scrollbar-width: thin;          /* "auto" or "thin" */
+    scrollbar-color: blue ;   /* scroll thumb and track */
 }
 
 #apart{
@@ -109,8 +111,5 @@
     left:250px;
     transform: translate(0, -5%);
 }
-&::-webkit-scrollbar {
 
-      width: 50px;
 
-    }
