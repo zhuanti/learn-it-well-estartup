@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.urls import path
 
-from views import views, auth_views, discusroom_review_views, \
+from views import views, auth_views, subject_review_views, discusroom_review_views, \
     plan_review_views, report_review_views, success_review_views, \
     user_review_views
 from django.conf.urls import include
@@ -44,7 +44,6 @@ urlpatterns = [
     path('inpage/#letmeopen', discusroom_review_views.qus),
     path('dis_test/', discusroom_review_views.WebChatTest),
 
-
     # plan
     path('studyplan/', plan_review_views.Splan),
 
@@ -63,8 +62,10 @@ urlpatterns = [
     # views (other)
     # studyroom
     path('studyroom/', views.sroom),
-    path('studyroom-self/', views.SroomSelf),
+    path('studyroom-self/', subject_review_views.get_all_reviews),
+    # path('studyroom-self/', views.SroomSelf),
     path('studyroom-together/', views.Sroomtogether),
+
     # path('studyroom-together/', views.Sserch),
     # path('Sroominpage/', views.Sroominpage),
     path('Sroominpage/<int:pk>/', views.Sroominpage),
