@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.urls import path
 
-from views import views, auth_views, discusroom_review_views, \
-                  plan_review_views, report_review_views, success_review_views,\
-                  user_review_views
+from views import views, auth_views, discusroom_review_views, subject_review_view, \
+    plan_review_views, report_review_views, success_review_views, \
+    user_review_views
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
@@ -60,7 +60,8 @@ urlpatterns = [
     # views (other)
     # studyroom
     path('studyroom/', views.sroom),
-    path('studyroom-self/', views.SroomSelf),
+    path('studyroom-self/', subject_review_view.get_all_reviews),
+    # path('studyroom-self/', views.SroomSelf),
     path('studyroom-together/', views.Sroomtogether),
     # path('studyroom-together/', views.Sserch),
     # path('Sroominpage/', views.Sroominpage),
@@ -69,9 +70,6 @@ urlpatterns = [
 
     path('developer/', views.developer),
     path('PrivacyPolicies/', views.PrivacyPolicies),
-
-
-
 
     # 各類測試用
     # 測試的自習室內部
