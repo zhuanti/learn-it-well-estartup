@@ -424,6 +424,6 @@ def text(request):
 
 
 def award(request):
-    return render(request, 'text.html')
+    return render(request, 'award.html')
 
 
