@@ -34,46 +34,28 @@
     * License: https://bootstrapmade.com/license/
     ======================================================== -->
     <style>
-			.vertical-menu {
-				width:100%;
-				height:400px;
-				overflow-y:auto;
-			}
+        .vertical-menu {
+            width: 100%;
+            height: 400px;
+            overflow-y: auto;
+        }
 
-			.vertical-menu a {
-				background-color:#eee;
-				color:black;
-				display:block;
-				padding:12px;
-				text-decoration:none;
-			}
+        .vertical-menu a {
+            background-color: #eee;
+            color: black;
+            display: block;
+            padding: 12px;
+            text-decoration: none;
+        }
 
-			.vertical-menu a:hover {
-				background-color:#ccc;
-			}
+        .vertical-menu a:hover {
+            background-color: #ccc;
+        }
 
-			.vertical-menu a.active {
-				background-color:#4ACF50;
-				color:white;
-			}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        .vertical-menu a.active {
+            background-color: #4ACF50;
+            color: white;
+        }
 
 
     </style>
@@ -153,10 +135,10 @@
                     </div>
                     <!-- Grid column -->
                     {% for message in messages %}
-                        <div class="alert alert-success">
-                            <a class="close" href="#" data-dismiss="alert"></a>
-                            {{ message }}
-                        </div>
+                    <div class="alert alert-success">
+                        <a class="close" href="#" data-dismiss="alert"></a>
+                        {{ message }}
+                    </div>
                     {% endfor %}
                 </div>
                 <!-- Grid row -->
@@ -180,8 +162,8 @@
                         {% for studyroom in studyrooms %}
                         <tr>
                             <td>
-<!--                                <a href="/reviews/{{studyroom.no}}/">{{studyroom.no}}</a>-->
-                                    {{studyroom.no}}
+                                <!--                                <a href="/reviews/{{studyroom.no}}/">{{studyroom.no}}</a>-->
+                                {{studyroom.no}}
                             </td>
                             <!--                                <td>-->
                             <!--                                    {{discussroom.schoolsys_no}}-->
@@ -263,14 +245,16 @@
                                                             </div>
                                                             <br><br>
                                                             <div class="form-group">
-                                                                <input type="text" name="subject_detail" class="form-control"
+                                                                <input type="text" name="subject_detail"
+                                                                       class="form-control"
                                                                        id="subject_detail" placeholder="請輸入科目詳細資料"
                                                                        required value={{ report.subject_detail }}>
                                                             </div>
                                                             <br><br>
                                                             <div class="form-group">
                                                                 <select name="set_time" id="set_time"
-                                                                        class="form-control"  value={{ report.set_time }}>
+                                                                        class="form-control" value={{ report.set_time
+                                                                        }}>
                                                                     <option value="">請選擇預計讀書時長</option>
                                                                     <option value="5">5分鐘</option>
                                                                     <option value="10">10分鐘</option>
@@ -302,17 +286,18 @@
                                             加入
                                         </button>
                                         <style>
-                                            .dialog{
-                                              width: 480px;
-                                              border: none;
-                                              box-shadow: 0 2px 6px #ccc;
-                                              border-radius: 10px;
-                                              position: fixed;
-                                              top: 50%;
-                                              left: 40%;
-                                              transform: translate(0, -50%);
+                                            .dialog {
+                                                width: 480px;
+                                                border: none;
+                                                box-shadow: 0 2px 6px #ccc;
+                                                border-radius: 10px;
+                                                position: fixed;
+                                                top: 50%;
+                                                left: 40%;
+                                                transform: translate(0, -50%);
                                             }
-                                            .dialoginsidebtn{
+
+                                            .dialoginsidebtn {
                                                 display: inline-block;
                                                 margin: 5px 3px;
                                                 font-weight: 400;
@@ -348,7 +333,8 @@
                                                 border: none;
                                                 background-color: rgb(95, 148, 84);
                                             }
-                                            .dialoginsideaddbtn{
+
+                                            .dialoginsideaddbtn {
                                                 position: absolute;
                                                 right: 19px;
                                                 display: inline-block;
@@ -388,39 +374,20 @@
                                             }
 
 
-
-
-
-
-
-
-
-
                                         </style>
                                     </dialog>
                                 </div>
                                 <center><a class="nav-link scrollto active" onclick="showDialog()">加入</a></center>
                                 <script>
                                     var y = document.getElementById("Dialog");
-                                                        function showDialog() {
-                                                        y.show();
-                                                        }
 
-                                                        function closeDialog() {
-                                                        y.close();
-                                                        }
+                                    function showDialog() {
+                                        y.show();
+                                    }
 
-
-
-
-
-
-
-
-
-
-
-
+                                    function closeDialog() {
+                                        y.close();
+                                    }
 
 
                                 </script>

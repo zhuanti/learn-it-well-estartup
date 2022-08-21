@@ -36,106 +36,109 @@
     * License: https://bootstrapmade.com/license/
     ======================================================== -->
     <style>
-			.vertical-menu {
-				width:100%;
-				height:400px;
-				overflow-y:auto;
-			}
+        .vertical-menu {
+            width: 100%;
+            height: 400px;
+            overflow-y: auto;
+        }
 
-			.vertical-menu a {
-				background-color:#eee;
-				color:black;
-				display:block;
-				padding:12px;
-				text-decoration:none;
-			}
+        .vertical-menu a {
+            background-color: #eee;
+            color: black;
+            display: block;
+            padding: 12px;
+            text-decoration: none;
+        }
 
-			.vertical-menu a:hover {
-				background-color:#ccc;
-			}
+        .vertical-menu a:hover {
+            background-color: #ccc;
+        }
 
-			.vertical-menu a.active {
-				background-color:#4ACF50;
-				color:white;
-			}
+        .vertical-menu a.active {
+            background-color: #4ACF50;
+            color: white;
+        }
 
-            <!--popup-->
-            .wrap {
-              text-align: center;
-              padding-top: 20%;
-            }
-            .btn {
-              background-color: #71c55d;
-              text-decoration: none;
-              color: #FFF;
-              padding: 16px;
-              border-radius: 5px;
-            }
+        <!--
+        popup-- >
+        .wrap {
+            text-align: center;
+            padding-top: 20%;
+        }
 
-            .popup-wrap {
-              width: 100%;
-              height: 100%;
-              display: none;
-              position: fixed;
-              top: 0px;
-              left: 0px;
-              content: '';
-              background: rgba(0, 0, 0, 0.85);
-            }
+        .btn {
+            background-color: #71c55d;
+            text-decoration: none;
+            color: #FFF;
+            padding: 16px;
+            border-radius: 5px;
+        }
 
-            .popup-box {
-              width: 50%;
-              padding: 50px 75px;
-              transform: translate(-50%, -50%) scale(0.5);
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.5);
-              border-radius: 3px;
-              background: #fff;
-              text-align: center;
-            }
-            h2 {
-              font-size: 32px;
-              color: #1a1a1a;
-            }
+        .popup-wrap {
+            width: 100%;
+            height: 100%;
+            display: none;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            content: '';
+            background: rgba(0, 0, 0, 0.85);
+        }
 
-            h3 {
-              font-size: 24px;
-              color: #888;
-            }
+        .popup-box {
+            width: 50%;
+            padding: 50px 75px;
+            transform: translate(-50%, -50%) scale(0.5);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.5);
+            border-radius: 3px;
+            background: #fff;
+            text-align: center;
+        }
 
-            .close-btn {
-              width: 50px;
-              height: 50px;
-              display: inline-block;
-              position: absolute;
-              top: 10px;
-              right: 10px;
-              border-radius: 100%;
-              background: #71c55d;
-              font-weight: bold;
-              text-decoration: none;
-              color: #fff;
-              line-height: 40px;
-              font-size: 32px;
-            }
+        h2 {
+            font-size: 32px;
+            color: #1a1a1a;
+        }
 
-            .transform-in, .transform-out {
-              display: block;
-              -webkit-transition: all ease 0.5s;
-              transition: all ease 0.5s;
-            }
+        h3 {
+            font-size: 24px;
+            color: #888;
+        }
 
-            .transform-in {
-              -webkit-transform: translate(-50%, -50%) scale(1);
-              transform: translate(-50%, -50%) scale(1);
-            }
+        .close-btn {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            border-radius: 100%;
+            background: #71c55d;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+            line-height: 40px;
+            font-size: 32px;
+        }
 
-            .transform-out {
-              -webkit-transform: translate(-50%, -50%) scale(0.7);
-              transform: translate(-50%, -50%) scale(0.7);
-            }
+        .transform-in, .transform-out {
+            display: block;
+            -webkit-transition: all ease 0.5s;
+            transition: all ease 0.5s;
+        }
+
+        .transform-in {
+            -webkit-transform: translate(-50%, -50%) scale(1);
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .transform-out {
+            -webkit-transform: translate(-50%, -50%) scale(0.7);
+            transform: translate(-50%, -50%) scale(0.7);
+        }
 
     </style>
 
@@ -207,15 +210,16 @@
                             <button style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">
                                 搜尋
                             </button>
-                        </div><br>
+                        </div>
+                        <br>
                     </div>
                     <!-- Grid column -->
 
                     {% for message in messages %}
-                        <div class="alert alert-success">
-                            <a class="close" href="#" data-dismiss="alert"></a>
-                            {{ message }}
-                        </div>
+                    <div class="alert alert-success">
+                        <a class="close" href="#" data-dismiss="alert"></a>
+                        {{ message }}
+                    </div>
                     {% endfor %}
 
                 </div>
@@ -262,7 +266,8 @@
                                 <!--                                    </a>-->
                                 <!--api 連線時使用的button-->
                                 <!--                                <center><a class="nav-link scrollto active" href="/discusroom/inpage/{{discussroom.no}}/">加入</a></center>-->
-                                <center><a class="nav-link scrollto active" href="/inpage/{{discussroom.no}}/">加入</a></center>
+                                <center><a class="nav-link scrollto active" href="/inpage/{{discussroom.no}}/">加入</a>
+                                </center>
 
                             </td>
 
@@ -281,45 +286,47 @@
                             <form action="" method="post">
                                 {% csrf_token %}
                                 <h2>新增房間 </h2><br>
-<!--                                <div class="form-group">-->
-<!--                                    <h3>no<input class="form-control" id="no" placeholder="no"-->
-<!--                                                 name="no" required="required"></h3>-->
-<!--                                </div>-->
-<!--                                <div class="form-group">-->
-<!--                                    <h3>名稱<input class="form-control" id="name" placeholder="名稱"-->
-<!--                                                 name="name" required="required"></h3>-->
-<!--                                </div>-->
-<!--                                <div class="form-group">-->
-<!--                                    <h3>人數上限<input class="form-control" id="total_people" placeholder="人數上限"-->
-<!--                                                   name="total_people" required="required"></h3>-->
-<!--                                </div>-->
-<!--                                <div class="form-group">-->
-<!--                                    <h3>科目<input class="form-control" id="subject_no_id" placeholder="科目"-->
-<!--                                                 name="subject_no_id" required="required"></h3>-->
-<!--                                </div>-->
+                                <!--                                <div class="form-group">-->
+                                <!--                                    <h3>no<input class="form-control" id="no" placeholder="no"-->
+                                <!--                                                 name="no" required="required"></h3>-->
+                                <!--                                </div>-->
+                                <!--                                <div class="form-group">-->
+                                <!--                                    <h3>名稱<input class="form-control" id="name" placeholder="名稱"-->
+                                <!--                                                 name="name" required="required"></h3>-->
+                                <!--                                </div>-->
+                                <!--                                <div class="form-group">-->
+                                <!--                                    <h3>人數上限<input class="form-control" id="total_people" placeholder="人數上限"-->
+                                <!--                                                   name="total_people" required="required"></h3>-->
+                                <!--                                </div>-->
+                                <!--                                <div class="form-group">-->
+                                <!--                                    <h3>科目<input class="form-control" id="subject_no_id" placeholder="科目"-->
+                                <!--                                                 name="subject_no_id" required="required"></h3>-->
+                                <!--                                </div>-->
                                 <br>
                                 <h3>no<input type="text" id="ano" name="ano" required="required"></h3><br>
                                 <h3>名稱 <input type="text" id="aname" name="aname" required="required"></h3><br>
-                                <h3>人數上限 <input type="text" id="atotal_people" name="atotal_people" required="required"></h3><br>
-                                 <h3>科目<input class="text" id="asubject_no" name="asubject_no" required="required"></h3><br>
-<!--                                <h3>科目 <input type="text" id="subject_no" name="subject_no" required="required"></h3><br>-->
+                                <h3>人數上限 <input type="text" id="atotal_people" name="atotal_people" required="required">
+                                </h3><br>
+                                <h3>科目<input class="text" id="asubject_no" name="asubject_no" required="required"></h3>
+                                <br>
+                                <!--                                <h3>科目 <input type="text" id="subject_no" name="subject_no" required="required"></h3><br>-->
 
-<!--                                    <h3>科目 <select name="total_people" required>-->
-<!--                                        {% for subject in subjects %}-->
-<!--                                        <option>-->
-<!--                                            {{subject.name}}-->
-<!--                                        </option>-->
-<!--                                        {% endfor %}-->
-<!--                                    </select></h3>-->
-<!--                                    <br>-->
-                                   <button type="submit"
-                                            style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">
-                                        確認
-                                    </button>
-<!--                                <div class="form-group form-button">-->
-<!--                                <input type="submit" name="signin" id="signin" class="form-submit" value="確認"/>-->
-<!--                                </div>-->
-                                    <a class="close-btn popup-close" href="#">x</a>
+                                <!--                                    <h3>科目 <select name="total_people" required>-->
+                                <!--                                        {% for subject in subjects %}-->
+                                <!--                                        <option>-->
+                                <!--                                            {{subject.name}}-->
+                                <!--                                        </option>-->
+                                <!--                                        {% endfor %}-->
+                                <!--                                    </select></h3>-->
+                                <!--                                    <br>-->
+                                <button type="submit"
+                                        style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">
+                                    確認
+                                </button>
+                                <!--                                <div class="form-group form-button">-->
+                                <!--                                <input type="submit" name="signin" id="signin" class="form-submit" value="確認"/>-->
+                                <!--                                </div>-->
+                                <a class="close-btn popup-close" href="#">x</a>
                             </form>
                         </div>
                     </div>

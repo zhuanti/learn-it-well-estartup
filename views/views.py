@@ -26,6 +26,7 @@ def index(request):
 def forgetPwd(request):
     return render(request, 'forgetPwd.html')
 
+
 @user_login_required
 def sroom(request):
     return render(request, 'StudyRoom.html')
@@ -41,8 +42,6 @@ def sroom(request):
 #     result = r.json()
 #     subjects = result['data']
 #     return render(request, 'DiscusRoom.html', {'subjects': subjects})
-
-
 
 
 # 新增房間
@@ -92,14 +91,12 @@ def sroom(request):
 #         return ret
 
 
-
-
-
 @user_login_required
 def SroomSelf(request):
     return render(request, 'Sroom-self.html')
 
-#自習室列表
+
+# 自習室列表
 @user_login_required
 def Sroomtogether(request):
     r = requests.get(
@@ -109,16 +106,16 @@ def Sroomtogether(request):
     result = r.json()
     studyrooms = result['data']
     return render(request, 'Sroom-together.html', {'studyrooms': studyrooms})
-    # return render(request, 'Sroom-together.html')
 
-#自習室查詢
+
+# 自習室查詢
 @user_login_required
 def Sserch(request):
     no = request.GET.get('no')
     name = request.GET.get('name')
     r = requests.get(
         f'{root}/get_critic_reviews/',
-        params={'no': no,'name':name},
+        params={'no': no, 'name': name},
         cookies={'sessionid': request.COOKIES['sessionid']}
     )
 
@@ -172,6 +169,7 @@ def PrivacyPolicies(request):
 def developer(request):
     return render(request, 'developer.html')
 
+
 @user_login_required
 def Sroominpage(request, pk):
     r = requests.get(
@@ -190,12 +188,13 @@ def Sroominpage(request, pk):
         # message = result['message']
         # return render(request, 'Sroom-together.html', {'message': message})
 
-
     # return render(request, 'Sroominpage.html')
+
 
 @user_login_required
 def Sroominpageself(request):
     return render(request, 'Sroominpage-self.html')
+
 
 # 測試的自習室內部
 @user_login_required
