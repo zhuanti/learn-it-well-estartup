@@ -100,3 +100,5 @@ def WebChatTest(request):
     users = result['data']
     return render(request, 'dis_test.html', {'users': users})
     # return render(request, 'dis_test.html')
+
+

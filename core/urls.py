@@ -16,8 +16,10 @@ Including another URLconf
 from django.urls import path
 
 from views import views, auth_views, discusroom_review_views, \
-                  plan_review_views, report_review_views, success_review_views,\
-                  user_review_views
+    plan_review_views, report_review_views, success_review_views, \
+    user_review_views
+from django.conf.urls import include
+from django.contrib import admin
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
@@ -41,6 +43,7 @@ urlpatterns = [
     path('inpage/<int:pk>/', discusroom_review_views.inpage),
     path('inpage/#letmeopen', discusroom_review_views.qus),
     path('dis_test/', discusroom_review_views.WebChatTest),
+
 
     # plan
     path('studyplan/', plan_review_views.Splan),
@@ -69,9 +72,6 @@ urlpatterns = [
 
     path('developer/', views.developer),
     path('PrivacyPolicies/', views.PrivacyPolicies),
-
-
-
 
     # 各類測試用
     # 測試的自習室內部

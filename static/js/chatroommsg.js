@@ -48,6 +48,7 @@ function appendMessage(name, img, side, text) {
     </div>
   `;
 
+
   msgerChat.insertAdjacentHTML("beforeend", msgHTML);
   msgerChat.scrollTop += 500;
 }

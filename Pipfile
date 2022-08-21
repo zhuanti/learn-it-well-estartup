@@ -10,6 +10,8 @@ whitenoise = "*"
 requests = "*"
 flask = "*"
 flask-login = "==0.4.1"
+channels = "*"
+self = "*"
 
 [dev-packages]
 
