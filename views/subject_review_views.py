@@ -17,3 +17,14 @@ def get_all_reviews(request):
         result = r.json()
         subjects = result['data']
         return render(request, 'Sroom-self.html', {'subjects': subjects})
+
+@user_login_required
+def get_togall_reviews(request):
+    if request.method == 'GET':
+        r = requests.get(
+            f'{root}/all/',
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
+        subjects = result['data']
+        return render(request, 'Sroom-togethersub.html', {'subjects': subjects})

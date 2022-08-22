@@ -392,7 +392,6 @@ def Sroominpage(request):
     return render(request, 'Sroominpage.html')
 
 
-
 @user_login_required
 def Sroominpageself(request):
     return render(request, 'Sroominpage-self.html')
@@ -427,3 +426,5 @@ def award(request):
     return render(request, 'award.html')
 
 
+def Sroomtogethersub(request):
+    return render(request, 'Sroom-togethersub.html')
