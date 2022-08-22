@@ -65,7 +65,7 @@ urlpatterns = [
     path('studyroom-self/', subject_review_views.get_all_reviews),
     # path('studyroom-self/', views.SroomSelf),
     path('studyroom-together/', views.Sroomtogether),
-    path('studyroom-togethersub/', subject_review_views.get_togall_reviews),
+    path('studyroom-togethersub/<int:pk>/', subject_review_views.get_togall_reviews),
 
     # path('studyroom-together/', views.Sserch),
     # path('Sroominpage/', views.Sroominpage),

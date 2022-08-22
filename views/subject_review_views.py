@@ -19,12 +19,12 @@ def get_all_reviews(request):
         return render(request, 'Sroom-self.html', {'subjects': subjects})
 
 @user_login_required
-def get_togall_reviews(request):
+def get_togall_reviews(request, pk):
     if request.method == 'GET':
         r = requests.get(
-            f'{root}/all/',
+            f'{root}/all/{pk}',
             cookies={'sessionid': request.COOKIES['sessionid']}
         )
         result = r.json()
-        subjects = result['data']
-        return render(request, 'Sroom-togethersub.html', {'subjects': subjects})
+        studyroom = result['data']
+        return render(request, 'Sroom-togethersub.html', {'studyroom': studyroom})
