@@ -85,12 +85,12 @@
         <div class="container" data-aos="fade-up">
             <div class="section-title text-center">
                 <br><br>
-                <h2>個人自習室</h2>
+                <h2>多人自習室-{{studyroom.study_name}}</h2>
                 <!--          <p class="separator">請於下方登入</p>-->
             </div>
 
             <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
-<!--                {% csrf_token %}-->
+                {% csrf_token %}
                 <div class="col-lg-3 col-md-4">
 
                     <div class="info">
@@ -120,9 +120,10 @@
                                 <select class="form-control" name="subject_no_id" id="subject_no_id"
                                         value={{ report.subject_no_id }}>
                                     <option disabled="true" selected>--請選擇要讀的科目--</option>
-                                    {% for subject in subjects %}
-                                    <option value={{subject.id}}>{{subject.name}}</option>
-                                    {% endfor%}
+                                    {% for study_sub_name in studyroom.study_sub_names %}
+                                    <option value={{study_sub_name.sub_no}}>{{study_sub_name.sub_name}}</option>
+                                    {% endfor %}
+
 <!--                                    <option value="1">國文</option>-->
 <!--                                    <option value="2">英文</option>-->
 <!--                                    <option value="3">數學</option>-->
@@ -179,11 +180,12 @@
                                 <!--                                <form action="/inpage/">-->
                                 <!--                                    <button type="submit">確認</button>-->
                                 <!--                                </form>-->
-                                <a class="link_button" href="/Sroominpage-self/" type="color:#71c55d">確認</a>
+                                <a class="link_button" href="/Sroominpage/{{studyroom.no}}/" type="color:#71c55d">確認</a>
                             </div>
                         </form>
                     </div>
                 </div>
+            </div>
             </div>
         </div>
     </section><!-- End Contact Section -->

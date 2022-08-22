@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from core.settings import API_URL as root
 from utils.decorators import user_login_required
 
-root+='discusroom'
+root += 'discusroom'
 
 @user_login_required
 def droom(request):
@@ -48,6 +48,19 @@ def droom(request):
         result = r.json()
         discussrooms = result['data']
         return render(request, 'DiscusRoom.html', {'discussrooms': discussrooms})
+
+@user_login_required
+def search(request):
+    name = request.GET.get('name')
+    r = requests.get(
+        f'{root}/get_critic_reviews/',
+        params={'name': name},
+        cookies={'sessionid': request.COOKIES['sessionid']}
+    )
+
+    data = r.json()
+    discussrooms = data['data']
+    return render(request, 'DiscusRoom.html', {'discussrooms': discussrooms})
 
 @user_login_required
 def inpage(request, pk):

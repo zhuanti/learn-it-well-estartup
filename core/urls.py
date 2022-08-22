@@ -43,6 +43,7 @@ urlpatterns = [
     path('inpage/<int:pk>/', discusroom_review_views.inpage),
     # path('inpage/#letmeopen', discusroom_review_views.qus),
     path('dis_test/', discusroom_review_views.WebChatTest),
+    path('discusroom/search/', discusroom_review_views.search),
 
     # plan
     path('studyplan/', plan_review_views.Splan),
@@ -65,6 +66,7 @@ urlpatterns = [
     path('studyroom-self/', subject_review_views.get_all_reviews),
     # path('studyroom-self/', views.SroomSelf),
     path('studyroom-together/', views.Sroomtogether),
+    path('studyroom-togethersub/<int:pk>/', subject_review_views.get_togall_reviews),
 
     # path('studyroom-together/', views.Sserch),
     # path('Sroominpage/', views.Sroominpage),
