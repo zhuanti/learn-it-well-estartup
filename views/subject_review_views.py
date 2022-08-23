@@ -8,10 +8,10 @@ root += 'subject'
 
 
 @user_login_required
-def get_all_reviews(request):
+def get_selfall_reviews(request):
     if request.method == 'GET':
         r = requests.get(
-            f'{root}/all/',
+            f'{root}/selfall/',
             cookies={'sessionid': request.COOKIES['sessionid']}
         )
         result = r.json()
@@ -28,3 +28,5 @@ def get_togall_reviews(request, pk):
         result = r.json()
         studyroom = result['data']
         return render(request, 'Sroom-togethersub.html', {'studyroom': studyroom})
+
+
