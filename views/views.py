@@ -442,6 +442,7 @@ def text(request):
     return render(request, 'text.html')
 
 
+@user_login_required
 def award(request):
     return render(request, 'award.html')
 
