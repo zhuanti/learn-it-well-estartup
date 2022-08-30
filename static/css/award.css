@@ -139,3 +139,35 @@
   color: black;
   border: 2px solid #8dd586;
 }
+
+#point{
+    width: 46px;
+	height: 30px;
+	/*height: 318px;*/
+	background:  #8dd586;
+	border-radius: 10px;
+    position: fixed;
+    top: 15%;
+    right:300px;
+    transform: translate(0, -5%);
+
+}
+
+#point1{
+    width: 120px;
+	height: 30px;
+	/*height: 318px;*/
+	background:  white;
+	border-radius: 10px;
+    position: fixed;
+    top: 15%;
+    right:200px;
+    transform: translate(0, -5%);
+    border: 2px solid #8dd586
+}
+
+.bi{
+    color:white;
+    height:0.2rem;
+    font-size: 1.3em;
+}
