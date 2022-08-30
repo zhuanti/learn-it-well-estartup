@@ -39,13 +39,16 @@
 </head>
 <body>
 <!-- HTML -->
+{% for information in informations %}
 <div class="banner">
     <div class="sidebar-contact">
         <div class="toggle"></div>
-           <center>
-            <b><font size="6">科目</font></b> <b>科目詳情</b><br>
-            <b>預計讀書時長:30分鐘</b><br>
-           <div class="position-absolute bottom-0 end-0 "><i class="bi bi-info-circle"></i></div>
+        <center>
+            {% for information in informations %}
+            <b><font size="6">{{information.subject_no_id}}</font></b> <b>{{information.subject_detail}}</b><br>
+            <b>預計讀書時長:{{information.settime_no}}分鐘</b><br>
+            <div class="position-absolute bottom-0 end-0 "><i class="bi bi-info-circle"></i></div>
+            {% endfor %}
         </center>
         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
         <script src="/static/js/studyroomtitle.js"></script>
@@ -123,6 +126,7 @@
             .toggle.active:before {
               content: '\f00d';
             }
+
 
 
 
@@ -239,7 +243,7 @@
                     //讀書時間(pomodore)為 25 分鐘，短暫的休息時間(shortBreak)為 5 分鐘。連續四次番茄工作後，將啟動長時間的休息(longBreak)（15 分鐘）
                     window.onload = function(){
                     const timer = {
-                      pomodoro: 0.1,
+                      pomodoro: {{information.settime_no}},
                     };
 
                     //聲明一個interval變量timer
@@ -406,9 +410,11 @@
 
 
 
+
             </script>
         </dialog>
     </div>
+    {% endfor %}
     <!--            <div>-->
     <!--                <center>-->
     <!--                    <div class="mode">讀書時長倒數計時:</div>-->
@@ -488,6 +494,7 @@
 
 
 
+
             </script>
         </div>
         <div class="btnI1">            <!-- 貼上圖示的程式碼 音樂-->
@@ -501,6 +508,7 @@
                 document.querySelector('#close').onclick = function() {
                     dialog.close();
                 };
+
 
 
 
@@ -536,6 +544,7 @@
                 function closeDialog2() {
                 z.close();
                 }
+
 
 
 
@@ -625,6 +634,7 @@
 
 
 
+
             </script>
 
 
@@ -667,6 +677,7 @@
 
     },1000
 );
+
 
 
 

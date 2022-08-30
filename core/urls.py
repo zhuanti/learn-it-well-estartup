@@ -17,7 +17,7 @@ from django.urls import path
 
 from views import views, auth_views, subject_review_views, discusroom_review_views, \
     plan_review_views, report_review_views, success_review_views, \
-    user_review_views
+    user_review_views, settime_review_views
 from django.conf.urls import include
 from django.contrib import admin
 
@@ -71,7 +71,7 @@ urlpatterns = [
     # path('studyroom-together/', views.Sserch),
     # path('Sroominpage/', views.Sroominpage),
     path('Sroominpage/<int:pk>/', views.Sroominpage),
-    path('Sroominpage-self/', views.Sroominpageself),
+    path('Sroominpage-self/', report_review_views.get_reviews_insideshow),
 
     path('developer/', views.developer),
     path('PrivacyPolicies/', views.PrivacyPolicies),
