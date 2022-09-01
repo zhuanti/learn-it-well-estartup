@@ -90,7 +90,7 @@
             </div>
 
             <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
-<!--                {% csrf_token %}-->
+                <!--                {% csrf_token %}-->
                 <div class="col-lg-3 col-md-4">
 
                     <div class="info">
@@ -123,13 +123,13 @@
                                     {% for subject in subjects %}
                                     <option value={{subject.id}}>{{subject.name}}</option>
                                     {% endfor%}
-<!--                                    <option value="1">國文</option>-->
-<!--                                    <option value="2">英文</option>-->
-<!--                                    <option value="3">數學</option>-->
-<!--                                    <option value="4">社會</option>-->
-<!--                                    <option value="5">地理</option>-->
-<!--                                    <option value="6">歷史</option>-->
-<!--                                    <option value="7">公民</option>-->
+                                    <!--                                    <option value="1">國文</option>-->
+                                    <!--                                    <option value="2">英文</option>-->
+                                    <!--                                    <option value="3">數學</option>-->
+                                    <!--                                    <option value="4">社會</option>-->
+                                    <!--                                    <option value="5">地理</option>-->
+                                    <!--                                    <option value="6">歷史</option>-->
+                                    <!--                                    <option value="7">公民</option>-->
                                 </select>
                             </div>
                             <br>
@@ -141,29 +141,32 @@
                             <br>
                             <br>
                             <div class="form-group">
+                                <!--                                <div class="form-group">-->
+                                <!--                                    <input type="text" name="set_time_no" id="set_time_no" class="form-control" placeholder="預計讀書時長(請以分鐘為單位填寫 1小時=60分鐘)" required="required"/>-->
+                                <!--                                </div>-->
                                 <select class="form-control" name="set_time" id="set_time"
-                                        value={{ report.set_time }}>
-                                    <option disabled="true" selected>--請選擇預計讀書時長--</option>
-<!--                                    {% for result in set_time %}-->
-<!--                                    <option value={{settime.id}}>{{settime.set_time}}</option>-->
-<!--                                    {% endfor%}-->
-                                    <option value="5">5分鐘</option>
-                                    <option value="10">10分鐘</option>
-                                    <option value="15">15分鐘</option>
-                                    <option value="20">20分鐘</option>
-                                    <option value="25">25分鐘</option>
-                                    <option value="30">30分鐘</option>
-                                    <option value="35">35分鐘</option>
-                                    <option value="40">40分鐘</option>
-                                    <option value="45">45分鐘</option>
-                                    <option value="50">50分鐘</option>
-                                    <option value="60">1小時</option>
-                                    <option value="70">1小時10分鐘</option>
-                                    <option value="80">1小時20分鐘</option>
-                                    <option value="90">1小時30分鐘</option>
-                                    <option value="100">1小時40分鐘</option>
-                                    <option value="110">1小時50分鐘</option>
-                                    <option value="120">2小時</option>
+                                        value={{ report.settime_no }}>
+                                    <option disabled="true" selected>--請選擇預計讀書時長(1小時=60分鐘)--</option>
+                                    {% for settime in settimes %}
+                                    <option value={{settime.no}}>{{settime.time}}分鐘</option>
+                                    {% endfor%}
+                                    <!--                                    <option value="5">5分鐘</option>-->
+                                    <!--                                    <option value="10">10分鐘</option>-->
+                                    <!--                                    <option value="15">15分鐘</option>-->
+                                    <!--                                    <option value="20">20分鐘</option>-->
+                                    <!--                                    <option value="25">25分鐘</option>-->
+                                    <!--                                    <option value="30">30分鐘</option>-->
+                                    <!--                                    <option value="35">35分鐘</option>-->
+                                    <!--                                    <option value="40">40分鐘</option>-->
+                                    <!--                                    <option value="45">45分鐘</option>-->
+                                    <!--                                    <option value="50">50分鐘</option>-->
+                                    <!--                                    <option value="60">1小時</option>-->
+                                    <!--                                    <option value="70">1小時10分鐘</option>-->
+                                    <!--                                    <option value="80">1小時20分鐘</option>-->
+                                    <!--                                    <option value="90">1小時30分鐘</option>-->
+                                    <!--                                    <option value="100">1小時40分鐘</option>-->
+                                    <!--                                    <option value="110">1小時50分鐘</option>-->
+                                    <!--                                    <option value="120">2小時</option>-->
                                 </select>
                             </div>
                             <!--                            <div class="form-group mt-3">-->
