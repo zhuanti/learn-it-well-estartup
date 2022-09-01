@@ -85,7 +85,7 @@ def inpage(request, pk):
 @user_login_required
 def qus(request):
     r = requests.get(
-        f'{root}discusroom/qus/',
+        f'{root}discusroom/get/<int:pk>',
         cookies={'sessionid': request.COOKIES['sessionid']}
     )
     result = r.json()
