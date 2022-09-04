@@ -160,9 +160,19 @@ i:hover + .dialoginsidebtn, .dialoginsidebtn:hover {
     font-size: 0.85em;
 }
 
-.left-msg .msg-bubble {
-    border-bottom-left-radius: 0;
+.left-msg {
+    flex-direction: row-reverse;
 }
+
+/*.left-msg .msg-bubble {*/
+/*    background: var(--right-msg-bg);*/
+/*    color: #fff;*/
+/*    border-bottom-left-radius: 0;*/
+/*}*/
+
+/*.left-msg .msg-img {*/
+/*    margin: 0 0 0 10px;*/
+/*}*/
 
 .right-msg {
     flex-direction: row-reverse;

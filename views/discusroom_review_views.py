@@ -71,8 +71,8 @@ def inpage(request, pk):
     result = r.json()
     if result['success'] is True:
         discussroom = result['data']
-        # return render(request, 'inpage.html', {'discussroom': discussroom})
-        return render(request, 'inpageT.html', {'discussroom': discussroom})
+        return render(request, 'inpage.html', {'discussroom': discussroom})
+        # return render(request, 'inpageT.html', {'discussroom': discussroom})
     else:
         messages.error(request, '查無此房間')
         return redirect('/discusroom/')
