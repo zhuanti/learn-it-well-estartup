@@ -12,6 +12,8 @@ flask = "*"
 flask-login = "==0.4.1"
 channels = "*"
 self = "*"
+routing = "*"
+channels-redis = "*"
 
 [dev-packages]
 

@@ -382,9 +382,9 @@ def developer(request):
     return render(request, 'developer.html')
 
 
-@user_login_required
-def inpage(request):
-    return render(request, 'inpage.html')
+# @user_login_required
+# def inpage(request):
+#     return render(request, 'inpage.html')
 
 
 @user_login_required
