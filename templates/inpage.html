@@ -56,6 +56,7 @@
 
             .popup-box {
               width: 70%;
+              height: 70%;
               padding: 50px 75px;
               transform: translate(-50%, -50%) scale(0.5);
               position: absolute;
@@ -65,6 +66,7 @@
               border-radius: 3px;
               background: #fff;
               text-align: center;
+              overflow: auto;
             }
             h2 {
               font-size: 32px;
@@ -108,9 +110,44 @@
               transform: translate(-50%, -50%) scale(1);
             }
 
+            /* Style the buttons that are used to open and close the accordion panel */
+            .accordion {
+              background-color: #eee;
+              color: #444;
+              cursor: pointer;
+              padding: 18px;
+              width: 100%;
+              text-align: left;
+              border: none;
+              outline: none;
+              transition: 0.4s;
+            }
 
+            /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+            .active, .accordion:hover {
+              background-color: #ccc;
+            }
 
+            /* Style the accordion panel. Note: hidden by default */
+            .panel {
+                          padding: 0 18px;
+                          background-color: white;
+                          max-height: 0;
+                          transition: max-height 0.2s ease-out;
+                          overflow: auto;
+                        }
 
+            .accordion:after {
+              content: '\02795'; /* Unicode character for "plus" sign (+) */
+              font-size: 13px;
+              color: #777;
+              float: right;
+              margin-left: 5px;
+            }
+
+            .active:after {
+              content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
 
 
     </style>
@@ -154,65 +191,91 @@
                 <h2>提問版</h2>
                 <h3>可以在這裡提出你的問題</h3>
                 <div class="vertical-menu">
-                    <div class="accordion" id="accordionExample">
-                        {% for discussroom_qus_list in discussroom.discussroom_qus_lists %}
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="head{{discussroom_qus_lists.duscussroom_no}}">
-                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    {{discussroom_qus_lists.title}}&emsp;提問者：{{discussroom_qus_lists.quser_id}}
-                                </button>
-                            </h2>
-                            <div id="body{{discussroom_qus_lists.duscussroom_no}}" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-                                 data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    答案：
-                                    {% csrf_token %}
-                                    <textarea id="ans" name="ans" required="required"></textarea><br><br>
-                                    <button type="submit"
-                                            style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">
-                                        確認
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        {% endfor %}
+
+                    {% for discussroom_qus_list in discussroom.discussroom_qus_lists %}
+                    <!--                    <div class="accordion" id="accordionExample">-->
+                    <button class="accordion">{{discussroom_qus_list.title}}&emsp;提問者：{{discussroom_qus_list.quser_id}}</button>
+                    <div class="panel"><br>
+                        答案：
+                        {% csrf_token %}
+                        <textarea name="ans"></textarea><br><br>
+                        <button type="submit"
+                                style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">
+                            確認
+                        </button>
+                        <br><br>
                     </div>
+                    <script>
+                        var acc = document.getElementsByClassName("accordion");
+                        var i;
 
-                    <!--                    <div class="accordion accordion-flush" id="accordionFlushExample">-->
-                    <!--                        &lt;!&ndash;                        <div class="vertical-menu">&ndash;&gt;-->
-                    <!--                        {% for discussroom_qus_list in discussroom.discussroom_qus_lists %}-->
-                    <!--                        <div class="accordion-item">-->
-                    <!--                            <h2 class="accordion-header" id="head{{discussroom_qus_lists.duscussroom_no}}">-->
-                    <!--                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"-->
-                    <!--                                        data-bs-target="#flush-collapseOne" aria-expanded="false"-->
-                    <!--                                        aria-controls="flush-collapseOne">-->
-                    <!--                                    {{discussroom_qus_lists.title}}&emsp;提問者：{{discussroom_qus_lists.quser_id}}-->
-                    <!--                                </button>-->
-                    <!--                            </h2>-->
-                    <!--                            <div id="body{{discussroom_qus_lists.duscussroom_no}}"-->
-                    <!--                                 class="accordion-collapse collapse"-->
-                    <!--                                 aria-labelledby="flush-headingOne"-->
-                    <!--                                 data-bs-parent="#accordionFlushExample">-->
-                    <!--                                &lt;!&ndash;                                    <div class="accordion-body">&ndash;&gt;-->
-                    <!--                                &lt;!&ndash;                                        <div class="vertical-menu">&ndash;&gt;-->
-                    <!--                                答案：-->
-                    <!--                                {% csrf_token %}-->
-                    <!--                                <textarea id="ans" name="ans" required="required"></textarea><br><br>-->
-                    <!--                                <button type="submit"-->
-                    <!--                                        style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">-->
-                    <!--                                    確認-->
-                    <!--                                </button>-->
-                    <!--                                &lt;!&ndash;                                        </div>&ndash;&gt;-->
-                    <!--                                &lt;!&ndash;                                    </div>&ndash;&gt;-->
-                    <!--                            </div>-->
+                        for (i = 0; i < acc.length; i++) {
+                          acc[i].addEventListener("click", function() {
+                            this.classList.toggle("active");
+                            var panel = this.nextElementSibling;
+                            if (panel.style.maxHeight) {
+                              panel.style.maxHeight = null;
+                            } else {
+                              panel.style.maxHeight = panel.scrollHeight + "px";
+                            }
+                          });
+                        }
 
-                    <!--                        </div>-->
-                    <!--                        {% endfor %}-->
-                    <!--                    </div>-->
-                    <!--                    &lt;!&ndash;                    </div>&ndash;&gt;-->
-
+                    </script>
+                    {% endfor %}
                 </div>
+                <!--                        <div class="accordion-item">-->
+                <!--                            <h2 class="accordion-header" id="head{{discussroom_qus_lists.duscussroom_no}}">-->
+                <!--                                <button class="accordion-button" type="button" data-bs-toggle="collapse"-->
+                <!--                                        data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">-->
+                <!--                                    {{discussroom_qus_lists.title}}&emsp;提問者：{{discussroom_qus_lists.quser_id}}-->
+                <!--                                </button>-->
+                <!--                            </h2>-->
+                <!--                            <div id="body{{discussroom_qus_lists.duscussroom_no}}"-->
+                <!--                                 class="accordion-collapse collapse show" aria-labelledby="headingOne"-->
+                <!--                                 data-bs-parent="#accordionExample">-->
+                <!--                                <div class="accordion-body">-->
+
+                <!--                                </div>-->
+                <!--                            </div>-->
+                <!--                        </div>-->
+
+                <!--                    </div>-->
+
+                <!--                    <div class="accordion accordion-flush" id="accordionFlushExample">-->
+                <!--                        &lt;!&ndash;                        <div class="vertical-menu">&ndash;&gt;-->
+                <!--                        {% for discussroom_qus_list in discussroom.discussroom_qus_lists %}-->
+                <!--                        <div class="accordion-item">-->
+                <!--                            <h2 class="accordion-header" id="head{{discussroom_qus_lists.duscussroom_no}}">-->
+                <!--                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"-->
+                <!--                                        data-bs-target="#flush-collapseOne" aria-expanded="false"-->
+                <!--                                        aria-controls="flush-collapseOne">-->
+                <!--                                    {{discussroom_qus_lists.title}}&emsp;提問者：{{discussroom_qus_lists.quser_id}}-->
+                <!--                                </button>-->
+                <!--                            </h2>-->
+                <!--                            <div id="body{{discussroom_qus_lists.duscussroom_no}}"-->
+                <!--                                 class="accordion-collapse collapse"-->
+                <!--                                 aria-labelledby="flush-headingOne"-->
+                <!--                                 data-bs-parent="#accordionFlushExample">-->
+                <!--                                &lt;!&ndash;                                    <div class="accordion-body">&ndash;&gt;-->
+                <!--                                &lt;!&ndash;                                        <div class="vertical-menu">&ndash;&gt;-->
+                <!--                                答案：-->
+                <!--                                {% csrf_token %}-->
+                <!--                                <textarea id="ans" name="ans" required="required"></textarea><br><br>-->
+                <!--                                <button type="submit"-->
+                <!--                                        style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">-->
+                <!--                                    確認-->
+                <!--                                </button>-->
+                <!--                                &lt;!&ndash;                                        </div>&ndash;&gt;-->
+                <!--                                &lt;!&ndash;                                    </div>&ndash;&gt;-->
+                <!--                            </div>-->
+
+                <!--                        </div>-->
+                <!--                        {% endfor %}-->
+                <!--                    </div>-->
+                <!--                    &lt;!&ndash;                    </div>&ndash;&gt;-->
+
+
                 <a class="close-btn popup-close" href="#">x</a>
                 <div class="wrap">
                     <a class="btn popup-btn" href="#letmeopen1">新增問題</a>
