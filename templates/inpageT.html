@@ -21,7 +21,7 @@
 
 <script>
     // var socket = new WebSocket("ws://127.0.0.1:9000/ws/{{ group }}/");
-    socket = new WebSocket("ws://127.0.0.1:9000/room/123/");
+    socket = new WebSocket("ws://127.0.0.1:9000/room/{{discussroom.no}}/");
 
     //創建好後自動觸發
     socket.onopen = function (event){

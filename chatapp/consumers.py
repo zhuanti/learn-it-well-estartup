@@ -1,37 +1,39 @@
 from channels.generic.websocket import WebsocketConsumer
 from channels.exceptions import StopConsumer
+from asgiref.sync import async_to_sync
 
 class ChatConsumer(WebsocketConsumer):
+    # 客戶端向後端發送websocket連接的請求，自動觸發
     def websocket_connect(self, message):
-        print("there is someone to connect")
-        # 客戶端向後端發送websocket連接的請求，自動觸發
-        # 服務端允許
+
+        # 服務端允許連接
         self.accept()
 
-        # 給客戶端發消息
-        self.send("hello client")
+        # 獲取討論室號碼(在路由匹配中的)
+        group = self.scope['url_route']['kwargs'].get("group")
+
+        # 將這個客戶加入某個地方 (內存 or redis)
+        async_to_sync(self.channel_layer.group_add)(group, self.channel_name) # 將異步改為同步
 
     def websocket_receive(self, message):
         # 瀏覽器基於websocket向後端發送數據，自動觸發接收消息
-        text = message['text']
-        print("get message -->", text)
 
-        if text == "close":
-            # 服務端主動關閉連接，給客戶端斷開連接的訊息
-            self.close()
-            # raise StopConsumer() # 如果服務端斷開連接時，執行websocket_disconnect異常，那麼websocket_disconnect方法將不在執行
-            return
+        # 獲取討論室號碼(在路由匹配中的)
+        group = self.scope['url_route']['kwargs'].get("group")
 
-        res = "{}".format(text)
-        # res = "{}sb".format(text) # 傳回的字串，後面都加sb
-        self.send(res)
+        # 通知組內所有的使用者，執行xx_oo方法，在此方法中可自訂
+        async_to_sync(self.channel_layer.group_send)(group, {"type": "xx.oo", 'message': message})
 
-        # self.send("不要回復")
-
-        # self.close 服務端主動斷開連接
+    def xx_oo(self, event):
+        text = event['message']['text']
+        # 給channel_layer裡整個組的人發送
+        self.send(text)
 
     def websocket_disconnect(self, message):
+        # 獲取討論室號碼(在路由匹配中的)
+        group = self.scope['url_route']['kwargs'].get("group")
+
         # 客戶端與服務端斷開連接結時，自動觸發。(不論誰主動)
-        print("client disconnect")
+        async_to_sync(self.channel_layer.group_discard)(group, self.channel_name)
         # 服務端也同意雙方斷開連接
         raise StopConsumer()

@@ -138,3 +138,9 @@ API_URL = 'http://localhost:9001/api/'
 # API_URL = 'https://learn-it-well-estartup-api.herokuapp.com/api/'
 
 ASGI_APPLICATION = "core.asgi.application"
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer",
+    }
+}
