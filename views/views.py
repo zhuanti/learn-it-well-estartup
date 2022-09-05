@@ -412,9 +412,47 @@ def Sroominpage(request, pk):
     # return render(request, 'Sroominpage.html')
 
 
+# @user_login_required
+# def Sroominpageself(request):
+#     return render(request, 'Sroominpage-self.html')
+
 @user_login_required
-def Sroominpageself(request):
-    return render(request, 'Sroominpage-self.html')
+def Sroom_self(request):
+    r = requests.get(
+        f'{root}studyroom/self',
+        cookies={'sessionid': request.COOKIES['sessionid']}
+    )
+    result = r.json()
+    inform = result['data']
+    return render(request, 'Sroom-self.html', {'inform': inform})
+
+    # # user_id = request.COOKIES['user_id'],
+    # r = requests.get(
+    #     f'{root}studyroom/self',
+    #     # params={'user_id': user_id},
+    #     cookies={'sessionid': request.COOKIES['sessionid']}
+    # )
+    # result = r.json()
+    # informations = result['data']
+    # return render(request, 'Sroominpage-self.html', {'informations': informations})
+
+    # if request.method == 'GET':
+
+    # r = requests.get(
+    #     f'{root}/get/{pk}',
+    #     cookies={'sessionid': request.COOKIES['sessionid']}
+    # )
+    # result = r.json()
+    # if result['success'] is True:
+    #     discussroom = result['data']
+    #     return render(request, 'inpage.html', {'discussroom': discussroom})
+    #     # return render(request, 'inpageT.html', {'discussroom': discussroom})
+    # else:
+    #     messages.error(request, '查無此房間')
+    #     return redirect('/discusroom/')
+    #     return ret
+
+
 
 
 @user_login_required

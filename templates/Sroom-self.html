@@ -120,8 +120,8 @@
                                 <select class="form-control" name="subject_no_id" id="subject_no_id"
                                         value={{ report.subject_no_id }}>
                                     <option disabled="true" selected>--請選擇要讀的科目--</option>
-                                    {% for subject in subjects %}
-                                    <option value={{subject.id}}>{{subject.name}}</option>
+                                    {% for sub_list in inform.sub_lists %}
+                                    <option value={{sub_list.sub_name}}>{{sub_list.sub_name}}</option>
                                     {% endfor%}
                                     <!--                                    <option value="1">國文</option>-->
                                     <!--                                    <option value="2">英文</option>-->
@@ -147,8 +147,9 @@
                                 <select class="form-control" name="set_time" id="set_time"
                                         value={{ report.settime_no }}>
                                     <option disabled="true" selected>--請選擇預計讀書時長(1小時=60分鐘)--</option>
-                                    {% for settime in settimes %}
-                                    <option value={{settime.no}}>{{settime.time}}分鐘</option>
+
+                                    {% for set_list in inform.set_lists %}
+                                    <option value={{set_list.set_time}}>{{set_list.set_time}}分鐘</option>
                                     {% endfor%}
                                     <!--                                    <option value="5">5分鐘</option>-->
                                     <!--                                    <option value="10">10分鐘</option>-->
