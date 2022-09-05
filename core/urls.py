@@ -33,7 +33,9 @@ urlpatterns = [
     path('register/', auth_views.register),
     # path('forgetPwd/', views.forgetPwd),
     # path('register/', views.register),
-    path('ForgetPwd/', auth_views.ForgetPwd),
+
+    # path('ForgetPwd/', auth_views.ForgetPwd),
+
     path('ForgetPwdReset/', auth_views.ForgetPwdReset),
 
     # reset pwd test
@@ -44,6 +46,10 @@ urlpatterns = [
     path('reset/<uidb64>/<token>/', dj_auth_views.PasswordResetConfirmView.as_view(), name="password_reset_confirm"),
 
     path('reset_password_complete/', dj_auth_views.PasswordResetCompleteView.as_view(), name="password_reset_complete"),
+
+    # reset pwd test 2
+    path('ForgetPwd/', auth_views.forget_pass, name="forget_pass"),
+
 
     # discusroom
     # path('discusroom/', discusroom_review_views.addroom),

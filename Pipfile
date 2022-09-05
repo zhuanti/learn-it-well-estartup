@@ -16,6 +16,7 @@ routing = "*"
 channels-redis = "*"
 dj-database-url = "*"
 psycopg2-binary = "*"
+decorators = "*"
 
 [dev-packages]
 
