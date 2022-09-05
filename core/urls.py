@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.urls import path
 
+from django.contrib.auth import views as dj_auth_views
+
 from views import views, auth_views, subject_review_views, discusroom_review_views, \
     plan_review_views, report_review_views, success_review_views, \
     user_review_views, settime_review_views
@@ -22,7 +24,7 @@ from django.conf.urls import include
 from django.contrib import admin
 
 urlpatterns = [
-    # path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('', views.index),
 
     # auth
@@ -33,6 +35,15 @@ urlpatterns = [
     # path('register/', views.register),
     path('ForgetPwd/', auth_views.ForgetPwd),
     path('ForgetPwdReset/', auth_views.ForgetPwdReset),
+
+    # reset pwd test
+    path('reset_password/', dj_auth_views.PasswordResetView.as_view(), name="reset_password"),
+
+    path('reset_password_sent/', dj_auth_views.PasswordResetDoneView.as_view(), name="password_reset_done"),
+
+    path('reset/<uidb64>/<token>/', dj_auth_views.PasswordResetConfirmView.as_view(), name="password_reset_confirm"),
+
+    path('reset_password_complete/', dj_auth_views.PasswordResetCompleteView.as_view(), name="password_reset_complete"),
 
     # discusroom
     # path('discusroom/', discusroom_review_views.addroom),

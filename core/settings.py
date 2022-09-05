@@ -13,6 +13,8 @@ import os
 from distutils.command.config import config
 from pathlib import Path
 
+import dj_database_url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -42,6 +44,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'channels',
+
+    'accounts'
 ]
 
 MIDDLEWARE = [
@@ -56,6 +60,11 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'core.urls'
+
+# TEMPLATE_LOADERS = (
+#     'django.template.loaders.app_directories.Loader',
+#     'django.template.loaders.filesystem.Loader',
+# )
 
 TEMPLATES = [
     {
@@ -80,11 +89,16 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse(
+        'postgres://ctqccghsrclyok:9432225df32767cb8362ef5c8078b8d2a8508a241516fda698f8e8917175a860@ec2-34-202-66-20.compute-1.amazonaws.com:5432/d4kaq6iu2g0psr')
 }
 
 # Password validation
@@ -153,3 +167,15 @@ CHANNEL_LAYERS = {
 #         },
 #     },
 # }
+
+# SMTP Config
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = 'smtp.gmail.com' # because use gmail
+EMAIL_PORT = 587 # Port Number: 587 (With TLS)
+EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = 'youremail'
+EMAIL_HOST_USER = 'a10756111501@gmail.com'
+# EMAIL_HOST_PASSWORD = 'your email password'
+# EMAIL_HOST_PASSWORD = 'JI#ap72k75j0 wu6'
+EMAIL_HOST_PASSWORD = 'cgnhkebqftzilwpz'
+
