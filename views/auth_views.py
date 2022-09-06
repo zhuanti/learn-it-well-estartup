@@ -5,8 +5,10 @@ from django.contrib import messages
 
 from accounts.models import User
 
+from django.contrib.auth.hashers import make_password
 
 root += 'auth'
+
 
 # 登入
 def login(request):
@@ -47,6 +49,7 @@ def login(request):
         messages.error(request, '帳號或密碼錯誤')
         return redirect('/login/')
 
+
 # 登出
 def logout(request):
     requests.post(
@@ -59,6 +62,7 @@ def logout(request):
     ret.delete_cookie('user_id')
     messages.success(request, '已成功登出')
     return ret
+
 
 # 註冊
 def register(request):
@@ -103,6 +107,7 @@ def register(request):
         return redirect('/register')
         return ret
 
+
 def ForgetPwd(request):
     if request.method == 'GET':
         return render(request, 'ForgetPwd.html')
@@ -125,8 +130,8 @@ def ForgetPwd(request):
         return redirect('/ForgetPwd/')
         return ret
 
-def forget_pass(request):
 
+def forget_pass(request):
     if request.method == 'GET':
         return render(request, 'ForgetPwd.html')
 
@@ -157,17 +162,15 @@ def forget_pass(request):
     #
     #     result = r.json()
 
-
     if request.method == "POST":
         # user = request.POST['user']
         # get_email = request.POST['email']
-
 
         email = request.POST['email']
         username = User.objects.filter(pk=email)
 
         data = {
-            'id': username,
+            'id': email,
         }
         r = requests.post(
             f'{root}/forget/',
@@ -191,16 +194,19 @@ def forget_pass(request):
                 random_password += random_char
 
             # 重置密码
-            username[0].set_password(random_password)
+            # username[0].set_password(random_password)
+
+            username[0].password = make_password('random_password')
+
             username[0].save()
 
             # 发送重置密码邮件
-            content_plain = "您好,您收到这封邮件,是因为你选择了忘记密码,重置了密码,新的密码为: %s" % random_password
+            content_plain = "您好,您收到這封郵件,是因為你選擇了忘記密碼,因此我們為您重置了密碼,新的密碼為: %s" % random_password
             email = Email(
                 smtp_server='smtp.gmail.com',
                 from_addr='a10756111501@gmail.com',
                 password='cgnhkebqftzilwpz',
-                to_addr=username,
+                to_addr=email,
                 type='plain',
                 title='重置密码',
                 content=content_plain
@@ -208,14 +214,17 @@ def forget_pass(request):
             flag = email.send_msg()
             # 邮件发送成功标记
             if flag == 1:
-                return render(request, 'forget_pass.html', {'success': "重置密码已发邮件"})
-                # ret = redirect('/ForgetPwd/')
-                # messages.success(request, '請去郵箱驗證，並重設密碼')
-                # return ret
+                # return render(request, 'forget_pass.html', {'success': "重置密码已发邮件"})
+                ret = redirect('/login/')
+                messages.success(request, '密碼已重置，請去郵箱查收')
+                return ret
 
             # 邮件发送失败反馈
             else:
-                return render(request, 'forget_pass.html', {'send_email_failed': flag})
+                ret = redirect('/ForgetPwd/')
+                messages.success(request, '郵件發送失敗，請確認此郵箱是否存在')
+                return ret
+                # return render(request, 'forget_pass.html', {'send_email_failed': flag})
 
                 # ret = redirect('/ForgetPwd/')
                 # messages.success(request, '請去郵箱驗證，並重設密碼')
@@ -225,7 +234,6 @@ def forget_pass(request):
             return redirect('/ForgetPwd/')
             return ret
 
-
         # # 输入的账号不存在时,报错
         # if not username:
         #     return render(request, 'forget_pass.html', {'user_error': '您输入的账号不存在.'})
@@ -233,48 +241,47 @@ def forget_pass(request):
         # 输入账号存在时,做如下检查
         # else:
 
-            # # 检查输入的邮箱与现存的邮箱是否匹配.username因为是QuerySet类型,所以要加[0].
-            # if id != username[0].email:
-            #     return render(request, 'forget_pass.html', {'email_error': '您输入的邮箱不对,请检查.'})
+        # # 检查输入的邮箱与现存的邮箱是否匹配.username因为是QuerySet类型,所以要加[0].
+        # if id != username[0].email:
+        #     return render(request, 'forget_pass.html', {'email_error': '您输入的邮箱不对,请检查.'})
 
-            # 如果输入的账号与邮箱匹配,则重置密码,并发送邮件.
-            # else:
-                # import random
-                # from utils import Email
-                #
-                # # 产生随机8位密码
-                # random_password = ""
-                # for x in range(8):
-                #     random_num = str(random.randint(0, 9))
-                #     random_low_alpha = chr(random.randint(97, 122))
-                #     random_upper_alpha = chr(random.randint(65, 90))
-                #     random_char = random.choice([random_num, random_low_alpha, random_upper_alpha])
-                #     random_password += random_char
-                #
-                # # 重置密码
-                # username[0].set_password(random_password)
-                # username[0].save()
-                #
-                # # 发送重置密码邮件
-                # content_plain = "您好,您收到这封邮件,是因为你选择了忘记密码,重置了密码,新的密码为: %s" % random_password
-                # email = Email(
-                #     smtp_server='smtp.163.com',
-                #     from_addr='XXXXX@163.com',
-                #     password='XXXXXXX',
-                #     to_addr=get_email,
-                #     type='plain',
-                #     title='重置密码',
-                #     content=content_plain
-                # )
-                # flag = email.send_msg()
-                # # 邮件发送成功标记
-                # if flag == 1:
-                #     return render(request, 'forget_pass.html', {'success': "重置密码已发邮件"})
-                #
-                # # 邮件发送失败反馈
-                # else:
-                #     return render(request, 'forget_pass.html', {'send_email_failed': flag})
-
+        # 如果输入的账号与邮箱匹配,则重置密码,并发送邮件.
+        # else:
+        # import random
+        # from utils import Email
+        #
+        # # 产生随机8位密码
+        # random_password = ""
+        # for x in range(8):
+        #     random_num = str(random.randint(0, 9))
+        #     random_low_alpha = chr(random.randint(97, 122))
+        #     random_upper_alpha = chr(random.randint(65, 90))
+        #     random_char = random.choice([random_num, random_low_alpha, random_upper_alpha])
+        #     random_password += random_char
+        #
+        # # 重置密码
+        # username[0].set_password(random_password)
+        # username[0].save()
+        #
+        # # 发送重置密码邮件
+        # content_plain = "您好,您收到这封邮件,是因为你选择了忘记密码,重置了密码,新的密码为: %s" % random_password
+        # email = Email(
+        #     smtp_server='smtp.163.com',
+        #     from_addr='XXXXX@163.com',
+        #     password='XXXXXXX',
+        #     to_addr=get_email,
+        #     type='plain',
+        #     title='重置密码',
+        #     content=content_plain
+        # )
+        # flag = email.send_msg()
+        # # 邮件发送成功标记
+        # if flag == 1:
+        #     return render(request, 'forget_pass.html', {'success': "重置密码已发邮件"})
+        #
+        # # 邮件发送失败反馈
+        # else:
+        #     return render(request, 'forget_pass.html', {'send_email_failed': flag})
 
     # 如果request是GET,则返回如下
     # else:
@@ -282,9 +289,8 @@ def forget_pass(request):
     #     return redirect('/ForgetPwd/')
     #     return ret
 
-        # return render(request, 'forget_pass.html')
+    # return render(request, 'forget_pass.html')
 
 
 def ForgetPwdReset(request):
     return render(request, 'ForgetPwdReset.html')
-
