@@ -108,14 +108,14 @@
 <!-- 表格開始-->
 <body class="hm-gradient">
 
+
 <main>
 
     <!--MDB Tables-->
     <div class="container mt-4">
 
         <div class="text-center darken-grey-text mb-4">
-            <br><br><!-- <h1 class="font-bold mt-4 mb-3 h5">Built with Material Design for Bootstrap 4</h1>-->
-            <!--                <a class="btn btn-danger btn-md" href="https://mdbootstrap.com/material-design-for-bootstrap/" target="_blank">Free download<i class="fa fa-download pl-2"></i></a>-->
+            <br><br>
         </div>
         <div class="card mb-4">
             <div class="card-body">
@@ -123,26 +123,37 @@
                 <div class="row">
                     <!-- Grid column -->
                     <div class="col-md-12">
-                        <form class="form-inline float-right mb-4" action="/reviews/search/" method="get">
-                            <h2 class="pt-3 pb-4 text-center font-bold font-up deep-purple-text">搜尋自習室</h2>
-                            <div class="input-group md-form form-sm form-2 pl-0">
-                                <input class="form-control my-0 py-1 pl-3 purple-border" type="text"
-                                       placeholder="Search something here..." aria-label="Search">
-                                <span class="input-group-addon waves-effect purple lighten-2" id="basic-addon1"><a><i
-                                        class="fa fa-search white-text" aria-hidden="true"></i></a></span>
-                                <button style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">
-                                    搜尋
-                                </button>
-                            </div>
-                        </form>
+                        <h2 class="pt-3 pb-4 text-center font-bold font-up deep-purple-text">搜尋自習室</h2>
+
+                        <table align="right">
+                            <form style="margin: auto; width: 220px;" class="form-inline float-right mb-4"
+                                  action="/studyroom/Sserch/" method="get">
+                                <tr>
+                                    <td>
+                                        <input class="form-control my-0 py-1 pl-3 purple-border" type="text" name="name"
+                                               placeholder="請輸入房間名稱" required/>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-primary" type="submit"
+                                                style="width:120px;height:50px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;">
+                                            搜尋
+                                        </button>
+                                    </td>
+                                </tr>
+
+                            </form>
+                        </table>
+                        <br>
                     </div>
                     <!-- Grid column -->
+
                     {% for message in messages %}
                     <div class="alert alert-success">
                         <a class="close" href="#" data-dismiss="alert"></a>
                         {{ message }}
                     </div>
                     {% endfor %}
+
                 </div>
                 <!-- Grid row -->
                 <!--Table-->
@@ -151,29 +162,23 @@
                         <!--Table head-->
                         <thead>
                         <tr>
-                            <th>房號</th>
+                            <th>房間編號</th>
+                            <!--                            <th>學制</th>-->
                             <!--                            <th>科目</th>-->
-                            <th>房名</th>
+                            <th>房間名稱</th>
                             <th>最多容納人數</th>
-
                             <th></th>
                         </tr>
                         </thead>
                         <!--Table head-->
                         <!--Table body-->
+
                         <tbody>
                         {% for studyroom in studyrooms %}
                         <tr>
                             <td>
-                                <!--                                <a href="/reviews/{{studyroom.no}}/">{{studyroom.no}}</a>-->
                                 {{studyroom.no}}
                             </td>
-                            <!--                                <td>-->
-                            <!--                                    {{discussroom.schoolsys_no}}-->
-                            <!--                                </td>-->
-                            <!--                                <td>-->
-                            <!--                                    {{discussroom.subject_no}}-->
-                            <!--                                </td>-->
                             <td>
                                 {{studyroom.name}}
                             </td>
@@ -181,300 +186,27 @@
                                 {{studyroom.total_people}}
                             </td>
                             <td>
-                                <!--                                <a href="/discusroom/inpage/{{discussroom.no}}/">-->
-                                <!--                                    <button class="button" herf="/inpage/{{discussroom.no}}/"> 加入</button>-->
-                                <!--                                </a>-->
-                                <!--                                api 連線時使用的button-->
-                                <!--                                <center><a class="nav-link scrollto active"-->
-                                <!--                                           href="/discusroom/inpage/{{discussroom.no}}/">加入</a></center>-->
-                                <!--                                <center><a class="nav-link scrollto active" href="/Sroominpage/">加入</a></center>-->
-                                <center><a class="nav-link scrollto active" href="/studyroom-togethersub/{{studyroom.no}}/">加入</a></center>
+                                <!--                                    <a href="/discusroom/inpage/{{discussroom.no}}/">-->
+                                <!--                                            <button class="button" herf="/inpage/{{discussroom.no}}/"> 加入 </button>-->
+                                <!--                                    </a>-->
+                                <!--api 連線時使用的button-->
+                                <!--                                <center><a class="nav-link scrollto active" href="/discusroom/inpage/{{discussroom.no}}/">加入</a></center>-->
+                                <center><a class="nav-link scrollto active" href="/studyroom-togethersub/{{studyroom.no}}/">加入</a>
+                                </center>
 
-
-                                <!--                                <div>-->
-                                <!--                                    <dialog id="Dialog" class="dialog">-->
-                                <!--                                        <center>-->
-                                <!--                                            <div class="row justify-content-center" data-aos="fade-up"-->
-                                <!--                                                 data-aos-delay="100">-->
-
-                                <!--                                                <div class="col-lg-3 col-md-4">-->
-
-                                <!--                                                    <div class="info">-->
-                                <!--                                                        <div>-->
-                                <!--                                                            <i class=" bi bi-pencil"></i>-->
-                                <!--                                                            <p>科目</p>-->
-                                <!--                                                        </div>-->
-                                <!--                                                        <div>-->
-                                <!--                                                            <i class=" bi bi-info-circle"></i>-->
-                                <!--                                                            <p>詳細資訊</p>-->
-                                <!--                                                        </div>-->
-                                <!--                                                        <br>-->
-                                <!--                                                        <div>-->
-                                <!--                                                            <i class="bi bi-alarm"></i>-->
-                                <!--                                                            <p>時間</p>-->
-                                <!--                                                        </div>-->
-                                <!--                                                    </div>-->
-
-                                <!--                                                </div>-->
-
-                                <!--                                                <div class="col-lg-5 col-md-8">-->
-                                <!--                                                    <div class="form">-->
-                                <!--                                                        <form action="/forms/contact.php" method="post" role="form"-->
-                                <!--                                                              class="php-email-form">-->
-                                <!--                                                            {% csrf_token %}-->
-                                <!--                                                            <div class="form-group">-->
-                                <!--                                                                <select class="form-control" name="subject_no_id"-->
-                                <!--                                                                        id="subject_no_id"-->
-                                <!--                                                                        value={{ report.subject_no_id }}>-->
-                                <!--                                                                    <option value="">請選擇要讀的科目</option>-->
-                                <!--                                                                    <option value="1">國文</option>-->
-                                <!--                                                                    <option value="2">英文</option>-->
-                                <!--                                                                    <option value="3">數學</option>-->
-                                <!--                                                                    <option value="4">社會</option>-->
-                                <!--                                                                    <option value="5">地理</option>-->
-                                <!--                                                                    <option value="6">歷史</option>-->
-                                <!--                                                                    <option value="7">公民</option>-->
-                                <!--                                                                    &lt;!&ndash;                                    <option value="8">自然與生活科技</option>&ndash;&gt;-->
-                                <!--                                                                    <option value="9">生物</option>-->
-                                <!--                                                                    <option value="10">理化</option>-->
-                                <!--                                                                    <option value="11">物理</option>-->
-                                <!--                                                                    <option value="11">地球科學</option>-->
-                                <!--                                                                    &lt;!&ndash;                                    <option value="12">化學</option>&ndash;&gt;-->
-                                <!--                                                                    &lt;!&ndash;                                    <option value="13">健康教育</option>&ndash;&gt;-->
-                                <!--                                                                    &lt;!&ndash;                                    <option value="14">輔導</option>&ndash;&gt;-->
-                                <!--                                                                    &lt;!&ndash;                                    <option value="15">國防通識</option>&ndash;&gt;-->
-                                <!--                                                                    &lt;!&ndash;                                    <option value="16">童軍</option>&ndash;&gt;-->
-                                <!--                                                                    &lt;!&ndash;                                    <option value="17">家政</option>&ndash;&gt;-->
-                                <!--                                                                    &lt;!&ndash;                                    <option value="18">美術</option>&ndash;&gt;-->
-                                <!--                                                                </select>-->
-                                <!--                                                            </div>-->
-                                <!--                                                            <br><br>-->
-                                <!--                                                            <div class="form-group">-->
-                                <!--                                                                <input type="text" name="subject_detail"-->
-                                <!--                                                                       class="form-control"-->
-                                <!--                                                                       id="subject_detail" placeholder="請輸入科目詳細資料"-->
-                                <!--                                                                       required value={{ report.subject_detail }}>-->
-                                <!--                                                            </div>-->
-                                <!--                                                            <br><br>-->
-                                <!--                                                            <div class="form-group">-->
-                                <!--                                                                <select name="set_time" id="set_time"-->
-                                <!--                                                                        class="form-control" value={{ report.set_time-->
-                                <!--                                                                        }}>-->
-                                <!--                                                                    <option value="">請選擇預計讀書時長</option>-->
-                                <!--                                                                    <option value="5">5分鐘</option>-->
-                                <!--                                                                    <option value="10">10分鐘</option>-->
-                                <!--                                                                    <option value="15">15分鐘</option>-->
-                                <!--                                                                    <option value="20">20分鐘</option>-->
-                                <!--                                                                    <option value="25">25分鐘</option>-->
-                                <!--                                                                    <option value="30">30分鐘</option>-->
-                                <!--                                                                    <option value="35">35分鐘</option>-->
-                                <!--                                                                    <option value="40">40分鐘</option>-->
-                                <!--                                                                    <option value="45">45分鐘</option>-->
-                                <!--                                                                    <option value="50">50分鐘</option>-->
-                                <!--                                                                    <option value="60">1小時</option>-->
-                                <!--                                                                    <option value="70">1小時10分鐘</option>-->
-                                <!--                                                                    <option value="80">1小時20分鐘</option>-->
-                                <!--                                                                    <option value="90">1小時30分鐘</option>-->
-                                <!--                                                                    <option value="100">1小時40分鐘</option>-->
-                                <!--                                                                    <option value="110">1小時50分鐘</option>-->
-                                <!--                                                                    <option value="120">2小時</option>-->
-                                <!--                                                                </select>-->
-                                <!--                                                            </div>-->
-                                <!--                                                        </form>-->
-                                <!--                                                    </div>-->
-                                <!--                                                </div>-->
-                                <!--                                            </div>-->
-                                <!--                                        </center>-->
-                                <!--                                        <button onclick="closeDialog()" class="dialoginsidebtn">關閉</button>-->
-                                <!--                                        <button class="dialoginsideaddbtn"-->
-                                <!--                                                onclick="window.location.href='/Sroominpage/{{studyroom.no}}/'">-->
-                                <!--                                            加入-->
-                                <!--                                        </button>-->
-                                <!--                                        <style>-->
-                                <!--                                            .dialog {-->
-                                <!--                                                width: 480px;-->
-                                <!--                                                border: none;-->
-                                <!--                                                box-shadow: 0 2px 6px #ccc;-->
-                                <!--                                                border-radius: 10px;-->
-                                <!--                                                position: fixed;-->
-                                <!--                                                top: 50%;-->
-                                <!--                                                left: 40%;-->
-                                <!--                                                transform: translate(0, -50%);-->
-                                <!--                                            }-->
-
-                                <!--                                            .dialoginsidebtn {-->
-                                <!--                                                display: inline-block;-->
-                                <!--                                                margin: 5px 3px;-->
-                                <!--                                                font-weight: 400;-->
-                                <!--                                                text-align: left;-->
-                                <!--                                                white-space: nowrap;-->
-                                <!--                                                vertical-align: middle;-->
-                                <!--                                                -webkit-user-select: none;-->
-                                <!--                                                -moz-user-select: none;-->
-                                <!--                                                -ms-user-select: none;-->
-                                <!--                                                user-select: none;-->
-                                <!--                                                padding: 2px 13px;-->
-                                <!--                                                font-size: 14px;-->
-                                <!--                                                line-height: 30px;-->
-                                <!--                                                min-height: 35px;-->
-                                <!--                                                border-radius: 2px;-->
-                                <!--                                                transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;-->
-                                <!--                                                color: #ffffff;-->
-                                <!--                                                background-color: rgb(131, 209, 111);-->
-                                <!--                                                border-radius: 8px;-->
-                                <!--                                                cursor: pointer;-->
-                                <!--                                                letter-spacing: 2px;-->
-                                <!--                                                box-shadow: 2px 2px 3px grey;-->
-                                <!--                                                border: none;-->
-                                <!--                                                padding-right: 11px;-->
-
-                                <!--                                                /* 新增按鈕寬度 */-->
-                                <!--                                                width: 55px;-->
-                                <!--                                            }-->
-
-                                <!--                                            i:hover + .dialoginsidebtn, .dialoginsidebtn:hover {-->
-                                <!--                                                color: white;-->
-                                <!--                                                box-shadow: none;-->
-                                <!--                                                border: none;-->
-                                <!--                                                background-color: rgb(95, 148, 84);-->
-                                <!--                                            }-->
-
-                                <!--                                            .dialoginsideaddbtn {-->
-                                <!--                                                position: absolute;-->
-                                <!--                                                right: 19px;-->
-                                <!--                                                display: inline-block;-->
-                                <!--                                                margin: 5px 3px;-->
-                                <!--                                                font-weight: 400;-->
-                                <!--                                                text-align: left;-->
-                                <!--                                                white-space: nowrap;-->
-                                <!--                                                vertical-align: middle;-->
-                                <!--                                                -webkit-user-select: none;-->
-                                <!--                                                -moz-user-select: none;-->
-                                <!--                                                -ms-user-select: none;-->
-                                <!--                                                user-select: none;-->
-                                <!--                                                padding: 2px 13px;-->
-                                <!--                                                font-size: 14px;-->
-                                <!--                                                line-height: 30px;-->
-                                <!--                                                min-height: 35px;-->
-                                <!--                                                border-radius: 2px;-->
-                                <!--                                                transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;-->
-                                <!--                                                color: #ffffff;-->
-                                <!--                                                background-color: rgb(131, 209, 111);-->
-                                <!--                                                border-radius: 8px;-->
-                                <!--                                                cursor: pointer;-->
-                                <!--                                                letter-spacing: 2px;-->
-                                <!--                                                box-shadow: 2px 2px 3px grey;-->
-                                <!--                                                border: none;-->
-                                <!--                                                padding-right: 11px;-->
-
-                                <!--                                                /* 新增按鈕寬度 */-->
-                                <!--                                                width: 55px;-->
-                                <!--                                            }-->
-
-                                <!--                                            i:hover + .dialoginsideaddbtn, .dialoginsideaddbtn:hover {-->
-                                <!--                                                color: white;-->
-                                <!--                                                box-shadow: none;-->
-                                <!--                                                border: none;-->
-                                <!--                                                background-color: rgb(95, 148, 84);-->
-                                <!--                                            }-->
-
-
-                                <!--                                        </style>-->
-                                <!--                                    </dialog>-->
-                                <!--                                </div>-->
-                                <!--                                <center><a class="nav-link scrollto active" onclick="showDialog()">加入</a></center>-->
-                                <!--                                <script>-->
-                                <!--                                    var y = document.getElementById("Dialog");-->
-
-                                <!--                                    function showDialog() {-->
-                                <!--                                        y.show();-->
-                                <!--                                    }-->
-
-                                <!--                                    function closeDialog() {-->
-                                <!--                                        y.close();-->
-                                <!--                                    }-->
-
-
-                                <!--                                </script>-->
-                                <!--                            </td>-->
+                            </td>
 
                         </tr>
                         {% endfor %}
                         </tbody>
-                        <!--                        <tbody>-->
-                        <!--                        <tr class="table-green">-->
-                        <!--                            <th scope="row">101</th>-->
-                        <!--                            <th>國文</th>-->
-                        <!--                            <td>來讀冊辣</td>-->
-                        <!--                            <td>5/10</td>-->
-
-                        <!--                            <td>-->
-                        <!--                                <center><a class="nav-link scrollto active" href="/Sroominpage/">加入</a></center>-->
-                        <!--                            </td>-->
-                        <!--                        </tr>-->
-                        <!--                        <tr>-->
-                        <!--                            <th scope="row">202</th>-->
-                        <!--                            <th>數學</th>-->
-                        <!--                            <td>來讀冊欸</td>-->
-                        <!--                            <td>5/20</td>-->
-
-                        <!--                            <td>-->
-                        <!--                                <center><a class="nav-link scrollto active" href="/Sroominpage/">加入</a></center>-->
-                        <!--                            </td>-->
-                        <!--                        </tr>-->
-                        <!--                        <tr class="table-green">-->
-                        <!--                            <th scope="row">303</th>-->
-                        <!--                            <th>英文</th>-->
-                        <!--                            <td>來讀冊喔</td>-->
-                        <!--                            <td>9/10</td>-->
-
-                        <!--                            <td>-->
-                        <!--                                <center><a class="nav-link scrollto active" href="/test-study/">加入</a></center>-->
-                        <!--                            </td>-->
-                        <!--                        </tr>-->
-                        <!--                        <tr>-->
-                        <!--                            <th scope="row">404</th>-->
-                        <!--                            <th>其他</th>-->
-                        <!--                            <td>來讀冊阿</td>-->
-                        <!--                            <td>3/15</td>-->
-
-                        <!--                            <td>-->
-                        <!--                                <center><a class="nav-link scrollto active" href="/test-study/">加入</a></center>-->
-                        <!--                            </td>-->
-                        <!--                        </tr>-->
-                        <!--                        <tr class="table-green">-->
-                        <!--                            <th scope="row">505</th>-->
-                        <!--                            <th>自然</th>-->
-                        <!--                            <td>來讀冊呀</td>-->
-                        <!--                            <td>2/22</td>-->
-
-                        <!--                            <td>-->
-                        <!--                                <center><a class="nav-link scrollto active" href="/test-study/">加入</a></center>-->
-                        <!--                            </td>-->
-                        <!--                        </tr>-->
-                        <!--                        <tr>-->
-                        <!--                            <th scope="row">606</th>-->
-                        <!--                            <th>社會</th>-->
-                        <!--                            <td>來讀冊吧</td>-->
-                        <!--                            <td>7/10</td>-->
-
-                        <!--                            <td>-->
-                        <!--                                <center><a class="nav-link scrollto active" href="/test-study/">加入</a></center>-->
-                        <!--                            </td>-->
-                        <!--                        </tr>-->
-                        <!--                        </tbody>-->
-                        <!--Table body-->
                     </table>
                 </div>
                 <br>
-                <!--Table-->
             </div>
         </div>
         <hr class="my-4">
 
         <div class="text-center darken-grey-text mb-4">
-            <!--                <h3 class="font-bold mb-3">Here you can find more Tables:</h3>-->
-            <!--                <a class="btn btn-danger" href="https://mdbootstrap.com/content/tables/" target="_blank">Bootstrap Tables</a>-->
         </div>
 
     </div>
