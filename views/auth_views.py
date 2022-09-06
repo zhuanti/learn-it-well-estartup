@@ -3,8 +3,6 @@ from django.shortcuts import render, redirect
 from core.settings import API_URL as root
 from django.contrib import messages
 
-from accounts.models import User
-
 from django.contrib.auth.hashers import make_password
 
 root += 'auth'
@@ -108,29 +106,29 @@ def register(request):
         return ret
 
 
-def ForgetPwd(request):
-    if request.method == 'GET':
-        return render(request, 'ForgetPwd.html')
+# def ForgetPwd(request):
+#     if request.method == 'GET':
+#         return render(request, 'ForgetPwd.html')
+#
+#     user_id = request.POST['user_id']
+#
+#     r = requests.get(
+#         f'{root}/forget/{user_id}',
+#     )
+#
+#     result = r.json()
+#     # studyrooms = result['data']
+#
+#     if result['success'] is True:
+#         ret = redirect('/ForgetPwd/')
+#         messages.success(request, '請去郵箱驗證，並重設密碼')
+#         return ret
+#     else:
+#         messages.error(request, '查無此帳號')
+#         return redirect('/ForgetPwd/')
+#         return ret
 
-    user_id = request.POST['user_id']
-
-    r = requests.get(
-        f'{root}/forget/{user_id}',
-    )
-
-    result = r.json()
-    # studyrooms = result['data']
-
-    if result['success'] is True:
-        ret = redirect('/ForgetPwd/')
-        messages.success(request, '請去郵箱驗證，並重設密碼')
-        return ret
-    else:
-        messages.error(request, '查無此帳號')
-        return redirect('/ForgetPwd/')
-        return ret
-
-
+# 忘記密碼及重設
 def forget_pass(request):
     if request.method == 'GET':
         return render(request, 'ForgetPwd.html')
@@ -203,10 +201,6 @@ def forget_pass(request):
                 messages.success(request, '郵件發送失敗，請確認此郵箱是否存在')
                 return ret
                 # return render(request, 'forget_pass.html', {'send_email_failed': flag})
-
-                # ret = redirect('/ForgetPwd/')
-                # messages.success(request, '請去郵箱驗證，並重設密碼')
-                # return ret
         else:
             messages.error(request, '查無此帳號')
             return redirect('/ForgetPwd/')

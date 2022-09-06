@@ -27,12 +27,12 @@ SECRET_KEY = 'django-insecure-$^cj&s%f6ehv=aa44rh1l*j-_2ke%%y_#m3=)$e-09e^bggjxv
 # SECURITY WARNING: don't run with debug turned on in production!
 
 # 在本地連線時用
-DEBUG = True
-ALLOWED_HOSTS = []
+# DEBUG = True
+# ALLOWED_HOSTS = []
 
 # 在Heroku連線時用
-# DEBUG = False
-# ALLOWED_HOSTS = ['learn-it-well-estartup.herokuapp.com']
+DEBUG = False
+ALLOWED_HOSTS = ['learn-it-well-estartup.herokuapp.com']
 
 # Application definition
 
@@ -147,9 +147,9 @@ STATICFILES_DIRS = (
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-API_URL = 'http://localhost:9001/api/'
+# API_URL = 'http://localhost:9001/api/'
 
-# API_URL = 'https://learn-it-well-estartup-api.herokuapp.com/api/'
+API_URL = 'https://learn-it-well-estartup-api.herokuapp.com/api/'
 
 ASGI_APPLICATION = "core.asgi.application"
 
@@ -168,14 +168,4 @@ CHANNEL_LAYERS = {
 #     },
 # }
 
-# SMTP Config
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = 'smtp.gmail.com' # because use gmail
-EMAIL_PORT = 587 # Port Number: 587 (With TLS)
-EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = 'youremail'
-EMAIL_HOST_USER = 'a10756111501@gmail.com'
-# EMAIL_HOST_PASSWORD = 'your email password'
-# EMAIL_HOST_PASSWORD = 'JI#ap72k75j0 wu6'
-EMAIL_HOST_PASSWORD = 'cgnhkebqftzilwpz'
 
