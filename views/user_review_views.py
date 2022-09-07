@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from core.settings import API_URL as root
 from utils.decorators import user_login_required
 
+
 # 顯示個人資料
 @user_login_required
 def Udetail(request):
@@ -18,6 +19,7 @@ def Udetail(request):
     user = result['data']
     return render(request, 'UserDetail.html', {'user': user})
 
+
 # 編輯個人資料(修改版)
 @user_login_required
 def EditUserDetail(request):
@@ -31,32 +33,38 @@ def EditUserDetail(request):
         result = r.json()
         user = result['data']
         return render(request, 'editUserDetail.html', {'user': user})
+    if request.POST['pwd'] == request.POST['pwd2']:
+        pwd = request.POST['pwd']
+        name = request.POST['name']
+        live = request.POST['live']
+        borth = request.POST['borth']
 
-    name = request.POST['name']
-    live = request.POST['live']
-    borth = request.POST['borth']
+        data = {
+            'user_id': request.COOKIES['user_id'],
+            'pwd': pwd,
+            'name': name,
+            'live': live,
+            'borth': borth
+        }
+        r = requests.post(
+            f'{root}user/detail/edit/',
+            # params={'user_id': user_id},
+            data=data,
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
 
-    data = {
-        'user_id': request.COOKIES['user_id'],
-        'name': name,
-        'live': live,
-        'borth': borth
-    }
-    r = requests.post(
-        f'{root}user/detail/edit/',
-        # params={'user_id': user_id},
-        data=data,
-        cookies={'sessionid': request.COOKIES['sessionid']}
-    )
-    result = r.json()
-
-    if result['success'] is True:
-        ret = redirect('/userdetail')
-        messages.success(request, '已修改資料成功')
-        return ret
+        if result['success'] is True:
+            ret = redirect('/userdetail')
+            messages.success(request, '已修改資料成功')
+            return ret
+        else:
+            messages.error(request, '生日格式填寫錯誤，請重新修改')
+            return redirect('/edituser-detail')
     else:
-        messages.error(request, '生日格式填寫錯誤，請重新修改')
+        messages.error(request, '兩次所輸入密碼不同，請重新輸入')
         return redirect('/edituser-detail')
+        return ret
 
 # @user_login_required
 # def EditUserDetail(request):
@@ -95,13 +103,13 @@ def EditUserDetail(request):
 #     user = result['data']
 #     return render(request, 'UserDetail.html', {'user': user})
 
-    # user_id = request.COOKIES['user_id'],
-    # r = requests.get(
-    #    f'{root}user/detail/edit/',
-    #    params={'user_id': user_id},
-    #    # 'user_id': request.COOKIES['user_id'],
-    #    cookies={'sessionid': request.COOKIES['sessionid']}
-    # )
-    # result = r.json()
-    # user = result['data']
-    # return render(request, 'editUserDetail.html', {'user': user})
+# user_id = request.COOKIES['user_id'],
+# r = requests.get(
+#    f'{root}user/detail/edit/',
+#    params={'user_id': user_id},
+#    # 'user_id': request.COOKIES['user_id'],
+#    cookies={'sessionid': request.COOKIES['sessionid']}
+# )
+# result = r.json()
+# user = result['data']
+# return render(request, 'editUserDetail.html', {'user': user})
