@@ -52,6 +52,7 @@ urlpatterns = [
     path('dis_test/', discusroom_review_views.WebChatTest),
     path('discusroom/search/', discusroom_review_views.search),
 
+
     # plan
     path('studyplan/', plan_review_views.Splan),
 

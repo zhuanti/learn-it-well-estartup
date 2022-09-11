@@ -6,9 +6,9 @@ from utils.decorators import user_login_required
 
 root += 'discusroom'
 
+
 @user_login_required
 def droom(request):
-
     if request.method == 'POST':
         no = request.POST['ano']
         subject_no_id = request.POST['asubject_no']
@@ -49,6 +49,7 @@ def droom(request):
         discussrooms = result['data']
         return render(request, 'DiscusRoom.html', {'discussrooms': discussrooms})
 
+
 @user_login_required
 def search(request):
     name = request.GET.get('name')
@@ -62,24 +63,57 @@ def search(request):
     discussrooms = data['data']
     return render(request, 'DiscusRoom.html', {'discussrooms': discussrooms})
 
+
 @user_login_required
 def inpage(request, pk):
-    r = requests.get(
-        f'{root}/get/{pk}',
-        cookies={'sessionid': request.COOKIES['sessionid']}
-    )
-    result = r.json()
-    if result['success'] is True:
+    if request.method == 'GET':
+        r = requests.get(
+            f'{root}/get/{pk}',
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
         discussroom = result['data']
         return render(request, 'inpage.html', {'discussroom': discussroom})
-        # return render(request, 'inpageT.html', {'discussroom': discussroom})
-    else:
-        messages.error(request, '查無此房間')
-        return redirect('/discusroom/')
-        return ret
+        # if result['success'] is True:
+        #     discussroom = result['data']
+        #     return render(request, 'inpage.html', {'discussroom': discussroom})
+        #     # return render(request, 'inpageT.html', {'discussroom': discussroom})
+        # else:
+        #     messages.error(request, '查無此房間')
+        #     return redirect('/discusroom/')
+        #     return ret
+    if request.method == 'POST':
+        no = request.POST['no']
+        discussroom_no_id = request.POST['discussroom_no_id']
+        title = request.POST['title']
+        quser_id = request.POST['quser_id']
+        datetime = request.POST['datetime']
 
-        # message = result['message']
-        # return render(request, 'inpage.html', {'message': message})
+        data = {
+            'no': no,
+            'discussroom_no_id': discussroom_no_id,
+            'title': title,
+            'quser_id': quser_id,
+            'datetime': datetime,
+        }
+
+        r = requests.post(
+            f'{root}/qus/',
+            data=data,
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
+        if result['success'] is True:
+            ret = redirect('/inpage')
+            messages.success(request, '新增問題成功')
+            return ret
+        else:
+            messages.error(request, '新增問題失敗')
+            return redirect('/inpage')
+            return ret
+
+    # message = result['message']
+    # return render(request, 'inpage.html', {'message': message})
 
 
 # 問題列表
@@ -93,10 +127,52 @@ def qus(request):
     discussroom_questions = result['data']
     return render(request, 'inpage.html', {'discussroom_questions': discussroom_questions})
 
+
+# 提問寫入
+@user_login_required
+def get_togall_reviews(request, pk):
+    if request.method == 'GET':
+        r = requests.get(
+            f'{root}/get/{pk}',
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
+        discussroom = result['data']
+        return render(request, 'inpage.html', {'discussroom': discussroom})
+    if request.method == 'POST':
+        no = request.POST['no']
+        discussroom_no_id = request.POST['discussroom_no_id']
+        title = request.POST['title']
+        quser_id = request.POST['quser_id']
+        datetime = request.POST['datetime']
+
+        data = {
+            'no': no,
+            'discussroom_no_id': discussroom_no_id,
+            'title': title,
+            'quser_id': quser_id,
+            'datetime': datetime,
+        }
+
+        r = requests.post(
+            f'{root}/qus/',
+            data=data,
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
+        if result['success'] is True:
+            ret = redirect('/inpage')
+            messages.success(request, '新增問題成功')
+            return ret
+        else:
+            messages.error(request, '新增問題失敗')
+            return redirect('/inpage')
+            return ret
+
+
 # 測試用討論室內部
 @user_login_required
 def WebChatTest(request):
-
     r = requests.get(
         f'{root}discusroom/getuser/',
         cookies={'sessionid': request.COOKIES['sessionid']}
@@ -114,5 +190,3 @@ def WebChatTest(request):
     users = result['data']
     return render(request, 'dis_test.html', {'users': users})
     # return render(request, 'dis_test.html')
-
-
