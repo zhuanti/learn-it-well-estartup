@@ -98,7 +98,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.parse(
-        'postgres://ctqccghsrclyok:9432225df32767cb8362ef5c8078b8d2a8508a241516fda698f8e8917175a860@ec2-34-202-66-20.compute-1.amazonaws.com:5432/d4kaq6iu2g0psr')
+        'postgres://jqmsrgmhtxptlh:4c20dd702edb8e0daed50224151899cd72b8126394f31980ff1715a4c587cf14@ec2-3-229-11-55.compute-1.amazonaws.com:5432/db3hnp2s2n3lbs')
 }
 
 # Password validation
@@ -164,6 +164,15 @@ CHANNEL_LAYERS = {
 #         "BACKEND": "channels_redis.core.RedisChannelLayer",
 #         "CONFIG": {
 #             "hosts": [("127.0.0.1", 6379)],
+#         },
+#     },
+# }
+
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "BACKEND": "channels_redis.pubsub.RedisPubSubChannelLayer",
+#         "CONFIG": {
+#             "hosts": [("localhost", 6379)],
 #         },
 #     },
 # }
