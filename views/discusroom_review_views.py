@@ -10,13 +10,13 @@ root += 'discusroom'
 @user_login_required
 def droom(request):
     if request.method == 'POST':
-        no = request.POST['ano']
+        # no = request.POST['ano']
         subject_no_id = request.POST['asubject_no']
         name = request.POST['aname']
         total_people = request.POST['atotal_people']
 
         data = {
-            'no': no,
+            # 'no': no,
             'subject_no_id': subject_no_id,
             'name': name,
             'total_people': total_people,
