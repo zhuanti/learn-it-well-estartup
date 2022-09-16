@@ -316,6 +316,8 @@ def Sserch(request):
     data = r.json()
     studyrooms = data['data']
     return render(request, 'Sroom-together.html', {'studyrooms': studyrooms})
+
+
 # def register(request):
 #     return render(request, 'register.html')
 
@@ -405,7 +407,6 @@ def Sroominpage(request, pk):
         # message = result['message']
         # return render(request, 'Sroom-together.html', {'message': message})
 
-
     # return render(request, 'Sroominpage.html')
 
 
@@ -428,28 +429,120 @@ def Sroom_self(request):
     #     f'{root}studyroom/self',
     #     # params={'user_id': user_id},
     #     cookies={'sessionid': request.COOKIES['sessionid']}
-    # )
-    # result = r.json()
-    # informations = result['data']
-    # return render(request, 'Sroominpage-self.html', {'informations': informations})
 
+# 按照學姊寫的寫法https://hsinyi-lin.gitbook.io/django-rest-api-orm/api-call/%E5%91%BC%E5%8F%AB%20-%20%E6%96%B0%E5%A2%9E%E8%A9%95%E8%AB%96
     # if request.method == 'GET':
-
-    # r = requests.get(
-    #     f'{root}/get/{pk}',
-    #     cookies={'sessionid': request.COOKIES['sessionid']}
+    #     return render(request, 'Sroom-self.html')
+    #
+    #     # no = request.POST['no']
+    #     classroom_type_no_id = request.POST[2]
+    #     subject_no_id = request.POST['subject_no_id']
+    #     set_time_id = request.POST['set_time_id']
+    #     subject_detail = request.POST['subject_detail']
+    #     data = {
+    #         # 'no': no,
+    #         'user_id': request.COOKIES['user_id'],
+    #         'classroom_type_no_id': classroom_type_no_id,
+    #         'subject_no_id': subject_no_id,
+    #         'set_time_id': set_time_id,
+    #         'subject_detail': subject_detail,
+    #     }
+    # r = requests.post(
+    #     f'{root}/addsub/',
+    #     data=data,
     # )
     # result = r.json()
-    # if result['success'] is True:
-    #     discussroom = result['data']
-    #     return render(request, 'inpage.html', {'discussroom': discussroom})
-    #     # return render(request, 'inpageT.html', {'discussroom': discussroom})
-    # else:
-    #     messages.error(request, '查無此房間')
-    #     return redirect('/discusroom/')
-    #     return ret
+    # return render(request, 'Sroominpage-self.html', {'message': result['message']})
 
+# 按照其他類似功能寫的寫法
+    # if request.method == 'POST':
+    #     # no = request.POST['no']
+    #     classroom_type_no_id = request.POST[2]
+    #     subject_no_id = request.POST['subject_no_id']
+    #     set_time_id = request.POST['set_time_id']
+    #     subject_detail = request.POST['subject_detail']
+    #
+    #     data = {
+    #         # 'no': no,
+    #         'user_id': request.COOKIES['user_id'],
+    #         'classroom_type_no_id': classroom_type_no_id,
+    #         'subject_no_id': subject_no_id,
+    #         'set_time_id': set_time_id,
+    #         'subject_detail': subject_detail,
+    #     }
+    #
+    #     r = request.post(
+    #         f'{root}/addsub/',
+    #         data=data,
+    #         cookies={'sessionid': request.COOKIES['sessionid']}
+    #     )
+    #     result = r.json()
+    #     if result['success'] is True:
+    #         ret = redirect('/Sroominpage-self')
+    #         messages.success(request, '新增成功')
+    #         return ret
+    #     else:
+    #         messages.error(request, '新增失敗')
+    #         return redirect('/studyroom-self')
+    #         return ret
 
+    if request.method == 'GET':
+        r = requests.get(
+            f'{root}/inside/',
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
+        informations = result['data']
+        return render(request, 'Sroominpage-self.html', {'informations': informations})
+
+# if request.method == 'GET':
+#     return render(request, 'Sroom-self.html')
+#
+#     # no = request.POST['no']
+#     classroom_type_no_id = request.POST[2]
+#     subject_no_id = request.POST['subject_no_id']
+#     set_time_id = request.POST['set_time_id']
+#     subject_detail = request.POST['subject_detail']
+#     data = {
+#         # 'no': no,
+#         'user_id': request.COOKIES['user_id'],
+#         'classroom_type_no_id': classroom_type_no_id,
+#         'subject_no_id': subject_no_id,
+#         'set_time_id': set_time_id,
+#         'subject_detail': subject_detail,
+#     }
+# r = requests.post(
+#     f'{root}/addsub/',
+#     data=data,
+# )
+# result = r.json()
+# return render(request, 'Sroominpage-self.html', {'message': result['message']})
+
+# # user_id = request.COOKIES['user_id'],
+# r = requests.get(
+#     f'{root}studyroom/self',
+#     # params={'user_id': user_id},
+#     cookies={'sessionid': request.COOKIES['sessionid']}
+# )
+# result = r.json()
+# informations = result['data']
+# return render(request, 'Sroominpage-self.html', {'informations': informations})
+
+# if request.method == 'GET':
+
+# r = requests.get(
+#     f'{root}/get/{pk}',
+#     cookies={'sessionid': request.COOKIES['sessionid']}
+# )
+# result = r.json()
+# if result['success'] is True:
+#     discussroom = result['data']
+#     return render(request, 'inpage.html', {'discussroom': discussroom})
+#     # return render(request, 'inpageT.html', {'discussroom': discussroom})
+# else:
+#     messages.error(request, '查無此房間')
+#     return redirect('/discusroom/')
+#     return ret
 
 
 @user_login_required

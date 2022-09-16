@@ -121,7 +121,7 @@
                                         value={{ report.subject_no_id }}>
                                     <option disabled="true" selected>--請選擇要讀的科目--</option>
                                     {% for sub_list in inform.sub_lists %}
-                                    <option value={{sub_list.sub_name}}>{{sub_list.sub_name}}</option>
+                                    <option value={{sub_list.sub_name}} id={{sub_list.sub_no}}>{{sub_list.sub_name}}</option>
                                     {% endfor%}
                                     <!--                                    <option value="1">國文</option>-->
                                     <!--                                    <option value="2">英文</option>-->
@@ -144,12 +144,12 @@
                                 <!--                                <div class="form-group">-->
                                 <!--                                    <input type="text" name="set_time_no" id="set_time_no" class="form-control" placeholder="預計讀書時長(請以分鐘為單位填寫 1小時=60分鐘)" required="required"/>-->
                                 <!--                                </div>-->
-                                <select class="form-control" name="set_time" id="set_time"
-                                        value={{ report.settime_no }}>
+                                <select class="form-control" name="set_time_id" id="set_time_id"
+                                        value={{ report.set_time_id }}>
                                     <option disabled="true" selected>--請選擇預計讀書時長(1小時=60分鐘)--</option>
 
                                     {% for set_list in inform.set_lists %}
-                                    <option value={{set_list.set_time}}>{{set_list.set_time}}分鐘</option>
+                                    <option value={{set_list.set_time_id}} id={{set_list.set_no}}>{{set_list.set_time}}分鐘</option>
                                     {% endfor%}
                                     <!--                                    <option value="5">5分鐘</option>-->
                                     <!--                                    <option value="10">10分鐘</option>-->
@@ -179,10 +179,13 @@
                                 <div class="error-message"></div>
                                 <div class="sent-message">Your message has been sent. Thank you!</div>
                             </div>
+
                             <div class="btn-get-started scrollto">
                                 <!--                                <form action="/inpage/">-->
                                 <!--                                    <button type="submit">確認</button>-->
                                 <!--                                </form>-->
+<!--                                <a class="link_button" href="" type="color:#71c55d">確認</a>-->
+
                                 <a class="link_button" href="/Sroominpage-self/" type="color:#71c55d">確認</a>
                             </div>
                         </form>
