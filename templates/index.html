@@ -87,13 +87,47 @@
 
 <!-- ======= Hero Section ======= -->
 <section id="hero">
+    <br><br>
+    <div class="rightCSS li">
+              <span class="d-inline-block float-left">
+          <i class="bi bi-megaphone-fill" style="color: #8bd07b"></i>
+      <div  class="d-inline-block" style=" color: #535461;">★ 公告測試 ★ &nbsp;&nbsp;&nbsp;歡迎回來xxx使用者! &nbsp;您的讀書計畫&nbsp; "數學講義第14回完成"&nbsp;尚未做完</div></span>
+        <style>
+            .rightCSS {
+              background: #ceebc7;
+              overflow: hidden;
+            }
+            .rightCSS div {
+              position: relative;
+              animation: CSSright linear 25s infinite;
+            }
+            @keyframes CSSright {
+              0% { right: -100% }
+              100% { right: 100% }
+            }
+            .rightCSS:hover div {
+              animation-play-state: paused;
+            }
+
+            .li {
+              float: left;
+              width: 80%;
+              padding: 1%;
+              margin: 1% 10%;
+              height: 40px;
+              border-radius: 0.5em;
+<!--              box-shadow: 0 0.1em 0.5em; 盒子陰影-->
+            }
+
+        </style>
+    </div>
     <div class="hero-container" data-aos="fade-in">
         {% for message in messages %}
-            <div class="alert alert-success">
-                <a class="close" href="#" data-dismiss="alert"></a>
-                {{ message }}
+        <div class="alert alert-success">
+            <a class="close" href="#" data-dismiss="alert"></a>
+            {{ message }}
 
-            </div>
+        </div>
         {% endfor %}
         <br><br>
         <h1>做伙來讀冊</h1>
@@ -181,13 +215,13 @@
 <!--    &lt;!&ndash;                            ex ea commodo consequat&ndash;&gt;-->
 <!--    &lt;!&ndash;                        </p>&ndash;&gt;-->
 
-    <!--                        <ul class="list-unstyled">-->
-    <!--                            <li><i class="vi bi-chevron-right"></i>Creative Design</li>-->
-    <!--                            <li><i class="vi bi-chevron-right"></i>Retina Ready</li>-->
-    <!--                            <li><i class="vi bi-chevron-right"></i>Easy to Use</li>-->
-    <!--                            <li><i class="vi bi-chevron-right"></i>Unlimited Features</li>-->
-    <!--                            <li><i class="vi bi-chevron-right"></i>Unlimited Features</li>-->
-    <!--                        </ul>-->
+<!--                        <ul class="list-unstyled">-->
+<!--                            <li><i class="vi bi-chevron-right"></i>Creative Design</li>-->
+<!--                            <li><i class="vi bi-chevron-right"></i>Retina Ready</li>-->
+<!--                            <li><i class="vi bi-chevron-right"></i>Easy to Use</li>-->
+<!--                            <li><i class="vi bi-chevron-right"></i>Unlimited Features</li>-->
+<!--                            <li><i class="vi bi-chevron-right"></i>Unlimited Features</li>-->
+<!--                        </ul>-->
 
 <!--    &lt;!&ndash;                    </div>&ndash;&gt;-->
 <!--    &lt;!&ndash;                </div>&ndash;&gt;-->
