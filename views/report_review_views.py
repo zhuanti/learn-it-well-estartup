@@ -50,7 +50,7 @@ def addroom(request):
 # def addroom(request):
 #     user_id = request.COOKIES['user_id'],
 #     r = requests.get(
-#         f'{root}/add/',
+#         f'{root}/addsub/',
 #         params={'user_id': user_id},
 #         cookies={'sessionid': request.COOKIES['sessionid']}
 #     )
