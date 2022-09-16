@@ -5,10 +5,10 @@ $(function () {
    */
   'use strict';
   var data = {
-    labels: ["國文", "數學", "社會", "自然", "英文", "其他"],
+    labels: ["9/12", "9/13", "9/14", "9/15", "9/16", "9/17","9/18"],
     datasets: [{
       label: '# of Votes',
-      data: [10, 19, 3, 5, 2, 3],
+      data: [10, 19, 3, 5, 2, 3, 12],
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',
