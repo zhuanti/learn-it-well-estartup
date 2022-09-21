@@ -75,6 +75,17 @@
         </nav><!-- .navbar -->
 
     </div>
+    <style>
+        .btn {
+            background-color: #71c55d;
+            text-decoration: none;
+            color: #FFF;
+            padding: 16px;
+            /*border-radius: 5px;*/
+        }
+    </style>
+
+
 </header><!-- End Header -->
 
 <main id="main">
@@ -121,7 +132,8 @@
                                         value={{ report.subject_no_id }}>
                                     <option disabled="true" selected>--請選擇要讀的科目--</option>
                                     {% for sub_list in inform.sub_lists %}
-                                    <option value={{sub_list.sub_name}} id={{sub_list.sub_no}}>{{sub_list.sub_name}}</option>
+                                    <option value={{sub_list.sub_name}} id={{sub_list.sub_no}}>{{sub_list.sub_name}}
+                                    </option>
                                     {% endfor%}
                                     <!--                                    <option value="1">國文</option>-->
                                     <!--                                    <option value="2">英文</option>-->
@@ -149,7 +161,9 @@
                                     <option disabled="true" selected>--請選擇預計讀書時長(1小時=60分鐘)--</option>
 
                                     {% for set_list in inform.set_lists %}
-                                    <option value={{set_list.set_time_id}} id={{set_list.set_no}}>{{set_list.set_time}}分鐘</option>
+                                    <option value={{set_list.set_time_id}} id={{set_list.set_no}}>
+                                        {{set_list.set_time}}分鐘
+                                    </option>
                                     {% endfor%}
                                     <!--                                    <option value="5">5分鐘</option>-->
                                     <!--                                    <option value="10">10分鐘</option>-->
@@ -184,9 +198,10 @@
                                 <!--                                <form action="/inpage/">-->
                                 <!--                                    <button type="submit">確認</button>-->
                                 <!--                                </form>-->
-<!--                                <a class="link_button" href="" type="color:#71c55d">確認</a>-->
+                                <!--                                <a class="link_button" href="" type="color:#71c55d">確認</a>-->
 
-                                <a class="link_button" href="/Sroominpage-self/" type="color:#71c55d">確認</a>
+                                <a class="btn link_button" style="margin: auto; width: 220px;" href="/Sroominpage-self/"
+                                   type="color:#71c55d">確認</a>
                             </div>
                         </form>
                     </div>

@@ -308,7 +308,7 @@ def Sroomtogether(request):
 def Sserch(request):
     name = request.GET.get('name')
     r = requests.get(
-        f'{root}/studyroom/Sserch/',
+        f'{root}studyroom/Sserch/',
         params={'name': name},
         cookies={'sessionid': request.COOKIES['sessionid']}
     )
