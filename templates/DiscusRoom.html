@@ -70,8 +70,10 @@
             background-color: #71c55d;
             text-decoration: none;
             color: #FFF;
-            padding: 16px;
-            /*border-radius: 5px;*/
+            padding: 10px;
+            /*width: 5px;*/
+            /*height: 20px;*/
+            border-radius: 10px;
         }
 
         .popup-wrap {
@@ -241,7 +243,7 @@
                                     </td>
                                     <td>
                                         <button class="btn btn-primary" type="submit"
-                                                style="width:120px;height:50px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;">
+                                                style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;">
                                             搜尋
                                         </button>
                                     </td>
@@ -309,7 +311,9 @@
                                 <!--                                    </a>-->
                                 <!--api 連線時使用的button-->
                                 <!--                                <center><a class="nav-link scrollto active" href="/discusroom/inpage/{{discussroom.no}}/">加入</a></center>-->
-                                <center><a class="btn btn-primary" style="width:120px;height:50px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;" href="/inpage/{{discussroom.no}}/">加入</a>
+                                <center><a class="btn btn-primary"
+                                           style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;"
+                                           href="/inpage/{{discussroom.no}}/">加入</a>
                                 </center>
 
                             </td>
@@ -322,7 +326,8 @@
                 <br>
                 <center>
                     <div class="wrap">
-                        <a class="btn popup-btn" style="width:120px;height:50px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;" href="#letmeopen">新增房間</a>
+                        <a class="btn popup-btn" style="width:120px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;"
+                           href="#letmeopen">新增房間</a>
                     </div>
                     <div class="popup-wrap" id="letmeopen">
                         <div class="popup-box transform-out">
@@ -330,8 +335,8 @@
                                 {% csrf_token %}
                                 <h2>新增房間 </h2><br>
                                 <br>
-<!--                                <h3>no&emsp;&emsp;&ensp;&thinsp; <input type="text" id="ano" name="ano"-->
-<!--                                                                        required="required"></h3><br>-->
+                                <!--                                <h3>no&emsp;&emsp;&ensp;&thinsp; <input type="text" id="ano" name="ano"-->
+                                <!--                                                                        required="required"></h3><br>-->
                                 <h3>名稱&emsp;&emsp;&thinsp; <input type="text" id="aname" name="aname"
                                                                   required="required"></h3><br>
                                 <h3>人數上限&thinsp; <input type="text" id="atotal_people" name="atotal_people"
@@ -350,8 +355,12 @@
                                 <!--                                        {% endfor %}-->
                                 <!--                                    </select></h3>-->
                                 <!--                                    <br>-->
-                                <button type="submit"
-                                        style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">
+                                <!--                                <button type="submit"-->
+                                <!--                                        style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">-->
+                                <!--                                    確認-->
+                                <!--                                </button>-->
+
+                                <button type="submit" class="btn msger-send-btn">
                                     確認
                                 </button>
                                 <!--                                <div class="form-group form-button">-->

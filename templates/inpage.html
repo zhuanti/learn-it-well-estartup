@@ -41,8 +41,10 @@
             background-color: #71c55d;
             text-decoration: none;
             color: #FFF;
-            padding: 16px;
-            border-radius: 5px;
+            padding: 10px;
+            /*width: 5px;*/
+            /*height: 20px;*/
+            border-radius: 10px;
         }
 
         .popup-wrap {
@@ -169,7 +171,7 @@
     <header class="msger-header">
         <div class="msger-header-title">
             <!--            <i class="fas fa-comment-alt"></i>-->
-            <a class="button" href="/discusroom/" >退出</a>
+            <a class="btn button" href="/discusroom/">退出</a>
         </div>
         <center><h3>當前房間名稱：{{discussroom.name}}</h3></center>
         <div class="msger-header-options">
@@ -180,9 +182,9 @@
     <!--    <div class="msger-chat">-->
     <main class="msger-chat">
 
-<!--        <div class="msg left-msg" id="left-msg"></div>-->
+        <!--        <div class="msg left-msg" id="left-msg"></div>-->
 
-<!--        <div class="msg right-msg" id="right-msg"></div>-->
+        <!--        <div class="msg right-msg" id="right-msg"></div>-->
 
         <div class="message" id="message"></div>
     </main>
@@ -193,7 +195,7 @@
     <!--    <div class="msger-inputarea">-->
     <form class="msger-inputarea">
         <div class="wrap">
-            <a class="btn popup-btn" href="#letmeopen">提問</a>
+            <a class="btn popup-btn" style="..." href="#letmeopen">提問</a>
         </div>
         <div class="popup-wrap" id="letmeopen">
             <div class="popup-box transform-out">
@@ -210,10 +212,15 @@
                         答案：
                         {% csrf_token %}
                         <textarea name="ans"></textarea><br><br>
-                        <button type="submit"
-                                style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">
+                        <!--                        <button type="submit"-->
+                        <!--                                style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;border-radius: 10px;">-->
+                        <!--                            確認-->
+                        <!--                        </button>-->
+
+                        <button type="submit" class="btn msger-send-btn">
                             確認
                         </button>
+
                         <br><br>
                     </div>
                     {% endfor %}
@@ -292,12 +299,15 @@
                     <a class="btn popup-btn" href="#letmeopen1">新增問題</a>
                 </div>
                 <div class="popup-wrap" id="letmeopen1">
-                    <div class="popup-box transform-out">
+                    <div class="btn popup-box transform-out">
                         <h2>新增問題</h2><br>
                         {% csrf_token %}
                         <h3>問題<textarea id="title" name="title" required="required"></textarea><br></h3><br>
-                        <button type="submit"
-                                style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">
+                        <!--                        <button type="submit"-->
+                        <!--                                style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">-->
+                        <!--                            確認-->
+                        <!--                        </button>-->
+                        <button type="submit" class="btn msger-send-btn">
                             確認
                         </button>
                         <a class="close-btn popup-close" href="#">x</a>
@@ -308,7 +318,9 @@
 
         <br>
         <input type="text" class="msger-input" placeholder="說些什麼吧～" id="txt">
-        <button type="submit" class="msger-send-btn" onclick="sendMessage()">發送訊息</button>
+        <button type="submit" class="btn msger-send-btn" onclick="sendMessage()">
+            發送訊息
+        </button>
         <script>
             // var socket = new WebSocket("ws://127.0.0.1:9000/ws/{{ group }}/");
             socket = new WebSocket("ws://127.0.0.1:9000/room/{{discussroom.no}}/");
