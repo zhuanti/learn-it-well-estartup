@@ -6,6 +6,10 @@ from utils.decorators import user_login_required
 
 root += 'report'
 
+@user_login_required
+# 測試的自習室內部
+def reporttest(request):
+    return render(request, 'reporttest.html')
 
 @user_login_required
 def report(request):

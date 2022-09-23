@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>做伙來讀冊 - Learn it well</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="/static/images/hello.png" rel="icon">
+    <link href="/static/images/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i"
+          rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="/static/vendor/aos/aos.css" rel="stylesheet">
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="/static/css/style.css" rel="stylesheet">
+
+    <!-- chart.js-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"
+            integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- =======================================================
+    * Template Name: eStartup - v4.7.1
+    * Template URL: https://bootstrapmade.com/estartup-bootstrap-landing-page-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+</head>
+
+<body>
+
+<!-- ======= Header ======= -->
+<header id="header" class="header fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+        <div id="logo">
+            <h1>
+                <img src="/static/images/hello.png">
+                <a href="/"><span>做伙</span>來讀冊</a>
+            </h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" title="" /></a>-->
+        </div>
+
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li><a class="nav-link scrollto active" href="/">首頁</a></li>
+                <li class="dropdown"><a href="#"><span>使用者</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul>
+                        <li><a href="/userdetail/">個人資料</a></li>
+                        <li><a href="/achievement/">成就</a></li>
+                        <li><a href="/studyplan/">學習規劃</a></li>
+                        <li class="dropdown"><a href="/report/"><span>讀書報表</span> <i
+                                class="bi bi-chevron-right"></i></a>
+                            <ul>
+                                <li><a href="/week-report/">週報表</a></li>
+                                <li><a href="/day-report/">日報表</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                <li><a class="nav-link scrollto" href="/studyroom/">自習室</a></li>
+                <li><a class="nav-link scrollto" href="/discusroom/">討論室</a></li>
+                <li><a class="nav-link scrollto" href="/developer/">開發人員</a></li>
+                <li><a class="nav-link scrollto" href="/logout/">登出</a></li>
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav><!-- .navbar -->
+
+    </div>
+</header><!-- End Header -->
+
+<!-- ======= Contact Section ======= -->
+<section id="contact" class="padd-section">
+
+    <div class="container">
+        <div class="main-body">
+            {% for message in messages %}
+            <div class="alert alert-success">
+                <a class="close" href="#" data-dismiss="alert"></a>
+                {{ message }}
+
+            </div>
+            {% endfor %}
+            <!-- Breadcrumb -->
+            <section>
+                <nav aria-label="breadcrumb" class="main-breadcrumb">
+                    <ol class="breadcrumb">
+                        <!--                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>-->
+                        <!--                    <li class="breadcrumb-item"><a href="javascript:void(0)">User</a></li>-->
+                        <!--                    <li class="breadcrumb-item active" aria-current="page">User Profile</li>-->
+                    </ol>
+                </nav>
+            </section>
+
+            <!-- /Breadcrumb -->
+
+            <div class="row gutters-sm">
+                <div class="col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="d-flex flex-column align-items-center text-center">
+                                <img src="/static/images/user photo.jpg" alt="Admin"
+                                     class="rounded-circle" width="150">
+                                <div class="mt-3">
+                                    <h4>{{ user.name }}</h4>
+                                    <p class="text-secondary mb-1"></p>
+                                    <p class="text-muted font-size-sm">{{ user.live }}</p>
+                                    <!--                                    <button class="btn btn-primary">Follow</button>-->
+                                    <!--                                    <button class=" btn btn-info">Message</button>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div>
+                                <h3 class="title">一周各科讀書時長情況</h3>
+                                <canvas id="canvas"></canvas>
+                                <script>
+                                window.chartColors = {
+                                  red: 'rgb(255, 99, 132)',
+                                  orange: 'rgb(255, 159, 64)',
+                                  yellow: 'rgb(255, 205, 86)',
+                                  green: 'rgb(75, 192, 192)',
+                                  blue: 'rgb(54, 162, 235)',
+                                  purple: 'rgb(153, 102, 255)',
+                                  grey: 'rgb(231,233,237)'
+                                };
+
+                                var ctx = document.getElementById("canvas").getContext("2d");
+
+                                var myChart = new Chart(ctx, {
+                                  type: 'bar',
+                                  data: {
+                                    labels: ["9/26", "9/27", "9/28", "9/29", "9/30", "10/01", "10/02"],
+                                    datasets: [{
+                                      type: 'bar',
+                                      label: '國文',
+                                      backgroundColor: window.chartColors.red,
+                                      stack: 'Stack 0',
+                                      data: [2, 4, 1, 3, 7, 3, 6],
+                                      borderColor: 'white',
+                                      borderWidth: 2
+                                    }, {
+                                      type: 'bar',
+                                      label: '數學',
+                                      backgroundColor: window.chartColors.blue,
+                                      stack: 'Stack 0',
+                                      data: [7, 2, 4, 5, 6, 4, 2]
+                                    },{
+                                      type: 'bar',
+                                      label: '自然',
+                                      backgroundColor: window.chartColors.green,
+                                      stack: 'Stack 0',
+                                      data: [6, 5, 4, 1, 8, 4, 2]
+                                    },{
+                                      type: 'bar',
+                                      label: '社會',
+                                      backgroundColor: window.chartColors.yellow,
+                                      stack: 'Stack 0',
+                                      data: [1, 2, 3, 5, 6, 3, 2]
+                                    }]
+                                  },
+                                  options: {
+                                    responsive: true,
+                                    title: {
+                                      display: true,
+                                      text: 'Chart.js Stacked Bar and Unstacked Line Combo Chart'
+                                    },
+                                    tooltips: {
+                                      mode: 'index',
+                                      intersect: true
+                                    },
+                                    scales: {
+                                      xAxes: [{
+                                        stacked: true,
+                                      }]
+                                    }
+                                  }
+                                });
+
+
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row gutters-sm">
+                        <div class="col-sm-6 mb-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h3 class="title">科目時長占比圓餅圖</h3>
+                                    <canvas id="myChart-4"></canvas>
+                                    <script>
+                                  var ctx = document.getElementById('myChart-4');
+                                  var myChart = new Chart(ctx, {
+                                    type: 'pie',
+                                    data: {
+                                      labels: ['自然', '數學', '國文', '社會'],
+                                      datasets: [{
+                                        backgroundColor: [
+                                          'rgb(113,191,80)',
+                                          'rgb(236,160,99)',
+                                          'rgb(82,157,203)',
+                                          'rgb(243,204,79)'
+                                        ],
+                                        borderColor: 'rgb(240,240,240)',
+                                        borderWidth: 2.5,
+                                        label: '標籤名稱',
+                                        data: [80, 20, 78, 30],
+                                        fill: false, // 是否填滿色彩
+                                      }]
+                                    },
+                                    options: {
+                                      legend: {
+                                        labels: {
+                                          fontColor: 'white' // 標籤顏色
+                                        }
+                                      }
+                                    }
+                                  });
+
+
+
+                                    </script>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-3">
+                            <div class="card h-100">
+                                <div class="card-body">
+                                    <h3 class="d-flex align-items-center mb-3"><i
+                                            class="material-icons text-info mr-2"></i>成就進度</h3>
+
+                                    <small>自習十小時</small>
+                                    <div class="progress mb-3" style="height: 5px">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 80%"
+                                             aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <small>討論一小時</small>
+                                    <div class="progress mb-3" style="height: 5px">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 72%"
+                                             aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                    <small>完成規劃項目五項</small>
+                                    <div class="progress mb-3" style="height: 5px">
+                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 89%"
+                                             aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div>
+                                <h3 class="title">一周各科讀書時長情況</h3>
+                                <div class="table-responsive">
+                                    <table class="table">
+                                        <thead>
+                                        <tr>
+                                            <th> 編號</th>
+                                            <th> 任務名稱</th>
+                                            <th> 日期</th>
+                                            <th> 進度</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td> 1</td>
+                                            <td> 自習十小時</td>
+                                            <td> 2022.10.01</td>
+                                            <td>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-gradient-success" role="progressbar"
+                                                         style="width: 25%" aria-valuenow="25" aria-valuemin="0"
+                                                         aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td> 2</td>
+                                            <td> 討論一小時</td>
+                                            <td> 2022.09.30</td>
+                                            <td>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-gradient-danger" role="progressbar"
+                                                         style="width: 75%" aria-valuenow="75" aria-valuemin="0"
+                                                         aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td> 3</td>
+                                            <td> 完成規劃項目五項</td>
+                                            <td> 2022.09.26</td>
+                                            <td>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-gradient-warning" role="progressbar"
+                                                         style="width: 90%" aria-valuenow="90" aria-valuemin="0"
+                                                         aria-valuemax="100"></div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- End Contact Section -->
+
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="/static/vendor/aos/aos.js"></script>
+<script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/static/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="/static/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="/static/vendor/php-email-form/validate.js"></script>
+
+<!-- Template Main JS File -->
+<script src="/static/js/main.js"></script>
+
+</body>
+
+</html>
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale1.0">-->
+<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
+<!--    <link rel="stylesheet" href="../static/css/style1.css">-->
+<!--    <title>個人資料</title>-->
+<!--    <link rel="stylesheet" href="https://ionic.io/ionicons">-->
+<!--</head>-->
+<!--<body>-->
+<!--    <form name="mylogin" action="" class="login" onsubmit="return check(this)"  required>-->
+<!--        <h1>個人資料</h1>-->
+<!--        &lt;!&ndash; <ion-icon name="person-circle-outline"></ion-icon> &ndash;&gt;-->
+
+<!--        <a href='/'>回到主頁</a><br>-->
+
+
+<!--    </form>-->
+
+<!--</body>-->
+<!--</html>-->
+
+
+<!-- onclick="window.alert('登入成功')" -->

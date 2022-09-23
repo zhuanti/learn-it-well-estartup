@@ -96,6 +96,7 @@ urlpatterns = [
     # path('web-chat-test/', discusroom_review_views.WebChatTest),
 
     path('text/', views.text),
+    path('reporttest/', report_review_views.reporttest)
 
     # path('day-report/', report_review_views.DayReport),
     # path('week-report/', report_review_views.WeekReport),
