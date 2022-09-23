@@ -58,7 +58,7 @@
                         <li><a href="/userdetail/">個人資料</a></li>
                         <li><a href="/achievement/">成就</a></li>
                         <li><a href="/studyplan/">學習規劃</a></li>
-                         <li class="dropdown"><a href="/report/"><span>讀書報表</span> <i
+                        <li class="dropdown"><a href="/report/"><span>讀書報表</span> <i
                                 class="bi bi-chevron-right"></i></a>
                             <ul>
                                 <li><a href="/week-report/">週報表</a></li>
@@ -186,69 +186,77 @@
                                 </div>
                             </div>
                         </div>
-                        <form action="/edituser-detail/" method="post">
-                            {% csrf_token %}
-                            <div class="col-lg-8">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="row mb-3">
-                                            <div class="col-sm-3">
-                                                <h6 class="mb-0">名稱</h6>
+                        <div class="col-md-8">
+                            <form action="/edituser-detail/" method="post">
+                                {% csrf_token %}
+                                <div class="card mb-3">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="row mb-3">
+                                                <div class="col-sm-3">
+                                                    <h6 class="mb-0">名稱</h6>
+                                                </div>
+                                                <div class="col-sm-9 text-secondary">
+                                                    <input type="text" class="form-control" name="name" id="name"
+                                                           value={{ user.name }} required>
+                                                </div>
                                             </div>
-                                            <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" name="name" id="name" value={{ user.name }} required>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-3">
+                                                    <h6 class="mb-0">電子郵件</h6>
+                                                </div>
+                                                <div class="col-sm-9 text-secondary">
+                                                    <input type="text" class="form-control" name="auser_id" id="id"
+                                                           value={{ user.id }} disabled>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-sm-3">
-                                                <h6 class="mb-0">電子郵件</h6>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-3">
+                                                    <h6 class="mb-0">更改密碼</h6>
+                                                </div>
+                                                <div class="col-sm-9 text-secondary">
+                                                    <input type="password" class="form-control" name="pwd" id="pwd"
+                                                           value={{ user.pwd }}>
+                                                </div>
                                             </div>
-                                            <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" name="auser_id" id="id" value={{ user.id }} disabled>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-3">
+                                                    <h6 class="mb-0">確認更改密碼</h6>
+                                                </div>
+                                                <div class="col-sm-9 text-secondary">
+                                                    <input type="password" class="form-control" name="pwd2" id="pwd2">
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-sm-3">
-                                                <h6 class="mb-0">更改密碼</h6>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-3">
+                                                    <h6 class="mb-0">居住縣市</h6>
+                                                </div>
+                                                <div class="col-sm-9 text-secondary">
+                                                    <input type="text" class="form-control" name="live" id="live"
+                                                           value={{ user.live }} required>
+                                                </div>
                                             </div>
-                                            <div class="col-sm-9 text-secondary">
-                                                <input type="password" class="form-control" name="pwd" id="pwd" value={{ user.pwd }}>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-3">
+                                                    <h6 class="mb-0">出生年-月-日</h6>
+                                                </div>
+                                                <div class="col-sm-9 text-secondary">
+                                                    <input type="text" class="form-control" name="borth" id="borth"
+                                                           value={{ user.borth }} required>
+                                                </div>
                                             </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-sm-3">
-                                                <h6 class="mb-0">確認更改密碼</h6>
-                                            </div>
-                                            <div class="col-sm-9 text-secondary">
-                                                <input type="password" class="form-control" name="pwd2" id="pwd2">
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-sm-3">
-                                                <h6 class="mb-0">居住縣市</h6>
-                                            </div>
-                                            <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" name="live" id="live" value={{ user.live }} required>
-                                            </div>
-                                        </div>
-                                        <div class="row mb-3">
-                                            <div class="col-sm-3">
-                                                <h6 class="mb-0">出生年-月-日</h6>
-                                            </div>
-                                            <div class="col-sm-9 text-secondary">
-                                                <input type="text" class="form-control" name="borth" id="borth" value={{ user.borth }} required>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-3"></div>
-                                            <div class="col-sm-9 text-secondary">
-                                                <input class="btn btn-primary px-4" type="submit"  value="儲存變更">
+                                            <div class="row">
+                                                <div class="col-sm-3"></div>
+                                                <div class="col-sm-9 text-secondary">
+                                                    <input class="btn btn-primary px-4" type="submit" value="儲存變更">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
+
                     </div>
                 </div>
             </div>
