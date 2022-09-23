@@ -79,8 +79,10 @@
         <div class="row justify-content-center">
             <div class="wrapper">
                 <div class="task-input">
+<!--                    {% csrf_token %}-->
                     <img src="/static/images/bars-icon.svg" alt="icon">
                     <input type="text" placeholder="新增任務(完成後請按enter)">
+<!-- 加入name&id不管是一起還是各別都會案enter沒動做 <input type="text" name="name" id="name" placeholder="新增任務(完成後請按enter)" required="required">-->
                 </div>
                 <div class="controls">
                     <div class="filters">
