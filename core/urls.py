@@ -38,9 +38,6 @@ urlpatterns = [
     path('ForgetPwd/', auth_views.forget_pass, name="forget_pass"),
     path('ForgetPwdReset/', auth_views.ForgetPwdReset),
 
-
-
-
     # discusroom
     # path('discusroom/', discusroom_review_views.addroom),
     path('discusroom/', discusroom_review_views.droom),
@@ -51,7 +48,6 @@ urlpatterns = [
     # path('inpage/#letmeopen', discusroom_review_views.qus),
     path('dis_test/', discusroom_review_views.WebChatTest),
     path('discusroom/search/', discusroom_review_views.search),
-
 
     # plan
     path('studyplan/', plan_review_views.Splan),
@@ -96,7 +92,8 @@ urlpatterns = [
     # path('web-chat-test/', discusroom_review_views.WebChatTest),
 
     path('text/', views.text),
-    path('reporttest/', report_review_views.reporttest)
+    path('ReportWeek/', report_review_views.reportweek),
+    path('ReportDay/', report_review_views.reportday),
 
     # path('day-report/', report_review_views.DayReport),
     # path('week-report/', report_review_views.WeekReport),
