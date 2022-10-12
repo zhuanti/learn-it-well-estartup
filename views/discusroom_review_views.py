@@ -78,30 +78,57 @@ def inpage(request, pk):
     if request.method == 'POST':
         # no = request.POST['no']
         discussroom_no_id = request.POST['discussroom_no_id']
-        title = request.POST['title']
+        title = request.POST['qtitle']
         quser_id = request.POST['quser_id']
         # datetime = request.POST['datetime']
+
+        question_no_id = request.POST['question_no_id']
+        auser_id= request.POST['auser_id']
+        comment = request.POST['acomment']
+
+
 
         data = {
             # 'no': no,
             'discussroom_no_id': discussroom_no_id,
             'title': title,
-            'quser_id': quser_id,
+            # 'quser_id': quser_id,
             # 'datetime': datetime,
+
+            'question_no_id': question_no_id,
+            # 'auser_id': auser_id,
+            'comment': comment,
         }
 
+        # t = requests.post(
+        #     f'{root}/ans/',
+        #     data=data,
+        #     cookies={'sessionid': request.COOKIES['sessionid']}
+        # )
+        # result =t.json()
+        # if result['success'] is True:
+        #     ret = redirect('/inpage')
+        #     messages.success(request, '新增回答成功')
+        #     return ret
+        # else:
+        #     messages.error(request, '新增回答失敗')
+        #     return redirect('/inpage')
+        #     return ret
+
+
         r = requests.post(
-            f'{root}/qus/',
+            # f'{root}qus/',
+            f'{root}/ans/',
             data=data,
             cookies={'sessionid': request.COOKIES['sessionid']}
         )
         result = r.json()
         if result['success'] is True:
             ret = redirect('/inpage')
-            messages.success(request, '新增問題成功')
+            messages.success(request, '新增成功')
             return ret
         else:
-            messages.error(request, '新增問題失敗')
+            messages.error(request, '新增失敗')
             return redirect('/inpage')
             return ret
 

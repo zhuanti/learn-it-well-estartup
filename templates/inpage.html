@@ -218,7 +218,12 @@
                         <center>
                             {% csrf_token %}<br>
                             答案：
-                            <textarea name="ans"></textarea><br><br>
+<!--                            <input type="text" value="{{discussroom_ans_list.question_no_id}}" hidden>-->
+                            <textarea id="{{discussroom_ans_list.question_no_id
+
+
+
+                            }}" name="comment" required="required">{{discussroom_ans_list.question_no_id}}</textarea><br><br>
                             <button type="submit"
                                     style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">
                                 確認
@@ -256,11 +261,7 @@
                     <div class="btn popup-box transform-out">
                         <h2>新增問題</h2><br>
                         {% csrf_token %}
-                        <h3>問題<textarea id="title" name="title" required="required"></textarea><br></h3><br>
-                        <!--                        <button type="submit"-->
-                        <!--                                style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">-->
-                        <!--                            確認-->
-                        <!--                        </button>-->
+                        <h3>問題<textarea id="qtitle" name="qtitle" required="required"></textarea><br></h3><br>
                         <button type="submit" class="btn msger-send-btn">
                             確認
                         </button>
