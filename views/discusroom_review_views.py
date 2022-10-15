@@ -75,8 +75,38 @@ def inpage(request, pk):
         discussroom = result['data']
         return render(request, 'inpage.html', {'discussroom': discussroom})
 
+    # if request.method == 'POST':
+    #     # no = request.POST['ano']
+    #     subject_no_id = request.POST['asubject_no']
+    #     name = request.POST['aname']
+    #     total_people = request.POST['atotal_people']
+    #
+    #     data = {
+    #         # 'no': no,
+    #         'subject_no_id': subject_no_id,
+    #         'name': name,
+    #         'total_people': total_people,
+    #     }
+    #
+    #     r = requests.post(
+    #         f'{root}/addroom/',
+    #         data=data,
+    #         cookies={'sessionid': request.COOKIES['sessionid']}
+    #     )
+    #     result = r.json()
+    #     # subjects = result['data']
+    #     # return render(request, 'DiscusRoom.html', {'subjects': subjects})
+    #
+    #     if result['success'] is True:
+    #         ret = redirect('/discusroom')
+    #         messages.success(request, '已新增房間成功')
+    #         return ret
+    #     else:
+    #         messages.error(request, '新增房間失敗')
+    #         return redirect('/discusroom')
+    #         return ret
+
     if request.method == 'POST':
-        # no = request.POST['no']
         discussroom_no_id = request.POST['discussroom_no_id']
         title = request.POST['qtitle']
         quser_id = request.POST['quser_id']
@@ -91,13 +121,13 @@ def inpage(request, pk):
         data = {
             # 'no': no,
             'discussroom_no_id': discussroom_no_id,
-            'qtitle': title,
-            # 'quser_id': quser_id,
+            'title': title,
+            'quser_id': quser_id,
             # 'datetime': datetime,
 
-            'question_no_id': question_no_id,
-            # 'auser_id': auser_id,
-            'acomment': comment,
+            # 'question_no_id': question_no_id,
+            # # 'auser_id': auser_id,
+            # 'acomment': comment,
         }
 
         # t = requests.post(
@@ -115,22 +145,39 @@ def inpage(request, pk):
         #     return redirect('/inpage')
         #     return ret
 
-
         r = requests.post(
-            # f'{root}qus/',
-            f'{root}/ans/',
+            f'{root}/qus/',
             data=data,
             cookies={'sessionid': request.COOKIES['sessionid']}
         )
         result = r.json()
+        # subjects = result['data']
+        # return render(request, 'DiscusRoom.html', {'subjects': subjects})
+
         if result['success'] is True:
-            ret = redirect('/inpage')
-            messages.success(request, '新增成功')
+            ret = redirect('/inpage/1/#letmeopen')
+            messages.success(request, '已新增房間成功')
             return ret
         else:
-            messages.error(request, '新增失敗')
-            return redirect('/inpage')
+            messages.error(request, '新增房間失敗')
+            return redirect('/inpage/1/#letmeopen')
             return ret
+
+        # r = requests.post(
+        #     # f'{root}qus/',
+        #     f'{root}/ans/',
+        #     data=data,
+        #     cookies={'sessionid': request.COOKIES['sessionid']}
+        # )
+        # result = r.json()
+        # if result['success'] is True:
+        #     ret = redirect('/inpage')
+        #     messages.success(request, '新增成功')
+        #     return ret
+        # else:
+        #     messages.error(request, '新增失敗')
+        #     return redirect('/inpage')
+        #     return ret
 
     # message = result['message']
     # return render(request, 'inpage.html', {'message': message})
