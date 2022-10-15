@@ -91,13 +91,13 @@ def inpage(request, pk):
         data = {
             # 'no': no,
             'discussroom_no_id': discussroom_no_id,
-            'title': title,
+            'qtitle': title,
             # 'quser_id': quser_id,
             # 'datetime': datetime,
 
             'question_no_id': question_no_id,
             # 'auser_id': auser_id,
-            'comment': comment,
+            'acomment': comment,
         }
 
         # t = requests.post(

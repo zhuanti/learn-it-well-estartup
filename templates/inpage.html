@@ -164,6 +164,7 @@
 
 
 
+
     </style>
 
 </head>
@@ -217,17 +218,16 @@
                         {% endfor %}
                         <center>
                             {% csrf_token %}<br>
-                            答案：
-<!--                            <input type="text" value="{{discussroom_ans_list.question_no_id}}" hidden>-->
-                            <textarea id="{{discussroom_ans_list.question_no_id
+                            <from>
+                                答案：
+                                <input name="question_no_id" value="{{discussroom_ans_list.question_no_id}}" hidden>
+                                <textarea id="{{discussroom_ans_list.question_no_id}}"
+                                          name="comment"></textarea><br><br>
+                                <button type="submit" class="btn msger-send-btn">
+                                    確認
+                                </button>
+                            </from>
 
-
-
-                            }}" name="comment" required="required">{{discussroom_ans_list.question_no_id}}</textarea><br><br>
-                            <button type="submit"
-                                    style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">
-                                確認
-                            </button>
                         </center>
                         <br>
                     </div>
@@ -250,6 +250,7 @@
 
 
 
+
                     </script>
                 </div>
 
@@ -258,15 +259,23 @@
                     <a class="btn popup-btn" href="#letmeopen1">新增問題</a>
                 </div>
                 <div class="popup-wrap" id="letmeopen1">
-                    <div class="btn popup-box transform-out">
-                        <h2>新增問題</h2><br>
-                        {% csrf_token %}
-                        <h3>問題<textarea id="qtitle" name="qtitle" required="required"></textarea><br></h3><br>
-                        <button type="submit" class="btn msger-send-btn">
-                            確認
-                        </button>
-                        <a class="close-btn popup-close" href="#">x</a>
-                    </div>
+                    <form>
+                        <div class="btn popup-box transform-out">
+                            <h2>新增問題</h2><br>
+                            {% csrf_token %}
+                            <h3>房間編號<input type="text" id="discussroom_no_id" name="discussroom_no_id">
+                            </h3><br>
+                            <h3>問題編號<input type="text" id="question_no_id" name="question_no_id"></h3>
+                            <br>
+                            <h3>問問題人<input type="text" id="quser_id" name="quser_id"></h3><br>
+                            <h3>問題<textarea id="qtitle" name="qtitle"></textarea><br></h3><br>
+                            <button type="submit" class="btn msger-send-btn">
+                                確認
+                            </button>
+                            <a class="close-btn popup-close" href="#">x</a>
+                        </div>
+                    </form>
+
                 </div>
             </div>
         </div>
@@ -309,6 +318,7 @@
             function closeConn() {
                 socket.close(); //向服務端發送端開連結的請求(客戶端主動斷開連接)
             }
+
 
 
 
