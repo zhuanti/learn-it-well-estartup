@@ -23,7 +23,17 @@ def reportweek(request):
 
 @user_login_required
 def reportday(request):
-    return render(request, 'ReportDay.html')
+    user_id = request.COOKIES['user_id'],
+    # print(user_id)
+    r = requests.get(
+        f'{root}/reportday/',
+        params={'user_id': user_id},
+        # 'user_id': request.COOKIES['user_id'],
+        cookies={'sessionid': request.COOKIES['sessionid']}
+    )
+    result = r.json()
+    user = result['data']
+    return render(request, 'ReportDay.html', {'user': user})
 
 @user_login_required
 def report(request):
