@@ -274,17 +274,21 @@
                             {% endfor %}
 
                             <h2>新增問題</h2><br>
-                            <h3>房間編號<input type="text" id="discussroom_no_id" name="discussroom_no_id" required="required">
-                            </h3><br>
-                            <!--                            <h3>問題編號<input type="text" id="question_no_id" name="question_no_id"></h3>-->
-                            <!--                            <br>-->
-                            <h3>問問題人<input type="text" id="quser_id" name="quser_id" required="required"></h3><br>
-                            <h3>問題<input id="title" name="title" required="required"><br></h3><br>
+<!--                            <h3>房間編號<input type="text" id="discussroom_no_id" name="discussroom_no_id" required="required">-->
+<!--                            </h3><br>-->
+<!--                            &lt;!&ndash;                            <h3>問題編號<input type="text" id="question_no_id" name="question_no_id"></h3>&ndash;&gt;-->
+<!--                            &lt;!&ndash;                            <br>&ndash;&gt;-->
+<!--                            <h3>問問題人<input type="text" id="quser_id" name="quser_id" required="required"></h3><br>-->
+<!--                            <h3>問題<input id="title" name="title" required="required"><br></h3><br>-->
 
-<!--                            <button type="submit" class="btn msger-send-btn">-->
-<!--                                確認-->
-<!--                            </button>-->
-                            <input type="submit" class="btn msger-send-btn" name="submit" value ="show" />
+                            <h3>房間編號<input class="text" id="discussroom_no_id" name="discussroom_no_id"
+                                           value="{{discussroom.no}}" required="required"></h3><br>
+                            <h3>問問題人<input class="text" id="quser_id" name="quser_id" required="required"></h3><br>
+                            <h3>問題<input class="text" id="qtitle" name="qtitle" required="required"></h3><br>
+
+                            <button type="submit" class="btn msger-send-btn">
+                                確認
+                            </button>
                             <a class="close-btn popup-close" href="#">x</a>
                         </form>
                     </div>
