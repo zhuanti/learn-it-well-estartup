@@ -414,6 +414,8 @@ def Sroominpage(request, pk):
 # def Sroominpageself(request):
 #     return render(request, 'Sroominpage-self.html')
 
+
+# 個人自習室填寫科目資料
 @user_login_required
 def Sroom_self(request):
     r = requests.get(

@@ -43,90 +43,102 @@
 <div class="banner">
     <div class="sidebar-contact">
         <div class="toggle"></div>
+        {% csrf_token %}
         <center>
-            <b><font size="6">{{information.subject_no_id}}</font></b> <b>{{information.subject_detail}}</b><br>
-            <b>預計讀書時長:{{information.settime_no}}分鐘</b><br>
+            {% for subject_no_list in report.subject_no_lists %}
+            <b><font size="6">科目： {{ subject_no_list.sub_name }}</font></b><br>
+            <b>科目詳細資訊： {{ report.subject_detail }}</b><br>
+            <b>預計讀書時長: {{ report.settime_no }}分鐘</b><br>
+            {% endfor %}
             <div class="position-absolute bottom-0 end-0 "><i class="bi bi-info-circle"></i></div>
         </center>
         <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
         <script src="/static/js/studyroomtitle.js"></script>
         <style>
             .content {
-              padding: 50px 100px;
+                padding: 50px 100px;
             }
+
             .content h2 {
-              margin:0 0 20px;
-              padding: 0;
-              font-size: 30px;
+                margin: 0 0 20px;
+                padding: 0;
+                font-size: 30px;
             }
+
             .content p {
-              font-size: 18px;
+                font-size: 18px;
             }
+
             .sidebar-contact {
-              position: fixed;
-              top: 20%;
-              left: -270px;
-              transform: translateY(-50%);
-              width: 270px;
-              height: auto;
-              padding: 40px;
-              background: #fff;
-              box-shadow: 0 20px 50px rgba(0,0,0,.5);
-              box-sizing: border-box;
-              transition: 0.5s;
-              /*
-              border: 1px solid rgba(0,0,0,.5);
-              outline: none;
-              */
+                position: fixed;
+                top: 20%;
+                left: -270px;
+                transform: translateY(-50%);
+                width: 270px;
+                height: auto;
+                padding: 40px;
+                background: #fff;
+                box-shadow: 0 20px 50px rgba(0, 0, 0, .5);
+                box-sizing: border-box;
+                transition: 0.5s;
+                /*
+                border: 1px solid rgba(0,0,0,.5);
+                outline: none;
+                */
             }
+
             .sidebar-contact.active {
-              left: 0px;
+                left: 0px;
             }
+
             .sidebar-contact input,
             .sidebar-contact textarea {
-              width: 100%;
-              height: 36px;
-              padding: 5px;
-              margin-bottom:10px;
+                width: 100%;
+                height: 36px;
+                padding: 5px;
+                margin-bottom: 10px;
             }
+
             .sidebar-contact textarea {
-              height: 60px;
-              resize: none;
+                height: 60px;
+                resize: none;
             }
+
             .sidebar-contact input[type="submit"] {
-              background: #00bcd4;
-              color: #fff;
-              cursor: pointer;
-              border: none;
-              font-style:18px;
+                background: #00bcd4;
+                color: #fff;
+                cursor: pointer;
+                border: none;
+                font-style: 18px;
             }
+
             .sidebar-contact h2 {
-              margin: 0 0 20px;
-              padding: 0;
+                margin: 0 0 20px;
+                padding: 0;
             }
+
             .toggle {
-              position: absolute;
-              top: 0;
-              right: -48px;
-              width: 48px;
-              height: 48px;
-              line-height:48px;
-              text-align: center;
-              cursor: pointer;
-              background: #8bd07b;
+                position: absolute;
+                top: 0;
+                right: -48px;
+                width: 48px;
+                height: 48px;
+                line-height: 48px;
+                text-align: center;
+                cursor: pointer;
+                background: #8bd07b;
             }
+
             .toggle:before {
-              content: '\F138';
-              font-family: fontAwesome;
-              color: #fff;
-              font-size:18px;
+                content: '\F138';
+                font-family: fontAwesome;
+                color: #fff;
+                font-size: 18px;
             }
+
             .toggle.active:before {
-              content: '\f00d';
+                content: '\f00d';
             }
-
-
-
 
 
         </style>
@@ -238,11 +250,16 @@
                 <!--                <audio src="/static/music/break.mp3" data-sound="longBreak"></audio>-->
             </div>
             <script type="text/javascript">
-                    //讀書時間(pomodore)為 25 分鐘，短暫的休息時間(shortBreak)為 5 分鐘。連續四次番茄工作後，將啟動長時間的休息(longBreak)（15 分鐘）
-                    window.onload = function(){
+                //讀書時間(pomodore)為 25 分鐘，短暫的休息時間(shortBreak)為 5 分鐘。連續四次番茄工作後，將啟動長時間的休息(longBreak)（15 分鐘）
+                window.onload = function () {
                     const timer = {
-                      pomodoro: {{information.settime_no}},
-                    };
+                        pomodoro: {
+                    {
+                        information.settime_no
+                    }
+                },
+                }
+                    ;
 
                     //聲明一個interval變量timer
                     let interval;
@@ -250,163 +267,160 @@
                     const buttonSound = new Audio('/static/music/button-sound.mp3');
                     const mainButton = document.getElementById('js-btn');
                     mainButton.addEventListener('click', () => {
-                      buttonSound.play();
-                      const { action } = mainButton.dataset;
-                      if (action === 'start') {
-                        startTimer();
-                      } else {
-                        stopTimer();
-                      }
+                        buttonSound.play();
+                        const {action} = mainButton.dataset;
+                        if (action === 'start') {
+                            startTimer();
+                        } else {
+                            stopTimer();
+                        }
                     });
 
                     const modeButtons = document.querySelector('#js-mode-buttons');
                     modeButtons.addEventListener('click', handleMode);
 
                     function getRemainingTime(endTime) {
-                      const currentTime = Date.parse(new Date());
-                      const difference = endTime - currentTime;
+                        const currentTime = Date.parse(new Date());
+                        const difference = endTime - currentTime;
 
-                      const total = Number.parseInt(difference / 1000, 10);
-                      const minutes = Number.parseInt((total / 60) % 60, 10);
-                      const seconds = Number.parseInt(total % 60, 10);
+                        const total = Number.parseInt(difference / 1000, 10);
+                        const minutes = Number.parseInt((total / 60) % 60, 10);
+                        const seconds = Number.parseInt(total % 60, 10);
 
-                      return {
-                        total,
-                        minutes,
-                        seconds,
-                      };
+                        return {
+                            total,
+                            minutes,
+                            seconds,
+                        };
                     }
 
                     function startTimer() {
-                      let { total } = timer.remainingTime;
-                      const endTime = Date.parse(new Date()) + total * 1000;
+                        let {total} = timer.remainingTime;
+                        const endTime = Date.parse(new Date()) + total * 1000;
 
-                      if (timer.mode === 'pomodoro') timer.sessions++;
+                        if (timer.mode === 'pomodoro') timer.sessions++;
 
-                      mainButton.dataset.action = 'stop';
-                      mainButton.textContent = '暫停';
-                      mainButton.classList.add('active');
+                        mainButton.dataset.action = 'stop';
+                        mainButton.textContent = '暫停';
+                        mainButton.classList.add('active');
 
-                      interval = setInterval(function() {
-                        timer.remainingTime = getRemainingTime(endTime);
-                        updateClock();
+                        interval = setInterval(function () {
+                            timer.remainingTime = getRemainingTime(endTime);
+                            updateClock();
 
-                        total = timer.remainingTime.total;
-                        if (total <= 0) {
-                          clearInterval(interval);
+                            total = timer.remainingTime.total;
+                            if (total <= 0) {
+                                clearInterval(interval);
 
-                          switch (timer.mode) {
-                            case 'pomodoro':
-                              if (timer.sessions % timer.longBreakInterval === 0) {
-                                switchMode('shortBreak');
-                              } else {
-<!--                                switchMode('overtime');-->
-                                document.getElementById('js-overbtn').disabled = false;
-                              }
-                              break;
-                            default:
-                              switchMode('pomodoro');
-                          }
-                          if (Notification.permission === 'granted') {
-                            const text =
-                              timer.mode === 'pomodoro' ? 'LEARN IT WELL' : 'Take a break!';
-                            new Notification(text);
-                          }
-                          if (Notification.permission === 'granted') {
-                            const text =
-                              timer.mode === 'pomodoro' ? 'LEARN IT WELL!' : 'Take a break!';
-                            new Notification(text);
-                          }
+                                switch (timer.mode) {
+                                    case 'pomodoro':
+                                        if (timer.sessions % timer.longBreakInterval === 0) {
+                                            switchMode('shortBreak');
+                                        } else {
+                                            <!--                                switchMode('overtime');-->
+                                            document.getElementById('js-overbtn').disabled = false;
+                                        }
+                                        break;
+                                    default:
+                                        switchMode('pomodoro');
+                                }
+                                if (Notification.permission === 'granted') {
+                                    const text =
+                                        timer.mode === 'pomodoro' ? 'LEARN IT WELL' : 'Take a break!';
+                                    new Notification(text);
+                                }
+                                if (Notification.permission === 'granted') {
+                                    const text =
+                                        timer.mode === 'pomodoro' ? 'LEARN IT WELL!' : 'Take a break!';
+                                    new Notification(text);
+                                }
 
-                          document.querySelector(`[data-sound="${timer.mode}"]`).play();
+                                document.querySelector(`[data-sound="${timer.mode}"]`).play();
 
-                          startTimer();
-                        }
-                      }, 1000);
+                                startTimer();
+                            }
+                        }, 1000);
                     }
-
 
 
                     function stopTimer() {
-                      clearInterval(interval);
+                        clearInterval(interval);
 
-                      mainButton.dataset.action = 'start';
-                      mainButton.textContent = '開始';
-                      mainButton.classList.remove('active');
+                        mainButton.dataset.action = 'start';
+                        mainButton.textContent = '開始';
+                        mainButton.classList.remove('active');
                     }
 
                     function updateClock() {
-                      const { remainingTime } = timer;
-                      const minutes = `${remainingTime.minutes}`.padStart(2, '0');
-                      const seconds = `${remainingTime.seconds}`.padStart(2, '0');
+                        const {remainingTime} = timer;
+                        const minutes = `${remainingTime.minutes}`.padStart(2, '0');
+                        const seconds = `${remainingTime.seconds}`.padStart(2, '0');
 
-                      const min = document.getElementById('js-minutes');
-                      const sec = document.getElementById('js-seconds');
-                      min.textContent = minutes;
-                      sec.textContent = seconds;
+                        const min = document.getElementById('js-minutes');
+                        const sec = document.getElementById('js-seconds');
+                        min.textContent = minutes;
+                        sec.textContent = seconds;
 
-                      const text =
-                        timer.mode === 'pomodoro' ? 'LEARN IT WELL' : 'Take a break!';
-                      document.title = `${minutes}:${seconds} — ${text}`;
+                        const text =
+                            timer.mode === 'pomodoro' ? 'LEARN IT WELL' : 'Take a break!';
+                        document.title = `${minutes}:${seconds} — ${text}`;
 
-                      const progress = document.getElementById('js-progress');
-                      progress.value = timer[timer.mode] * 60 - timer.remainingTime.total;
+                        const progress = document.getElementById('js-progress');
+                        progress.value = timer[timer.mode] * 60 - timer.remainingTime.total;
                     }
 
                     function switchMode(mode) {
-                      timer.mode = mode;
-                      timer.remainingTime = {
-                        total: timer[mode] * 60,
-                        minutes: timer[mode],
-                        seconds: 0,
-                      };
+                        timer.mode = mode;
+                        timer.remainingTime = {
+                            total: timer[mode] * 60,
+                            minutes: timer[mode],
+                            seconds: 0,
+                        };
 
-                      document
-                        .querySelectorAll('button[data-mode]')
-                        .forEach(e => e.classList.remove('active'));
-                      document.querySelector(`[data-mode="${mode}"]`).classList.add('active');
-                      document.body.style.backgroundColor = `var(--${mode})`;
-                      document
-                        .getElementById('js-progress')
-                        .setAttribute('max', timer.remainingTime.total);
+                        document
+                            .querySelectorAll('button[data-mode]')
+                            .forEach(e => e.classList.remove('active'));
+                        document.querySelector(`[data-mode="${mode}"]`).classList.add('active');
+                        document.body.style.backgroundColor = `var(--${mode})`;
+                        document
+                            .getElementById('js-progress')
+                            .setAttribute('max', timer.remainingTime.total);
 
-                      updateClock();
+                        updateClock();
                     }
 
                     function handleMode(event) {
-                      const { mode } = event.target.dataset;
+                        const {mode} = event.target.dataset;
 
-                      if (!mode) return;
+                        if (!mode) return;
 
-                      switchMode(mode);
-                      stopTimer();
+                        switchMode(mode);
+                        stopTimer();
                     }
 
                     document.addEventListener('DOMContentLoaded', () => {
-                      if ('Notification' in window) {
-                        if (
-                          Notification.permission !== 'granted' &&
-                          Notification.permission !== 'denied'
-                        ) {
-                          Notification.requestPermission().then(function(permission) {
-                            if (permission === 'granted') {
-                              new Notification(
-                                'Awesome! You will be notified at the start of each session'
-                              );
+                        if ('Notification' in window) {
+                            if (
+                                Notification.permission !== 'granted' &&
+                                Notification.permission !== 'denied'
+                            ) {
+                                Notification.requestPermission().then(function (permission) {
+                                    if (permission === 'granted') {
+                                        new Notification(
+                                            'Awesome! You will be notified at the start of each session'
+                                        );
+                                    }
+                                });
                             }
-                          });
                         }
-                      }
 
-                      switchMode('pomodoro');
+                        switchMode('pomodoro');
                     });
 
                     document.addEventListener('DOMContentLoaded', () => {
-                    switchMode('pomodoro');
+                        switchMode('pomodoro');
                     });
-                    }
-
-
+                }
 
 
             </script>
@@ -463,33 +477,14 @@
             <button class="ctrlbutton" onclick="showDialog1()"><i class="bi bi-alarm-fill"></i></button>
             <script>
                 var y = document.getElementById("timeDialog");
+
                 function showDialog1() {
-                y.show();
+                    y.show();
                 }
 
                 function closeDialog1() {
-                y.close();
+                    y.close();
                 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
             </script>
@@ -499,32 +494,12 @@
             <script>
                 /* Thanks to Eiji Kitamura for the dialog demo which you can see at https://demo.agektmr.com/dialog/ */
                 var dialog = document.querySelector('dialog');
-                document.querySelector('#show').onclick = function() {
+                document.querySelector('#show').onclick = function () {
                     dialog.show();
                 };
-                document.querySelector('#close').onclick = function() {
+                document.querySelector('#close').onclick = function () {
                     dialog.close();
                 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
             </script>
@@ -534,34 +509,14 @@
             <button class="ctrlbutton" onclick="showDialog2()"><i class="bi bi-sliders"></i></button>
             <script>
                 var z = document.getElementById("soundDialog");
+
                 function showDialog2() {
-                z.show();
+                    z.show();
                 }
 
                 function closeDialog2() {
-                z.close();
+                    z.close();
                 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
             </script>
@@ -600,36 +555,17 @@
         <div class="btnI1">
             <button class="ctrlbutton" onclick="openFullscreen();"><i class="bi bi-arrows-fullscreen"></i></button>
             <script>
-            var elem = document.documentElement;
-            function openFullscreen() {
-              if (elem.requestFullscreen) {
-                elem.requestFullscreen();
-              } else if (elem.webkitRequestFullscreen) { /* Safari */
-                elem.webkitRequestFullscreen();
-              } else if (elem.msRequestFullscreen) { /* IE11 */
-                elem.msRequestFullscreen();
-              }
-            }
+                var elem = document.documentElement;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                function openFullscreen() {
+                    if (elem.requestFullscreen) {
+                        elem.requestFullscreen();
+                    } else if (elem.webkitRequestFullscreen) { /* Safari */
+                        elem.webkitRequestFullscreen();
+                    } else if (elem.msRequestFullscreen) { /* IE11 */
+                        elem.msRequestFullscreen();
+                    }
+                }
 
 
             </script>
@@ -645,56 +581,34 @@
         <span>:</span>
         <div id="seconds">00</div>
         <script>
-        var hour = document.getElementById("hour");
-        var minute = document.getElementById("minute");
-        var seconds = document.getElementById("seconds");
+            var hour = document.getElementById("hour");
+            var minute = document.getElementById("minute");
+            var seconds = document.getElementById("seconds");
 
-        var clock1 = setInterval(
-            function time(){
-              var date_now = new Date();
-              var hr = date_now.getHours();
-              var min = date_now.getMinutes();
-              var sec = date_now.getSeconds();
+            var clock1 = setInterval(
+                function time() {
+                    var date_now = new Date();
+                    var hr = date_now.getHours();
+                    var min = date_now.getMinutes();
+                    var sec = date_now.getSeconds();
 
-              if(hr < 10){
-                  hr = "0" + hr;
-              }
-              if(min < 10){
-                  min = "0" + min;
-              }
-              if(sec < 10){
-                  sec = "0" + sec;
-              }
+                    if (hr < 10) {
+                        hr = "0" + hr;
+                    }
+                    if (min < 10) {
+                        min = "0" + min;
+                    }
+                    if (sec < 10) {
+                        sec = "0" + sec;
+                    }
 
-              hour.textContent = hr;
-              minute.textContent = min;
-              seconds.textContent = sec;
-
-
-
-    },1000
-);
+                    hour.textContent = hr;
+                    minute.textContent = min;
+                    seconds.textContent = sec;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                }, 1000
+            );
 
 
         </script>

@@ -122,20 +122,32 @@ def addroom(request):
 #         informations = result['data']
 #         return render(request, 'Sroominpage-self.html', {'informations': informations})
 
-
+# 顯示個人資料
+# @user_login_required
+# def Udetail(request):
+#     user_id = request.COOKIES['user_id'],
+#     r = requests.get(
+#         f'{root}user/detail/',
+#         params={'user_id': user_id},
+#         # 'user_id': request.COOKIES['user_id'],
+#         cookies={'sessionid': request.COOKIES['sessionid']}
+#     )
+#     result = r.json()
+#     user = result['data']
+#     return render(request, 'UserDetail.html', {'user': user})
 @user_login_required
 def get_reviews_insideshow(request):
     user_id = request.COOKIES['user_id'],
-    # print(user_id)
     r = requests.get(
         f'{root}/reporttest/',
         params={'user_id': user_id},
-        # 'user_id': request.COOKIES['user_id'],
         cookies={'sessionid': request.COOKIES['sessionid']}
     )
     result = r.json()
-    information = result['data']
-    return render(request, 'Sroominpage-self.html', {'information': information})
+    report = result['data']
+    # print(report)
+    return render(request, 'Sroominpage-self.html', {'report': report})
+
     # user_id = request.COOKIES['user_id'],
     # r = requests.get(
     #     f'{root}/inside/',
