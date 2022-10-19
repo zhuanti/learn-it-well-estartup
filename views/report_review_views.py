@@ -6,6 +6,7 @@ from utils.decorators import user_login_required
 
 root += 'report'
 
+
 @user_login_required
 def reportweek(request):
     user_id = request.COOKIES['user_id'],
@@ -35,6 +36,7 @@ def reportday(request):
     user = result['data']
     return render(request, 'ReportDay.html', {'user': user})
 
+
 @user_login_required
 def report(request):
     return render(request, 'report.html')  # 完成
@@ -52,28 +54,73 @@ def WeekReport(request):
 
 @user_login_required
 def addroom(request):
-    if request.method == 'GET':
-        return render(request, 'Sroom-self.html')
-
-        # no = request.POST['no']
+    if request.method == 'POST':
+        # no = request.POST['ano']
+        user_id = request.COOKIES['user_id']
         classroom_type_no_id = request.POST[2]
-        subject_no_id = request.POST['subject_no_id']
-        set_time_id = request.POST['set_time_id']
+        subject_no_id = request.POST.get['subject_no_id']
+        settime_no_id = request.POST.get['settime_no_id']
+        # subject_no_id = request.POST['subject_no_id']
+        # settime_no_id = request.POST['settime_no_id']
         subject_detail = request.POST['subject_detail']
+
         data = {
             # 'no': no,
             'user_id': request.COOKIES['user_id'],
             'classroom_type_no_id': classroom_type_no_id,
             'subject_no_id': subject_no_id,
-            'set_time_id': set_time_id,
+            'settime_no_id': settime_no_id,
             'subject_detail': subject_detail,
         }
-    r = requests.post(
-        f'{root}/addsub/',
-        data=data,
-    )
-    result = r.json()
-    return render(request, 'Sroominpage-self.html', {'message': result['message']})
+
+        r = requests.post(
+            f'{root}/addsub/',
+            data=data,
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
+
+        if result['success'] is True:
+            ret = redirect('/Sroominpage-self')
+            messages.success(request, '已新增成功')
+            return ret
+        else:
+            messages.error(request, '新增失敗')
+            return redirect('/studyroom-self')
+            return ret
+
+    if request.method == 'GET':
+        r = requests.get(
+            f'{root}/addsub/',
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
+        subjects = result['data']
+        return render(request, 'Sroominpage-self.html', {'subjects': subjects})
+    # if request.method == 'GET':
+    #     return render(request, 'Sroom-self.html')
+    #
+    #     # no = request.POST['no']
+    #     classroom_type_no_id = request.POST[2]
+    #     subject_no_id = request.POST['subject_no_id']
+    #     set_time_id = request.POST['set_time_id']
+    #     subject_detail = request.POST['subject_detail']
+    #     data = {
+    #         # 'no': no,
+    #         'user_id': request.COOKIES['user_id'],
+    #         'classroom_type_no_id': classroom_type_no_id,
+    #         'subject_no_id': subject_no_id,
+    #         'set_time_id': set_time_id,
+    #         'subject_detail': subject_detail,
+    #     }
+    # r = requests.post(
+    #     f'{root}/addsub/',
+    #     data=data,
+    # )
+    # result = r.json()
+    # return render(request, 'Sroominpage-self.html', {'message': result['message']})
+
+
 # @user_login_required
 # def addroom(request):
 #     user_id = request.COOKIES['user_id'],
@@ -158,7 +205,6 @@ def get_reviews_insideshow(request):
     # result = r.json()
     # informations = result['data']
     # return render(request, 'Sroominpage-self.html', {'informations': informations})
-
 
 
 # 編輯讀書時間

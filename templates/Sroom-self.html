@@ -131,7 +131,7 @@
                             {% csrf_token %}
                             <div class="form-group">
                                 <select class="form-control" name="subject_no_id" id="subject_no_id"
-                                        value={{ report.subject_no_id }}>
+                                        value={{ report.subject_no_id }} required="required">
                                     <option disabled="true" selected>--請選擇要讀的科目--</option>
                                     {% for sub_list in inform.sub_lists %}
                                     <option value={{sub_list.sub_name}} id={{sub_list.sub_no}}>{{sub_list.sub_name}}
@@ -151,7 +151,8 @@
                             <div class="form-group">
                                 <input type="text" name="subject_detail" class="form-control" id="subject_detail"
                                        placeholder="請輸入科目詳細資訊"
-                                       requiered value={{ report.subject_detail }}>
+                                       required="required">
+<!--                                value={{ report.subject_detail }}-->
                             </div>
                             <br>
                             <br>
@@ -159,8 +160,8 @@
                                 <!--                                <div class="form-group">-->
                                 <!--                                    <input type="text" name="set_time_no" id="set_time_no" class="form-control" placeholder="預計讀書時長(請以分鐘為單位填寫 1小時=60分鐘)" required="required"/>-->
                                 <!--                                </div>-->
-                                <select class="form-control" name="set_time_id" id="set_time_id"
-                                        value={{ report.set_time_id }}>
+                                <select class="form-control" name="set_time_id" id="set_time_id">
+<!--                                    value={{ report.set_time_id }}-->
                                     <option disabled="true" selected>--請選擇預計讀書時長(1小時=60分鐘)--</option>
 
                                     {% for set_list in inform.set_lists %}
