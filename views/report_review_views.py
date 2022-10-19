@@ -8,12 +8,32 @@ root += 'report'
 
 @user_login_required
 def reportweek(request):
-    return render(request, 'ReportWeek.html')
+    user_id = request.COOKIES['user_id'],
+    # print(user_id)
+    r = requests.get(
+        f'{root}/reportweek/',
+        params={'user_id': user_id},
+        # 'user_id': request.COOKIES['user_id'],
+        cookies={'sessionid': request.COOKIES['sessionid']}
+    )
+    result = r.json()
+    user = result['data']
+    return render(request, 'ReportWeek.html', {'user': user})
 
 
 @user_login_required
 def reportday(request):
-    return render(request, 'ReportDay.html')
+    user_id = request.COOKIES['user_id'],
+    # print(user_id)
+    r = requests.get(
+        f'{root}/reportday/',
+        params={'user_id': user_id},
+        # 'user_id': request.COOKIES['user_id'],
+        cookies={'sessionid': request.COOKIES['sessionid']}
+    )
+    result = r.json()
+    user = result['data']
+    return render(request, 'ReportDay.html', {'user': user})
 
 @user_login_required
 def report(request):
@@ -106,15 +126,27 @@ def addroom(request):
 @user_login_required
 def get_reviews_insideshow(request):
     user_id = request.COOKIES['user_id'],
+    # print(user_id)
     r = requests.get(
-        f'{root}/inside/',
+        f'{root}/reporttest/',
         params={'user_id': user_id},
         # 'user_id': request.COOKIES['user_id'],
         cookies={'sessionid': request.COOKIES['sessionid']}
     )
     result = r.json()
-    informations = result['data']
-    return render(request, 'Sroominpage-self.html', {'informations': informations})
+    information = result['data']
+    return render(request, 'Sroominpage-self.html', {'information': information})
+    # user_id = request.COOKIES['user_id'],
+    # r = requests.get(
+    #     f'{root}/inside/',
+    #     params={'user_id': user_id},
+    #     # 'user_id': request.COOKIES['user_id'],
+    #     cookies={'sessionid': request.COOKIES['sessionid']}
+    # )
+    # result = r.json()
+    # informations = result['data']
+    # return render(request, 'Sroominpage-self.html', {'informations': informations})
+
 
 
 # 編輯讀書時間
