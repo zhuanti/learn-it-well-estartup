@@ -531,3 +531,6 @@ def award(request):
 
 def Sroomtogethersub(request):
     return render(request, 'Sroom-togethersub.html')
+
+def Splan_edit(request):
+    return render(request, 'Splan_edit.html')
