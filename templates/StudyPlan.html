@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -26,10 +26,49 @@
 
     <!-- Template Main CSS File -->
     <link href="/static/css/style.css" rel="stylesheet">
-    <!-- 勾選新增方塊 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/studyplan-style.css">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+
+    <!-- =======================================================
+    * Template Name: eStartup - v4.7.1
+    * Template URL: https://bootstrapmade.com/estartup-bootstrap-landing-page-template/
+    * Author: BootstrapMade.com
+    * License: https://bootstrapmade.com/license/
+    ======================================================== -->
+    <style>
+        .vertical-menu {
+            width: 100%;
+            height: 400px;
+            overflow-y: auto;
+        }
+
+        .vertical-menu a {
+            background-color: #eee;
+            color: black;
+            display: block;
+            padding: 12px;
+            text-decoration: none;
+        }
+
+        .vertical-menu a:hover {
+            background-color: #ccc;
+        }
+
+        .vertical-menu a.active {
+            background-color: #4ACF50;
+            color: white;
+        }
+
+        .btn {
+            background-color: #71c55d;
+            text-decoration: none;
+            color: #FFF;
+            padding: 10px;
+            /*width: 5px;*/
+            /*height: 20px;*/
+            border-radius: 10px;
+        }
+
+
+    </style>
 </head>
 
 <body>
@@ -73,32 +112,115 @@
 
     </div>
 </header><!-- End Header -->
-<!-- ======= Hero Section ======= -->
-<section class="ftco-section">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="wrapper">
-                <div class="task-input">
-<!--                    {% csrf_token %}-->
-                    <img src="/static/images/bars-icon.svg" alt="icon">
-                    <input type="text" placeholder="新增任務(完成後請按enter)">
-<!-- 加入name&id不管是一起還是各別都會案enter沒動做 <input type="text" name="name" id="name" placeholder="新增任務(完成後請按enter)" required="required">-->
-                </div>
-                <div class="controls">
-                    <div class="filters">
-                        <span class="active" id="all">全部</span>
-                        <span id="pending">進行中</span>
-                        <span id="completed">已完成</span>
+<!-- 表格開始-->
+<body class="hm-gradient">
+
+
+<main>
+
+    <!--MDB Tables-->
+    <div class="container mt-4">
+
+        <div class="text-center darken-grey-text mb-4">
+            <br><br>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                <!-- Grid row -->
+                <div class="row">
+                    <!-- Grid column -->
+                    <div class="col-md-12">
+                        <h2 class="pt-3 pb-4 text-center font-bold font-up deep-purple-text">搜尋自習室</h2>
+
+                        <table align="right">
+                            <form style="margin: auto; width: 220px;" class="form-inline float-right mb-4"
+                                  action="/studyroom/Sserch/" method="get">
+                                <tr>
+                                    <td>
+                                        <input class="form-control my-0 py-1 pl-3 purple-border" type="text" name="name"
+                                               placeholder="新增代辦事項" required/>
+                                    </td>
+                                    <td>
+                                        <button class="btn btn-primary" type="submit"
+                                                style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;">
+                                            新增
+                                        </button>
+                                    </td>
+                                </tr>
+
+                            </form>
+                        </table>
+                        <br>
                     </div>
-                    <button class="clear-btn">清除全部</button>
+                    <!-- Grid column -->
+
+                    {% for message in messages %}
+                    <div class="alert alert-success">
+                        <a class="close" href="#" data-dismiss="alert"></a>
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+
                 </div>
-                <ul class="task-box"></ul>
+                <!-- Grid row -->
+                <!--Table-->
+                <div class="vertical-menu">
+                    <table class="table table-striped">
+                        <!--Table head-->
+                        <thead>
+                        <tr>
+                            <th>任務編號</th>
+                            <!--                            <th>學制</th>-->
+                            <!--                            <th>科目</th>-->
+                            <th>代辦事項</th>
+                            <th>編輯</th>
+                            <th>狀態</th>
+                            <th>刪除</th>
+                            <th></th>
+                        </tr>
+                        </thead>
+                        <!--Table head-->
+                        <!--Table body-->
+
+                        <tbody>
+
+                        <tr>
+                            <td>
+                                1
+                            </td>
+                            <td>
+                                複習數學
+                            </td>
+                            <td>
+                                <button class="button" type="submit">編輯</button>
+                            </td>
+                            <td>
+                               <button class="button" type="submit">完成</button>
+                            </td>
+                            <td>
+                               <button class="button" type="submit">刪除</button>
+                            </td>
+
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <br>
             </div>
         </div>
+        <hr class="my-4">
+
+        <div class="text-center darken-grey-text mb-4">
+        </div>
+
     </div>
+    <!--MDB Tables-->
 
-</section>
+</main>
 
+</body>
+<!-- 表格結束-->
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
         class="bi bi-arrow-up-short"></i></a>
@@ -112,34 +234,164 @@
 
 <!-- Template Main JS File -->
 <script src="/static/js/main.js"></script>
-<!-- 勾選新增方塊 -->
-<script src="/static/js/script.js"></script>
+
 </body>
 
 </html>
 
+
+
+
+
+
+
+
+
+
+
+
 <!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
+<!--<html lang="en" xmlns="http://www.w3.org/1999/html">-->
+
 <!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale1.0">-->
-<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
-<!--    <link rel="stylesheet" href="../static/css/style1.css">-->
-<!--    <title>討論室</title>-->
-<!--    <link rel="stylesheet" href="https://ionic.io/ionicons">-->
+<!--    <meta charset="utf-8">-->
+<!--    <meta content="width=device-width, initial-scale=1.0" name="viewport">-->
+
+<!--    <title>做伙來讀冊 - Learn it well</title>-->
+<!--    <meta content="" name="description">-->
+<!--    <meta content="" name="keywords">-->
+
+<!--    &lt;!&ndash; Favicons &ndash;&gt;-->
+<!--    <link href="/static/images/hello.png" rel="icon">-->
+<!--    <link href="/static/images/apple-touch-icon.png" rel="apple-touch-icon">-->
+
+<!--    &lt;!&ndash; Google Fonts &ndash;&gt;-->
+<!--    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i"-->
+<!--          rel="stylesheet">-->
+
+<!--    &lt;!&ndash; Vendor CSS Files &ndash;&gt;-->
+<!--    <link href="/static/vendor/aos/aos.css" rel="stylesheet">-->
+<!--    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
+<!--    <link href="/static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">-->
+<!--    <link href="/static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">-->
+<!--    <link href="/static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">-->
+
+<!--    &lt;!&ndash; Template Main CSS File &ndash;&gt;-->
+<!--    <link href="/static/css/style.css" rel="stylesheet">-->
+<!--    &lt;!&ndash; 勾選新增方塊 &ndash;&gt;-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <link rel="stylesheet" href="/static/css/studyplan-style.css">-->
+<!--    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">-->
 <!--</head>-->
+
 <!--<body>-->
-<!--    <form name="studyplan" action="" class="login" onsubmit="return check(this)"  required>-->
-<!--        <h1>學習規劃</h1>-->
-<!--        &lt;!&ndash; <ion-icon name="person-circle-outline"></ion-icon> &ndash;&gt;-->
 
-<!--        <a href='/'>回到主頁</a><br>-->
+<!--&lt;!&ndash; ======= Header ======= &ndash;&gt;-->
+<!--<header id="header" class="header fixed-top d-flex align-items-center">-->
+<!--    <div class="container d-flex align-items-center justify-content-between">-->
+
+<!--        <div id="logo">-->
+<!--            <h1>-->
+<!--                <img src="/static/images/hello.png">-->
+<!--                <a href="/"><span>做伙</span>來讀冊</a>-->
+<!--            </h1>-->
+<!--            &lt;!&ndash; Uncomment below if you prefer to use an image logo &ndash;&gt;-->
+<!--            &lt;!&ndash; <a href="index.html"><img src="assets/img/logo.png" alt="" title="" /></a>&ndash;&gt;-->
+<!--        </div>-->
+
+<!--        <nav id="navbar" class="navbar">-->
+<!--            <ul>-->
+<!--                <li><a class="nav-link scrollto active" href="/">首頁</a></li>-->
+<!--                <li class="dropdown"><a href="#"><span>使用者</span> <i class="bi bi-chevron-down"></i></a>-->
+<!--                    <ul>-->
+<!--                        <li><a href="/userdetail/">個人資料</a></li>-->
+<!--                        <li><a href="/achievement/">成就</a></li>-->
+<!--                        <li><a href="/studyplan/">學習規劃</a></li>-->
+<!--                        <li class="dropdown"><a href="/report/"><span>讀書報表</span> <i-->
+<!--                                class="bi bi-chevron-right"></i></a>-->
+<!--                            <ul>-->
+<!--                                <li><a href="/ReportWeek/">週報表</a></li>-->
+<!--                                <li><a href="/ReportDay/">日報表</a></li>-->
+<!--                            </ul>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                <li><a class="nav-link scrollto" href="/studyroom/">自習室</a></li>-->
+<!--                <li><a class="nav-link scrollto" href="/discusroom/">討論室</a></li>-->
+<!--                <li><a class="nav-link scrollto" href="/developer/">開發人員</a></li>-->
+<!--                <li><a class="nav-link scrollto" href="/logout/">登出</a></li>-->
+<!--            </ul>-->
+<!--            <i class="bi bi-list mobile-nav-toggle"></i>-->
+<!--        </nav>&lt;!&ndash; .navbar &ndash;&gt;-->
+
+<!--    </div>-->
+<!--</header>&lt;!&ndash; End Header &ndash;&gt;-->
+<!--&lt;!&ndash; ======= Hero Section ======= &ndash;&gt;-->
+<!--<section class="ftco-section">-->
+<!--    <div class="container">-->
+<!--        <div class="row justify-content-center">-->
+<!--            <div class="wrapper">-->
+<!--                <div class="task-input">-->
+<!--&lt;!&ndash;                    {% csrf_token %}&ndash;&gt;-->
+<!--                    <img src="/static/images/bars-icon.svg" alt="icon">-->
+<!--                    <input type="text" placeholder="新增任務(完成後請按enter)">-->
+<!--&lt;!&ndash; 加入name&id不管是一起還是各別都會案enter沒動做 <input type="text" name="name" id="name" placeholder="新增任務(完成後請按enter)" required="required">&ndash;&gt;-->
+<!--                </div>-->
+<!--                <div class="controls">-->
+<!--                    <div class="filters">-->
+<!--                        <span class="active" id="all">全部</span>-->
+<!--                        <span id="pending">進行中</span>-->
+<!--                        <span id="completed">已完成</span>-->
+<!--                    </div>-->
+<!--                    <button class="clear-btn">清除全部</button>-->
+<!--                </div>-->
+<!--                <ul class="task-box"></ul>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+
+<!--</section>-->
 
 
-<!--    </form>-->
+<!--<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i-->
+<!--        class="bi bi-arrow-up-short"></i></a>-->
 
+<!--&lt;!&ndash; Vendor JS Files &ndash;&gt;-->
+<!--<script src="/static/vendor/aos/aos.js"></script>-->
+<!--<script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>-->
+<!--<script src="/static/vendor/glightbox/js/glightbox.min.js"></script>-->
+<!--<script src="/static/vendor/swiper/swiper-bundle.min.js"></script>-->
+<!--<script src="/static/vendor/php-email-form/validate.js"></script>-->
+
+<!--&lt;!&ndash; Template Main JS File &ndash;&gt;-->
+<!--<script src="/static/js/main.js"></script>-->
+<!--&lt;!&ndash; 勾選新增方塊 &ndash;&gt;-->
+<!--<script src="/static/js/script.js"></script>-->
 <!--</body>-->
+
 <!--</html>-->
 
+<!--&lt;!&ndash;<!DOCTYPE html>&ndash;&gt;-->
+<!--&lt;!&ndash;<html lang="en">&ndash;&gt;-->
+<!--&lt;!&ndash;<head>&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta charset="UTF-8">&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta name="viewport" content="width=device-width, initial-scale1.0">&ndash;&gt;-->
+<!--&lt;!&ndash;    <meta http-equiv="X-UA-Compatible" content="ie=edge">&ndash;&gt;-->
+<!--&lt;!&ndash;    <link rel="stylesheet" href="../static/css/style1.css">&ndash;&gt;-->
+<!--&lt;!&ndash;    <title>討論室</title>&ndash;&gt;-->
+<!--&lt;!&ndash;    <link rel="stylesheet" href="https://ionic.io/ionicons">&ndash;&gt;-->
+<!--&lt;!&ndash;</head>&ndash;&gt;-->
+<!--&lt;!&ndash;<body>&ndash;&gt;-->
+<!--&lt;!&ndash;    <form name="studyplan" action="" class="login" onsubmit="return check(this)"  required>&ndash;&gt;-->
+<!--&lt;!&ndash;        <h1>學習規劃</h1>&ndash;&gt;-->
+<!--&lt;!&ndash;        &lt;!&ndash; <ion-icon name="person-circle-outline"></ion-icon> &ndash;&gt;&ndash;&gt;-->
 
-<!-- onclick="window.alert('登入成功')" -->
+<!--&lt;!&ndash;        <a href='/'>回到主頁</a><br>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;    </form>&ndash;&gt;-->
+
+<!--&lt;!&ndash;</body>&ndash;&gt;-->
+<!--&lt;!&ndash;</html>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash; onclick="window.alert('登入成功')" &ndash;&gt;-->
