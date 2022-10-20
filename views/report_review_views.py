@@ -54,40 +54,7 @@ def WeekReport(request):
 
 @user_login_required
 def addroom(request):
-    if request.method == 'POST':
-        # no = request.POST['ano']
-        user_id = request.COOKIES['user_id']
-        classroom_type_no_id = request.POST[2]
-        subject_no_id = request.POST.get['subject_no_id']
-        settime_no_id = request.POST.get['settime_no_id']
-        # subject_no_id = request.POST['subject_no_id']
-        # settime_no_id = request.POST['settime_no_id']
-        subject_detail = request.POST['subject_detail']
 
-        data = {
-            # 'no': no,
-            'user_id': request.COOKIES['user_id'],
-            'classroom_type_no_id': classroom_type_no_id,
-            'subject_no_id': subject_no_id,
-            'settime_no_id': settime_no_id,
-            'subject_detail': subject_detail,
-        }
-
-        r = requests.post(
-            f'{root}/addsub/',
-            data=data,
-            cookies={'sessionid': request.COOKIES['sessionid']}
-        )
-        result = r.json()
-
-        if result['success'] is True:
-            ret = redirect('/Sroominpage-self')
-            messages.success(request, '已新增成功')
-            return ret
-        else:
-            messages.error(request, '新增失敗')
-            return redirect('/studyroom-self')
-            return ret
 
     if request.method == 'GET':
         r = requests.get(

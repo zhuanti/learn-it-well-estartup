@@ -418,38 +418,75 @@ def Sroominpage(request, pk):
 # 個人自習室填寫科目資料
 @user_login_required
 def Sroom_self(request):
-    r = requests.get(
-        f'{root}studyroom/self',
+    if request.method == 'GET':
+        user_id = request.COOKIES['user_id']
+        r = requests.get(
+            f'{root}studyroom/self/',
+            params={'user_id': user_id},
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
+        inform = result['data']
+        return render(request, 'Sroom-self.html', {'inform': inform})
+
+    # no = request.POST['ano']
+    # user_id = request.COOKIES['user_id']
+    classroom_type_no_id = request.POST[2]
+    subject_no_id = request.POST.get('subject_no_id', "")
+    settime_no_id = request.POST.get('settime_no_id', "")
+    # subject_no_id = request.POST['subject_no_id']
+    # settime_no_id = request.POST['settime_no_id']
+    subject_detail = request.POST['subject_detail']
+
+    data = {
+        # 'no': no,
+        'user_id': request.COOKIES['user_id'],
+        'classroom_type_no_id': classroom_type_no_id,
+        'subject_no_id': subject_no_id,
+        'settime_no_id': settime_no_id,
+        'subject_detail': subject_detail
+    }
+
+    r = requests.post(
+        f'{root}/addsub/',
+        data=data,
         cookies={'sessionid': request.COOKIES['sessionid']}
     )
     result = r.json()
-    inform = result['data']
-    return render(request, 'Sroom-self.html', {'inform': inform})
+
+    if result['success'] is True:
+        ret = redirect('/Sroominpage-self')
+        messages.success(request, '已新增成功')
+        return ret
+    else:
+        messages.error(request, '新增失敗')
+        return redirect('/studyroom-self')
+        return ret
 
 
 # 按照學姊寫的寫法https://hsinyi-lin.gitbook.io/django-rest-api-orm/api-call/%E5%91%BC%E5%8F%AB%20-%20%E6%96%B0%E5%A2%9E%E8%A9%95%E8%AB%96
-    # if request.method == 'GET':
-    #     return render(request, 'Sroom-self.html')
-    #
-    #     # no = request.POST['no']
-    #     classroom_type_no_id = request.POST[2]
-    #     subject_no_id = request.POST['subject_no_id']
-    #     set_time_id = request.POST['set_time_id']
-    #     subject_detail = request.POST['subject_detail']
-    #     data = {
-    #         # 'no': no,
-    #         'user_id': request.COOKIES['user_id'],
-    #         'classroom_type_no_id': classroom_type_no_id,
-    #         'subject_no_id': subject_no_id,
-    #         'set_time_id': set_time_id,
-    #         'subject_detail': subject_detail,
-    #     }
-    # r = requests.post(
-    #     f'{root}/addsub/',
-    #     data=data,
-    # )
-    # result = r.json()
-    # return render(request, 'Sroominpage-self.html', {'message': result['message']})
+# if request.method == 'GET':
+#     return render(request, 'Sroom-self.html')
+#
+#     # no = request.POST['no']
+#     classroom_type_no_id = request.POST[2]
+#     subject_no_id = request.POST['subject_no_id']
+#     set_time_id = request.POST['set_time_id']
+#     subject_detail = request.POST['subject_detail']
+#     data = {
+#         # 'no': no,
+#         'user_id': request.COOKIES['user_id'],
+#         'classroom_type_no_id': classroom_type_no_id,
+#         'subject_no_id': subject_no_id,
+#         'set_time_id': set_time_id,
+#         'subject_detail': subject_detail,
+#     }
+# r = requests.post(
+#     f'{root}/addsub/',
+#     data=data,
+# )
+# result = r.json()
+# return render(request, 'Sroominpage-self.html', {'message': result['message']})
 
 # 按照其他類似功能寫的寫法
 #     user_id = request.COOKIES['user_id'],
@@ -531,6 +568,7 @@ def award(request):
 
 def Sroomtogethersub(request):
     return render(request, 'Sroom-togethersub.html')
+
 
 def Splan_edit(request):
     return render(request, 'Splan_edit.html')
