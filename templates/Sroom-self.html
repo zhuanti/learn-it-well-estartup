@@ -130,11 +130,12 @@
                         <form action="/forms/contact.php" method="post" role="form" class="php-email-form">
                             {% csrf_token %}
                             <div class="form-group">
-                                <select class="form-control" name="subject_no_id" id="subject_no_id"
-                                        value={{ report.subject_no_id }} required="required">
+                                <select class="form-control" name="subject_no_id" id="subject_no_id">
+                                        <!--value={{ report.subject_no_id }}-->
                                     <option disabled="true" selected>--請選擇要讀的科目--</option>
                                     {% for sub_list in inform.sub_lists %}
-                                    <option value={{sub_list.sub_name}} id={{sub_list.sub_no}}>{{sub_list.sub_name}}
+                                    <option value={{sub_list.sub_name}} id={{sub_list.sub_no}}>
+                                        {{sub_list.sub_name}}
                                     </option>
                                     {% endfor%}
                                     <!--                                    <option value="1">國文</option>-->
@@ -160,7 +161,7 @@
                                 <!--                                <div class="form-group">-->
                                 <!--                                    <input type="text" name="set_time_no" id="set_time_no" class="form-control" placeholder="預計讀書時長(請以分鐘為單位填寫 1小時=60分鐘)" required="required"/>-->
                                 <!--                                </div>-->
-                                <select class="form-control" name="set_time_id" id="set_time_id">
+                                <select class="form-control" name="settime_id" id="settime_no_id">
 <!--                                    value={{ report.set_time_id }}-->
                                     <option disabled="true" selected>--請選擇預計讀書時長(1小時=60分鐘)--</option>
 
