@@ -119,7 +119,7 @@
                         <!--Table head-->
                         <!--Table body-->
                         <tbody>
-                        {% for success_list in success_lists %}
+                        <!--                        {% for success_list in success_lists %}-->
 <!--                        <tr class="table-green">-->
 <!--                            <th scope="row">101</th>-->
 <!--                            <td>自習十小時</td>-->
@@ -129,15 +129,17 @@
 <!--                                <button class="button" type="submit">領取</button>-->
 <!--                            </td>-->
 <!--                        </tr>-->
+                        {% for success in successs %}
                         <tr>
-                            <th scope="row">{{success_list.no}}</th>
-                            <td>{{success_list.success_no.name}}</td>
-                            <td>5/10</td>
+                            <th scope="row">{{success.no}}</th>
+                            <td>{{success.name}}</td>
+                            <td>{{success.pace}}/{{success_list.pace}}</td>
                             <td>100 Point</td>
                             <td>
                                 <button class="button" type="submit">領取</button>
                             </td>
                         </tr>
+                        <!--                        {% endfor %}-->
                         {% endfor %}
                         </tbody>
                         <!--Table body-->

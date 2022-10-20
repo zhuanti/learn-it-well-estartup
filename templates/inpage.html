@@ -208,6 +208,13 @@
         <div class="popup-wrap" id="letmeopen">
             <div class="popup-box transform-out">
                 <form action="/inpage/{{discussroom.no}}/" method="post">
+        <form class="msger-inputarea" action="" method="post">
+            {% csrf_token %}
+            <div class="wrap">
+                <a class="btn popup-btn" style="..." href="/addans/{{discusroom.no}}">提問</a>
+            </div>
+            <div class="popup-wrap" id="letmeopen">
+                <div class="popup-box transform-out">
                     <h2>提問版</h2>
                     <h3>可以在這裡提出你的問題</h3>
                     <div class="vertical-menu">
@@ -272,6 +279,50 @@
 <!--                        </div>-->
                     </div>
                 </form>
+                        <div class="wrap">
+                            <a class="btn popup-btn" href="addqus/{{discussroom.no}}">新增問題</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!--                <a class="close-btn popup-close" href="#">x</a>-->
+                <!--                <div class="wrap">-->
+                <!--                    <a class="btn popup-btn" href="#letmeopen1">新增問題</a>-->
+                <!--                </div>-->
+<!--                <div class="popup-wrap" id="letmeopen1">-->
+<!--                    <div class="btn popup-box transform-out">-->
+<!--                        <form action="" method="post">-->
+
+<!--                            {% csrf_token %}-->
+<!--                            &lt;!&ndash;                        <form action="" method="post">&ndash;&gt;-->
+<!--                            {% for message in messages %}-->
+<!--                            <div class="alert alert-success">-->
+<!--                                <a class="close" href="#" data-dismiss="alert"></a>-->
+<!--                                {{ message }}-->
+<!--                            </div>-->
+<!--                            {% endfor %}-->
+
+<!--                            <h2>新增問題</h2><br>-->
+<!--&lt;!&ndash;                            <h3>房間編號<input type="text" id="discussroom_no_id" name="discussroom_no_id" required="required">&ndash;&gt;-->
+<!--&lt;!&ndash;                            </h3><br>&ndash;&gt;-->
+<!--&lt;!&ndash;                            &lt;!&ndash;                            <h3>問題編號<input type="text" id="question_no_id" name="question_no_id"></h3>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                            &lt;!&ndash;                            <br>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                            <h3>問問題人<input type="text" id="quser_id" name="quser_id" required="required"></h3><br>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <h3>問題<input id="title" name="title" required="required"><br></h3><br>&ndash;&gt;-->
+
+<!--                            <h3>房間編號<input class="text" id="discussroom_no_id" name="discussroom_no_id"-->
+<!--                                           value="{{discussroom.no}}" required="required"></h3><br>-->
+<!--                            <h3>問問題人<input class="text" id="quser_id" name="quser_id" required="required"></h3><br>-->
+<!--                            <h3>問題<input class="text" id="qtitle" name="qtitle" required="required"></h3><br>-->
+
+<!--                            <button type="submit" class="btn msger-send-btn">-->
+<!--                                確認-->
+<!--                            </button>-->
+<!--                            <a class="close-btn popup-close" href="#">x</a>-->
+<!--                        </form>-->
+<!--                    </div>-->
+<!--                </div>-->
+                <!--            </div>-->
             </div>
 
             <!--                <a class="close-btn popup-close" href="#">x</a>-->
