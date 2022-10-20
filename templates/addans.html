@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>做伙來讀冊 - Learn it well</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="/static/images/hello.png" rel="icon">
+    <link href="/static/images/apple-touch-icon.png" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i"
+          rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="/static/vendor/aos/aos.css" rel="stylesheet">
+    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="/static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="/static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="/static/css/style.css" rel="stylesheet">
+
+    <link href="/static/css/inpage.css?v=<?=time()?>" rel="stylesheet">
+
+    <style>
+        /* Style the buttons that are used to open and close the accordion panel */
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: 0.4s;
+        }
+
+        /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+        .active, .accordion:hover {
+            background-color: #ccc;
+        }
+
+        /* Style the accordion panel. Note: hidden by default */
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            transition: max-height 0.2s ease-out;
+            overflow: auto;
+        }
+
+        .accordion:after {
+            content: '\02795'; /* Unicode character for "plus" sign (+) */
+            font-size: 13px;
+            color: #777;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active:after {
+            content: "\2796"; /* Unicode character for "minus" sign (-) */
+        }
+
+    </style>
+</head>
+<body>
+<form class="msger-inputarea" action="" method="post">
+    {% csrf_token %}
+    <!--    <div class="wrap">-->
+    <!--        <a class="btn popup-btn" style="..." href="#letmeopen">提問</a>-->
+    <!--    </div>-->
+    <!--    <div class="popup-wrap" id="letmeopen">-->
+    <!--        <div class="popup-box transform-out">-->
+    <h2>提問版</h2>
+    <h3>可以在這裡提出你的問題</h3>
+    <div class="vertical-menu">
+
+        {% for discussroom_qus_list in discussroom.discussroom_qus_lists %}
+        <!--                    <div class="accordion" id="accordionExample">-->
+        <button class="accordion">
+            {{discussroom_qus_list.title}}&emsp;提問者：{{discussroom_qus_list.quser_id}}
+        </button>
+        <div class="panel" align="left"><br>
+            其他人的回答：
+            {% for discussroom_ans_list in discussroom_qus_list.discussroom_ans_lists %}
+            <blockquote>{{discussroom_ans_list.question_no}}.&emsp;{{discussroom_ans_list.comment}}&emsp;回答者：{{discussroom_ans_list.auser_id}}</blockquote>
+            {% endfor %}
+            <center>
+                {% csrf_token %}<br>
+                <from>
+                    答案：
+                    <input name="question_no_id" value="{{discussroom_ans_list.question_no_id}}"hidden>
+                    <textarea id="{{discussroom_ans_list.question_no_id}}"
+                              name="comment"></textarea><br><br>
+                    <button type="submit" class="btn msger-send-btn">
+                        確認
+                    </button>
+
+                </from>
+
+            </center>
+            <br>
+        </div>
+        {% endfor %}
+        <script>
+                            var acc = document.getElementsByClassName("accordion");
+                            var i;
+
+                            for (i = 0; i < acc.length; i++) {
+                                acc[i].addEventListener("click", function () {
+                                    this.classList.toggle("active");
+                                    var panel = this.nextElementSibling;
+                                    if (panel.style.maxHeight) {
+                                        panel.style.maxHeight = null;
+                                    } else {
+                                        panel.style.maxHeight = panel.scrollHeight + "px";
+                                    }
+                                });
+                            }
+
+
+
+        </script>
+        <br>
+        <a class="btn button" href="/discusroom/{{discusroom.no}}">退出</a>
+    </div>
+    <!--        </div>-->
+    <!--    </div>-->
+</form>
+</body>
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/static/js/chatroommsg.js"></script>
+<script src="/static/js/popup.js"></script>
+
+
+<!--<script src="/static/js/webChat.js?v=<?=time()?>"></script>-->
+<!-- Vendor JS Files -->
+
+<script src='https://use.fontawesome.com/releases/v5.0.13/js/all.js'></script>
+<script src="/static/vendor/aos/aos.js"></script>
+<script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/static/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="/static/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="/static/vendor/php-email-form/validate.js"></script>
+<!-- SweetAlert -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<sript src="/static/js/sweetalert.js>"></sript>
+</html>

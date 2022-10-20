@@ -7,8 +7,65 @@ from utils.decorators import user_login_required
 root += 'discusroom'
 
 @user_login_required
-def addqus(request):
-    return render(request, 'addqus.html')
+def addans(request, pk):
+    if request.method == 'POST':
+        question_no = request.POST['question_no']
+        auser_id = request.POST['auser_id']
+        comment = request.POST['comment']
+        # datetime = request.POST['datetime']
+        data = {
+            'question_no': question_no,
+            'auser_id': auser_id,
+            'comment': comment,
+            # 'datetime': datetime,
+        }
+        r = requests.post(
+            f'{root}/qus/',
+            data=data,
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
+        discussroom = result['data']
+        return render(request, 'addans.html', {'discussroom': discussroom})
+    if request.method == 'GET':
+        r = requests.get(
+            f'{root}/get/{pk}',
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
+        discussroom = result['data']
+        return render(request, 'addans.html', {'discussroom': discussroom})
+
+
+@user_login_required
+def addqus(request, pk):
+    if request.method == 'POST':
+        discussroom_no_id = request.POST['discussroom_no_id']
+        title = request.POST['title']
+        quser_id = request.POST['quser_id']
+        # datetime = request.POST['datetime']
+        data = {
+            'discussroom_no_id': discussroom_no_id,
+            'title': title,
+            'quser_id': quser_id,
+            # 'datetime': datetime,
+        }
+        r = requests.post(
+            f'{root}/qus/',
+            data=data,
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
+        discussroom = result['data']
+        return render(request, 'addqus.html', {'discussroom': discussroom})
+    if request.method == 'GET':
+        r = requests.get(
+            f'{root}/get/{pk}',
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
+        discussroom = result['data']
+        return render(request, 'addqus.html', {'discussroom': discussroom})
 
 @user_login_required
 def droom(request):

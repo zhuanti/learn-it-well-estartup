@@ -197,7 +197,7 @@
         <form class="msger-inputarea" action="" method="post">
             {% csrf_token %}
             <div class="wrap">
-                <a class="btn popup-btn" style="..." href="#letmeopen">提問</a>
+                <a class="btn popup-btn" style="..." href="/addans/{{discusroom.no}}">提問</a>
             </div>
             <div class="popup-wrap" id="letmeopen">
                 <div class="popup-box transform-out">
@@ -251,7 +251,7 @@
                         </script>
                         <a class="close-btn popup-close" href="#">x</a>
                         <div class="wrap">
-                            <a class="btn popup-btn" href="/discusroom/addqus/">新增問題</a>
+                            <a class="btn popup-btn" href="addqus/{{discussroom.no}}">新增問題</a>
                         </div>
                     </div>
                 </div>

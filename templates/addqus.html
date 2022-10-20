@@ -31,10 +31,10 @@
 
 </head>
 <body>
+
 <form action="" method="post">
 
     {% csrf_token %}
-    <!--                        <form action="" method="post">-->
     {% for message in messages %}
     <div class="alert alert-success">
         <a class="close" href="#" data-dismiss="alert"></a>
@@ -46,12 +46,14 @@
     <h3>房間編號<input class="text" id="discussroom_no_id" name="discussroom_no_id"
                    value="{{discussroom.no}}" required="required"></h3><br>
     <h3>問問題人<input class="text" id="quser_id" name="quser_id" required="required"></h3><br>
-    <h3>問題<input class="text" id="qtitle" name="qtitle" required="required"></h3><br>
+    <h3>問題<input class="text" id="title" name="title" required="required"></h3><br>
+    <!--    <h3>現在時間<input class="text" id="datetime" name="datetime" required="required"></h3><br>-->
 
     <button type="submit" class="btn msger-send-btn">
         確認
     </button>
-<!--    <a class="close-btn popup-close" href="#">x</a>-->
+    <a class="btn button" href="/discusroom/{{discusroom.no}}">退出</a>
+    <!--    <a class="close-btn popup-close" href="#">x</a>-->
 </form>
 </body>
 
