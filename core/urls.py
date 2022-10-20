@@ -47,6 +47,7 @@ urlpatterns = [
     # path('inpage/#letmeopen', discusroom_review_views.qus),
     path('dis_test/', discusroom_review_views.WebChatTest),
     path('discusroom/search/', discusroom_review_views.search),
+    path('discusroom/addqus/', discusroom_review_views.addqus),
 
     # plan
     path('studyplan/', plan_review_views.Splan),

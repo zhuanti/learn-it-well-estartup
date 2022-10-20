@@ -6,6 +6,9 @@ from utils.decorators import user_login_required
 
 root += 'discusroom'
 
+@user_login_required
+def addqus(request):
+    return render(request, 'addqus.html')
 
 @user_login_required
 def droom(request):

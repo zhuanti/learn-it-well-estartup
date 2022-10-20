@@ -251,7 +251,7 @@
                         </script>
                         <a class="close-btn popup-close" href="#">x</a>
                         <div class="wrap">
-                            <a class="btn popup-btn" href="#letmeopen1">新增問題</a>
+                            <a class="btn popup-btn" href="/discusroom/addqus/">新增問題</a>
                         </div>
                     </div>
                 </div>
@@ -260,39 +260,39 @@
                 <!--                <div class="wrap">-->
                 <!--                    <a class="btn popup-btn" href="#letmeopen1">新增問題</a>-->
                 <!--                </div>-->
-                <div class="popup-wrap" id="letmeopen1">
-                    <div class="btn popup-box transform-out">
-                        <form action="" method="post">
+<!--                <div class="popup-wrap" id="letmeopen1">-->
+<!--                    <div class="btn popup-box transform-out">-->
+<!--                        <form action="" method="post">-->
 
-                            {% csrf_token %}
-                            <!--                        <form action="" method="post">-->
-                            {% for message in messages %}
-                            <div class="alert alert-success">
-                                <a class="close" href="#" data-dismiss="alert"></a>
-                                {{ message }}
-                            </div>
-                            {% endfor %}
+<!--                            {% csrf_token %}-->
+<!--                            &lt;!&ndash;                        <form action="" method="post">&ndash;&gt;-->
+<!--                            {% for message in messages %}-->
+<!--                            <div class="alert alert-success">-->
+<!--                                <a class="close" href="#" data-dismiss="alert"></a>-->
+<!--                                {{ message }}-->
+<!--                            </div>-->
+<!--                            {% endfor %}-->
 
-                            <h2>新增問題</h2><br>
-<!--                            <h3>房間編號<input type="text" id="discussroom_no_id" name="discussroom_no_id" required="required">-->
-<!--                            </h3><br>-->
-<!--                            &lt;!&ndash;                            <h3>問題編號<input type="text" id="question_no_id" name="question_no_id"></h3>&ndash;&gt;-->
-<!--                            &lt;!&ndash;                            <br>&ndash;&gt;-->
-<!--                            <h3>問問題人<input type="text" id="quser_id" name="quser_id" required="required"></h3><br>-->
-<!--                            <h3>問題<input id="title" name="title" required="required"><br></h3><br>-->
+<!--                            <h2>新增問題</h2><br>-->
+<!--&lt;!&ndash;                            <h3>房間編號<input type="text" id="discussroom_no_id" name="discussroom_no_id" required="required">&ndash;&gt;-->
+<!--&lt;!&ndash;                            </h3><br>&ndash;&gt;-->
+<!--&lt;!&ndash;                            &lt;!&ndash;                            <h3>問題編號<input type="text" id="question_no_id" name="question_no_id"></h3>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                            &lt;!&ndash;                            <br>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                            <h3>問問題人<input type="text" id="quser_id" name="quser_id" required="required"></h3><br>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <h3>問題<input id="title" name="title" required="required"><br></h3><br>&ndash;&gt;-->
 
-                            <h3>房間編號<input class="text" id="discussroom_no_id" name="discussroom_no_id"
-                                           value="{{discussroom.no}}" required="required"></h3><br>
-                            <h3>問問題人<input class="text" id="quser_id" name="quser_id" required="required"></h3><br>
-                            <h3>問題<input class="text" id="qtitle" name="qtitle" required="required"></h3><br>
+<!--                            <h3>房間編號<input class="text" id="discussroom_no_id" name="discussroom_no_id"-->
+<!--                                           value="{{discussroom.no}}" required="required"></h3><br>-->
+<!--                            <h3>問問題人<input class="text" id="quser_id" name="quser_id" required="required"></h3><br>-->
+<!--                            <h3>問題<input class="text" id="qtitle" name="qtitle" required="required"></h3><br>-->
 
-                            <button type="submit" class="btn msger-send-btn">
-                                確認
-                            </button>
-                            <a class="close-btn popup-close" href="#">x</a>
-                        </form>
-                    </div>
-                </div>
+<!--                            <button type="submit" class="btn msger-send-btn">-->
+<!--                                確認-->
+<!--                            </button>-->
+<!--                            <a class="close-btn popup-close" href="#">x</a>-->
+<!--                        </form>-->
+<!--                    </div>-->
+<!--                </div>-->
                 <!--            </div>-->
             </div>
 
