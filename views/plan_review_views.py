@@ -10,6 +10,54 @@ def Splan(request):
     return render(request, 'StudyPlan.html')
 
 
+# @user_login_required
+# def plan(request):
+#     if request.method == 'POST':
+#         user_id = request.COOKIES['user_id']
+#         name = request.POST['name']
+#         pace = request.POST[0]
+#         # datetime = request.POST['datatime']
+#
+#         data = {
+#             'user_id': request.COOKIES['user_id'],
+#             'name': name,
+#             'pace': pace,
+#             # 'datetime': datime,
+#         }
+#
+#         r = requests.post(
+#             f'{root}/add/',
+#             data=data,
+#             cookies={'sessionid': request.COOKIES['sessionid']}
+#         )
+#         result = r.json()
+#         return render(request, 'StudyPlan.html')
+#
+#
+# @user_login_required
+# def get_all_reviews_test(request):
+#     user_id = request.COOKIES['user_id'],
+#     r = requests.get(
+#         f'{root}/get/',
+#         params={'user_id': user_id},
+#         cookies={'sessionid': request.COOKIES['sessionid']}
+#     )
+#     result = r.json()
+#     plans = result['data']
+#     # print(plans)
+#     return render(request, 'StudyPlan.html', {'plans': plans})
+
+    # if result['success'] is True:
+    #     # ret = redirect('/studyplan')
+    #     messages.success(request, '已新增成功')
+    #     # return ret
+    #     return render(request, 'StudyPlan.html')
+    # else:
+    #     messages.error(request, '新增失敗')
+    #     # return redirect('/studyplan')
+    #     # return ret
+    #     return render(request, 'StudyPlan.html')
+
 # 新增
 # @user_login_required
 # def addplan(request):
@@ -34,7 +82,7 @@ def Splan(request):
 #     result = r.json()
 #     return render(request, 'StudyPlan.html', {'message': result['message']})
 
-#顯示
+# 顯示
 # @user_login_required
 # def get_all_reviews_test(request):
 #     user_id = request.COOKIES['user_id'],
