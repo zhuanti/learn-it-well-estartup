@@ -151,3 +151,4 @@ cython_debug/
 npm-debug.log*
 node_modules
 .env
+templates/Sroominpage-self.html

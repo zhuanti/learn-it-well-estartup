@@ -182,6 +182,12 @@
     <!--    聊天 block-->
     <div class="msger-chat">
         <main class="msger-chat">
+            {% for message in messages %}
+            <div class="alert alert-success">
+                <a class="close" href="#" data-dismiss="alert"></a>
+                {{ message }}
+            </div>
+            {% endfor %}
 
             <!--        <div class="msg left-msg" id="left-msg"></div>-->
 
@@ -194,38 +200,49 @@
     <!--聊天 block-->
 
     <div class="msger-inputarea">
-        <form class="msger-inputarea" action="" method="post">
-            {% csrf_token %}
-            <div class="wrap">
-                <a class="btn popup-btn" style="..." href="#letmeopen">提問</a>
-            </div>
-            <div class="popup-wrap" id="letmeopen">
-                <div class="popup-box transform-out">
+        <!--        <form class="msger-inputarea" action="" method="post">-->
+        {% csrf_token %}
+        <div class="wrap">
+            <a class="btn popup-btn" style="..." href="#letmeopen">提問</a>
+        </div>
+        <div class="popup-wrap" id="letmeopen">
+            <div class="popup-box transform-out">
+                <form action="/inpage/{{discussroom.no}}/" method="post">
                     <h2>提問版</h2>
                     <h3>可以在這裡提出你的問題</h3>
                     <div class="vertical-menu">
-
                         {% for discussroom_qus_list in discussroom.discussroom_qus_lists %}
                         <!--                    <div class="accordion" id="accordionExample">-->
                         <button class="accordion">
-                            {{discussroom_qus_list.title}}&emsp;提問者：{{discussroom_qus_list.quser_id}}
+                            {{discussroom_qus_list.dis_ques_no}}.&emsp;問題：{{discussroom_qus_list.title}}&emsp;提問者：{{discussroom_qus_list.quser_id}}
                         </button>
                         <div class="panel" align="left"><br>
                             其他人的回答：
                             {% for discussroom_ans_list in discussroom_qus_list.discussroom_ans_lists %}
-                            <blockquote>{{discussroom_ans_list.question_no}}.&emsp;{{discussroom_ans_list.comment}}&emsp;回答者：{{discussroom_ans_list.auser_id}}</blockquote>
+                            <blockquote>{{discussroom_ans_list.dis_ans_no}}.&emsp;{{discussroom_ans_list.comment}}&emsp;回答者：{{discussroom_ans_list.auser_id}}</blockquote>
                             {% endfor %}
                             <center>
                                 {% csrf_token %}<br>
-                                <from>
-                                    答案：
-                                    <input name="question_no_id" value="{{discussroom_ans_list.question_no_id}}" hidden>
-                                    <textarea id="{{discussroom_ans_list.question_no_id}}"
-                                              name="comment"></textarea><br><br>
-                                    <button type="submit" class="btn msger-send-btn">
-                                        確認
-                                    </button>
-                                </from>
+                                <!--                                <from action="" method="post">-->
+                                <!--                                    答案：-->
+                                <!--                                    <input name="discussroom_ans_list.question_no_id"-->
+                                <!--                                           value="{{discussroom_ans_list.question_no_id}}">-->
+                                <!--                                    hidden-->
+                                <h3>問題編號：&emsp;&emsp;&thinsp; <input class="text"
+                                                                     id="question_no_id"
+                                                                     name="question_no_id"
+                                                                     value="{{discussroom_qus_list.dis_ques_no}}"
+                                                                     required="required" disabled></h3>
+                                <br>
+
+                                <h3>答案：&emsp;&emsp;&thinsp; <input class="text" id="acomment" name="acomment"></h3>
+                                <br>
+                                <!--                                    <textarea id="{{discussroom_ans_list.question_no_id}}"-->
+                                <!--                                              name="comment"></textarea><br><br>-->
+                                <button type="submit" class="btn msger-send-btn">
+                                    確認
+                                </button>
+                                <!--                                </from>-->
 
                             </center>
                             <br>
@@ -250,94 +267,126 @@
 
                         </script>
                         <a class="close-btn popup-close" href="#">x</a>
-                        <div class="wrap">
-                            <a class="btn popup-btn" href="#letmeopen1">新增問題</a>
-                        </div>
+<!--                        <div class="wrap">-->
+<!--                            <a class="btn popup-btn" href="#letmeopen1">新增問題</a>-->
+<!--                        </div>-->
                     </div>
-                </div>
-
-                <!--                <a class="close-btn popup-close" href="#">x</a>-->
-                <!--                <div class="wrap">-->
-                <!--                    <a class="btn popup-btn" href="#letmeopen1">新增問題</a>-->
-                <!--                </div>-->
-                <div class="popup-wrap" id="letmeopen1">
-                    <div class="btn popup-box transform-out">
-                        <form action="" method="post">
-
-                            {% csrf_token %}
-                            <!--                        <form action="" method="post">-->
-                            {% for message in messages %}
-                            <div class="alert alert-success">
-                                <a class="close" href="#" data-dismiss="alert"></a>
-                                {{ message }}
-                            </div>
-                            {% endfor %}
-
-                            <h2>新增問題</h2><br>
-<!--                            <h3>房間編號<input type="text" id="discussroom_no_id" name="discussroom_no_id" required="required">-->
-<!--                            </h3><br>-->
-<!--                            &lt;!&ndash;                            <h3>問題編號<input type="text" id="question_no_id" name="question_no_id"></h3>&ndash;&gt;-->
-<!--                            &lt;!&ndash;                            <br>&ndash;&gt;-->
-<!--                            <h3>問問題人<input type="text" id="quser_id" name="quser_id" required="required"></h3><br>-->
-<!--                            <h3>問題<input id="title" name="title" required="required"><br></h3><br>-->
-
-                            <h3>房間編號<input class="text" id="discussroom_no_id" name="discussroom_no_id"
-                                           value="{{discussroom.no}}" required="required"></h3><br>
-                            <h3>問問題人<input class="text" id="quser_id" name="quser_id" required="required"></h3><br>
-                            <h3>問題<input class="text" id="qtitle" name="qtitle" required="required"></h3><br>
-
-                            <button type="submit" class="btn msger-send-btn">
-                                確認
-                            </button>
-                            <a class="close-btn popup-close" href="#">x</a>
-                        </form>
-                    </div>
-                </div>
-                <!--            </div>-->
+                </form>
             </div>
 
-            <br>
-            <input type="text" class="msger-input" placeholder="說些什麼吧～" id="txt"></imput>
-            <button type="submit" class="btn msger-send-btn" onclick="sendMessage()">
-                發送訊息
-            </button>
-            <script>
-                // var socket = new WebSocket("ws://127.0.0.1:9000/ws/{{ group }}/");
-                socket = new WebSocket("ws://127.0.0.1:9000/room/{{discussroom.no}}/");
+            <!--                <a class="close-btn popup-close" href="#">x</a>-->
+            <!--                <div class="wrap">-->
+            <!--                    <a class="btn popup-btn" href="#letmeopen1">新增問題</a>-->
+            <!--                </div>-->
+            <!--                <div class="popup-wrap" id="letmeopen1">-->
+            <!--                    <div class="btn popup-box transform-out">-->
+            <!--                        <form action="/inpage/{{discussroom.no}}/" method="post" class="btn form-control">-->
+            <!--                            {% csrf_token %}-->
+            <!--                            &lt;!&ndash;                            {% for message in messages %}&ndash;&gt;-->
+            <!--                            &lt;!&ndash;                            <div class="alert alert-success">&ndash;&gt;-->
+            <!--                            &lt;!&ndash;                                <a class="close" href="#" data-dismiss="alert"></a>&ndash;&gt;-->
+            <!--                            &lt;!&ndash;                                {{ message }}&ndash;&gt;-->
+            <!--                            &lt;!&ndash;                            </div>&ndash;&gt;-->
+            <!--                            &lt;!&ndash;                            {% endfor %}&ndash;&gt;-->
+            <!--                            <div class="row mb-3">-->
+            <!--                                <div class="col-sm-3">-->
+            <!--                                    <h6 class="mb-0">房間編號</h6>-->
+            <!--                                </div>-->
+            <!--                                <div class="col-sm-9 text-secondary">-->
+            <!--                                    <input type="text" class="form-control" name="discussroom_no_id"-->
+            <!--                                           id="discussroom_no_id" disabled="disabled"-->
+            <!--                                           value={{ discussroom.no }} required>-->
+            <!--                                </div>-->
+            <!--                            </div>-->
+            <!--                            <div class="row mb-3">-->
+            <!--                                <div class="col-sm-3">-->
+            <!--                                    <h6 class="mb-0">問題</h6>-->
+            <!--                                </div>-->
+            <!--                                <div class="col-sm-9 text-secondary">-->
+            <!--                                    <input type="text" class="form-control" name="qtitle" id="qtitle" required>-->
+            <!--                                </div>-->
+            <!--                            </div>-->
+            <!--                            <button type="submit" class="btn form-control">-->
+            <!--                                確認-->
+            <!--                            </button>-->
+            <!--                            <a class="close-btn popup-close" href="#">x</a>-->
+            <!--                        </form>-->
+            <!--                    </div>-->
+            <!--                </div>-->
 
-                //創建好後自動觸發
-                socket.onopen = function (event) {
-                    let tag = document.createElement("div");
-                    tag.innerText = "[ 已加入討論室，開始聊天吧! ]";
-                    document.getElementById("message").appendChild(tag);
-                }
+            <!--                            <h2>新增問題</h2><br>-->
+            <!--                            &lt;!&ndash;                            <h3>房間編號<input type="text" id="discussroom_no_id" name="discussroom_no_id" required="required">&ndash;&gt;-->
+            <!--                            &lt;!&ndash;                            </h3><br>&ndash;&gt;-->
+            <!--                            &lt;!&ndash;                            &lt;!&ndash;                            <h3>問題編號<input type="text" id="question_no_id" name="question_no_id"></h3>&ndash;&gt;&ndash;&gt;-->
+            <!--                            &lt;!&ndash;                            &lt;!&ndash;                            <br>&ndash;&gt;&ndash;&gt;-->
+            <!--                            &lt;!&ndash;                            <h3>問問題人<input type="text" id="quser_id" name="quser_id" required="required"></h3><br>&ndash;&gt;-->
+            <!--                            &lt;!&ndash;                            <h3>問題<input id="title" name="title" required="required"><br></h3><br>&ndash;&gt;-->
 
-                // 當websocket接收到服務端的消息，會自動觸發
-                socket.onmessage = function (event) {
-                    let tag = document.createElement("div");
-                    tag.innerText = event.data;
-                    document.getElementById("message").appendChild(tag);
-                }
+            <!--                            <h3>房間編號： <input class="form-control" disabled="disabled" id="discussroom_no_id"-->
+            <!--                                             name="discussroom_no_id"-->
+            <!--                                             value="{{discussroom.no}}" required="required"></h3><br>-->
+            <!--                            &lt;!&ndash;                            <h3>問問題人： <input class="text" id="quser_id" name="quser_id" required="required"></h3><br>&ndash;&gt;-->
+            <!--                            <h3>問題： <input class="form-control" id="qtitle" name="qtitle" required="required"></h3><br>-->
 
-                //服務端主動斷開時，觸發的方法
-                socket.onclose = function (event) {
-                    let tag = document.createElement("div");
-                    tag.innerText = "[ 離開討論室中... ]";
-                    document.getElementById("message").appendChild(tag);
-                };
+            <!--                            <button type="submit" class="btn msger-send-btn">-->
+            <!--                                確認-->
+            <!--                            </button>-->
+            <!--                            <div class="col-sm-9 text-secondary">-->
+            <!--                                                    <input type="text" class="form-control" name="name" id="name"-->
+            <!--                                                           value={{ user.name }} required>-->
+            <!--                                                </div>-->
+            <!--                            <button class="btn btn-primary" type="submit"-->
+            <!--                                    style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;">-->
+            <!--                                確認-->
+            <!--                            </button>-->
+            <!--                            <div class="col-sm-9 text-secondary">-->
+            <!--                                <input class="btn btn-primary px-4" type="submit" value="確認">-->
+            <!--                            </div>-->
+            <!--            </div>-->
+        </div>
 
-                function sendMessage() {
-                    let tag = document.getElementById("txt");
-                    socket.send(tag.value);
-                }
+        <br>
+        <input type="text" class="msger-input" placeholder="說些什麼吧～" id="txt"></imput>
+        <button type="submit" class="btn msger-send-btn" onclick="sendMessage()">
+            發送訊息
+        </button>
+        <script>
+            // var socket = new WebSocket("ws://127.0.0.1:9000/ws/{{ group }}/");
+            socket = new WebSocket("ws://127.0.0.1:9000/room/{{discussroom.no}}/");
 
-                function closeConn() {
-                    socket.close(); //向服務端發送端開連結的請求(客戶端主動斷開連接)
-                }
+            //創建好後自動觸發
+            socket.onopen = function (event) {
+                let tag = document.createElement("div");
+                tag.innerText = "[ 已加入討論室，開始聊天吧! ]";
+                document.getElementById("message").appendChild(tag);
+            }
+
+            // 當websocket接收到服務端的消息，會自動觸發
+            socket.onmessage = function (event) {
+                let tag = document.createElement("div");
+                tag.innerText = event.data;
+                document.getElementById("message").appendChild(tag);
+            }
+
+            //服務端主動斷開時，觸發的方法
+            socket.onclose = function (event) {
+                let tag = document.createElement("div");
+                tag.innerText = "[ 離開討論室中... ]";
+                document.getElementById("message").appendChild(tag);
+            };
+
+            function sendMessage() {
+                let tag = document.getElementById("txt");
+                socket.send(tag.value);
+            }
+
+            function closeConn() {
+                socket.close(); //向服務端發送端開連結的請求(客戶端主動斷開連接)
+            }
 
 
-            </script>
-        </form>
+        </script>
+        <!--        </form>-->
     </div>
 </section>
 

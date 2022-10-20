@@ -20,7 +20,7 @@ def Udetail(request):
     return render(request, 'UserDetail.html', {'user': user})
 
 
-# 編輯個人資料(修改版)
+# 編輯個人資料
 @user_login_required
 def EditUserDetail(request):
     if request.method == 'GET':
