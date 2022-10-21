@@ -132,8 +132,8 @@ def inpage(request, pk):
         # datetime = request.POST['datetime']
 
         # 新增問題目前需要的
-        title = request.POST['qtitle']
-        quser_id = request.COOKIES['user_id']
+        # title = request.POST['qtitle']
+        # quser_id = request.COOKIES['user_id']
 
         # 新增回答
 
@@ -156,9 +156,9 @@ def inpage(request, pk):
             # 'datetime': "",
 
             # 新增回答目前需要的
-            'question_no_id': question_no_id,
+            # 'question_no_id': question_no_id,
             'auser_id': auser_id,
-            'acomment': comment,
+            'comment': comment,
             'datetime': "",
         }
 
@@ -168,7 +168,7 @@ def inpage(request, pk):
         #     cookies={'sessionid': request.COOKIES['sessionid']}
         # )
         r = requests.post(
-            f'{root}/ans/',
+            f'{root}/ans/{question_no_id}',
             data=data,
             cookies={'sessionid': request.COOKIES['sessionid']}
         )
@@ -176,12 +176,12 @@ def inpage(request, pk):
         result = r.json()
 
         if result['success'] is True:
-            ret = redirect('/inpage/<int:pk>/')
+            ret = redirect(f'/inpage/{pk}')
             messages.success(request, '已新增問題成功')
             return ret
         else:
             messages.error(request, '新增問題失敗')
-            return redirect('/inpage/<int:pk>/')
+            return redirect(f'/inpage/{pk}')
             return ret
 
     if request.method == 'GET':

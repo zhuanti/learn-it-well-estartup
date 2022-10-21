@@ -208,6 +208,8 @@
         <div class="popup-wrap" id="letmeopen">
             <div class="popup-box transform-out">
                 <form action="/inpage/{{discussroom.no}}/" method="post">
+                    {% csrf_token %}
+                    <!--                    /inpage/{{discussroom.no}}/-->
                     <h2>提問版</h2>
                     <h3>可以在這裡提出你的問題</h3>
                     <div class="vertical-menu">
@@ -221,7 +223,7 @@
                             <blockquote>{{discussroom_ans_list.dis_ans_no}}.&emsp;{{discussroom_ans_list.comment}}&emsp;回答者：{{discussroom_ans_list.auser_id}}</blockquote>
                             {% endfor %}
                             <center>
-                                {% csrf_token %}<br>
+                                <br>
                                 <h3>問題編號：&emsp;&emsp;&thinsp; <input class="text"
                                                                      id="question_no_id"
                                                                      name="question_no_id"
@@ -236,6 +238,7 @@
                                 <button type="submit" class="btn msger-send-btn">
                                     確認
                                 </button>
+                                <input class="btn msger-send-btn" type="submit" value="提交">
                                 <!--                                </from>-->
 
                             </center>
@@ -318,8 +321,9 @@
         class="bi bi-arrow-up-short"></i></a>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/static/js/popup.js?v=<?=time()?>"></script>
 <script src="/static/js/chatroommsg.js"></script>
-<script src="/static/js/popup.js"></script>
+<!--<script src="/static/js/popup.js"></script>-->
 
 
 <!--<script src="/static/js/webChat.js?v=<?=time()?>"></script>-->
@@ -337,7 +341,7 @@
 
 <!-- Template Main JS File -->
 <!--<script src="/static/vendor/jquery/jquery.min.js"></script>-->
-<!--<script src="/static/js/main.js"></script>-->
+<script src="/static/js/main.js"></script>
 
 </body>
 </html>
