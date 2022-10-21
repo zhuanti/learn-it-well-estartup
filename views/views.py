@@ -9,11 +9,7 @@ from core.settings import API_URL as root
 from utils.decorators import user_login_required
 
 
-# # 登入前首頁畫面
-# def beforelogin_index(request):
-#     return render(request, 'beforelogin_index.html')
-
-# 登入後首頁畫面
+# 首頁畫面
 def index(request):
     return render(request, 'index.html')
 
@@ -21,10 +17,6 @@ def index(request):
 @user_login_required
 def inner(request):
     return render(request, 'inner-page.html')
-
-
-# def login(request):
-#     return render(request, 'login.html')
 
 @user_login_required
 def forgetPwd(request):
@@ -71,7 +63,6 @@ def EditUserDetail(request):
         'live': live,
         'borth': borth
     }
-    # user_id = request.COOKIES['user_id']
     r = requests.post(
         f'{root}user/detail/edit/',
         # params={'user_id': user_id},
@@ -79,15 +70,6 @@ def EditUserDetail(request):
         cookies={'sessionid': request.COOKIES['sessionid']}
     )
     result = r.json()
-
-    # if result['success'] is True:
-    #     ret = redirect('/reviews/')
-    #     ret.set_cookie('sessionid', result['sessionid'])
-    #     # ret.set_cookie('sessionid', result['sessionid'], max_age=60 * 60) 登入時間
-    #     ret.set_cookie('user_id', user_id)
-    #     return ret
-    # else:
-    #     return redirect('/login/')
 
     if result['success'] is True:
         ret = redirect('/userdetail')
@@ -98,56 +80,6 @@ def EditUserDetail(request):
         return redirect('/edituser-detail')
 
     # return render(request, 'UserDetail.html', {'message': result['message']})
-
-
-# @user_login_required
-# def EditUserDetail(request):
-#     if request.method == 'GET':
-#         user_id = request.COOKIES['user_id']
-#         r = requests.get(
-#             f'{root}user/detail/',
-#             params={'user_id': user_id},
-#             # 'user_id': request.COOKIES['user_id'],
-#             cookies={'sessionid': request.COOKIES['sessionid']}
-#         )
-#         result = r.json()
-#         user = result['data']
-#         return render(request, 'editUserDetail.html', {'user': user})
-#
-#     id = request.POST.get['user.id']
-#     name = request.POST.get['user.name']
-#     live = request.POST.get['user.live']
-#     borth = request.POST.get['user.borth']
-#
-#     data = {
-#         'id': id,
-#         'name': name,
-#         'live': live,
-#         'borth': borth
-#     }
-#
-#     user_id = request.COOKIES['user_id']
-#     r = requests.post(
-#         f'{root}user/detail/edit/',
-#         params={'user_id': user_id},
-#         cookies={'sessionid': request.COOKIES['sessionid']},
-#         data=data
-#     )
-#     result = r.json()
-#     user = result['data']
-#     return render(request, 'UserDetail.html', {'user': user})
-
-# user_id = request.COOKIES['user_id'],
-# r = requests.get(
-#    f'{root}user/detail/edit/',
-#    params={'user_id': user_id},
-#    # 'user_id': request.COOKIES['user_id'],
-#    cookies={'sessionid': request.COOKIES['sessionid']}
-# )
-# result = r.json()
-# user = result['data']
-# return render(request, 'editUserDetail.html', {'user': user})
-
 
 @user_login_required
 def sroom(request):
@@ -164,18 +96,6 @@ def qus(request):
     result = r.json()
     discussroom_questions = result['data']
     return render(request, 'inpage.html', {'discussroom_questions': discussroom_questions})
-
-
-# 新增房間-科目
-# @user_login_required
-# def addroom_subject(request):
-#     r = requests.get(
-#         f'{root}discusroom/addroom_subject/',
-#         cookies={'sessionid': request.COOKIES['sessionid']}
-#     )
-#     result = r.json()
-#     subjects = result['data']
-#     return render(request, 'DiscusRoom.html', {'subjects': subjects})
 
 @user_login_required
 def droom(request):
@@ -223,52 +143,6 @@ def droom(request):
     # messages.success(request, '已新增房間成功')
     # return ret
 
-
-# 新增房間
-# @user_login_required
-# def addroom(request):
-#     # if request.method == 'GET':
-#     #     return render(request, 'DiscusRoom.html')
-#
-#     # el
-#     # if request.method == 'POST':
-#     no = request.POST.get['ano']
-#     subject_no_id = request.POST.get['asubject_no']
-#     name = request.POST.get['aname']
-#     total_people = request.POST.get['atotal_people']
-#         # city = request.POST.get('city')
-#         # print('執行資料儲存操作...')
-#         # return render(request, 'popup.html', {'city': city})
-#
-#     # no = request.POST['ano']
-#     # subject_no_id = request.POST['asubject_no']
-#     # name = request.POST['aname']
-#     # total_people = request.POST['atotal_people']
-#
-#     data = {
-#         'no': no,
-#         'subject_no_id': subject_no_id,
-#         'name': name,
-#         'total_people': total_people,
-#     }
-#
-#     r = requests.post(
-#         f'{root}/discusroom/addroom/',
-#         data=data,
-#         cookies={'sessionid': request.COOKIES['sessionid']}
-#     )
-#     result = r.json()
-#     # subjects = result['data']
-#     # return render(request, 'DiscusRoom.html', {'subjects': subjects})
-#
-#     if result['success'] is True:
-#         ret = redirect('/discusroom')
-#         messages.success(request, '已新增房間成功')
-#         return ret
-#     else:
-#         messages.error(request, '新增房間失敗')
-#         return redirect('/discusroom')
-#         return ret
 
 
 @user_login_required
@@ -318,12 +192,6 @@ def Sserch(request):
     return render(request, 'Sroom-together.html', {'studyrooms': studyrooms})
 
 
-# def register(request):
-#     return render(request, 'register.html')
-
-# def ForgetPwd(request):
-#     return render(request, 'ForgetPwd.html')
-
 def ForgetPwd(request):
     if request.method == 'GET':
         return render(request, 'ForgetPwd.html')
@@ -339,23 +207,6 @@ def ForgetPwd(request):
 
     if result['success'] is True:
         ret = redirect('/ForgetPwd/')
-        # email_template = render_to_string(
-        #     'templates/ResetPasswordEmail.html',
-        #     {'name': request.user.name}
-        # )
-        # email = EmailMessage(
-        #     '做伙來讀冊-更新密碼網址',  # 電子郵件標題
-        #     email_template,  # 電子郵件內容
-        #     settings.EMAIL_HOST_USER,  # 寄件者
-        #     ['jenny980132@gmail.com']  # 收件者
-        # )
-        # email.fail_silently = False
-        # email.send()
-        # subject = 'Thank you for registering to our site'
-        # message = ' it  means a world to us '
-        # email_from = settings.EMAIL_HOST_USER
-        # recipient_list = ['jenny980132@gmail.com', ]
-        # send_mail(subject, message, email_from, recipient_list)
         messages.success(request, '請去郵箱驗證，並重設密碼')
         return ret
     else:
@@ -372,18 +223,10 @@ def PrivacyPolicies(request):
     return render(request, 'PrivacyPolicies.html')
 
 
-# # 登入前開發人員頁面
-# def beforelogin_developer(request):
-#     return render(request, 'beforelogin_developer.html')
 
-# 登入後開發人員頁面
+# 開發人員頁面
 def developer(request):
     return render(request, 'developer.html')
-
-
-# @user_login_required
-# def inpage(request):
-#     return render(request, 'inpage.html')
 
 
 @user_login_required
@@ -408,11 +251,6 @@ def Sroominpage(request, pk):
         # return render(request, 'Sroom-together.html', {'message': message})
 
     # return render(request, 'Sroominpage.html')
-
-
-# @user_login_required
-# def Sroominpageself(request):
-#     return render(request, 'Sroominpage-self.html')
 
 
 # 個人自習室填寫科目資料
