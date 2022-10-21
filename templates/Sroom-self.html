@@ -127,9 +127,15 @@
 
                 <div class="col-lg-5 col-md-8">
                     <div class="form">
-                        <form action="/forms/contact.php" method="post" role="form" class="php-email-form">
+<!--                        <form action="/forms/contact.php" method="post" role="form" class="php-email-form">-->
+                        <form action="/studyroom-self/" method="post">
                             {% csrf_token %}
                             <div class="form-group">
+                                <h3>問題編號：&emsp;&emsp;&thinsp; <input class="text"
+                                                                     id="classroom_type_no_id"
+                                                                     name="classroom_type_no_id"
+                                                                     value="{{classroom_type.no}}"
+                                                                     required="required" disabled></h3>
                                 <select class="form-control" name="subject_no_id" id="subject_no_id">
                                         <!--value={{ report.subject_no_id }}-->
                                     <option disabled="true" selected>--請選擇要讀的科目--</option>
@@ -193,11 +199,11 @@
                             <!--                                <input type="time" class="form-control" name="time" id="time" placeholder="請輸入時間"-->
                             <!--                                       required>-->
                             <!--                            </div>-->
-                            <div class="my-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-                            </div>
+<!--                            <div class="my-3">-->
+<!--                                <div class="loading">Loading</div>-->
+<!--                                <div class="error-message"></div>-->
+<!--                                <div class="sent-message">Your message has been sent. Thank you!</div>-->
+<!--                            </div>-->
                             <br>
                             <div class="btn-get-started scrollto">
                                 <!--                                <form action="/inpage/">-->
