@@ -421,7 +421,7 @@ def Sroom_self(request):
     if request.method == 'GET':
         user_id = request.COOKIES['user_id']
         r = requests.get(
-            f'{root}studyroom/self/',
+            f'{root}studyroom/getinfo/',
             params={'user_id': user_id},
             cookies={'sessionid': request.COOKIES['sessionid']}
         )

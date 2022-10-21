@@ -29,10 +29,23 @@
 
     <link href="/static/css/inpage.css?v=<?=time()?>" rel="stylesheet">
 
+    <style>
+        /* Style the buttons that are used to open and close the accordion panel */
+        .btn {
+            background-color: #71c55d;
+            text-decoration: none;
+            color: #FFF;
+            padding: 10px;
+            /*width: 5px;*/
+            /*height: 20px;*/
+            border-radius: 10px;
+        }
+    </style>
+
 </head>
 <body>
 
-<form action="" method="post">
+<form action="/addqus/{{discussroom.no}}/" method="post">
 
     {% csrf_token %}
     {% for message in messages %}
@@ -44,15 +57,17 @@
 
     <h2>新增問題</h2><br>
     <h3>房間編號<input class="text" id="discussroom_no_id" name="discussroom_no_id"
-                   value="{{discussroom.no}}" required="required"></h3><br>
-    <h3>問問題人<input class="text" id="quser_id" name="quser_id" required="required"></h3><br>
+                   value="{{discussroom.no}}" required="required" disabled></h3><br>
+<!--    <h3>問問題人<input class="text" id="quser_id" name="quser_id" required="required"></h3><br>-->
     <h3>問題<input class="text" id="title" name="title" required="required"></h3><br>
     <!--    <h3>現在時間<input class="text" id="datetime" name="datetime" required="required"></h3><br>-->
 
-    <button type="submit" class="btn msger-send-btn">
+    <button type="submit" class="btn msger-send-btn" style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;">
         確認
     </button>
-    <a class="btn button" style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;" href="/discusroom/{{discusroom.no}}">退出</a>
+    <a class="btn button"
+       style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;"
+       href="/inpage/{{discussroom.no}}/">退出</a>
     <!--    <a class="close-btn popup-close" href="#">x</a>-->
 </form>
 </body>

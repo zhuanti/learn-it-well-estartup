@@ -47,9 +47,8 @@ urlpatterns = [
     # path('inpage/#letmeopen', discusroom_review_views.qus),
     path('dis_test/', discusroom_review_views.WebChatTest),
     path('discusroom/search/', discusroom_review_views.search),
-    # path('addqus/<int:pk>', discusroom_review_views.addqus),
-    # path('addans/<int:pk>', discusroom_review_views.addans),
-    path('addqus/', discusroom_review_views.addqus),
+
+    path('addqus/<int:pk>/', discusroom_review_views.addqus), # 問題
     path('addans/', discusroom_review_views.addans),
 
     # plan
