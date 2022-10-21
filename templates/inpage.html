@@ -163,6 +163,11 @@
         }
 
 
+
+
+
+
+
     </style>
 
 </head>
@@ -203,7 +208,11 @@
         <!--        <form class="msger-inputarea" action="" method="post">-->
         {% csrf_token %}
         <div class="wrap">
-            <a class="btn popup-btn" style="..." href="#letmeopen">提問</a>
+            <a class="btn popup-btn" style="..." href="#letmeopen">問題列</a>
+        </div>
+        <div class="wrap">
+<!--            <a class="btn popup-btn" style="..." href="/addqus/{{discussroom.no}}/">新增問題</a>-->
+            <a class="btn popup-btn" style="..." href="/addqus/">新增問題</a>
         </div>
         <div class="popup-wrap" id="letmeopen">
             <div class="popup-box transform-out">
@@ -229,13 +238,15 @@
                                                                      required="required" disabled></h3>
                                 <br>
 
-                                <h3>答案：&emsp;&emsp;&thinsp; <input class="text" id="acomment" name="acomment"></h3>
-                                <br>
+<!--                                <h3>答案：&emsp;&emsp;&thinsp; <input class="text" id="acomment" name="acomment"></h3>-->
+<!--                                <br>-->
                                 <!--                                    <textarea id="{{discussroom_ans_list.question_no_id}}"-->
                                 <!--                                              name="comment"></textarea><br><br>-->
-                                <button type="submit" class="btn msger-send-btn">
-                                    確認
-                                </button>
+<!--                                 <a class="btn popup-btn" style="..." href="/addans/{{discussroom_qus_lists.dis_ques_no}}/">回答此題</a>-->
+                                 <a class="btn popup-btn" style="..." href="/addans/">回答此題</a>
+<!--                                <button type="submit" class="btn msger-send-btn" harf="/addans/{{question_no_id.no}}/">-->
+<!--                                    確認-->
+<!--                                </button>-->
                                 <!--                                </from>-->
 
                             </center>
@@ -263,7 +274,10 @@
                         <a class="close-btn popup-close" href="#">x</a>
                     </div>
                 </form>
+
+
             </div>
+
         </div>
 
         <br>
@@ -304,6 +318,11 @@
             function closeConn() {
                 socket.close(); //向服務端發送端開連結的請求(客戶端主動斷開連接)
             }
+
+
+
+
+
 
 
         </script>
