@@ -49,7 +49,7 @@ urlpatterns = [
     path('discusroom/search/', discusroom_review_views.search),
 
     path('addqus/<int:pk>/', discusroom_review_views.addqus), # 問題
-    path('addans/', discusroom_review_views.addans),
+    path('addans/<int:pk>/', discusroom_review_views.addans), # 答案
 
     # plan
     path('studyplan/', plan_review_views.Splan),
