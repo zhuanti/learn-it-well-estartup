@@ -154,6 +154,16 @@
                         height="250" frameBorder="0" allowfullscreen=""
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
             </center>
+
+            {% for message in messages %}
+            <br>
+            <div class="alert alert-success">
+                <a class="close" href="#" data-dismiss="alert"></a>
+                {{ message }}
+            </div>
+            <br>
+            {% endfor %}
+
             <!--            <div class="widget-footer hidden">-->
             <!--                <div>-->
             <!--                    <input name="media-widget-content-url-input" autocomplete="off" placeholder="在此輸入 YouTube、Spotify或Apple Music URL" data-for="media-widget-input-field" data-tip="Paste a link to YouTube video/playlist, or song, then press 'enter'" class="sc-djWRfJ gETCPN" currentitem="false">-->
@@ -253,8 +263,13 @@
                 //讀書時間(pomodore)為 25 分鐘，短暫的休息時間(shortBreak)為 5 分鐘。連續四次番茄工作後，將啟動長時間的休息(longBreak)（15 分鐘）
                 window.onload = function () {
                     const timer = {
-                        pomodoro: {{ report.settime_no }},
-                    };
+                        pomodoro: {
+                    {
+                        report.settime_no
+                    }
+                },
+                }
+                    ;
 
                     //聲明一個interval變量timer
                     let interval;

@@ -131,16 +131,11 @@
                         <form action="/studyroom-self/" method="post">
                             {% csrf_token %}
                             <div class="form-group">
-                                <h3>問題編號：&emsp;&emsp;&thinsp; <input class="text"
-                                                                     id="classroom_type_no_id"
-                                                                     name="classroom_type_no_id"
-                                                                     value="{{classroom_type.no}}"
-                                                                     required="required" disabled></h3>
                                 <select class="form-control" name="subject_no_id" id="subject_no_id">
                                         <!--value={{ report.subject_no_id }}-->
                                     <option disabled="true" selected>--請選擇要讀的科目--</option>
                                     {% for sub_list in inform.sub_lists %}
-                                    <option value={{sub_list.sub_name}} id={{sub_list.sub_no}}>
+                                    <option value="{{sub_list.sub_no}}" id="op_subject_no_id" name="op_subject_no_id">
                                         {{sub_list.sub_name}}
                                     </option>
                                     {% endfor%}
@@ -167,12 +162,12 @@
                                 <!--                                <div class="form-group">-->
                                 <!--                                    <input type="text" name="set_time_no" id="set_time_no" class="form-control" placeholder="預計讀書時長(請以分鐘為單位填寫 1小時=60分鐘)" required="required"/>-->
                                 <!--                                </div>-->
-                                <select class="form-control" name="settime_id" id="settime_no_id">
+                                <select class="form-control" name="settime_no_id" id="settime_no_id">
 <!--                                    value={{ report.set_time_id }}-->
                                     <option disabled="true" selected>--請選擇預計讀書時長(1小時=60分鐘)--</option>
 
                                     {% for set_list in inform.set_lists %}
-                                    <option value={{set_list.set_time_id}} id={{set_list.set_no}}>
+                                    <option value="{{set_list.set_no}}" id="op_settime_no_id" name="op_settime_no_id">
                                         {{set_list.set_time}}分鐘
                                     </option>
                                     {% endfor%}
@@ -211,8 +206,11 @@
                                 <!--                                </form>-->
                                 <!--                                <a class="link_button" href="" type="color:#71c55d">確認</a>-->
 
-                                <a class="btn link_button" style="margin: auto; width: 120px;" href="/Sroominpage-self/"
-                                   type="color:#71c55d">確認</a>
+<!--                                <a class="btn link_button" style="margin: auto; width: 120px;" href="/Sroominpage-self/"-->
+<!--                                   type="color:#71c55d">確認</a>-->
+                                <button type="submit" class="btn msger-send-btn">
+                                    確認
+                                </button>
                             </div>
                         </form>
                     </div>
