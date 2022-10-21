@@ -428,40 +428,46 @@ def Sroom_self(request):
         result = r.json()
         inform = result['data']
         return render(request, 'Sroom-self.html', {'inform': inform})
+    if request.method == 'POST':
+        # no = request.POST['ano']
+        # user_id = request.COOKIES['user_id']
+        classroom_type_no_id = request.POST[2]
+        subject_no_id = request.POST.get('subject_no_id', "")
+        settime_no_id = request.POST.get('settime_no_id', "")
+        # subject_no_id = request.POST['subject_no_id']
+        # settime_no_id = request.POST['settime_no_id']
+        # subject_detail = request.POST['subject_detail']
 
-    # no = request.POST['ano']
-    # user_id = request.COOKIES['user_id']
-    classroom_type_no_id = request.POST[2]
-    subject_no_id = request.POST.get('subject_no_id', "")
-    settime_no_id = request.POST.get('settime_no_id', "")
-    # subject_no_id = request.POST['subject_no_id']
-    # settime_no_id = request.POST['settime_no_id']
-    subject_detail = request.POST['subject_detail']
+        user_id = request.COOKIES['user_id']
+        # classroom_type_no_id = request.POST['classroom_type_no_id']
+        # subject_no_id = request.POST['subject_no_id']
+        discussroom_no_id = request.POST['discussroom_no_id']
+        # settime_no_id = request.POST['settime_no_id']
 
-    data = {
-        # 'no': no,
-        'user_id': request.COOKIES['user_id'],
-        'classroom_type_no_id': classroom_type_no_id,
-        'subject_no_id': subject_no_id,
-        'settime_no_id': settime_no_id,
-        'subject_detail': subject_detail
-    }
 
-    r = requests.post(
-        f'{root}/addsub/',
-        data=data,
-        cookies={'sessionid': request.COOKIES['sessionid']}
-    )
-    result = r.json()
+        data = {
+            'user_id': user_id,
+            'classroom_type_no_id': classroom_type_no_id,
+            'subject_no_id': subject_no_id,
+            'discussroom_no_id': discussroom_no_id,
+            'settime_no_id': settime_no_id,
+        }
 
-    if result['success'] is True:
-        ret = redirect('/Sroominpage-self')
-        messages.success(request, '已新增成功')
-        return ret
-    else:
-        messages.error(request, '新增失敗')
-        return redirect('/studyroom-self')
-        return ret
+        r = requests.post(
+            f'{root}/addsub/',
+            data=data,
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
+
+        if result['success'] is True:
+            ret = redirect('/Sroominpage-self')
+            messages.success(request, '已新增成功')
+            return ret
+        else:
+            messages.error(request, '新增失敗')
+            return redirect('/studyroom-self')
+            return ret
 
 
 # 按照學姊寫的寫法https://hsinyi-lin.gitbook.io/django-rest-api-orm/api-call/%E5%91%BC%E5%8F%AB%20-%20%E6%96%B0%E5%A2%9E%E8%A9%95%E8%AB%96
