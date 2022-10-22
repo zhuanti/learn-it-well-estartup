@@ -40,10 +40,13 @@
             /*height: 20px;*/
             border-radius: 10px;
         }
+
+
+
     </style>
 </head>
 <body>
-<form action="" method="post">
+<form action="/addans/{{discussroom_qus_list.dis_ques_no}}/" method="post">
 
     {% csrf_token %}
     {% for message in messages %}
@@ -52,19 +55,41 @@
         {{ message }}
     </div>
     {% endfor %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <center><h2>回答問題</h2><br></center>
 
-    <h2>回答問題</h2><br>
-    <h3>問題編號<input class="text" id="question_no_id" name="question_no_id"
-                   value="{{discussroom_qus_lists.dis_ques_no}}" required="required"></h3><br>
-    <h3>回答題人<input class="auser_id" id="auser_id" name="auser_id" required="required"></h3><br>
-    <h3>回答<input class="acomment" id="acomment" name="acomment" required="required"></h3><br>
-    <!--    <h3>現在時間<input class="text" id="datetime" name="datetime" required="required"></h3><br>-->
+            </div>
+            <div class="col">
+            </div>
+            <div class="col" >
+                <h3>問題編號<input class="text" id="dis_ques_no_id" name="dis_ques_no_id"
+                               value="{{discussroom_qus_list.dis_ques_no}}" required="required"></h3><br>
+                <!--    <h3>房間編號<input class="text" id="discussroom_no_id" name="discussroom_no_id"-->
+                <!--                   value="{{discussroom.no}}" required="required" disabled></h3><br>-->
+                <h3>回答題人<input class="auser_id" id="auser_id" name="auser_id" required="required"></h3><br>
+                <h3><textarea class="comment" id="comment" rows="6"
+                                cols="40" name="comment" required="required">在這裡寫下你的回答吧!</textarea></h3><br>
+                <!--    <h3>現在時間<input class="text" id="datetime" name="datetime" required="required"></h3><br>-->
 
-    <button type="submit" class="btn msger-send-btn" style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;">
-        確認
-    </button>
-    <a class="btn button" style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;" href="/discusroom/{{discusroom.no}}">退出</a>
-    <!--    <a class="close-btn popup-close" href="#">x</a>-->
+                <center>
+                    <button type="submit" class="btn msger-send-btn"
+                            style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;">
+                        確認
+                    </button>
+                    <a class="btn button"
+                       style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;"
+                       href="/inpage/{{discusroom.no}}">退出</a>
+                    <!--    <a class="close-btn popup-close" href="#">x</a>-->
+                </center>
+
+            </div>
+            <div class="col">
+            </div>
+        </div>
+    </div>
+    </div>
 </form>
 </body>
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i

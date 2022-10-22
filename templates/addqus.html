@@ -40,6 +40,10 @@
             /*height: 20px;*/
             border-radius: 10px;
         }
+
+
+
+
     </style>
 
 </head>
@@ -54,21 +58,40 @@
         {{ message }}
     </div>
     {% endfor %}
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <center><h2>新增問題</h2></center>
+                <br>
+            </div>
+            <div class="col">
+            </div>
+            <div class="col">
+<!--                <h3>房間編號-->
+                    <input class="text" type="hidden" id="discussroom_no_id" name="discussroom_no_id"
+                               value="{{discussroom.no}}" required="required" disabled>
+<!--                </h3>-->
+                <br>
+                <!--    <h3>問問題人<input class="text" id="quser_id" name="quser_id" required="required"></h3><br>-->
+                <h3><textarea class="text" id="title" name="title" rows="6"
+                                cols="40" required="required">在這裡打上你想要跟大家討論的問題吧!</textarea></h3><br>
+                <!--    <h3>現在時間<input class="text" id="datetime" name="datetime" required="required"></h3><br>-->
+                <center>
+                    <button type="submit" class="btn msger-send-btn"
+                            style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;">
+                        確認
+                    </button>
+                    <a class="btn button"
+                       style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;"
+                       href="/inpage/{{discussroom.no}}/">退出</a>
+                </center>
 
-    <h2>新增問題</h2><br>
-    <h3>房間編號<input class="text" id="discussroom_no_id" name="discussroom_no_id"
-                   value="{{discussroom.no}}" required="required" disabled></h3><br>
-<!--    <h3>問問題人<input class="text" id="quser_id" name="quser_id" required="required"></h3><br>-->
-    <h3>問題<input class="text" id="title" name="title" required="required"></h3><br>
-    <!--    <h3>現在時間<input class="text" id="datetime" name="datetime" required="required"></h3><br>-->
-
-    <button type="submit" class="btn msger-send-btn" style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;">
-        確認
-    </button>
-    <a class="btn button"
-       style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;"
-       href="/inpage/{{discussroom.no}}/">退出</a>
-    <!--    <a class="close-btn popup-close" href="#">x</a>-->
+            </div>
+            <div class="col">
+            </div>
+            <!--    <a class="close-btn popup-close" href="#">x</a>-->
+        </div>
+    </div>
 </form>
 </body>
 

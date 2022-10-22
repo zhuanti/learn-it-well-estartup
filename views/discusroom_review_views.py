@@ -7,35 +7,42 @@ from utils.decorators import user_login_required
 root += 'discusroom'
 
 @user_login_required
-def addans(request):
-    # if request.method == 'POST':
-    #     question_no = request.POST['question_no']
-    #     auser_id = request.POST['auser_id']
-    #     comment = request.POST['comment']
-    #     # datetime = request.POST['datetime']
-    #     data = {
-    #         'question_no': question_no,
-    #         'auser_id': auser_id,
-    #         'comment': comment,
-    #         # 'datetime': datetime,
-    #     }
-    #     r = requests.post(
-    #         f'{root}/qus/{pk}/',
-    #         data=data,
-    #         cookies={'sessionid': request.COOKIES['sessionid']}
-    #     )
-    #     result = r.json()
-    #     discussroom = result['data']
-    #     return render(request, 'addans.html', {'discussroom': discussroom})
-    # if request.method == 'GET':
-    #     r = requests.get(
-    #         f'{root}/get/',
-    #         cookies={'sessionid': request.COOKIES['sessionid']}
-    #     )
-    #     result = r.json()
-    #     discussroom = result['data']
-    #     return render(request, 'addans.html', {'discussroom': discussroom})
-    return render(request, 'addans.html')
+def addans(request,pk):
+    if request.method == 'POST':
+        # question_no = request.POST['question_no']
+        auser_id = request.POST['auser_id']
+        comment = request.POST['comment']
+        # datetime = request.POST['datetime']
+        data = {
+            # 'question_no': question_no,
+            'auser_id': auser_id,
+            'comment': comment,
+            'datetime': "",
+        }
+        r = requests.post(
+            f'{root}/qus/{pk}/',
+            data=data,
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
+        if result['success'] is True:
+            ret = redirect(f'/inpage/{pk}')
+            messages.success(request, '新增回答成功')
+            return ret
+        else:
+            messages.error(request, '新增回答失敗')
+            return redirect(f'/inpage/{pk}')
+            return ret
+    if request.method == 'GET':
+        r = requests.get(
+            f'{root}/get/{pk}',
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
+        discussroom = result['data']
+        return render(request, 'addans.html', {'discussroom': discussroom})
+        # print(discussroom)
+    # return render(request, 'addans.html')
 
 
 @user_login_required
