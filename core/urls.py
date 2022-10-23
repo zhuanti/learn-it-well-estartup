@@ -31,20 +31,14 @@ urlpatterns = [
     path('login/', auth_views.login),
     path('logout/', auth_views.logout),
     path('register/', auth_views.register),
-    # path('register/', views.register),
-
     # path('ForgetPwd/', auth_views.ForgetPwd),
 
     path('ForgetPwd/', auth_views.forget_pass, name="forget_pass"),
     path('ForgetPwdReset/', auth_views.ForgetPwdReset),
 
     # discusroom
-    # path('discusroom/', discusroom_review_views.addroom),
     path('discusroom/', discusroom_review_views.droom),
-    # path('discusroom/addroom_subject/', discusroom_review_views.addroom_subject),
-    # path('inpage/', discusroom_review_views.inpage),
     path('inpage/<int:pk>/', discusroom_review_views.inpage),
-    # path('inpage/#letmeopen', discusroom_review_views.qus),
     path('dis_test/', discusroom_review_views.WebChatTest),
     path('discusroom/search/', discusroom_review_views.search),
 

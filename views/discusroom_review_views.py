@@ -34,8 +34,10 @@ def addans(request,pk):
             return redirect(f'/inpage/{pk}')
             return ret
     if request.method == 'GET':
+        user_id = request.COOKIES['user_id']
         r = requests.get(
             f'{root}/get/{pk}',
+            params={'user_id': user_id},
             cookies={'sessionid': request.COOKIES['sessionid']}
         )
         result = r.json()
