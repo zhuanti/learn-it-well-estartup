@@ -229,23 +229,16 @@
                         <div class="panel" align="left"><br>
                             其他人的回答：
                             {% for discussroom_ans_list in discussroom_qus_list.discussroom_ans_lists %}
-                            <blockquote>{{discussroom_ans_list.dis_ans_no}}.&emsp;{{discussroom_ans_list.comment}}&emsp;回答者：{{discussroom_ans_list.auser_id}}</blockquote>
+                            <blockquote>{{discussroom_ans_list.dis_ans_no}}.&emsp;&emsp;答案：{{discussroom_ans_list.comment}}&emsp;回答者：{{discussroom_ans_list.auser_id}}</blockquote>
                             {% endfor %}
                             <center>
-                                <br>
-                                <h3>問題編號：&emsp;&emsp;&thinsp; <input class="text"
-                                                                     id="question_no_id"
-                                                                     name="question_no_id"
-                                                                     value="{{discussroom_qus_list.dis_ques_no}}"
-                                                                     required="required" disabled></h3>
-                                <br>
 
 <!--                                <h3>答案：&emsp;&emsp;&thinsp; <input class="text" id="acomment" name="acomment"></h3>-->
 <!--                                <br>-->
                                 <!--                                    <textarea id="{{discussroom_ans_list.question_no_id}}"-->
                                 <!--                                              name="comment"></textarea><br><br>-->
 <!--                                 <a class="btn popup-btn" style="..." href="/addans/{{discussroom_qus_lists.dis_ques_no}}/">回答此題</a>-->
-                                 <a class="btn popup-btn" style="..." href="/addans/{{discussroom_qus_list.dis_ques_no}}/">回答此題</a>
+                                 <a class="btn popup-btn" style="..." href="/addans/{{discussroom_qus_list.dis_ques_no}}">回答此題</a>
 <!--                                <button type="submit" class="btn msger-send-btn" harf="/addans/{{question_no_id.no}}/">-->
 <!--                                    確認-->
 <!--                                </button>-->

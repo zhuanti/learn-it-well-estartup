@@ -6,62 +6,59 @@ from utils.decorators import user_login_required
 
 root += 'discusroom'
 
+
 @user_login_required
-def addans(request,pk):
+def addans(request, pk):
     if request.method == 'POST':
-        # question_no = request.POST['question_no']
-        auser_id = request.POST['auser_id']
-        comment = request.POST['comment']
-        # datetime = request.POST['datetime']
+        # 新增回答目前需要的
+
+        auser_id = request.COOKIES['user_id']
+        comment = request.POST['acomment']
+
         data = {
-            # 'question_no': question_no,
+            # 新增回答目前需要的
             'auser_id': auser_id,
             'comment': comment,
             'datetime': "",
         }
+
         r = requests.post(
-            f'{root}/qus/{pk}/',
+            f'{root}/ans/{pk}',
             data=data,
             cookies={'sessionid': request.COOKIES['sessionid']}
         )
+
         result = r.json()
+
         if result['success'] is True:
-            ret = redirect(f'/inpage/{pk}')
-            messages.success(request, '新增回答成功')
+            ret = redirect(f'/addans/{pk}')
+            messages.success(request, '已新增答案成功')
             return ret
         else:
-            messages.error(request, '新增回答失敗')
-            return redirect(f'/inpage/{pk}')
+            messages.error(request, '新增答案失敗')
+            return redirect(f'/addans/{pk}')
             return ret
+
     if request.method == 'GET':
         user_id = request.COOKIES['user_id']
         r = requests.get(
-            f'{root}/get/{pk}',
-            params={'user_id': user_id},
+            f'{root}/getqus/{pk}',
             cookies={'sessionid': request.COOKIES['sessionid']}
         )
         result = r.json()
-        discussroom = result['data']
-        return render(request, 'addans.html', {'discussroom': discussroom})
-        # print(discussroom)
-    # return render(request, 'addans.html')
+        discussroom_qus = result['data']
+        return render(request, 'addans.html', {'discussroom_qus': discussroom_qus})
 
-
+# 新增問題
 @user_login_required
 def addqus(request, pk):
     if request.method == 'POST':
-        # 新增問題
-        # datetime = request.POST['datetime']
-        # discussroom_no_id = request.POST['discussroom_no_id']
 
-        # 新增問題目前需要的
+        # 新增問題
         title = request.POST['title']
         quser_id = request.COOKIES['user_id']
 
         data = {
-            # 新增問題
-            # 'no': no,
-            # 'discussroom_no_id': discussroom_no_id,
 
             # 新增問題目前需要的
             'title': title,
@@ -92,9 +89,6 @@ def addqus(request, pk):
         result = r.json()
         discussroom = result['data']
         return render(request, 'addqus.html', {'discussroom': discussroom})
-
-    # if request.method == 'GET':
-    #     return render(request, 'addqus.html')
 
 @user_login_required
 def droom(request):
