@@ -46,7 +46,7 @@ urlpatterns = [
     path('addans/<int:pk>/', discusroom_review_views.addans), # 答案
 
     # plan
-    path('studyplan/', plan_review_views.Splan),
+    path('studyplan/', plan_review_views.get_all_reviews_test),
 
     # report
     path('report/', report_review_views.report),

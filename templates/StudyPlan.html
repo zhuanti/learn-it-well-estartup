@@ -183,13 +183,13 @@
                         <!--Table body-->
 
                         <tbody>
-
+                        {% for plans in plans %}
                         <tr>
                             <td>
-                                1
+                                {{ plans.no }}
                             </td>
                             <td>
-                                複習數學
+                                {{ plans.name }}
                             </td>
                             <td>
                                <a class="btn link_button" style="margin: auto; width: 120px;" href="/studyplan_edit/"
@@ -197,14 +197,15 @@
 
                             </td>
                             <td>
-                               <button class="button" type="submit">完成</button>
+                               <!--<button class="button" type="submit">完成</button>-->
+                                {{ plans.pace }}
                             </td>
                             <td>
                                <button class="button" type="submit">刪除</button>
                             </td>
 
                         </tr>
-
+                        {% endfor %}
                         </tbody>
                     </table>
                 </div>

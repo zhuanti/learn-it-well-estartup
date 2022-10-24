@@ -5,9 +5,9 @@ from core.settings import API_URL as root
 from utils.decorators import user_login_required
 
 
-@user_login_required
-def Splan(request):
-    return render(request, 'StudyPlan.html')
+# @user_login_required
+# def Splan(request):
+#     return render(request, 'StudyPlan.html')
 
 
 # @user_login_required
@@ -47,16 +47,16 @@ def Splan(request):
 #     # print(plans)
 #     return render(request, 'StudyPlan.html', {'plans': plans})
 
-    # if result['success'] is True:
-    #     # ret = redirect('/studyplan')
-    #     messages.success(request, '已新增成功')
-    #     # return ret
-    #     return render(request, 'StudyPlan.html')
-    # else:
-    #     messages.error(request, '新增失敗')
-    #     # return redirect('/studyplan')
-    #     # return ret
-    #     return render(request, 'StudyPlan.html')
+# if result['success'] is True:
+#     # ret = redirect('/studyplan')
+#     messages.success(request, '已新增成功')
+#     # return ret
+#     return render(request, 'StudyPlan.html')
+# else:
+#     messages.error(request, '新增失敗')
+#     # return redirect('/studyplan')
+#     # return ret
+#     return render(request, 'StudyPlan.html')
 
 # 新增
 # @user_login_required
@@ -83,15 +83,25 @@ def Splan(request):
 #     return render(request, 'StudyPlan.html', {'message': result['message']})
 
 # 顯示
-# @user_login_required
-# def get_all_reviews_test(request):
-#     user_id = request.COOKIES['user_id'],
-#     r = requests.get(
-#         f'{root}/get/',
-#         params={'user_id': user_id},
-#         # 'user_id': request.COOKIES['user_id'],
-#         cookies={'sessionid': request.COOKIES['sessionid']}
-#     )
-#     result = r.json()
-#     plans = result['data']
-#     return render(request, 'StudyPlan.html', {'plans': plans})
+@user_login_required
+def get_all_reviews_test(request):
+    user_id = request.COOKIES['user_id'],
+    r = requests.get(
+        f'{root}plan/get/',
+        params={'user_id': user_id},
+        # 'user_id': request.COOKIES['user_id'],
+        cookies={'sessionid': request.COOKIES['sessionid']}
+    )
+    result = r.json()
+    plans = result['data']
+    return render(request, 'StudyPlan.html', {'plans': plans})
+    # user_id = request.COOKIES['user_id'],
+    # r = requests.get(
+    #    f'{root}/get/',
+    #    params={'user_id': user_id},
+    # 'user_id': request.COOKIES['user_id'],
+    #    cookies={'sessionid': request.COOKIES['sessionid']}
+    # )
+    # result = r.json()
+    # plans = result['data']
+    # return render(request, 'StudyPlan.html', {'plans': plans})
