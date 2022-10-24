@@ -168,11 +168,15 @@
                     <table class="table table-striped">
                         <!--Table head-->
                         <thead>
-                        <tr align='center'>
+                        <tr>
+                            <th>任務編號</th>
+                            <!--                            <th>學制</th>-->
+                            <!--                            <th>科目</th>-->
                             <th>代辦事項</th>
                             <th>編輯</th>
                             <th>狀態</th>
                             <th>刪除</th>
+                            <th></th>
                         </tr>
                         </thead>
                         <!--Table head-->
@@ -181,23 +185,23 @@
                         <tbody>
                         {% for plans in plans %}
                         <tr>
-                            <td align="center" valign="center">
+                            <td>
+                                {{ plans.no }}
+                            </td>
+                            <td>
                                 {{ plans.name }}
                             </td>
-                            <td align="center" valign="center">
-                                <a class="btn link_button" style=" width: 120px; height:45px;background-color: #71c55d; color:#ffff; font-size:15px; " href="/studyplan_edit/"
-                                    >編&thinsp;輯</a>
+                            <td>
+                               <a class="btn link_button" style="margin: auto; width: 120px;" href="/studyplan_edit/"
+                                   type="color:#71c55d" >確認</a>
 
                             </td>
-                            <td align="center" valign="center">
+                            <td>
                                <!--<button class="button" type="submit">完成</button>-->
                                 {{ plans.pace }}
                             </td>
-                            <td align="center" valign="center">
-                               <button class="btn btn-primary" type="submit"
-                                                style="width:120px;height:45px;border:12px blue none;background-color:#71c55d;color:white; font-size:15px;">
-                                            刪&thinsp;除
-                                        </button>
+                            <td>
+                               <button class="button" type="submit">刪除</button>
                             </td>
 
                         </tr>
