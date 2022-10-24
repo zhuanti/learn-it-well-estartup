@@ -133,7 +133,8 @@
                         <h2 class="pt-3 pb-4 text-center font-bold font-up deep-purple-text">學習規劃</h2>
 
                         <table align="right">
-                            <form style="margin: auto; width: 220px;" class="form-inline float-right mb-4">
+                            <form style="margin: auto; width: 220px;" class="form-inline float-right mb-4"
+                                  action="/studyroom/Sserch/" method="get">
                                 <tr>
                                     <td>
                                         <input class="form-control my-0 py-1 pl-3 purple-border" type="text" name="name"
@@ -183,23 +184,20 @@
                             <td align="center" valign="center">
                                 {{ plans.name }}
                             </td>
-
                             <td align="center" valign="center">
-                                <a class="btn link_button" href="/studyplan_edit/"
-                                   style=" width: 120px; height:45px;background-color: #71c55d; color:#ffff; font-size:15px; ">
-                                    編&thinsp;輯</a>
-                            </td>
+                                <a class="btn link_button" style=" width: 120px; height:45px;background-color: #71c55d; color:#ffff; font-size:15px; " href="/studyplan_edit/"
+                                    >編&thinsp;輯</a>
 
+                            </td>
                             <td align="center" valign="center">
                                <!--<button class="button" type="submit">完成</button>-->
                                 {{ plans.pace }}
                             </td>
-
                             <td align="center" valign="center">
                                <button class="btn btn-primary" type="submit"
-                                       style="width:120px;height:45px;border:12px blue none;background-color:#71c55d;color:white; font-size:15px;">
+                                                style="width:120px;height:45px;border:12px blue none;background-color:#71c55d;color:white; font-size:15px;">
                                             刪&thinsp;除
-                               </button>
+                                        </button>
                             </td>
 
                         </tr>
