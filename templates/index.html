@@ -91,7 +91,12 @@
     {% if 'user_id' in request.COOKIES.keys %}
     <div class="rightCSS li">
               <span class="d-inline-block float-left">
-      <div class="d-inline-block" style=" color: #535461;">★ 公告測試 ★ &nbsp;&nbsp;&nbsp;歡迎回來xxx使用者! &nbsp;您的讀書計畫&nbsp; "數學講義第14回完成"&nbsp;尚未做完</div></span>
+                  {% for plans in plans %}
+<!--                  {% for user_list in plans.user_lists %}-->
+      <div class="d-inline-block" style=" color: #535461;">★ 公告測試 ★ &nbsp;&nbsp;&nbsp;歡迎回來 {{plans.user}} 使用者! &nbsp;您的讀書計畫&nbsp; "{{plans.name}},{{plans.name}}"尚未做完</div>
+<!--                        {{user_list.name}}
+                {% endfor %}-->
+                  {% endfor %}</span>
         <style>
             .rightCSS {
                 background: #ceebc7;

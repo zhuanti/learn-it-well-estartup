@@ -11,6 +11,16 @@ from utils.decorators import user_login_required
 
 # 首頁畫面
 def index(request):
+    if 'user_id' in request.COOKIES:
+        user_id = request.COOKIES['user_id'],
+        r = requests.get(
+            f'{root}news/',
+            params={'user_id': user_id},
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
+        plans = result['data']
+        return render(request, 'index.html', {'plans': plans})
     return render(request, 'index.html')
 
 
