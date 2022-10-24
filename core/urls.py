@@ -42,11 +42,12 @@ urlpatterns = [
     path('dis_test/', discusroom_review_views.WebChatTest),
     path('discusroom/search/', discusroom_review_views.search),
 
-    path('addqus/<int:pk>/', discusroom_review_views.addqus), # 問題
-    path('addans/<int:pk>/', discusroom_review_views.addans), # 答案
+    path('addqus/<int:pk>/', discusroom_review_views.addqus),  # 問題
+    path('addans/<int:pk>/', discusroom_review_views.addans),  # 答案
 
     # plan
     path('studyplan/', plan_review_views.get_all_reviews_test),
+    path('plansadd/', plan_review_views.addplans),
 
     # report
     path('report/', report_review_views.report),
