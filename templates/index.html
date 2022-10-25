@@ -92,11 +92,12 @@
     <div class="rightCSS li">
               <span class="d-inline-block float-left">
                   {% for plans in plans %}
-<!--                  {% for user_list in plans.user_lists %}-->
-      <div class="d-inline-block" style=" color: #535461;">★ 公告測試 ★ &nbsp;&nbsp;&nbsp;歡迎回來 {{plans.user}} 使用者! &nbsp;您的讀書計畫&nbsp; "{{plans.name}},{{plans.name}}"尚未做完</div>
-<!--                        {{user_list.name}}
-                {% endfor %}-->
-                  {% endfor %}</span>
+                  {% for user_list in plans.user_lists %}
+      <div class="d-inline-block" style=" color: #535461;">
+          ★ 公告測試 ★ &nbsp;&nbsp;&nbsp;歡迎回來 {{user_list.user_name}} 使用者! &nbsp;
+          您的讀書計畫&nbsp; "{{plans.name}},{{plans.name}}"尚未做完
+      </div>
+                  {% endfor %}{% endfor %}</span>
         <style>
             .rightCSS {
                 background: #ceebc7;
