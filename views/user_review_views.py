@@ -32,6 +32,7 @@ def EditUserDetail(request):
         result = r.json()
         user = result['data']
         return render(request, 'editUserDetail.html', {'user': user})
+
     if request.POST['pwd'] == request.POST['pwd2']:
         pwd = request.POST['pwd']
         name = request.POST['name']

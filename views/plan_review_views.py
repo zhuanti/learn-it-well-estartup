@@ -149,20 +149,29 @@ def addplans(request):
 @user_login_required
 def editplans(request, pk):
     if request.method == 'GET':
+        user_id = request.COOKIES['user_id']
         r = requests.get(
-            f'{root}plan/edit/{pk}',
-            # 'user_id': request.COOKIES['user_id'],
+            f'{root}plan/showedit/',
+            params={'no': pk, 'user_id': user_id},
             cookies={'sessionid': request.COOKIES['sessionid']}
         )
         result = r.json()
-        plans = result['data']
-        return render(request, 'Splan_edit.html', {'plans': plans})
+
+        if result['success'] is True:
+            plan = result['data']
+            return render(request, 'Splan_edit.html', {'plan': plan})
+        else:
+            messages.error(request, '查無此規劃')
+            return redirect('/studyplan')
+            return ret
+
+
+
     if request.method == 'POST':
-        no = request.POST.get('no')
         name = request.POST['name']
 
         data = {
-            'no': no,
+            'no': pk,
             'name': name
         }
         r = requests.post(
@@ -171,8 +180,15 @@ def editplans(request, pk):
             cookies={'sessionid': request.COOKIES['sessionid']}
         )
         result = r.json()
-        plans = result['data']
-        return render(request, 'StudyPlan.html', {'plans': plans})
+
+        if result['success'] is True:
+            messages.error(request, '修改規劃成功')
+            return redirect('/studyplan')
+            return ret
+        else:
+            messages.error(request, '修改規畫失敗')
+            return redirect('/studyplan')
+            return ret
 
 # @user_login_required
 # def deleteplans(request):

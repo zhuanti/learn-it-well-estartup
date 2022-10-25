@@ -115,13 +115,13 @@
 
                 <div class="col-lg-5 col-md-8">
                     <div class="form">
-                        <form action="/edit/{{plans.no}}/" method="post">
+                        <form action="/edit/{{plan.no}}/" method="post">
                             {% csrf_token %}
 
                             <div class="row mb-3">
                                 <div class="col-sm-9 text-secondary">
                                     <input type="text" class="form-control" name="name" id="name"
-                                           value={{ plans.name }} required>
+                                           value={{ plan.name }} required>
                                 </div>
                             </div>
                             <!--<div class="my-3">
