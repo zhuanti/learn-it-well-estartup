@@ -12,7 +12,6 @@ def Udetail(request):
     r = requests.get(
         f'{root}user/detail/',
         params={'user_id': user_id},
-        # 'user_id': request.COOKIES['user_id'],
         cookies={'sessionid': request.COOKIES['sessionid']}
     )
     result = r.json()

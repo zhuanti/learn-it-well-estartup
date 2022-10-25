@@ -7,11 +7,12 @@ root += 'success'
 
 @user_login_required
 def achievement(request):
-    if request.method == 'GET':
-        r = requests.get(
-            f'{root}/list/',
-            cookies={'sessionid': request.COOKIES['sessionid']}
-        )
-        result = r.json()
-        successs = result['data']
-        return render(request, 'achievement.html', {'successs': successs})
+    user_id = request.COOKIES['user_id'],
+    r = requests.get(
+        f'{root}/list/',
+        params={'user_id': user_id},
+        cookies={'sessionid': request.COOKIES['sessionid']}
+    )
+    result = r.json()
+    successs = result['data']
+    return render(request, 'achievement.html', {'successs': successs})
