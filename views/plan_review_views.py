@@ -137,6 +137,7 @@ def addplans(request):
         plans = result['data']
         return render(request, 'StudyPlan.html', {'plans': plans})
 
+
 @user_login_required
 def editplans(request, pk):
     if request.method == 'GET':
@@ -148,11 +149,25 @@ def editplans(request, pk):
         result = r.json()
         plans = result['data']
         return render(request, 'Splan_edit.html', {'plans': plans})
+    if request.method == 'POST':
+        no = request.POST.get('no')
+        name = request.POST['name']
 
+        data = {
+            'no': no,
+            'name': name
+        }
+        r = requests.post(
+            f'{root}plan/editplan/',
+            data=data,
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
+        plans = result['data']
+        return render(request, 'StudyPlan.html', {'plans': plans})
 
-
-#@user_login_required
-#def deleteplans(request):
+# @user_login_required
+# def deleteplans(request):
 #    if request.method == 'GET':
 #        user_id = request.COOKIES['user_id'],
 #        r = requests.get(
