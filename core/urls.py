@@ -48,6 +48,8 @@ urlpatterns = [
     # plan
     path('studyplan/', plan_review_views.get_all_reviews_test),
     path('plansadd/', plan_review_views.addplans),
+    path('edit/<int:pk>/', plan_review_views.editplans),
+    # path('plansdelete/', plan_review_views.deleteplans),
 
     # report
     path('report/', report_review_views.report),

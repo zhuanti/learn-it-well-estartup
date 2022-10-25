@@ -118,10 +118,11 @@
                         <form action="/forms/contact.php" method="post" role="form" class="php-email-form">
                             {% csrf_token %}
 
-                            <div class="form-group">
-                                <input type="text" name="subject_detail" class="form-control" id="subject_detail"
-                                       placeholder="請輸入要修改的內容"
-                                       required="required">
+                            <div class="row mb-3">
+                                <div class="col-sm-9 text-secondary">
+                                    <input type="text" class="form-control" name="name" id="name"
+                                           value={{ plans.name }} required>
+                                </div>
                             </div>
                             <div class="my-3">
                                 <div class="loading">Loading</div>

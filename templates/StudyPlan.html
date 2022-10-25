@@ -179,20 +179,27 @@
                                 {{ plans.name }}
                             </td>
                             <td align="center" valign="center">
-                               <a class="btn link_button" style=" width: 120px; height:45px;background-color: #71c55d; color:#ffff; font-size:15px; " href="/studyplan_edit/"
-                                    >編&thinsp;輯</a>
+                               <!--<a class="btn link_button" style=" width: 120px; height:45px;background-color: #71c55d; color:#ffff; font-size:15px; " href="/edit/{{plans.no}}"
+                                    >編&thinsp;輯</a>-->
+                                <a class="btn btn-primary"
+                                           style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;"
+                                           href="/edit/{{plans.no}}/">修改</a>
 
                             </td>
                             <td align="center" valign="center">
                                <!--<button class="button" type="submit">完成</button>-->
                                 {{ plans.pace }}
                             </td>
-                            <td align="center" valign="center">
-                                <button class="btn btn-primary" type="submit"
-                                                style="width:120px;height:45px;border:12px blue none;background-color:#71c55d;color:white; font-size:15px;">
-                                            刪&thinsp;除
-                                        </button>
-                            </td>
+                            <form action="/plansdelete/" method="post">
+                                {% csrf_token %}
+                                <td align="center" valign="center">
+                                    <!--<button class="btn btn-primary" type="submit" style="width:120px;height:45px;border:12px blue none;background-color:#71c55d;color:white; font-size:15px;">
+                                        刪&thinsp;除
+                                    </button>-->
+                                    <input class="btn btn-primary px-4" type="submit" value="刪除">
+                                </td>
+                            </form>
+
 
                         </tr>
                         {% endfor %}
