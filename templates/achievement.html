@@ -120,15 +120,17 @@
                         <!--Table body-->
                         <tbody>
                         {% for success in successs %}
+<!--                        {% for success_name in success.success_names %}-->
                         <tr>
-                            <th scope="row">{{success.no}}</th>
-                            <td>{{success.name}}</td>
-                            <td>{{success_list.pace}}/{{success.pace}}</td>
+                            <th scope="row">{{success.success_no}}</th>
+                            <td>{{success.success_no}}</td>
+                            <td>{{success.pace}}/{{success.success_no}}</td>
                             <td>100 Point</td>
                             <td>
                                 <button class="button" type="submit">領取</button>
                             </td>
                         </tr>
+<!--                        {% endfor %}-->
                         {% endfor %}
                         </tbody>
                         <!--Table body-->
