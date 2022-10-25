@@ -114,19 +114,20 @@ def addplans(request):
         r = requests.get(
             f'{root}plan/get/',
             params={'user_id': user_id},
-            # 'user_id': request.COOKIES['user_id'],
             cookies={'sessionid': request.COOKIES['sessionid']}
         )
         result = r.json()
         plans = result['data']
         return render(request, 'Splan_add.html', {'plans': plans})
+
     if request.method == 'POST':
-        name = request.POST.get('name', False)
+        name = request.POST.get('plans_name')
         user_id = request.COOKIES['user_id']
 
         data = {
             'user_id': user_id,
-            'name': name
+            'name': name,
+            'datetime': "",
         }
         r = requests.post(
             f'{root}plan/add/',
@@ -134,8 +135,15 @@ def addplans(request):
             cookies={'sessionid': request.COOKIES['sessionid']}
         )
         result = r.json()
-        plans = result['data']
-        return render(request, 'StudyPlan.html', {'plans': plans})
+
+        if result['success'] is True:
+            ret = redirect('/studyplan')
+            messages.success(request, '已新增規劃成功')
+            return ret
+        else:
+            messages.error(request, '新增規劃失敗')
+            return redirect('/studyplan')
+            return ret
 
 
 @user_login_required
