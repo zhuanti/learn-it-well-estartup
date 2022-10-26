@@ -21,12 +21,47 @@ def get_selfall_reviews(request):
 @user_login_required
 def get_togall_reviews(request, pk):
     if request.method == 'GET':
+        user_id = request.COOKIES['user_id']
         r = requests.get(
             f'{root}/all/{pk}',
+            params={'user_id': user_id},
             cookies={'sessionid': request.COOKIES['sessionid']}
         )
         result = r.json()
         studyroom = result['data']
         return render(request, 'Sroom-togethersub.html', {'studyroom': studyroom})
+
+    if request.method == 'POST':
+
+        subject_no_id = request.POST['subject_no_id']
+        print(subject_no_id)
+        settime_no_id = request.POST['settime_no_id']
+        print(settime_no_id)
+        subject_detail = request.POST['subject_detail']
+        print(subject_detail)
+        user_id = request.COOKIES['user_id']
+
+        data = {
+            'user_id': user_id,
+            'subject_no_id': subject_no_id,
+            'settime_no_id': settime_no_id,
+            'subject_detail': subject_detail,
+        }
+        r = requests.post(
+            f'{root}subject/studyroom/many/',
+            data=data,
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
+
+        if result['success'] is True:
+            ret = redirect('/Sroominpage/<int:pk>/')
+            messages.success(request, '已新增問題成功')
+            return ret
+        else:
+            messages.error(request, '新增問題失敗')
+            return redirect('/Sroominpage/<int:pk>//')
+            return ret
+
 
 

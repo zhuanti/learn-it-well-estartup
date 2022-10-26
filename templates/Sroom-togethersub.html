@@ -44,6 +44,7 @@
             /*height: 20px;*/
             border-radius: 10px;
         }
+
     </style>
 
 
@@ -131,12 +132,14 @@
                         <form action="/forms/contact.php" method="post" role="form" class="php-email-form">
                             {% csrf_token %}
                             <div class="form-group">
-                                <select class="form-control" name="subject_no_id" id="subject_no_id"
-                                        value={{ report.subject_no_id }}>
+                                <select class="form-control" name="subject_no_id" id="subject_no_id">
+                                    <!--value={{ report.subject_no_id }}-->
                                     <option disabled="true" selected>--請選擇要讀的科目--</option>
-                                    {% for study_sub_name in studyroom.study_sub_names %}
-                                    <option value={{study_sub_name.sub_no}}>{{study_sub_name.sub_name}}</option>
-                                    {% endfor %}
+                                    {% for sub_list in studyroom.sub_lists %}
+                                    <option value="{{sub_list.sub_no}}" id="op_subject_no_id" name="op_subject_no_id">
+                                        {{sub_list.sub_name}}
+                                    </option>
+                                    {% endfor%}
 
                                     <!--                                    <option value="1">國文</option>-->
                                     <!--                                    <option value="2">英文</option>-->
@@ -152,45 +155,31 @@
                             <div class="form-group">
                                 <input type="text" name="subject_detail" class="form-control" id="subject_detail"
                                        placeholder="請輸入科目詳細資訊"
-                                       requiered value={{ report.subject_detail }}>
+                                       required="required">
                             </div>
                             <br>
                             <br>
                             <div class="form-group">
-                                <select class="form-control" name="set_time" id="set_time"
-                                        value={{ report.set_time }}>
-                                    <option disabled="true" selected>--請選擇預計讀書時長--</option>
-                                    <!--                                    {% for result in set_time %}-->
-                                    <!--                                    <option value={{settime.id}}>{{settime.set_time}}</option>-->
-                                    <!--                                    {% endfor%}-->
-                                    <option value="5">5分鐘</option>
-                                    <option value="10">10分鐘</option>
-                                    <option value="15">15分鐘</option>
-                                    <option value="20">20分鐘</option>
-                                    <option value="25">25分鐘</option>
-                                    <option value="30">30分鐘</option>
-                                    <option value="35">35分鐘</option>
-                                    <option value="40">40分鐘</option>
-                                    <option value="45">45分鐘</option>
-                                    <option value="50">50分鐘</option>
-                                    <option value="60">1小時</option>
-                                    <option value="70">1小時10分鐘</option>
-                                    <option value="80">1小時20分鐘</option>
-                                    <option value="90">1小時30分鐘</option>
-                                    <option value="100">1小時40分鐘</option>
-                                    <option value="110">1小時50分鐘</option>
-                                    <option value="120">2小時</option>
+                                <select class="form-control" name="settime_no_id" id="settime_no_id">
+                                    <!--                                    value={{ report.set_time_id }}-->
+                                    <option disabled="true" selected>--請選擇預計讀書時長(1小時=60分鐘)--</option>
+
+                                    {% for set_list in studyroom.set_lists %}
+                                    <option value="{{set_list.set_no}}" id="op_settime_no_id" name="op_settime_no_id">
+                                        {{set_list.set_time}}分鐘
+                                    </option>
+                                    {% endfor%}
                                 </select>
                             </div>
                             <!--                            <div class="form-group mt-3">-->
                             <!--                                <input type="time" class="form-control" name="time" id="time" placeholder="請輸入時間"-->
                             <!--                                       required>-->
                             <!--                            </div>-->
-                            <div class="my-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-                            </div>
+<!--                            <div class="my-3">-->
+<!--                                <div class="loading">Loading</div>-->
+<!--                                <div class="error-message"></div>-->
+<!--                                <div class="sent-message">Your message has been sent. Thank you!</div>-->
+<!--                            </div>-->
                             <br>
                             <div class="btn-get-started scrollto">
                                 <!--                                <form action="/inpage/">-->

@@ -162,6 +162,8 @@ def get_reviews_insideshow(request):
     # print(report)
     return render(request, 'Sroominpage-self.html', {'report': report})
 
+
+
     # user_id = request.COOKIES['user_id'],
     # r = requests.get(
     #     f'{root}/inside/',
