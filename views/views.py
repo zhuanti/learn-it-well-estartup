@@ -242,15 +242,17 @@ def developer(request):
 @user_login_required
 # def Sroominpage(request):
 #     return render(request, 'Sroominpage.html')
-
 def Sroominpage(request, pk):
+    user_id = request.COOKIES['user_id'],
     r = requests.get(
         f'{root}studyroom/get/{pk}',
+        params={'user_id': user_id},
         cookies={'sessionid': request.COOKIES['sessionid']}
     )
     result = r.json()
     if result['success'] is True:
         studyroom = result['data']
+        print(studyroom)
         return render(request, 'Sroominpage.html', {'studyroom': studyroom})
     else:
         messages.error(request, '查無此房間')

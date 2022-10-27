@@ -45,8 +45,11 @@
     <div class="sidebar-contact">
         <div class="toggle"></div>
         <center>
-            <b><font size="6">科目</font></b> <b>科目詳情</b><br>
-            <b>預計讀書時長:30分鐘</b><br>
+            {% for subject_no_list in studyroom.subject_no_lists %}
+            <b><font size="6">科目： {{ subject_no_list.sub_name }}</font></b><br>
+            <b>科目詳細資訊： {{ studyroom.subject_detail }}</b><br>
+            <b>預計讀書時長: {{ studyroom.settime_no }}分鐘</b><br>
+            {% endfor %}
             <b><font size="4">當前房名：{{studyroom.name}}</font></b>
             <div class="position-absolute bottom-0 end-0 "><i class="bi bi-info-circle"></i></div>
         </center>
@@ -246,7 +249,7 @@
                 //讀書時間(pomodore)為 25 分鐘，短暫的休息時間(shortBreak)為 5 分鐘。連續四次番茄工作後，將啟動長時間的休息(longBreak)（15 分鐘）
                 window.onload = function () {
                     const timer = {
-                        pomodoro: 60,
+                        pomodoro: {{ studyroom.settime_no }},
                     };
 
                     //聲明一個interval變量timer

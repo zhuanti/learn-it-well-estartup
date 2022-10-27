@@ -33,13 +33,10 @@ def get_togall_reviews(request, pk):
 
     if request.method == 'POST':
 
-        subject_no_id = request.POST['subject_no_id']
-        print(subject_no_id)
-        settime_no_id = request.POST['settime_no_id']
-        print(settime_no_id)
-        subject_detail = request.POST['subject_detail']
-        print(subject_detail)
         user_id = request.COOKIES['user_id']
+        subject_no_id = request.POST['subject_no_id']
+        settime_no_id = request.POST['settime_no_id']
+        subject_detail = request.POST['subject_detail']
 
         data = {
             'user_id': user_id,
