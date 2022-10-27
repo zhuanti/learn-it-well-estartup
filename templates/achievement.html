@@ -76,6 +76,7 @@
 
     </div>
 </header><!-- End Header -->
+</body>
 <!-- 表格開始-->
 <body class="hm-gradient">
 
@@ -85,8 +86,7 @@
     <div class="container mt-4">
 
         <div class="text-center darken-grey-text mb-4">
-            <br><br><!-- <h1 class="font-bold mt-4 mb-3 h5">Built with Material Design for Bootstrap 4</h1>-->
-            <!--                <a class="btn btn-danger btn-md" href="https://mdbootstrap.com/material-design-for-bootstrap/" target="_blank">Free download<i class="fa fa-download pl-2"></i></a>-->
+            <br><br>
         </div>
         <div class="card mb-4">
             <div class="card-body">
@@ -95,10 +95,6 @@
                     <!-- Grid column -->
                     <div class="col-md-12">
                         <h2 class="pt-3 pb-4 text-center font-bold font-up deep-purple-text">查看成就</h2>
-                        <!--                            <div class="input-group md-form form-sm form-2 pl-0">-->
-                        <!--                                <input class="form-control my-0 py-1 pl-3 purple-border" type="text" placeholder="Search something here..." aria-label="Search">-->
-                        <!--                                <span class="input-group-addon waves-effect purple lighten-2" id="basic-addon1"><a><i class="fa fa-search white-text" aria-hidden="true"></i></a></span>-->
-                        <!--                            </div>-->
                     </div>
                     <!-- Grid column -->
                 </div>
@@ -119,18 +115,16 @@
                         <!--Table head-->
                         <!--Table body-->
                         <tbody>
-                        {% for success in successs %}
-<!--                        {% for success_name in success.success_names %}-->
+                        {% for success_list in success_lists %}
                         <tr>
-                            <th scope="row">{{success.success_no}}</th>
-                            <td>{{success.success_no}}</td>
-                            <td>{{success.pace}}/{{success.success_no}}</td>
+                            <th scope="row">{{success_list.success_no}}</th>
+                            <td>{{success_list.success_name.success_name}</td>
+                            <td>{{success_list.pace}/{{success_list.success_name.success_pace}</td>
                             <td>100 Point</td>
                             <td>
                                 <button class="button" type="submit">領取</button>
                             </td>
                         </tr>
-<!--                        {% endfor %}-->
                         {% endfor %}
                         </tbody>
                         <!--Table body-->
@@ -142,8 +136,6 @@
         <hr class="my-4">
 
         <div class="text-center darken-grey-text mb-4">
-            <!--                <h3 class="font-bold mb-3">Here you can find more Tables:</h3>-->
-            <!--                <a class="btn btn-danger" href="https://mdbootstrap.com/content/tables/" target="_blank">Bootstrap Tables</a>-->
         </div>
 
     </div>
@@ -151,7 +143,7 @@
 
 </main>
 
-</body>
+
 <!-- 表格結束-->
 
 
@@ -171,30 +163,3 @@
 </body>
 
 </html>
-
-
-<!--<!DOCTYPE html>-->
-<!--<html lang="en">-->
-<!--<head>-->
-<!--    <meta charset="UTF-8">-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale1.0">-->
-<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
-<!--    <link rel="stylesheet" href="../static/css/style1.css">-->
-<!--    <title>討論室</title>-->
-<!--    <link rel="stylesheet" href="https://ionic.io/ionicons">-->
-<!--</head>-->
-<!--<body>-->
-<!--    <form name="mylogin" action="" class="login" onsubmit="return check(this)"  required>-->
-<!--        <h1>成就</h1>-->
-<!--        &lt;!&ndash; <ion-icon name="person-circle-outline"></ion-icon> &ndash;&gt;-->
-
-<!--        <a href='/'>回到主頁</a><br>-->
-
-
-<!--    </form>-->
-
-<!--</body>-->
-<!--</html>-->
-
-
-<!-- onclick="window.alert('登入成功')" -->

@@ -168,6 +168,7 @@
 
 
 
+
     </style>
 
 </head>
@@ -190,7 +191,7 @@
             {% for message in messages %}
             <div class="alert alert-success">
                 <a class="close" href="#" data-dismiss="alert"></a>
-                {{ message }}
+                {{user_id}}：{{ message }}
             </div>
             {% endfor %}
 
@@ -211,7 +212,7 @@
             <a class="btn popup-btn" style="..." href="#letmeopen">問題列</a>
         </div>
         <div class="wrap">
-<!--            <a class="btn popup-btn" style="..." href="/addqus/{{discussroom.no}}/">新增問題</a>-->
+            <!--            <a class="btn popup-btn" style="..." href="/addqus/{{discussroom.no}}/">新增問題</a>-->
             <a class="btn popup-btn" style="..." href="/addqus/{{discussroom.no}}/">新增問題</a>
         </div>
         <div class="popup-wrap" id="letmeopen">
@@ -232,18 +233,8 @@
                             <blockquote>{{discussroom_ans_list.dis_ans_no}}.&emsp;&emsp;答案：{{discussroom_ans_list.comment}}&emsp;回答者：{{discussroom_ans_list.auser_id}}</blockquote>
                             {% endfor %}
                             <center>
-
-<!--                                <h3>答案：&emsp;&emsp;&thinsp; <input class="text" id="acomment" name="acomment"></h3>-->
-<!--                                <br>-->
-                                <!--                                    <textarea id="{{discussroom_ans_list.question_no_id}}"-->
-                                <!--                                              name="comment"></textarea><br><br>-->
-<!--                                 <a class="btn popup-btn" style="..." href="/addans/{{discussroom_qus_lists.dis_ques_no}}/">回答此題</a>-->
-                                 <a class="btn popup-btn" style="..." href="/addans/{{discussroom_qus_list.dis_ques_no}}">回答此題</a>
-<!--                                <button type="submit" class="btn msger-send-btn" harf="/addans/{{question_no_id.no}}/">-->
-<!--                                    確認-->
-<!--                                </button>-->
-                                <!--                                </from>-->
-
+                                <a class="btn popup-btn" style="..."
+                                   href="/addans/{{discussroom_qus_list.dis_ques_no}}">回答此題</a>
                             </center>
                             <br>
                         </div>
@@ -263,6 +254,7 @@
                                     }
                                 });
                             }
+
 
 
                         </script>
@@ -315,11 +307,6 @@
             }
 
 
-
-
-
-
-
         </script>
         <!--        </form>-->
     </div>
@@ -332,7 +319,7 @@
         class="bi bi-arrow-up-short"></i></a>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="/static/js/popup.js?v=<?=time()?>"></script>
+<script src="/static/js/popup.js"></script>
 <script src="/static/js/chatroommsg.js"></script>
 <!--<script src="/static/js/popup.js"></script>-->
 
@@ -356,479 +343,3 @@
 
 </body>
 </html>
-
-
-<!--******************************* merge 前 *****************-->
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" class="easy-sidebar-active">-->
-<!--<head>-->
-<!--    <meta charset="utf-8">-->
-<!--    <meta content="width=device-width, initial-scale=1.0" name="viewport">-->
-<!--    <meta http-equiv="X-UA-Compatible" content="ie=edge">-->
-
-<!--    <title>做伙來讀冊 - Learn it well</title>-->
-<!--    <meta content="" name="description">-->
-<!--    <meta content="" name="keywords">-->
-
-<!--    &lt;!&ndash; Favicons &ndash;&gt;-->
-<!--    <link href="/static/images/hello.png" rel="icon">-->
-<!--    <link href="/static/images/apple-touch-icon.png" rel="apple-touch-icon">-->
-
-<!--    &lt;!&ndash; Google Fonts &ndash;&gt;-->
-<!--    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i"-->
-<!--          rel="stylesheet">-->
-
-<!--    &lt;!&ndash; Vendor CSS Files &ndash;&gt;-->
-<!--    <link href="/static/vendor/aos/aos.css" rel="stylesheet">-->
-<!--    <link href="/static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
-<!--    <link href="/static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">-->
-<!--    <link href="/static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">-->
-<!--    <link href="/static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">-->
-
-<!--    &lt;!&ndash; Template Main CSS File &ndash;&gt;-->
-<!--    <link href="/static/css/style.css" rel="stylesheet">-->
-
-<!--    <link href="/static/css/inpage.css?v=<?=time()?>" rel="stylesheet">-->
-
-<!--    <style>-->
-<!--        &lt;!&ndash;-->
-<!--        popup&#45;&#45; >-->
-<!--        .wrap {-->
-<!--            text-align: center;-->
-<!--            padding-top: 20%;-->
-<!--        }-->
-
-<!--        .btn {-->
-<!--            background-color: #71c55d;-->
-<!--            text-decoration: none;-->
-<!--            color: #FFF;-->
-<!--            padding: 10px;-->
-<!--            /*width: 5px;*/-->
-<!--            /*height: 20px;*/-->
-<!--            border-radius: 10px;-->
-<!--        }-->
-
-<!--        .popup-wrap {-->
-<!--            width: 100%;-->
-<!--            height: 100%;-->
-<!--            display: none;-->
-<!--            position: fixed;-->
-<!--            top: 0px;-->
-<!--            left: 0px;-->
-<!--            content: '';-->
-<!--            background: rgba(0, 0, 0, 0.85);-->
-<!--        }-->
-
-<!--        .popup-box {-->
-<!--            width: 70%;-->
-<!--            height: 70%;-->
-<!--            padding: 50px 75px;-->
-<!--            transform: translate(-50%, -50%) scale(0.5);-->
-<!--            position: absolute;-->
-<!--            top: 50%;-->
-<!--            left: 50%;-->
-<!--            box-shadow: 0px 2px 16px rgba(0, 0, 0, 0.5);-->
-<!--            border-radius: 3px;-->
-<!--            background: #fff;-->
-<!--            text-align: center;-->
-<!--            overflow: auto;-->
-<!--        }-->
-
-<!--        h2 {-->
-<!--            font-size: 32px;-->
-<!--            color: #1a1a1a;-->
-<!--        }-->
-
-<!--        h3 {-->
-<!--            font-size: 24px;-->
-<!--            color: #888;-->
-<!--        }-->
-
-<!--        .close-btn {-->
-<!--            width: 50px;-->
-<!--            height: 50px;-->
-<!--            display: inline-block;-->
-<!--            position: absolute;-->
-<!--            top: 10px;-->
-<!--            right: 10px;-->
-<!--            border-radius: 100%;-->
-<!--            background: #71c55d;-->
-<!--            font-weight: bold;-->
-<!--            text-decoration: none;-->
-<!--            color: #fff;-->
-<!--            line-height: 40px;-->
-<!--            font-size: 32px;-->
-<!--        }-->
-
-<!--        .transform-in, .transform-out {-->
-<!--            display: block;-->
-<!--            -webkit-transition: all ease 0.5s;-->
-<!--            transition: all ease 0.5s;-->
-<!--        }-->
-
-<!--        .transform-in {-->
-<!--            -webkit-transform: translate(-50%, -50%) scale(1);-->
-<!--            transform: translate(-50%, -50%) scale(1);-->
-<!--        }-->
-
-<!--        .transform-out {-->
-<!--            -webkit-transform: translate(-50%, -50%) scale(1);-->
-<!--            transform: translate(-50%, -50%) scale(1);-->
-<!--        }-->
-
-<!--        /* Style the buttons that are used to open and close the accordion panel */-->
-<!--        .accordion {-->
-<!--            background-color: #eee;-->
-<!--            color: #444;-->
-<!--            cursor: pointer;-->
-<!--            padding: 18px;-->
-<!--            width: 100%;-->
-<!--            text-align: left;-->
-<!--            border: none;-->
-<!--            outline: none;-->
-<!--            transition: 0.4s;-->
-<!--        }-->
-
-<!--        /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */-->
-<!--        .active, .accordion:hover {-->
-<!--            background-color: #ccc;-->
-<!--        }-->
-
-<!--        /* Style the accordion panel. Note: hidden by default */-->
-<!--        .panel {-->
-<!--            padding: 0 18px;-->
-<!--            background-color: white;-->
-<!--            max-height: 0;-->
-<!--            transition: max-height 0.2s ease-out;-->
-<!--            overflow: auto;-->
-<!--        }-->
-
-<!--        .accordion:after {-->
-<!--            content: '\02795'; /* Unicode character for "plus" sign (+) */-->
-<!--            font-size: 13px;-->
-<!--            color: #777;-->
-<!--            float: right;-->
-<!--            margin-left: 5px;-->
-<!--        }-->
-
-<!--        .active:after {-->
-<!--            content: "\2796"; /* Unicode character for "minus" sign (-) */-->
-<!--        }-->
-
-<!--        /*討論室對話視窗*/-->
-<!--        .message {-->
-<!--            height: 700px;-->
-<!--            font-size: 30px;-->
-<!--            /*border: 3px solid #dddddd;*/-->
-<!--            width: 100%;-->
-<!--        }-->
-
-
-<!--    </style>-->
-
-<!--</head>-->
-<!--<body>-->
-<!--&lt;!&ndash;<center>&ndash;&gt;-->
-<!--<section class="msger">-->
-<!--    <header class="msger-header">-->
-<!--        <div class="msger-header-title">-->
-<!--            &lt;!&ndash;            <i class="fas fa-comment-alt"></i>&ndash;&gt;-->
-<!--            <a class="btn button" href="/discusroom/">退出</a>-->
-<!--        </div>-->
-<!--        <center><h3>當前房間名稱：{{discussroom.name}}</h3></center>-->
-<!--        <div class="msger-header-options">-->
-<!--            <span><i class="fas fa-cog"></i></span>-->
-<!--        </div>-->
-<!--    </header>-->
-<!--    &lt;!&ndash;    聊天 block&ndash;&gt;-->
-<!--    <div class="msger-chat">-->
-<!--        <main class="msger-chat">-->
-<!--            {% for message in messages %}-->
-<!--            <div class="alert alert-success">-->
-<!--                <a class="close" href="#" data-dismiss="alert"></a>-->
-<!--                {{ message }}-->
-<!--            </div>-->
-<!--            {% endfor %}-->
-
-<!--            &lt;!&ndash;        <div class="msg left-msg" id="left-msg"></div>&ndash;&gt;-->
-
-<!--            &lt;!&ndash;        <div class="msg right-msg" id="right-msg"></div>&ndash;&gt;-->
-
-<!--            <div class="message" id="message"></div>-->
-<!--        </main>-->
-
-<!--    </div>-->
-<!--    &lt;!&ndash;聊天 block&ndash;&gt;-->
-
-<!--    <div class="msger-inputarea">-->
-<!--        &lt;!&ndash;        <form class="msger-inputarea" action="" method="post">&ndash;&gt;-->
-<!--        {% csrf_token %}-->
-<!--        <div class="wrap">-->
-<!--            <a class="btn popup-btn" style="..." href="#letmeopen">提問</a>-->
-<!--        </div>-->
-<!--        <div class="popup-wrap" id="letmeopen">-->
-<!--            <div class="popup-box transform-out">-->
-<!--                <form action="/inpage/{{discussroom.no}}/" method="post">-->
-<!--        <form class="msger-inputarea" action="" method="post">-->
-<!--            {% csrf_token %}-->
-<!--            <div class="wrap">-->
-<!--                <a class="btn popup-btn" style="..." href="/addans/{{discusroom.no}}">提問</a>-->
-<!--            </div>-->
-<!--            <div class="popup-wrap" id="letmeopen">-->
-<!--                <div class="popup-box transform-out">-->
-<!--                    <h2>提問版</h2>-->
-<!--                    <h3>可以在這裡提出你的問題</h3>-->
-<!--                    <div class="vertical-menu">-->
-<!--                        {% for discussroom_qus_list in discussroom.discussroom_qus_lists %}-->
-<!--                        &lt;!&ndash;                    <div class="accordion" id="accordionExample">&ndash;&gt;-->
-<!--                        <button class="accordion">-->
-<!--                            {{discussroom_qus_list.dis_ques_no}}.&emsp;問題：{{discussroom_qus_list.title}}&emsp;提問者：{{discussroom_qus_list.quser_id}}-->
-<!--                        </button>-->
-<!--                        <div class="panel" align="left"><br>-->
-<!--                            其他人的回答：-->
-<!--                            {% for discussroom_ans_list in discussroom_qus_list.discussroom_ans_lists %}-->
-<!--                            <blockquote>{{discussroom_ans_list.dis_ans_no}}.&emsp;{{discussroom_ans_list.comment}}&emsp;回答者：{{discussroom_ans_list.auser_id}}</blockquote>-->
-<!--                            {% endfor %}-->
-<!--                            <center>-->
-<!--                                {% csrf_token %}<br>-->
-<!--                                &lt;!&ndash;                                <from action="" method="post">&ndash;&gt;-->
-<!--                                &lt;!&ndash;                                    答案：&ndash;&gt;-->
-<!--                                &lt;!&ndash;                                    <input name="discussroom_ans_list.question_no_id"&ndash;&gt;-->
-<!--                                &lt;!&ndash;                                           value="{{discussroom_ans_list.question_no_id}}">&ndash;&gt;-->
-<!--                                &lt;!&ndash;                                    hidden&ndash;&gt;-->
-<!--                                <h3>問題編號：&emsp;&emsp;&thinsp; <input class="text"-->
-<!--                                                                     id="question_no_id"-->
-<!--                                                                     name="question_no_id"-->
-<!--                                                                     value="{{discussroom_qus_list.dis_ques_no}}"-->
-<!--                                                                     required="required" disabled></h3>-->
-<!--                                <br>-->
-
-<!--                                <h3>答案：&emsp;&emsp;&thinsp; <input class="text" id="acomment" name="acomment"></h3>-->
-<!--                                <br>-->
-<!--                                &lt;!&ndash;                                    <textarea id="{{discussroom_ans_list.question_no_id}}"&ndash;&gt;-->
-<!--                                &lt;!&ndash;                                              name="comment"></textarea><br><br>&ndash;&gt;-->
-<!--                                <button type="submit" class="btn msger-send-btn">-->
-<!--                                    確認-->
-<!--                                </button>-->
-<!--                                &lt;!&ndash;                                </from>&ndash;&gt;-->
-
-<!--                            </center>-->
-<!--                            <br>-->
-<!--                        </div>-->
-<!--                        {% endfor %}-->
-<!--                        <script>-->
-<!--                            var acc = document.getElementsByClassName("accordion");-->
-<!--                            var i;-->
-
-<!--                            for (i = 0; i < acc.length; i++) {-->
-<!--                                acc[i].addEventListener("click", function () {-->
-<!--                                    this.classList.toggle("active");-->
-<!--                                    var panel = this.nextElementSibling;-->
-<!--                                    if (panel.style.maxHeight) {-->
-<!--                                        panel.style.maxHeight = null;-->
-<!--                                    } else {-->
-<!--                                        panel.style.maxHeight = panel.scrollHeight + "px";-->
-<!--                                    }-->
-<!--                                });-->
-<!--                            }-->
-
-
-<!--                        </script>-->
-<!--                        <a class="close-btn popup-close" href="#">x</a>-->
-<!--&lt;!&ndash;                        <div class="wrap">&ndash;&gt;-->
-<!--&lt;!&ndash;                            <a class="btn popup-btn" href="#letmeopen1">新增問題</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                        </div>&ndash;&gt;-->
-<!--                    </div>-->
-<!--                </form>-->
-<!--                        <div class="wrap">-->
-<!--                            <a class="btn popup-btn" href="addqus/{{discussroom.no}}">新增問題</a>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-<!--                &lt;!&ndash;                <a class="close-btn popup-close" href="#">x</a>&ndash;&gt;-->
-<!--                &lt;!&ndash;                <div class="wrap">&ndash;&gt;-->
-<!--                &lt;!&ndash;                    <a class="btn popup-btn" href="#letmeopen1">新增問題</a>&ndash;&gt;-->
-<!--                &lt;!&ndash;                </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                <div class="popup-wrap" id="letmeopen1">&ndash;&gt;-->
-<!--&lt;!&ndash;                    <div class="btn popup-box transform-out">&ndash;&gt;-->
-<!--&lt;!&ndash;                        <form action="" method="post">&ndash;&gt;-->
-
-<!--&lt;!&ndash;                            {% csrf_token %}&ndash;&gt;-->
-<!--&lt;!&ndash;                            &lt;!&ndash;                        <form action="" method="post">&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;                            {% for message in messages %}&ndash;&gt;-->
-<!--&lt;!&ndash;                            <div class="alert alert-success">&ndash;&gt;-->
-<!--&lt;!&ndash;                                <a class="close" href="#" data-dismiss="alert"></a>&ndash;&gt;-->
-<!--&lt;!&ndash;                                {{ message }}&ndash;&gt;-->
-<!--&lt;!&ndash;                            </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                            {% endfor %}&ndash;&gt;-->
-
-<!--&lt;!&ndash;                            <h2>新增問題</h2><br>&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;                            <h3>房間編號<input type="text" id="discussroom_no_id" name="discussroom_no_id" required="required">&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;                            </h3><br>&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;                            &lt;!&ndash;                            <h3>問題編號<input type="text" id="question_no_id" name="question_no_id"></h3>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;                            &lt;!&ndash;                            <br>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;                            <h3>問問題人<input type="text" id="quser_id" name="quser_id" required="required"></h3><br>&ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;&lt;!&ndash;                            <h3>問題<input id="title" name="title" required="required"><br></h3><br>&ndash;&gt;&ndash;&gt;-->
-
-<!--&lt;!&ndash;                            <h3>房間編號<input class="text" id="discussroom_no_id" name="discussroom_no_id"&ndash;&gt;-->
-<!--&lt;!&ndash;                                           value="{{discussroom.no}}" required="required"></h3><br>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <h3>問問題人<input class="text" id="quser_id" name="quser_id" required="required"></h3><br>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <h3>問題<input class="text" id="qtitle" name="qtitle" required="required"></h3><br>&ndash;&gt;-->
-
-<!--&lt;!&ndash;                            <button type="submit" class="btn msger-send-btn">&ndash;&gt;-->
-<!--&lt;!&ndash;                                確認&ndash;&gt;-->
-<!--&lt;!&ndash;                            </button>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <a class="close-btn popup-close" href="#">x</a>&ndash;&gt;-->
-<!--&lt;!&ndash;                        </form>&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--&lt;!&ndash;                </div>&ndash;&gt;-->
-<!--                &lt;!&ndash;            </div>&ndash;&gt;-->
-<!--            </div>-->
-
-<!--            &lt;!&ndash;                <a class="close-btn popup-close" href="#">x</a>&ndash;&gt;-->
-<!--            &lt;!&ndash;                <div class="wrap">&ndash;&gt;-->
-<!--            &lt;!&ndash;                    <a class="btn popup-btn" href="#letmeopen1">新增問題</a>&ndash;&gt;-->
-<!--            &lt;!&ndash;                </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                <div class="popup-wrap" id="letmeopen1">&ndash;&gt;-->
-<!--            &lt;!&ndash;                    <div class="btn popup-box transform-out">&ndash;&gt;-->
-<!--            &lt;!&ndash;                        <form action="/inpage/{{discussroom.no}}/" method="post" class="btn form-control">&ndash;&gt;-->
-<!--            &lt;!&ndash;                            {% csrf_token %}&ndash;&gt;-->
-<!--            &lt;!&ndash;                            &lt;!&ndash;                            {% for message in messages %}&ndash;&gt;&ndash;&gt;-->
-<!--            &lt;!&ndash;                            &lt;!&ndash;                            <div class="alert alert-success">&ndash;&gt;&ndash;&gt;-->
-<!--            &lt;!&ndash;                            &lt;!&ndash;                                <a class="close" href="#" data-dismiss="alert"></a>&ndash;&gt;&ndash;&gt;-->
-<!--            &lt;!&ndash;                            &lt;!&ndash;                                {{ message }}&ndash;&gt;&ndash;&gt;-->
-<!--            &lt;!&ndash;                            &lt;!&ndash;                            </div>&ndash;&gt;&ndash;&gt;-->
-<!--            &lt;!&ndash;                            &lt;!&ndash;                            {% endfor %}&ndash;&gt;&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <div class="row mb-3">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <div class="col-sm-3">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <h6 class="mb-0">房間編號</h6>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <div class="col-sm-9 text-secondary">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <input type="text" class="form-control" name="discussroom_no_id"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                           id="discussroom_no_id" disabled="disabled"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                           value={{ discussroom.no }} required>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <div class="row mb-3">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <div class="col-sm-3">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <h6 class="mb-0">問題</h6>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <div class="col-sm-9 text-secondary">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    <input type="text" class="form-control" name="qtitle" id="qtitle" required>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <button type="submit" class="btn form-control">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                確認&ndash;&gt;-->
-<!--            &lt;!&ndash;                            </button>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <a class="close-btn popup-close" href="#">x</a>&ndash;&gt;-->
-<!--            &lt;!&ndash;                        </form>&ndash;&gt;-->
-<!--            &lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                </div>&ndash;&gt;-->
-
-<!--            &lt;!&ndash;                            <h2>新增問題</h2><br>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            &lt;!&ndash;                            <h3>房間編號<input type="text" id="discussroom_no_id" name="discussroom_no_id" required="required">&ndash;&gt;&ndash;&gt;-->
-<!--            &lt;!&ndash;                            &lt;!&ndash;                            </h3><br>&ndash;&gt;&ndash;&gt;-->
-<!--            &lt;!&ndash;                            &lt;!&ndash;                            &lt;!&ndash;                            <h3>問題編號<input type="text" id="question_no_id" name="question_no_id"></h3>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
-<!--            &lt;!&ndash;                            &lt;!&ndash;                            &lt;!&ndash;                            <br>&ndash;&gt;&ndash;&gt;&ndash;&gt;-->
-<!--            &lt;!&ndash;                            &lt;!&ndash;                            <h3>問問題人<input type="text" id="quser_id" name="quser_id" required="required"></h3><br>&ndash;&gt;&ndash;&gt;-->
-<!--            &lt;!&ndash;                            &lt;!&ndash;                            <h3>問題<input id="title" name="title" required="required"><br></h3><br>&ndash;&gt;&ndash;&gt;-->
-
-<!--            &lt;!&ndash;                            <h3>房間編號： <input class="form-control" disabled="disabled" id="discussroom_no_id"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                             name="discussroom_no_id"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                             value="{{discussroom.no}}" required="required"></h3><br>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            &lt;!&ndash;                            <h3>問問題人： <input class="text" id="quser_id" name="quser_id" required="required"></h3><br>&ndash;&gt;&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <h3>問題： <input class="form-control" id="qtitle" name="qtitle" required="required"></h3><br>&ndash;&gt;-->
-
-<!--            &lt;!&ndash;                            <button type="submit" class="btn msger-send-btn">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                確認&ndash;&gt;-->
-<!--            &lt;!&ndash;                            </button>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <div class="col-sm-9 text-secondary">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                                    <input type="text" class="form-control" name="name" id="name"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                                           value={{ user.name }} required>&ndash;&gt;-->
-<!--            &lt;!&ndash;                                                </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <button class="btn btn-primary" type="submit"&ndash;&gt;-->
-<!--            &lt;!&ndash;                                    style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                確認&ndash;&gt;-->
-<!--            &lt;!&ndash;                            </button>&ndash;&gt;-->
-<!--            &lt;!&ndash;                            <div class="col-sm-9 text-secondary">&ndash;&gt;-->
-<!--            &lt;!&ndash;                                <input class="btn btn-primary px-4" type="submit" value="確認">&ndash;&gt;-->
-<!--            &lt;!&ndash;                            </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;            </div>&ndash;&gt;-->
-<!--        </div>-->
-
-<!--        <br>-->
-<!--        <input type="text" class="msger-input" placeholder="說些什麼吧～" id="txt"></imput>-->
-<!--        <button type="submit" class="btn msger-send-btn" onclick="sendMessage()">-->
-<!--            發送訊息-->
-<!--        </button>-->
-<!--        <script>-->
-<!--            // var socket = new WebSocket("ws://127.0.0.1:9000/ws/{{ group }}/");-->
-<!--            socket = new WebSocket("ws://127.0.0.1:9000/room/{{discussroom.no}}/");-->
-
-<!--            //創建好後自動觸發-->
-<!--            socket.onopen = function (event) {-->
-<!--                let tag = document.createElement("div");-->
-<!--                tag.innerText = "[ 已加入討論室，開始聊天吧! ]";-->
-<!--                document.getElementById("message").appendChild(tag);-->
-<!--            }-->
-
-<!--            // 當websocket接收到服務端的消息，會自動觸發-->
-<!--            socket.onmessage = function (event) {-->
-<!--                let tag = document.createElement("div");-->
-<!--                tag.innerText = event.data;-->
-<!--                document.getElementById("message").appendChild(tag);-->
-<!--            }-->
-
-<!--            //服務端主動斷開時，觸發的方法-->
-<!--            socket.onclose = function (event) {-->
-<!--                let tag = document.createElement("div");-->
-<!--                tag.innerText = "[ 離開討論室中... ]";-->
-<!--                document.getElementById("message").appendChild(tag);-->
-<!--            };-->
-
-<!--            function sendMessage() {-->
-<!--                let tag = document.getElementById("txt");-->
-<!--                socket.send(tag.value);-->
-<!--            }-->
-
-<!--            function closeConn() {-->
-<!--                socket.close(); //向服務端發送端開連結的請求(客戶端主動斷開連接)-->
-<!--            }-->
-
-
-<!--        </script>-->
-<!--        &lt;!&ndash;        </form>&ndash;&gt;-->
-<!--    </div>-->
-<!--</section>-->
-
-<!--&lt;!&ndash;</center>&ndash;&gt;-->
-<!--</body>-->
-
-<!--<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i-->
-<!--        class="bi bi-arrow-up-short"></i></a>-->
-
-<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>-->
-<!--<script src="/static/js/chatroommsg.js"></script>-->
-<!--<script src="/static/js/popup.js"></script>-->
-
-
-<!--&lt;!&ndash;<script src="/static/js/webChat.js?v=<?=time()?>"></script>&ndash;&gt;-->
-<!--&lt;!&ndash; Vendor JS Files &ndash;&gt;-->
-
-<!--<script src='https://use.fontawesome.com/releases/v5.0.13/js/all.js'></script>-->
-<!--<script src="/static/vendor/aos/aos.js"></script>-->
-<!--<script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>-->
-<!--<script src="/static/vendor/glightbox/js/glightbox.min.js"></script>-->
-<!--<script src="/static/vendor/swiper/swiper-bundle.min.js"></script>-->
-<!--<script src="/static/vendor/php-email-form/validate.js"></script>-->
-<!--&lt;!&ndash; SweetAlert &ndash;&gt;-->
-<!--<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>-->
-<!--<sript src="/static/js/sweetalert.js>"></sript>-->
-
-<!--&lt;!&ndash; Template Main JS File &ndash;&gt;-->
-<!--&lt;!&ndash;<script src="/static/vendor/jquery/jquery.min.js"></script>&ndash;&gt;-->
-<!--&lt;!&ndash;<script src="/static/js/main.js"></script>&ndash;&gt;-->
-
-<!--</body>-->
-<!--</html>-->

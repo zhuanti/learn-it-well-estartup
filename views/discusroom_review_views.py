@@ -40,14 +40,16 @@ def addans(request, pk):
             return ret
 
     if request.method == 'GET':
-        user_id = request.COOKIES['user_id']
+        user_id = request.COOKIES['user_id'],
         r = requests.get(
             f'{root}/getqus/{pk}',
+            params={'user_id': user_id},
             cookies={'sessionid': request.COOKIES['sessionid']}
         )
         result = r.json()
         discussroom_qus = result['data']
         return render(request, 'addans.html', {'discussroom_qus': discussroom_qus})
+
 
 # 新增問題
 @user_login_required
@@ -89,6 +91,7 @@ def addqus(request, pk):
         result = r.json()
         discussroom = result['data']
         return render(request, 'addqus.html', {'discussroom': discussroom})
+
 
 @user_login_required
 def droom(request):
@@ -149,64 +152,6 @@ def search(request):
 
 @user_login_required
 def inpage(request, pk):
-    # if request.method == 'POST':
-    #     # 新增問題
-    #     # discussroom_no_id = request.POST['discussroom_no_id']
-    #     # datetime = request.POST['datetime']
-    #
-    #     # 新增問題目前需要的
-    #     # title = request.POST['qtitle']
-    #     # quser_id = request.COOKIES['user_id']
-    #
-    #     # 新增回答
-    #
-    #
-    #     # 新增回答目前需要的
-    #     question_no_id = request.POST['question_no_id']
-    #     auser_id = request.COOKIES['user_id']
-    #     comment = request.POST['acomment']
-    #
-    #
-    #
-    #     data = {
-    #         # 新增問題
-    #         # 'no': no,
-    #         # 'discussroom_no_id': discussroom_no_id,
-    #
-    #         # 新增問題目前需要的
-    #         # 'title': title,
-    #         # 'quser_id': quser_id,
-    #         # 'datetime': "",
-    #
-    #         # 新增回答目前需要的
-    #         # 'question_no_id': question_no_id,
-    #         'auser_id': auser_id,
-    #         'comment': comment,
-    #         'datetime': "",
-    #     }
-    #
-    #     # r = requests.post(
-    #     #     f'{root}/qus/{pk}',
-    #     #     data=data,
-    #     #     cookies={'sessionid': request.COOKIES['sessionid']}
-    #     # )
-    #     r = requests.post(
-    #         f'{root}/ans/{question_no_id}',
-    #         data=data,
-    #         cookies={'sessionid': request.COOKIES['sessionid']}
-    #     )
-    #
-    #     result = r.json()
-    #
-    #     if result['success'] is True:
-    #         ret = redirect(f'/inpage/{pk}')
-    #         messages.success(request, '已新增問題成功')
-    #         return ret
-    #     else:
-    #         messages.error(request, '新增問題失敗')
-    #         return redirect(f'/inpage/{pk}')
-    #         return ret
-
     if request.method == 'GET':
         r = requests.get(
             f'{root}/get/{pk}',
@@ -215,6 +160,17 @@ def inpage(request, pk):
         result = r.json()
         discussroom = result['data']
         return render(request, 'inpage.html', {'discussroom': discussroom})
+    elif request.method == 'GET':
+        user_id = request.COOKIES['user_id']
+        r = requests.get(
+            f'{root}user/detail/',
+            params={'user_id': user_id},
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
+        user = result['data']
+        return render(request, 'inpage.html', {'user': user})
+
 
 # 提問寫入
 @user_login_required
