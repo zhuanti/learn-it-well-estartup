@@ -39,7 +39,7 @@
 </head>
 
 <body>
-
+<!--多人自習室-->
 <!-- HTML -->
 <div class="banner">
     <div class="sidebar-contact">
@@ -195,12 +195,6 @@
             <button onclick="closeDialog2()" class="dialoginsidebtn">關閉</button>
         </dialog>
     </div>
-    <!--    <div>-->
-    <!--        <dialog id="todoDialog" class="dialog">   &lt;!&ndash;待辦事項&ndash;&gt;-->
-    <!--            待辦事項-->
-    <!--            <button onclick="closeDialog3()" class="dialoginsidebtn">關閉</button>-->
-    <!--        </dialog>-->
-    <!--    </div>-->
     <div>
         <progress id="js-progress" value="0"></progress>
         <div class="progress-bar"></div>
@@ -242,8 +236,6 @@
 
             <div class="hidden">
                 <audio src="/static/music/softtimeout.wav" data-sound="pomodoro"></audio>
-                <!--                <audio src="/static/music/break.mp3" data-sound="shortBreak"></audio>-->
-                <!--                <audio src="/static/music/break.mp3" data-sound="longBreak"></audio>-->
             </div>
             <script type="text/javascript">
                 //讀書時間(pomodore)為 25 分鐘，短暫的休息時間(shortBreak)為 5 分鐘。連續四次番茄工作後，將啟動長時間的休息(longBreak)（15 分鐘）
@@ -417,49 +409,6 @@
             </script>
         </dialog>
     </div>
-    <!--            <div>-->
-    <!--                <center>-->
-    <!--                    <div class="mode">讀書時長倒數計時:</div>-->
-
-    <!--                    <div class="clock">25:00</div>-->
-
-    <!--                    <div class="controls">-->
-    <!--                        <center>-->
-    <!--                            <div class="labels">-->
-    <!--                                <div class="label-break">休息</div>-->
-    <!--                                <div class="label-session">讀書</div>-->
-    <!--                            </div>-->
-
-    <!--                            <div class="setting break">-->
-    <!--                                <i class="bi bi-caret-left-fill break-down"></i>-->
-    <!--                                &lt;!&ndash;                        <i class="fa fa-caret-left break-down"></i>&ndash;&gt;-->
-    <!--                                <div class="break-time"></div>-->
-    <!--                                &lt;!&ndash;                        <i class="fa fa-caret-right break-up"></i>&ndash;&gt;-->
-    <!--                                <i class="bi bi-caret-right-fill break-up"></i>-->
-    <!--                            </div>-->
-
-    <!--                            <div class="setting session">-->
-    <!--                                <i class="bi bi-caret-left-fill session-down"></i>-->
-    <!--                                &lt;!&ndash;                        <i class="fa fa-caret-left session-down"></i>&ndash;&gt;-->
-    <!--                                <div class="session-time"></div>-->
-    <!--                                &lt;!&ndash;                        <i class="fa fa-caret-right session-up"></i>&ndash;&gt;-->
-    <!--                                <i class="bi bi-caret-right-fill session-up"></i>-->
-    <!--                            </div>-->
-    <!--                        </center>-->
-
-
-    <!--                    </div>-->
-    <!--                    <button class="pause">開始計時</button>-->
-    <!--                </center>-->
-    <!--            </div>-->
-    <!--            <button onclick="closeDialog1()" class="dialoginsidebtn">關閉</button>-->
-    <!--    <div>-->
-    <!--        <dialog id="soulDialog" class="dialog">   &lt;!&ndash;每日一句&ndash;&gt;-->
-    <!--            每日一句-->
-    <!--            <button onclick="closeDialog()" class="dialoginsidebtn">關閉</button>-->
-    <!--        </dialog>-->
-    <!--    </div>-->
-
     <div id="radius">
         <div class="btnI1">            <!-- 貼上圖示的程式碼 返回主頁-->
             <button class="ctrlbutton" onclick="window.location.href='/'"><i class="bi bi-house-door-fill"></i></button>
@@ -512,37 +461,6 @@
 
             </script>
         </div>
-        <!--        <div class="btnI1">            &lt;!&ndash; 貼上圖示的程式碼 待辦清單&ndash;&gt;-->
-        <!--            <button class="ctrlbutton" onclick="showDialog3()"><i class="bi bi-list-ul"></i></button>-->
-        <!--            <script>-->
-        <!--                var w = document.getElementById("todoDialog");-->
-        <!--                function showDialog3() {-->
-        <!--                w.show();-->
-        <!--                }-->
-
-        <!--                function closeDialog3() {-->
-        <!--                w.close();-->
-        <!--                }-->
-
-
-        <!--            </script>-->
-
-        <!--        </div>-->
-        <!--        <div class="btnI1">            &lt;!&ndash; 貼上圖示的程式碼 每日一句&ndash;&gt;-->
-        <!--            <button class="ctrlbutton" onclick="showDialog()"><i class="bi bi-moon-stars-fill"></i></button>-->
-        <!--            <script>-->
-        <!--                var x = document.getElementById("soulDialog");-->
-        <!--                function showDialog() {-->
-        <!--                x.show();-->
-        <!--                }-->
-
-        <!--                function closeDialog() {-->
-        <!--                x.close();-->
-        <!--                }-->
-
-
-        <!--            </script>-->
-        <!--        </div>-->
         <div class="btnI1">
             <button class="ctrlbutton" onclick="openFullscreen();"><i class="bi bi-arrows-fullscreen"></i></button>
             <script>
@@ -604,18 +522,6 @@
 
         </script>
     </div>
-    <!--    <div id="clock" class="light">-->
-    <!--        <div class="display">-->
-    <!--            <div class="weekdays"></div>-->
-    <!--            <div class="ampm"></div>-->
-    <!--            <div class="alarm"></div>-->
-    <!--            <div class="digits"></div>-->
-    <!--        </div>-->
-    <!--    </div>-->
-
-    <!--    <div class="button-holder">-->
-    <!--        <a class="button">Switch Theme</a>-->
-    <!--    </div>-->
 </div>
 </body>
 </html>

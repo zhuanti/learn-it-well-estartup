@@ -65,18 +65,16 @@ urlpatterns = [
 
     # views (other)
     # studyroom
-    path('studyroom/', views.sroom),
-    # path('studyroom-self/', settime_review_views.get_selfall_reviews),
-    path('studyroom-self/', views.Sroom_self),
-    # path('studyroom-self/', views.SroomSelf),
-    path('studyroom-together/', views.Sroomtogether),
-    path('studyroom-togethersub/<int:pk>/', subject_review_views.get_togall_reviews),
+    path('studyroom/', views.sroom),  # 自習室個人或多人選擇
+    path('studyroom-self/', views.Sroom_self),  # 個人自習室填寫讀書資訊
+    path('studyroom-together/', views.Sroomtogether),  # 多人自習室列表
+    path('studyroom-togethersub/<int:pk>/', subject_review_views.get_togall_reviews),  # 多人自習室填寫讀書資訊
     path('studyroom/Sserch/', views.Sserch),
 
     # path('studyroom-together/', views.Sserch),
     # path('Sroominpage/', views.Sroominpage),
-    path('Sroominpage/<int:pk>/', views.Sroominpage),
-    path('Sroominpage-self/', report_review_views.get_reviews_insideshow),
+    path('Sroominpage/<int:pk>/', views.Sroominpage),  # 多人自習室內部
+    path('Sroominpage-self/', report_review_views.get_reviews_insideshow),  # 個人自習室內部
 
     path('developer/', views.developer),
     path('PrivacyPolicies/', views.PrivacyPolicies),

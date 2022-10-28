@@ -91,6 +91,7 @@ def EditUserDetail(request):
 
     # return render(request, 'UserDetail.html', {'message': result['message']})
 
+# 自習室個人或多人選擇
 @user_login_required
 def sroom(request):
     return render(request, 'StudyRoom.html')
@@ -175,7 +176,7 @@ def SroomSelf(request):
     return render(request, 'Sroom-self.html')
 
 
-# 自習室列表
+# 多人自習室列表
 @user_login_required
 def Sroomtogether(request):
     r = requests.get(
@@ -238,10 +239,8 @@ def PrivacyPolicies(request):
 def developer(request):
     return render(request, 'developer.html')
 
-
+#多人自習室內部
 @user_login_required
-# def Sroominpage(request):
-#     return render(request, 'Sroominpage.html')
 def Sroominpage(request, pk):
     user_id = request.COOKIES['user_id'],
     r = requests.get(
@@ -258,14 +257,9 @@ def Sroominpage(request, pk):
         messages.error(request, '查無此房間')
         return redirect('/studyroom-together/')
         return ret
-        #
-        # message = result['message']
-        # return render(request, 'Sroom-together.html', {'message': message})
-
-    # return render(request, 'Sroominpage.html')
 
 
-# 個人自習室填寫科目資料
+# 個人自習室填寫讀書資訊
 @user_login_required
 def Sroom_self(request):
     if request.method == 'POST':

@@ -91,7 +91,7 @@
 </header><!-- End Header -->
 
 <main id="main">
-
+<!--個人自習室讀書資訊填寫-->
     <!-- ======= Breadcrumbs ======= -->
     <section id="contact" class="padd-section">
 
@@ -99,11 +99,9 @@
             <div class="section-title text-center">
                 <br><br>
                 <h2>個人自習室</h2>
-                <!--          <p class="separator">請於下方登入</p>-->
             </div>
 
             <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
-                <!--                {% csrf_token %}-->
                 <div class="col-lg-3 col-md-4">
 
                     <div class="info">
@@ -127,25 +125,16 @@
 
                 <div class="col-lg-5 col-md-8">
                     <div class="form">
-<!--                        <form action="/forms/contact.php" method="post" role="form" class="php-email-form">-->
                         <form action="/studyroom-self/" method="post">
                             {% csrf_token %}
                             <div class="form-group">
                                 <select class="form-control" name="subject_no_id" id="subject_no_id">
-                                        <!--value={{ report.subject_no_id }}-->
                                     <option disabled="true" selected>--請選擇要讀的科目--</option>
                                     {% for sub_list in inform.sub_lists %}
                                     <option value="{{sub_list.sub_no}}" id="op_subject_no_id" name="op_subject_no_id">
                                         {{sub_list.sub_name}}
                                     </option>
                                     {% endfor%}
-                                    <!--                                    <option value="1">國文</option>-->
-                                    <!--                                    <option value="2">英文</option>-->
-                                    <!--                                    <option value="3">數學</option>-->
-                                    <!--                                    <option value="4">社會</option>-->
-                                    <!--                                    <option value="5">地理</option>-->
-                                    <!--                                    <option value="6">歷史</option>-->
-                                    <!--                                    <option value="7">公民</option>-->
                                 </select>
                             </div>
                             <br>
@@ -154,16 +143,11 @@
                                 <input type="text" name="subject_detail" class="form-control" id="subject_detail"
                                        placeholder="請輸入科目詳細資訊"
                                        required="required">
-<!--                                value={{ report.subject_detail }}-->
                             </div>
                             <br>
                             <br>
                             <div class="form-group">
-                                <!--                                <div class="form-group">-->
-                                <!--                                    <input type="text" name="set_time_no" id="set_time_no" class="form-control" placeholder="預計讀書時長(請以分鐘為單位填寫 1小時=60分鐘)" required="required"/>-->
-                                <!--                                </div>-->
                                 <select class="form-control" name="settime_no_id" id="settime_no_id">
-<!--                                    value={{ report.set_time_id }}-->
                                     <option disabled="true" selected>--請選擇預計讀書時長(1小時=60分鐘)--</option>
 
                                     {% for set_list in inform.set_lists %}
@@ -171,43 +155,10 @@
                                         {{set_list.set_time}}分鐘
                                     </option>
                                     {% endfor%}
-                                    <!--                                    <option value="5">5分鐘</option>-->
-                                    <!--                                    <option value="10">10分鐘</option>-->
-                                    <!--                                    <option value="15">15分鐘</option>-->
-                                    <!--                                    <option value="20">20分鐘</option>-->
-                                    <!--                                    <option value="25">25分鐘</option>-->
-                                    <!--                                    <option value="30">30分鐘</option>-->
-                                    <!--                                    <option value="35">35分鐘</option>-->
-                                    <!--                                    <option value="40">40分鐘</option>-->
-                                    <!--                                    <option value="45">45分鐘</option>-->
-                                    <!--                                    <option value="50">50分鐘</option>-->
-                                    <!--                                    <option value="60">1小時</option>-->
-                                    <!--                                    <option value="70">1小時10分鐘</option>-->
-                                    <!--                                    <option value="80">1小時20分鐘</option>-->
-                                    <!--                                    <option value="90">1小時30分鐘</option>-->
-                                    <!--                                    <option value="100">1小時40分鐘</option>-->
-                                    <!--                                    <option value="110">1小時50分鐘</option>-->
-                                    <!--                                    <option value="120">2小時</option>-->
                                 </select>
                             </div>
-                            <!--                            <div class="form-group mt-3">-->
-                            <!--                                <input type="time" class="form-control" name="time" id="time" placeholder="請輸入時間"-->
-                            <!--                                       required>-->
-                            <!--                            </div>-->
-<!--                            <div class="my-3">-->
-<!--                                <div class="loading">Loading</div>-->
-<!--                                <div class="error-message"></div>-->
-<!--                                <div class="sent-message">Your message has been sent. Thank you!</div>-->
-<!--                            </div>-->
                             <br>
                             <div class="btn-get-started scrollto">
-                                <!--                                <form action="/inpage/">-->
-                                <!--                                    <button type="submit">確認</button>-->
-                                <!--                                </form>-->
-                                <!--                                <a class="link_button" href="" type="color:#71c55d">確認</a>-->
-
-<!--                                <a class="btn link_button" style="margin: auto; width: 120px;" href="/Sroominpage-self/"-->
-<!--                                   type="color:#71c55d">確認</a>-->
                                 <button type="submit" class="btn msger-send-btn">
                                     確認
                                 </button>

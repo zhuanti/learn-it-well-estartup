@@ -42,8 +42,6 @@ def report(request):
 
 @user_login_required
 def addroom(request):
-
-
     if request.method == 'GET':
         r = requests.get(
             f'{root}/addsub/',
@@ -52,91 +50,8 @@ def addroom(request):
         result = r.json()
         subjects = result['data']
         return render(request, 'Sroominpage-self.html', {'subjects': subjects})
-    # if request.method == 'GET':
-    #     return render(request, 'Sroom-self.html')
-    #
-    #     # no = request.POST['no']
-    #     classroom_type_no_id = request.POST[2]
-    #     subject_no_id = request.POST['subject_no_id']
-    #     set_time_id = request.POST['set_time_id']
-    #     subject_detail = request.POST['subject_detail']
-    #     data = {
-    #         # 'no': no,
-    #         'user_id': request.COOKIES['user_id'],
-    #         'classroom_type_no_id': classroom_type_no_id,
-    #         'subject_no_id': subject_no_id,
-    #         'set_time_id': set_time_id,
-    #         'subject_detail': subject_detail,
-    #     }
-    # r = requests.post(
-    #     f'{root}/addsub/',
-    #     data=data,
-    # )
-    # result = r.json()
-    # return render(request, 'Sroominpage-self.html', {'message': result['message']})
 
-
-# @user_login_required
-# def addroom(request):
-#     user_id = request.COOKIES['user_id'],
-#     r = requests.get(
-#         f'{root}/addsub/',
-#         params={'user_id': user_id},
-#         cookies={'sessionid': request.COOKIES['sessionid']}
-#     )
-#     if request.method == 'POST':
-#         # no = request.POST['no']
-#         classroom_type_no_id = request.POST[2]
-#         subject_no_id = request.POST['subject_no_id']
-#         set_time_id = request.POST['set_time_id']
-#         subject_detail = request.POST['subject_detail']
-#
-#         data = {
-#             # 'no': no,
-#             'user_id': request.COOKIES['user_id'],
-#             'classroom_type_no_id': classroom_type_no_id,
-#             'subject_no_id': subject_no_id,
-#             'set_time_id': set_time_id,
-#             'subject_detail': subject_detail,
-#         }
-#
-#         r = request.post(
-#             f'{root}/addsub/',
-#             data=data,
-#             cookies={'sessionid': request.COOKIES['sessionid']}
-#         )
-#         result = r.json()
-#         if result['success'] is True:
-#             ret = redirect('/Sroominpage-self')
-#             messages.success(request, '新增成功')
-#             return ret
-#         else:
-#             messages.error(request, '新增失敗')
-#             return redirect('/studyroom-self')
-#             return ret
-#
-#     if request.method == 'GET':
-#         r = requests.get(
-#             f'{root}/inside/',
-#             cookies={'sessionid': request.COOKIES['sessionid']}
-#         )
-#         result = r.json()
-#         informations = result['data']
-#         return render(request, 'Sroominpage-self.html', {'informations': informations})
-
-# 顯示個人資料
-# @user_login_required
-# def Udetail(request):
-#     user_id = request.COOKIES['user_id'],
-#     r = requests.get(
-#         f'{root}user/detail/',
-#         params={'user_id': user_id},
-#         # 'user_id': request.COOKIES['user_id'],
-#         cookies={'sessionid': request.COOKIES['sessionid']}
-#     )
-#     result = r.json()
-#     user = result['data']
-#     return render(request, 'UserDetail.html', {'user': user})
+# 個人自習室內部
 @user_login_required
 def get_reviews_insideshow(request):
     user_id = request.COOKIES['user_id'],

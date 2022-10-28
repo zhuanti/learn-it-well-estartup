@@ -7,17 +7,7 @@ from utils.decorators import user_login_required
 root += 'subject'
 
 
-@user_login_required
-def get_selfall_reviews(request):
-    if request.method == 'GET':
-        r = requests.get(
-            f'{root}/selfall/',
-            cookies={'sessionid': request.COOKIES['sessionid']}
-        )
-        result = r.json()
-        subjects = result['data']
-        return render(request, 'Sroom-self.html', {'subjects': subjects})
-
+# 多人讀書資料填寫(抓科目時間、以及房間，新增填寫資料)
 @user_login_required
 def get_togall_reviews(request, pk):
     if request.method == 'GET':

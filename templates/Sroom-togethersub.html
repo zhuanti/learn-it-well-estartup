@@ -93,7 +93,7 @@
 </header><!-- End Header -->
 
 <main id="main">
-
+<!--多人自習室讀書資訊填寫-->
     <!-- ======= Breadcrumbs ======= -->
     <section id="contact" class="padd-section">
 
@@ -101,7 +101,6 @@
             <div class="section-title text-center">
                 <br><br>
                 <h2>多人自習室-{{studyroom.study_name}}</h2>
-                <!--          <p class="separator">請於下方登入</p>-->
             </div>
 
             <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
@@ -140,14 +139,6 @@
                                         {{sub_list.sub_name}}
                                     </option>
                                     {% endfor%}
-
-                                    <!--                                    <option value="1">國文</option>-->
-                                    <!--                                    <option value="2">英文</option>-->
-                                    <!--                                    <option value="3">數學</option>-->
-                                    <!--                                    <option value="4">社會</option>-->
-                                    <!--                                    <option value="5">地理</option>-->
-                                    <!--                                    <option value="6">歷史</option>-->
-                                    <!--                                    <option value="7">公民</option>-->
                                 </select>
                             </div>
                             <br>
@@ -161,7 +152,6 @@
                             <br>
                             <div class="form-group">
                                 <select class="form-control" name="settime_no_id" id="settime_no_id">
-                                    <!--                                    value={{ report.set_time_id }}-->
                                     <option disabled="true" selected>--請選擇預計讀書時長(1小時=60分鐘)--</option>
 
                                     {% for set_list in studyroom.set_lists %}
@@ -171,20 +161,8 @@
                                     {% endfor%}
                                 </select>
                             </div>
-                            <!--                            <div class="form-group mt-3">-->
-                            <!--                                <input type="time" class="form-control" name="time" id="time" placeholder="請輸入時間"-->
-                            <!--                                       required>-->
-                            <!--                            </div>-->
-<!--                            <div class="my-3">-->
-<!--                                <div class="loading">Loading</div>-->
-<!--                                <div class="error-message"></div>-->
-<!--                                <div class="sent-message">Your message has been sent. Thank you!</div>-->
-<!--                            </div>-->
                             <br>
                             <div class="btn-get-started scrollto">
-                                <!--                                <form action="/inpage/">-->
-                                <!--                                    <button type="submit">確認</button>-->
-                                <!--                                </form>-->
                                 <a class="btn link_button" style="margin: auto; width: 120px;" href="/Sroominpage/{{studyroom.no}}/" type="color:#71c55d">確認</a>
                             </div>
                         </form>
