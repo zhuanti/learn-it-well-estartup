@@ -114,8 +114,6 @@ def droom(request):
             cookies={'sessionid': request.COOKIES['sessionid']}
         )
         result = r.json()
-        # subjects = result['data']
-        # return render(request, 'DiscusRoom.html', {'subjects': subjects})
 
         if result['success'] is True:
             ret = redirect('/discusroom')
@@ -233,4 +231,3 @@ def WebChatTest(request):
         return ret
     users = result['data']
     return render(request, 'dis_test.html', {'users': users})
-    # return render(request, 'dis_test.html')

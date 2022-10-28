@@ -27,7 +27,7 @@
     <!-- Template Main CSS File -->
     <link href="/static/css/style.css" rel="stylesheet">
 
-    <link href="/static/css/inpage.css?v=<?=time()?>" rel="stylesheet">
+    <link href="/static/css/inpage.css" rel="stylesheet">
 
     <style>
         /* Style the buttons that are used to open and close the accordion panel */
@@ -40,16 +40,6 @@
             /*height: 20px;*/
             border-radius: 10px;
         }
-
-
-
-
-
-
-
-
-
-
     </style>
 </head>
 <body>
@@ -80,7 +70,6 @@
                            value="{{discussroom_qus.title}}" >{{discussroom_qus.title}}</h3></h3><br>
                 <h3><textarea class="acomment" id="acomment" name="acomment" rows="6"
                               cols="40" required="required">在這裡打上你的回答吧!</textarea></h3><br>
-                <!--                <h3>回答：<textarea class="acomment" id="acomment" name="acomment" required="required"></h3><br>-->
                 <center>
                     <button type="submit" class="btn msger-send-btn"
                             style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;">
@@ -104,12 +93,6 @@
         class="bi bi-arrow-up-short"></i></a>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="/static/js/chatroommsg.js"></script>
-<script src="/static/js/popup.js"></script>
-
-
-<!--<script src="/static/js/webChat.js?v=<?=time()?>"></script>-->
-<!-- Vendor JS Files -->
 
 <script src='https://use.fontawesome.com/releases/v5.0.13/js/all.js'></script>
 <script src="/static/vendor/aos/aos.js"></script>
@@ -117,7 +100,5 @@
 <script src="/static/vendor/glightbox/js/glightbox.min.js"></script>
 <script src="/static/vendor/swiper/swiper-bundle.min.js"></script>
 <script src="/static/vendor/php-email-form/validate.js"></script>
-<!-- SweetAlert -->
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<sript src="/static/js/sweetalert.js>"></sript>
+
 </html>
