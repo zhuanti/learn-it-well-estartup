@@ -53,8 +53,8 @@ urlpatterns = [
 
     # report
     path('report/', report_review_views.report),
-    path('day-report/', report_review_views.DayReport),
-    path('week-report/', report_review_views.WeekReport),
+    path('ReportWeek/', report_review_views.reportweek),
+    path('ReportDay/', report_review_views.reportday),
 
     # success
     path('achievement/', success_review_views.achievement),
@@ -91,8 +91,7 @@ urlpatterns = [
     # path('web-chat-test/', discusroom_review_views.WebChatTest),
 
     path('text/', views.text),
-    path('ReportWeek/', report_review_views.reportweek),
-    path('ReportDay/', report_review_views.reportday),
+
 
     path('studyplan_edit/', views.Splan_edit),
 

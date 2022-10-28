@@ -6,30 +6,26 @@ from utils.decorators import user_login_required
 
 root += 'report'
 
-
+#周報表
 @user_login_required
 def reportweek(request):
     user_id = request.COOKIES['user_id'],
-    # print(user_id)
     r = requests.get(
         f'{root}/reportweek/',
         params={'user_id': user_id},
-        # 'user_id': request.COOKIES['user_id'],
         cookies={'sessionid': request.COOKIES['sessionid']}
     )
     result = r.json()
     user = result['data']
     return render(request, 'ReportWeek.html', {'user': user})
 
-
+#日報表
 @user_login_required
 def reportday(request):
     user_id = request.COOKIES['user_id'],
-    # print(user_id)
     r = requests.get(
         f'{root}/reportday/',
         params={'user_id': user_id},
-        # 'user_id': request.COOKIES['user_id'],
         cookies={'sessionid': request.COOKIES['sessionid']}
     )
     result = r.json()
@@ -42,14 +38,6 @@ def report(request):
     return render(request, 'report.html')  # 完成
 
 
-@user_login_required
-def DayReport(request):
-    return render(request, 'day-report.html')
-
-
-@user_login_required
-def WeekReport(request):
-    return render(request, 'week-report.html')
 
 
 @user_login_required

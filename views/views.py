@@ -422,14 +422,6 @@ def Sroom_self(request):
 #         return render(request, 'Sroominpage-self.html', {'informations': informations})
 
 
-@user_login_required
-def DayReport(request):
-    return render(request, 'day-report.html')
-
-
-@user_login_required
-def WeekReport(request):
-    return render(request, 'week-report.html')
 
 
 @user_login_required
