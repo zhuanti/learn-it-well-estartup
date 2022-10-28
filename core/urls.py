@@ -52,9 +52,9 @@ urlpatterns = [
     # path('plansdelete/', plan_review_views.deleteplans),
 
     # report
-    path('report/', report_review_views.report),
-    path('ReportWeek/', report_review_views.reportweek),
-    path('ReportDay/', report_review_views.reportday),
+    path('report/', report_review_views.report),  # 選擇週或日報表
+    path('ReportWeek/', report_review_views.reportweek),  # 週報表
+    path('ReportDay/', report_review_views.reportday),  # 日報表
 
     # success
     path('achievement/', success_review_views.achievement),

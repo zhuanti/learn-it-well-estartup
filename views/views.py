@@ -159,10 +159,10 @@ def droom(request):
 def achievement(request):
     return render(request, 'achievement.html')  # 完成
 
-
+#週或日報表選擇
 @user_login_required
 def report(request):
-    return render(request, 'report.html')  # 完成
+    return render(request, 'report.html')
 
 
 @user_login_required
