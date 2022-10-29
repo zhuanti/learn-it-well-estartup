@@ -46,9 +46,9 @@ urlpatterns = [
     path('addans/<int:pk>/', discusroom_review_views.addans),  # 答案
 
     # plan
-    path('studyplan/', plan_review_views.get_all_reviews_test),
-    path('plansadd/', plan_review_views.addplans),
-    path('edit/<int:pk>/', plan_review_views.editplans),
+    path('studyplan/', plan_review_views.get_all_reviews_test),  # 讀書規劃顯示
+    path('plansadd/', plan_review_views.addplans),  # 讀書規劃新增
+    path('edit/<int:pk>/', plan_review_views.editplans),  # 讀書規劃編輯
     # path('plansdelete/', plan_review_views.deleteplans),
 
     # report
@@ -60,8 +60,8 @@ urlpatterns = [
     path('achievement/', success_review_views.achievement),
 
     # user
-    path('userdetail/', user_review_views.Udetail),
-    path('edituser-detail/', user_review_views.EditUserDetail),
+    path('userdetail/', user_review_views.Udetail),  # 使用者個人資訊
+    path('edituser-detail/', user_review_views.EditUserDetail),  # 使用者個人資訊編輯
 
     # views (other)
     # studyroom
@@ -88,7 +88,6 @@ urlpatterns = [
     # path('web-chat-test/', discusroom_review_views.WebChatTest),
 
     path('text/', views.text),
-
 
     path('studyplan_edit/', views.Splan_edit),
 
