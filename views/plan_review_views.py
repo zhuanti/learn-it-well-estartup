@@ -82,7 +82,7 @@ from utils.decorators import user_login_required
 #     result = r.json()
 #     return render(request, 'StudyPlan.html', {'message': result['message']})
 
-# 顯示
+# 顯示讀書規劃
 @user_login_required
 def get_all_reviews_test(request):
     user_id = request.COOKIES['user_id'],
@@ -107,6 +107,7 @@ def get_all_reviews_test(request):
     # return render(request, 'StudyPlan.html', {'plans': plans})
 
 
+#新增讀書規劃
 @user_login_required
 def addplans(request):
     if request.method == 'GET':
@@ -146,6 +147,7 @@ def addplans(request):
             return ret
 
 
+#編輯讀書規劃
 @user_login_required
 def editplans(request, pk):
     if request.method == 'GET':
