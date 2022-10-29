@@ -5,7 +5,7 @@ from core.settings import API_URL as root
 from utils.decorators import user_login_required
 
 
-# 顯示個人資料
+# 顯示使用者個人資料
 @user_login_required
 def Udetail(request):
     user_id = request.COOKIES['user_id'],
@@ -19,7 +19,7 @@ def Udetail(request):
     return render(request, 'UserDetail.html', {'user': user})
 
 
-# 編輯個人資料
+# 編輯使用者個人資料
 @user_login_required
 def EditUserDetail(request):
     if request.method == 'GET':
