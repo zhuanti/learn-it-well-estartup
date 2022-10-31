@@ -95,6 +95,19 @@ def get_all_reviews_test(request):
     result = r.json()
     plans = result['data']
     return render(request, 'StudyPlan.html', {'plans': plans})
+    # if request.method == 'POST':
+    #
+    #     no = request.POST['no']
+    #     data = {
+    #         'user_id': request.COOKIES['user_id']
+    #     }
+    #
+    #     r = requests.post(
+    #         f'{root}/delete/{no}/',
+    #         data=data,
+    #         cookies={'sessionid': request.COOKIES['sessionid']}
+    #     )
+
     # user_id = request.COOKIES['user_id'],
     # r = requests.get(
     #    f'{root}/get/',
