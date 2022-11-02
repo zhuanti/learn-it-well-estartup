@@ -88,51 +88,51 @@
 <!-- ======= Hero Section ======= -->
 <section id="hero">
     <br><br>
-        <div class="rightCSS li">
-              <span class="d-inline-block float-left">
-      {% if 'user_id' not in request.COOKIES.keys %}
-      <div class="d-inline-block" style=" color: #535461;">
-          公告🔊🔊 &nbsp;&nbsp;&nbsp;提醒使用者記得將此頁加入 🔖書籤 方便之後使用喔~
-      </div>
-              </span>
-        <style>
-            .rightCSS {
-                background: #ceebc7;
-                overflow: hidden;
-            }
+<!--    <div class="rightCSS li">-->
+<!--              <span class="d-inline-block float-left">-->
+<!--      {% if 'user_id' not in request.COOKIES.keys %}-->
+<!--      <div class="d-inline-block" style=" color: #535461;">-->
+<!--          公告🔊🔊 &nbsp;&nbsp;&nbsp;提醒使用者記得將此頁加入 🔖書籤 方便之後使用喔~-->
+<!--      </div>-->
+<!--              </span>-->
+<!--        <style>-->
+<!--            .rightCSS {-->
+<!--                background: #ceebc7;-->
+<!--                overflow: hidden;-->
+<!--            }-->
 
-            .rightCSS div {
-                position: relative;
-                animation: CSSright linear 25s infinite;
-            }
+<!--            .rightCSS div {-->
+<!--                position: relative;-->
+<!--                animation: CSSright linear 25s infinite;-->
+<!--            }-->
 
-            @keyframes CSSright {
-                0% {
-                    right: -100%
-                }
-                100% {
-                    right: 100%
-                }
-            }
+<!--            @keyframes CSSright {-->
+<!--                0% {-->
+<!--                    right: -100%-->
+<!--                }-->
+<!--                100% {-->
+<!--                    right: 100%-->
+<!--                }-->
+<!--            }-->
 
-            .rightCSS:hover div {
-                animation-play-state: paused;
-            }
+<!--            .rightCSS:hover div {-->
+<!--                animation-play-state: paused;-->
+<!--            }-->
 
-            .li {
-                float: left;
-                width: 80%;
-                padding: 1%;
-                margin: 1% 10%;
-                height: 4%;
-                border-radius: 0.6em;
-            <!-- box-shadow: 0 0.1 em 0.5 em;
-            盒子陰影-- >
-            }
+<!--            .li {-->
+<!--                float: left;-->
+<!--                width: 80%;-->
+<!--                padding: 1%;-->
+<!--                margin: 1% 10%;-->
+<!--                height: 4%;-->
+<!--                border-radius: 0.6em;-->
+<!--            &lt;!&ndash; box-shadow: 0 0.1 em 0.5 em;-->
+<!--            盒子陰影&#45;&#45; >-->
+<!--            }-->
 
-        </style>
-    </div>
-    {% endif %}
+<!--        </style>-->
+<!--    </div>-->
+<!--    {% endif %}-->
     {% if 'user_id' in request.COOKIES.keys %}
     <div class="rightCSS li">
               <span class="d-inline-block float-left">
