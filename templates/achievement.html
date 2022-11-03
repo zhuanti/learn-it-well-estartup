@@ -130,10 +130,45 @@
                             </td>
                             <td>100 Point</td>
                             <td>
-                                <button class="button" type="submit">領取</button>
+                                <button class="button" type="submit" id="js-btnget" title="達成成就才能按下!" onclick="window.location.href='/studyroom-together/'" disabled>領取
+                                {% for success_list in success_lists %}
+                                <script type="text/javascript">
+<!--                                if ({{ success_list.pace } === 60) {-->
+<!--                                                document.getElementById('js-btnget').disabled = false;-->
+<!--                                }-->
+                                function disbtn(e) {
+                                    if ( {{ success_list.pace }}===60 ) {
+                                       document.getElementById("btnget").disabled = false;
+                                    } else {
+                                       document.getElementById("btnget").disabled = true;
+                                    }
+                                }
+<!--                                let btnget = document.querySelector(".btnget");-->
+<!--                                btnget.disabled = true; //setting button state to disabled-->
+<!--                                function stateHandle() {-->
+<!--                                    if ({{ success_list.pace }}==100) {-->
+<!--                                        btnget.disabled = false; //button remains disabled-->
+<!--                                    } else {-->
+<!--                                        btnget.disabled = true; //button is enabled-->
+<!--                                    }-->
+<!--                                }-->
+<!--                                const btnget = document.getElementById('btnget')-->
+<!--                                if ({{ success_list.pace }}% 60 === 0) {-->
+<!--                                  btnget.disabled = false-->
+<!--                                }-->
+<!--                                    function disbtn(e) {-->
+<!--                                        if ( someCondition == true ) {-->
+<!--                                           document.getElementById('btnget').setAttribute("disabled","disabled");-->
+<!--                                        } else {-->
+<!--                                           document.getElementById('btnget').removeAttribute("disabled");-->
+<!--                                        }-->
+<!--                                    }-->
+                                </script>
+                                    </button>
 <!--                                disabled="yes"-->
                             </td>
                         </tr>
+                        {% endfor %}
                         {% endfor %}
                         </tbody>
                         <!--Table body-->
