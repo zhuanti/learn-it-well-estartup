@@ -168,7 +168,6 @@
 
 
 
-
     </style>
 
 </head>
@@ -191,7 +190,7 @@
             {% for message in messages %}
             <div class="alert alert-success">
                 <a class="close" href="#" data-dismiss="alert"></a>
-                {{user_id}}：{{ message }}
+                {{ message }}
             </div>
             {% endfor %}
 
@@ -212,7 +211,7 @@
             <a class="btn popup-btn" style="..." href="#letmeopen">問題列</a>
         </div>
         <div class="wrap">
-            <!--            <a class="btn popup-btn" style="..." href="/addqus/{{discussroom.no}}/">新增問題</a>-->
+<!--            <a class="btn popup-btn" style="..." href="/addqus/{{discussroom.no}}/">新增問題</a>-->
             <a class="btn popup-btn" style="..." href="/addqus/{{discussroom.no}}/">新增問題</a>
         </div>
         <div class="popup-wrap" id="letmeopen">
@@ -233,8 +232,8 @@
                             <blockquote>{{discussroom_ans_list.dis_ans_no}}.&emsp;&emsp;答案：{{discussroom_ans_list.comment}}&emsp;回答者：{{discussroom_ans_list.auser_id}}</blockquote>
                             {% endfor %}
                             <center>
-                                <a class="btn popup-btn" style="..."
-                                   href="/addans/{{discussroom_qus_list.dis_ques_no}}">回答此題</a>
+
+                                 <a class="btn popup-btn" style="..." href="/addans/{{discussroom_qus_list.dis_ques_no}}">回答此題</a>
                             </center>
                             <br>
                         </div>
@@ -254,6 +253,8 @@
                                     }
                                 });
                             }
+
+
                         </script>
                         <a class="close-btn popup-close" href="#">x</a>
                     </div>
@@ -303,7 +304,6 @@
                 socket.close(); //向服務端發送端開連結的請求(客戶端主動斷開連接)
             }
 
-
         </script>
         <!--        </form>-->
     </div>
@@ -316,6 +316,12 @@
         class="bi bi-arrow-up-short"></i></a>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/static/js/popup.js?v=<?=time()?>"></script>
+<script src="/static/js/chatroommsg.js"></script>
+<!--<script src="/static/js/popup.js"></script>-->
+
+
+<!--<script src="/static/js/webChat.js?v=<?=time()?>"></script>-->
 <!-- Vendor JS Files -->
 
 <script src='https://use.fontawesome.com/releases/v5.0.13/js/all.js'></script>
@@ -324,8 +330,12 @@
 <script src="/static/vendor/glightbox/js/glightbox.min.js"></script>
 <script src="/static/vendor/swiper/swiper-bundle.min.js"></script>
 <script src="/static/vendor/php-email-form/validate.js"></script>
+<!-- SweetAlert -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<sript src="/static/js/sweetalert.js>"></sript>
 
 <!-- Template Main JS File -->
+<!--<script src="/static/vendor/jquery/jquery.min.js"></script>-->
 <script src="/static/js/main.js"></script>
 
 </body>

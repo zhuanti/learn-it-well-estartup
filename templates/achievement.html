@@ -130,15 +130,33 @@
                             </td>
                             <td>100 Point</td>
                             <td>
-                                <button class="button" type="submit" id="js-btnget" title="達成成就才能按下!" disabled>領取
-                                <script type="text/javascript">
-                                    if(60===60){
-                                    document.getElementById("js-btnget").disabled = false;
-                                    }
+                                <button class="btnget" type="disbtn" id="btnget" title="達成成就才能按下!"
+                                        onclick="window.location.href='/studyroom-together/'"
+                                        style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;">
+                                    領取
+<!--                                    {% for success_list in success_lists %}-->
+                                    <script>
+                                        let button = document.querySelector(".button");
+                                        function disbtn(e) {
+                                            if (
+                                            {% for success_list in success_lists %}
+                                            {{ success_list.pace }}
+                                            {% endfor %})
+                                            ===
+                                            {% for success_name in success_list.success_names %}
+                                            {{ success_name.suc_pace }}
+                                            {% endfor %}) {
+                                               button.disabled = false;
+                                            } else {
+                                               button.disabled = true;
 
-                                </script>
+                                            }
+                                        }
+
+
+                                    </script>
+<!--                                    {% endfor %}-->
                                 </button>
-<!--                                disabled="yes"-->
                             </td>
                         </tr>
                         {% endfor %}
