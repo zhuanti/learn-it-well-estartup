@@ -128,7 +128,7 @@
 
                 <div class="col-lg-5 col-md-8">
                     <div class="form">
-                        <form action="/forms/contact.php" method="post" role="form" class="php-email-form">
+                        <form action="/studyroom-togethersub/{{ studyroom.no }}/" method="post">
                             {% csrf_token %}
                             <div class="form-group">
                                 <select class="form-control" name="subject_no_id" id="subject_no_id">
@@ -163,7 +163,9 @@
                             </div>
                             <br>
                             <div class="btn-get-started scrollto">
-                                <a class="btn link_button" style="margin: auto; width: 120px;" href="/Sroominpage/{{studyroom.no}}/" type="color:#71c55d">確認</a>
+                                <button type="submit" class="btn msger-send-btn">
+                                    確認
+                                </button>
                             </div>
                         </form>
                     </div>

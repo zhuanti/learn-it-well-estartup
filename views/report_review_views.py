@@ -66,19 +66,6 @@ def get_reviews_insideshow(request):
     return render(request, 'Sroominpage-self.html', {'report': report})
 
 
-
-    # user_id = request.COOKIES['user_id'],
-    # r = requests.get(
-    #     f'{root}/inside/',
-    #     params={'user_id': user_id},
-    #     # 'user_id': request.COOKIES['user_id'],
-    #     cookies={'sessionid': request.COOKIES['sessionid']}
-    # )
-    # result = r.json()
-    # informations = result['data']
-    # return render(request, 'Sroominpage-self.html', {'informations': informations})
-
-
 # 編輯讀書時間
 @user_login_required
 def report_recordtime_edit(request):

@@ -155,6 +155,14 @@
                         height="250" frameBorder="0" allowfullscreen=""
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
             </center>
+            {% for message in messages %}
+            <br>
+            <div class="alert alert-success">
+                <a class="close" href="#" data-dismiss="alert"></a>
+                {{ message }}
+            </div>
+            <br>
+            {% endfor %}
             <button id="close" class="dialoginsidebtn">關閉</button>
         </dialog>
     </div>
