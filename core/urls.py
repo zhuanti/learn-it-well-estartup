@@ -91,6 +91,7 @@ urlpatterns = [
 
     path('studyplan_edit/', views.Splan_edit),
 
+    path('shownum/', views.shownum),
     # path('day-report/', report_review_views.DayReport),
     # path('week-report/', report_review_views.WeekReport),
 

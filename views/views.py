@@ -3,6 +3,7 @@ from django.conf import settings
 
 from django.contrib import messages
 from django.core.mail import EmailMessage, send_mail
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from django.template.loader import render_to_string
 from core.settings import API_URL as root
@@ -242,6 +243,14 @@ def developer(request):
 #多人自習室內部
 @user_login_required
 def Sroominpage(request, pk):
+    if 'num' in request.COOKIES:
+        num = int(request.COOKIES['num'])
+        num += 1
+    else:
+        num = 1
+    rsp = HttpResponse('網頁瀏覽人數 = '+ str(num))
+    rsp.set_cookie('num',num)
+    # return rsp
     user_id = request.COOKIES['user_id'],
     r = requests.get(
         f'{root}studyroom/get/{pk}',
@@ -253,11 +262,11 @@ def Sroominpage(request, pk):
         studyroom = result['data']
         # print(studyroom)
         return render(request, 'Sroominpage.html', {'studyroom': studyroom})
+
     else:
         messages.error(request, '查無此房間')
         return redirect('/studyroom-together/')
         return ret
-
 
 # 個人自習室填寫讀書資訊
 @user_login_required
@@ -399,3 +408,14 @@ def Sroomtogethersub(request):
 
 def Splan_edit(request):
     return render(request, 'Splan_edit.html')
+
+# 顯示此頁在現人數
+def shownum(request):
+    if 'num' in request.COOKIES:
+        num = int(request.COOKIES['num'])
+        num += 1
+    else:
+        num = 1
+    rsp = HttpResponse('網頁瀏覽人數 = '+ str(num))
+    rsp.set_cookie('num',num)
+    return rsp
