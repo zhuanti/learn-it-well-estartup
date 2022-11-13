@@ -16,8 +16,8 @@ def reportweek(request):
         cookies={'sessionid': request.COOKIES['sessionid']}
     )
     result = r.json()
-    user = result['data']
-    return render(request, 'ReportWeek.html', {'user': user})
+    inform = result['data']
+    return render(request, 'ReportWeek.html', {'inform': inform})
 
 #日報表
 @user_login_required
@@ -29,8 +29,8 @@ def reportday(request):
         cookies={'sessionid': request.COOKIES['sessionid']}
     )
     result = r.json()
-    user = result['data']
-    return render(request, 'ReportDay.html', {'user': user})
+    inform = result['data']
+    return render(request, 'ReportDay.html', {'inform': inform})
 
 
 @user_login_required
