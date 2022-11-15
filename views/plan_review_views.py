@@ -82,12 +82,26 @@ from utils.decorators import user_login_required
 #     result = r.json()
 #     return render(request, 'StudyPlan.html', {'message': result['message']})
 
+# 顯示讀書規劃(舊的)
+# @user_login_required
+# def get_all_reviews_test(request):
+#     user_id = request.COOKIES['user_id'],
+#     r = requests.get(
+#         f'{root}plan/get/',
+#         params={'user_id': user_id},
+#         # 'user_id': request.COOKIES['user_id'],
+#         cookies={'sessionid': request.COOKIES['sessionid']}
+#     )
+#     result = r.json()
+#     plans = result['data']
+#     return render(request, 'StudyPlan.html', {'plans': plans})
+
 # 顯示讀書規劃
 @user_login_required
 def get_all_reviews_test(request):
     user_id = request.COOKIES['user_id'],
     r = requests.get(
-        f'{root}plan/get/',
+        f'{root}plan/gettest/',
         params={'user_id': user_id},
         # 'user_id': request.COOKIES['user_id'],
         cookies={'sessionid': request.COOKIES['sessionid']}
@@ -95,6 +109,7 @@ def get_all_reviews_test(request):
     result = r.json()
     plans = result['data']
     return render(request, 'StudyPlan.html', {'plans': plans})
+
     # if request.method == 'POST':
     #
     #     no = request.POST['no']

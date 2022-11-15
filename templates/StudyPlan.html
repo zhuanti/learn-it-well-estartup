@@ -189,6 +189,7 @@
                             </td>
                             <td align="center" valign="center">
                                <!--<button class="button" type="submit">完成</button>-->
+                                {% for pace_name in plans.pace_names %}{{pace_name.name}}{% endfor %}
                                 {{ plans.pace }}
                             </td>
                             <form action="/plansdelete/" method="post">
