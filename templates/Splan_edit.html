@@ -110,6 +110,13 @@
                             <h3>&emsp;編輯代辦事項</h3>
                       </div>
                     </div>
+                    <br>
+                    <div class="info">
+                        <div>
+                            <i class=" bi bi-pencil"></i>
+                            <h3>&emsp;編輯代辦事項進度</h3>
+                      </div>
+                    </div>
 
                 </div>
 
@@ -123,6 +130,19 @@
                                     <input type="text" class="form-control" name="name" id="name"
                                            value="{{ plan.name }}" required>
                                 </div>
+                            </div>
+
+                            <div class="form-group">
+                                <select class="form-control" name="settime_no_id" id="settime_no_id">
+                                    <option disabled="true" selected>--請選擇讀書規劃進度--</option>
+
+                                    <option value="{{set_list.set_no}}" id="op_settime_no_id" name="op_settime_no_id">
+                                       完成
+                                    </option>
+                                    <option value="{{set_list.set_no}}" id="op_settime_no_id1" name="op_settime_no_id">
+                                       尚未完成
+                                    </option>
+                                </select>
                             </div>
                             <!--<div class="my-3">
                                 <div class="loading">Loading</div>
