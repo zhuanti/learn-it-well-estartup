@@ -40,15 +40,15 @@
 
 <!-- ======= Header ======= -->
 <header id="header" class="header fixed-top d-flex align-items-center">
+    {% if 'user_id' not in request.COOKIES.keys %}
     <script type="text/javascript">
       var v = confirm("將網站加入書籤更方便喔!");
 
       if(v){
         popup();
       }
-
-
      </script>
+    {% endif %}
     <div class="container d-flex align-items-center justify-content-between">
 
         <div id="logo">
@@ -188,7 +188,8 @@
                 width: 80%;
                 padding: 1%;
                 margin: 1% 10%;
-                height: 4%;
+                height:5.4%;
+<!--                line-height:34%;-->
                 border-radius: 0.6em;
             <!-- box-shadow: 0 0.1 em 0.5 em;
             盒子陰影-- >
@@ -205,7 +206,7 @@
 
         </div>
         {% endfor %}
-        <br><br>
+        <br><br><br><br><br>
         <h1>做伙來讀冊</h1>
         <h2>LEARN IT WELL</h2>
         <img src="/static/images/hero-img.png" alt="Hero Imgs" data-aos="zoom-out" data-aos-delay="100">
