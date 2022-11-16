@@ -143,10 +143,10 @@
 <!--        </style>-->
 <!--    </div>-->
 <!--    {% endif %}-->
-    {% if 'user_id' in request.COOKIES.keys %}
+    {% for plan in plans %}
     <div class="rightCSS li">
               <span class="d-inline-block float-left">
-                  {% for plan in plans %}
+<!--                  {% for plan in plans %}-->
                   {% for user_list in plan.user_lists %}
       <div class="d-inline-block" style=" color: #535461;">
           ★ 公告 ★ &nbsp;&nbsp;&nbsp;歡迎回來 "{{user_list.user_name}}" 使用者！&nbsp;
@@ -157,7 +157,7 @@
           尚未完成
       </div>
                   {% endfor %}
-                  {% endfor %}
+<!--                  {% endfor %}-->
               </span>
         <style>
             .rightCSS {
@@ -197,7 +197,8 @@
 
         </style>
     </div>
-    {% endif %}
+    {% endfor %}
+
     <div class="hero-container" data-aos="fade-in">
         {% for message in messages %}
         <div class="alert alert-success">

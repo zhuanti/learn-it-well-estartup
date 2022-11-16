@@ -20,8 +20,13 @@ def index(request):
             cookies={'sessionid': request.COOKIES['sessionid']}
         )
         result = r.json()
-        plans = result['data']
-        return render(request, 'index.html', {'plans': plans})
+
+        if result['success'] is True:
+            plans = result['data']
+            return render(request, 'index.html', {'plans': plans})
+        else:
+            return render(request, 'index.html')
+
     return render(request, 'index.html')
 
 
