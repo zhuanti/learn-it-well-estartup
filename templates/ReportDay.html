@@ -139,18 +139,20 @@
                             <h3 class="d-flex align-items-center mb-3"><i
                                     class="material-icons text-info mr-2"></i>成就進度</h3>
                             {% for dsuccess_list in inform.dsuccess_lists %}
-                            <small> {% for success_name in dsuccess_list.success_names %}{{success_name.suc_name}}{% endfor %}</small>
+                            <small> {% for success_name in dsuccess_list.success_names %}{{success_name.suc_name}}{% endfor %}</small>&nbsp;&nbsp;
                             <td>{{ dsuccess_list.pace }} /
                                 {% for success_name in dsuccess_list.success_names %}
                                 {{ success_name.suc_pace }}
                                 {% endfor %}
                             </td>
+                            <div class="progress mb-3" style="height: 5px">
+                                <div class="progress-bar bg-primary" role="progressbar" style="width: {{ dsuccess_list.pace }}%"
+                                     aria-valuenow="{{ dsuccess_list.pace }}" aria-valuemin="0" aria-valuemax="60"></div>
+                            </div>
+
                             <br>
 
-<!--                            <div class="progress mb-3" style="height: 5px">-->
-<!--                                <div class="progress-bar bg-primary" role="progressbar" style="width: {{ dsuccess_list.pace }}%"-->
-<!--                                     aria-valuenow="{{ dsuccess_list.pace }}" aria-valuemin="0" aria-valuemax="100"></div>-->
-<!--                            </div>-->
+
                             {% endfor%}
                         </div>
                     </div>
