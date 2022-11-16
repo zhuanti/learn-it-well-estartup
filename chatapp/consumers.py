@@ -1,6 +1,8 @@
 from channels.generic.websocket import WebsocketConsumer
 from channels.exceptions import StopConsumer
 from asgiref.sync import async_to_sync
+from django.db.models.functions import datetime
+
 
 class ChatConsumer(WebsocketConsumer):
     # 客戶端向後端發送websocket連接的請求，自動觸發
@@ -25,9 +27,15 @@ class ChatConsumer(WebsocketConsumer):
         async_to_sync(self.channel_layer.group_send)(group, {"type": "xx.oo", 'message': message})
 
     def xx_oo(self, event):
+        
         text = event['message']['text']
+        # # 給channel_layer裡整個組的人發送
+        # self.send(text)
+
+        datetime_str = datetime.datetime.now().strftime('%H:%M:%S')
+        res = datetime_str + "　{}".format(text)
         # 給channel_layer裡整個組的人發送
-        self.send(text)
+        self.send(res)
 
     def websocket_disconnect(self, message):
         # 獲取討論室號碼(在路由匹配中的)
