@@ -317,7 +317,7 @@ def deleteplans(request, pk):
         result = r.json()
         if result['success'] is True:
             plan = result['data']
-            return render(request, 'Splan_edit.html', {'plan': plan})
+            return render(request, 'Splan_del.html', {'plan': plan})
         else:
             messages.error(request, '查無此規劃')
             return redirect('/studyplan')
