@@ -142,9 +142,18 @@
     <!--        </style>-->
     <!--    </div>-->
     <!--    {% endif %}-->
-
+    <p></p>
+    <p></p>
     <div class="hero-container" data-aos="fade-in">
+        <p></p>
+        <p></p>
+        {% for message in messages %}
+        <div class="alert alert-success">
+            <a class="close" href="#" data-dismiss="alert"></a>
+            {{ message }}
 
+        </div>
+        {% endfor %}
         <div class="rightCSS li">
 
         <span class="d-inline-block float-left">
@@ -152,12 +161,13 @@
             <div class="d-inline-block" style=" color: #535461;">
 
                 ★ 公告 ★ &nbsp;&nbsp;&nbsp;歡迎登入！&nbsp;
-
-                您的讀書計畫：
                 {% for plan in plans %}
-                {{ plan.name }}&nbsp;
-                {% endfor %}
+                {% if plan in plans %}
+                您的讀書規劃：
+                {{plan.name }}&nbsp;
                 尚未完成
+                {% endif %}
+                {% endfor %}
 
             </div>
         </span>
@@ -200,13 +210,6 @@
             </style>
         </div>
 
-        {% for message in messages %}
-        <div class="alert alert-success">
-            <a class="close" href="#" data-dismiss="alert"></a>
-            {{ message }}
-
-        </div>
-        {% endfor %}
         <header>
             <div>
                 <h1>做伙來讀冊</h1>
