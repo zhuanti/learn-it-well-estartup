@@ -163,11 +163,6 @@
         }
 
 
-
-
-
-
-
     </style>
 
 </head>
@@ -211,7 +206,7 @@
             <a class="btn popup-btn" style="..." href="#letmeopen">問題列</a>
         </div>
         <div class="wrap">
-<!--            <a class="btn popup-btn" style="..." href="/addqus/{{discussroom.no}}/">新增問題</a>-->
+            <!--            <a class="btn popup-btn" style="..." href="/addqus/{{discussroom.no}}/">新增問題</a>-->
             <a class="btn popup-btn" style="..." href="/addqus/{{discussroom.no}}/">新增問題</a>
         </div>
         <div class="popup-wrap" id="letmeopen">
@@ -233,7 +228,8 @@
                             {% endfor %}
                             <center>
 
-                                 <a class="btn popup-btn" style="..." href="/addans/{{discussroom_qus_list.dis_ques_no}}">回答此題</a>
+                                <a class="btn popup-btn" style="..."
+                                   href="/addans/{{discussroom_qus_list.dis_ques_no}}">回答此題</a>
                             </center>
                             <br>
                         </div>
@@ -266,14 +262,16 @@
         </div>
 
         <br>
-        <input type="text" class="msger-input" placeholder="說些什麼吧～"id="txt"></imput>
+        <input type="text" class="msger-input" placeholder="說些什麼吧～" value=null id="txt"></imput>
         {% for user in discussroom.user %}
-        <input type="text" class="msger-input" value="使用者-{{user.user_name}}:" id="username" hidden></imput>
+        <input type="text" class="msger-input" value="{{user.user_name}}:" id="username" hidden></imput>
         {% endfor %}
         <button type="submit" class="btn msger-send-btn" onclick="sendMessage()">
             發送訊息
         </button>
         <script>
+            <!-- 顯示時間 -->
+
             // var socket = new WebSocket("ws://127.0.0.1:9000/ws/{{ group }}/");
             socket = new WebSocket("ws://127.0.0.1:9000/room/{{discussroom.no}}/");
 
@@ -309,11 +307,26 @@
             };
 
             function sendMessage() {
+                //抓取現在時間
+                Today = new Date();
+                h = Today.getHours();
+                m = Today.getMinutes();
+                s = Today.getSeconds();
+
+                // 使用者傳的文字內容
                 let tag = document.getElementById("txt");
-                if(tag.value != null){
-                    let tag2 = document.getElementById("username");
-                    socket.send(tag2.value);
-                    socket.send(tag.value);
+                if (tag.value != null) {
+                    //設定時間
+                    document.getElementById("username").innerHTML = h + ":" + m + ":" + s;
+                    //設定使用者名
+                    let username = document.getElementById("username");
+                    let allmsg = username.innerHTML + ' ' + username.value + ' ' + tag.value;
+
+
+                    // socket.send(tag2.innerHTML);
+                    // socket.send(tag2.value);
+                    // socket.send(tag.value);
+                    socket.send(allmsg);
                 }
             }
 
