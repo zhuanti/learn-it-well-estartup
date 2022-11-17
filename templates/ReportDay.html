@@ -32,6 +32,8 @@
             integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
     <!-- =======================================================
     * Template Name: eStartup - v4.7.1
     * Template URL: https://bootstrapmade.com/estartup-bootstrap-landing-page-template/
@@ -145,11 +147,44 @@
                                 {{ success_name.suc_pace }}
                                 {% endfor %}
                             </td>
-                            <div class="progress mb-3" style="height: 5px">
-                                <div class="progress-bar bg-primary" role="progressbar" style="width: {{ dsuccess_list.pace }}%"
-                                     aria-valuenow="{{ dsuccess_list.pace }}" aria-valuemin="0" aria-valuemax="60"></div>
-                            </div>
+<!--                            <div class="progress mb-3" style="height: 5px">-->
+<!--                                <div class="progress-bar bg-primary" role="progressbar" style="width: {{ dsuccess_list.pace }}%"-->
+<!--                                     aria-valuenow="{{ dsuccess_list.pace }}" aria-valuemin="0" aria-valuemax="60"></div>-->
+<!--                            </div>-->
+                            {% for success_name in dsuccess_list.success_names %}
+                            <progress value="{{ dsuccess_list.pace }}" max="{{ success_name.suc_pace }}"> </progress>
+                            {% endfor %}
+                            <style>
+                                progress {
+                                  color: lightblue;
+                                }
 
+                                progress {
+                                  border: none;
+                                  width: 100%;
+                                  background: crimson;
+                                }
+
+                                progress::-webkit-progress-value {
+                                  background: lightblue;
+                                }
+
+                                progress::-moz-progress-bar {
+                                  background: lightcolor;
+                                }
+
+                                progress::-webkit-progress-value {
+                                  background: #66B3FF;
+                                }
+
+                                progress::-webkit-progress-bar {
+                                  background: lightgray;
+                                }
+
+                                .progress .progress-bar {
+                                  background: #66B3FF;
+                                }
+                            </style>
                             <br>
 
 
@@ -163,62 +198,35 @@
                                 <div class="card-body">
                                     <h3 class="title">科目時長占比圓餅圖</h3>
                                     <canvas id="myChart-4"></canvas>
+
                                     <script>
-
-                                    var config = {
-                                      type: 'pie',
-                                      data: {
-                                        datasets: [{
-                                          data: {{ data|safe }},
-                                          backgroundColor: [
-                                            '#696969', '#808080', '#A9A9A9', '#C0C0C0', '#D3D3D3'
-                                          ],
-                                          label: 'Population'
-                                        }],
-                                        labels: {{ labels|safe }}
-                                      },
-                                      options: {
-                                        responsive: true
+                                  var ctx = document.getElementById('myChart-4');
+                                  var myChart = new Chart(ctx, {
+                                    type: 'pie',
+                                    data: {
+                                      labels: ['自然', '數學', '國文', '社會'],
+                                      datasets: [{
+                                        backgroundColor: [
+                                          'rgb(75, 192, 192)',
+                                          'rgb(54, 162, 235)',
+                                          'rgb(255, 99, 132)',
+                                          'rgb(243,204,79)'
+                                        ],
+                                        borderColor: 'rgb(240,240,240)',
+                                        borderWidth: 2.5,
+                                        label: '標籤名稱',
+                                        data: [5, 3, 7, 3],
+                                        fill: false, // 是否填滿色彩
+                                      }]
+                                    },
+                                    options: {
+                                      legend: {
+                                        labels: {
+                                          fontColor: 'white' // 標籤顏色
+                                        }
                                       }
-                                    };
-
-                                    window.onload = function() {
-                                      var ctx = document.getElementById('pie-chart').getContext('2d');
-                                      window.myPie = new Chart(ctx, config);
-                                    };
-
-                                  </script>
-
-                                {% endblock %}
-
-<!--                                    <script>-->
-<!--                                  var ctx = document.getElementById('myChart-4');-->
-<!--                                  var myChart = new Chart(ctx, {-->
-<!--                                    type: 'pie',-->
-<!--                                    data: {-->
-<!--                                      labels: ['自然', '數學', '國文', '社會'],-->
-<!--                                      datasets: [{-->
-<!--                                        backgroundColor: [-->
-<!--                                          'rgb(75, 192, 192)',-->
-<!--                                          'rgb(54, 162, 235)',-->
-<!--                                          'rgb(255, 99, 132)',-->
-<!--                                          'rgb(243,204,79)'-->
-<!--                                        ],-->
-<!--                                        borderColor: 'rgb(240,240,240)',-->
-<!--                                        borderWidth: 2.5,-->
-<!--                                        label: '標籤名稱',-->
-<!--                                        data: [5, 3, 7, 3],-->
-<!--                                        fill: false, // 是否填滿色彩-->
-<!--                                      }]-->
-<!--                                    },-->
-<!--                                    options: {-->
-<!--                                      legend: {-->
-<!--                                        labels: {-->
-<!--                                          fontColor: 'white' // 標籤顏色-->
-<!--                                        }-->
-<!--                                      }-->
-<!--                                    }-->
-<!--                                  });-->
+                                    }
+                                  });
 
 
 
@@ -227,7 +235,7 @@
 
 
 
-<!--                                    </script>-->
+                                    </script>
                                 </div>
                             </div>
                         </div>

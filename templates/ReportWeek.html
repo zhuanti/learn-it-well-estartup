@@ -269,9 +269,43 @@
                                     </td>
 
                                     <!--                                    進度條顯示-->
-                                    <div class="progress mb-3" style="height: 5px">
-                                        <div class="progress-bar bg-primary" role="progressbar" style="width: {{ wsuccess_list.pace }}%"
-                                             aria-valuenow="{{ wsuccess_list.pace }}" aria-valuemin="0" aria-valuemax="100"></div>
+<!--                                    <div class="progress mb-3" style="height: 5px">-->
+<!--                                        <div class="progress-bar bg-primary" role="progressbar" style="width: {{ wsuccess_list.pace }}%"-->
+<!--                                             aria-valuenow="{{ wsuccess_list.pace }}" aria-valuemin="0" aria-valuemax="100"></div>-->
+                                    {% for success_name in wsuccess_list.success_names %}
+                                    <progress value="{{ wsuccess_list.pace }}" max="{{ success_name.suc_pace }}"> </progress>
+                                    {% endfor %}
+                                    <style>
+                                        progress {
+                                          color: lightblue;
+                                        }
+
+                                        progress {
+                                          border: none;
+                                          width: 100%;
+                                          background: crimson;
+                                        }
+
+                                        progress::-webkit-progress-value {
+                                          background: lightblue;
+                                        }
+
+                                        progress::-moz-progress-bar {
+                                          background: lightcolor;
+                                        }
+
+                                        progress::-webkit-progress-value {
+                                          background: #66B3FF;
+                                        }
+
+                                        progress::-webkit-progress-bar {
+                                          background: lightgray;
+                                        }
+
+                                        .progress .progress-bar {
+                                          background: #66B3FF;
+                                        }
+                                    </style>
                                                                             <br>
                                     <br>
                                     </div>
@@ -311,7 +345,7 @@
                                                 <td>
                                                     <div class="progress">
                                                         <div class="progress-bar bg-gradient-success" role="progressbar"
-                                                             style="width: {{wplan_list.pace}}00%" aria-valuenow="{{wplan_list.pace}}" aria-valuemin="0"
+                                                             style="width: {{wplan_list.pace_no}}00%" aria-valuenow="{{wplan_list.pace_no}}" aria-valuemin="0"
                                                              aria-valuemax="1"></div>
                                                     </div>
                                                 </td>
