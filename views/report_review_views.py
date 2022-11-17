@@ -22,6 +22,9 @@ def reportweek(request):
 #日報表
 @user_login_required
 def reportday(request):
+    # labels = []
+    # data = []
+
     user_id = request.COOKIES['user_id'],
     r = requests.get(
         f'{root}/reportday/',
@@ -30,6 +33,11 @@ def reportday(request):
     )
     result = r.json()
     inform = result['data']
+    # for dchart_list in inform.dchart_list:
+    #     for dsubject_name in inform.dchart_list:
+    #         labels.append(dsubject_name.name)
+    #         data.append(dchart_list.user_total_hours)
+    # return render(request, 'ReportDay.html', {'inform': inform,'labels':labels,'data':data})
     return render(request, 'ReportDay.html', {'inform': inform})
 
 

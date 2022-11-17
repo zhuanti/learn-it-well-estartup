@@ -192,7 +192,6 @@
                                 {% for pace_name in plans.pace_names %}{{pace_name.name}}{% endfor %}
                                 {{ plans.pace }}
                             </td>
-                            <form action="/plansdelete/" method="post">
 <!--                            <form action="" method="post">-->
                                 {% csrf_token %}
                                 <td align="center" valign="center">
@@ -203,9 +202,8 @@
 <!--                                    <input type="hidden" name="plans_no" id="plans_no" value="{{ plans.no }}">-->
 <!--                                    <button class="btn btn-primary px-4" name="plans_no">刪除</button>-->
 <!--                                    上面那行比較有可能的-->
-                                    <input class="btn btn-primary px-4" type="submit" value="刪除">
+                                    <a href="/delete/{{plans.no}}" class="btn btn-primary px-4" style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;">刪除</a>
                                 </td>
-                            </form>
 
 
                         </tr>
