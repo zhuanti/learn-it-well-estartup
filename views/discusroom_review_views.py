@@ -151,23 +151,26 @@ def search(request):
 @user_login_required
 def inpage(request, pk):
     if request.method == 'GET':
+        user_id = request.COOKIES['user_id']
         r = requests.get(
-            f'{root}/get/{pk}',
+            f'{root}/get/{pk}/',
+            params={'user_id': user_id},
             cookies={'sessionid': request.COOKIES['sessionid']}
         )
         result = r.json()
         discussroom = result['data']
         return render(request, 'inpage.html', {'discussroom': discussroom})
-    elif request.method == 'GET':
-        user_id = request.COOKIES['user_id']
-        r = requests.get(
-            f'{root}user/detail/',
-            params={'user_id': user_id},
-            cookies={'sessionid': request.COOKIES['sessionid']}
-        )
-        result = r.json()
-        user = result['data']
-        return render(request, 'inpage.html', {'user': user})
+
+    # elif request.method == 'GET':
+    #     user_id = request.COOKIES['user_id']
+    #     r = requests.get(
+    #         f'{root}user/detail/',
+    #         params={'user_id': user_id},
+    #         cookies={'sessionid': request.COOKIES['sessionid']}
+    #     )
+    #     result = r.json()
+    #     user = result['data']
+    #     return render(request, 'inpage.html', {'user': user})
 
 
 # 提問寫入

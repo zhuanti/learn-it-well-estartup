@@ -157,7 +157,7 @@
         /*討論室對話視窗*/
         .message {
             height: 700px;
-            font-size: 30px;
+            font-size: 25px;
             /*border: 3px solid #dddddd;*/
             width: 100%;
         }
@@ -266,7 +266,10 @@
         </div>
 
         <br>
-        <input type="text" class="msger-input" placeholder="說些什麼吧～" id="txt"></imput>
+        <input type="text" class="msger-input" placeholder="說些什麼吧～"id="txt"></imput>
+        {% for user in discussroom.user %}
+        <input type="text" class="msger-input" value="使用者-{{user.user_name}}:" id="username" hidden></imput>
+        {% endfor %}
         <button type="submit" class="btn msger-send-btn" onclick="sendMessage()">
             發送訊息
         </button>
@@ -277,12 +280,22 @@
             //創建好後自動觸發
             socket.onopen = function (event) {
                 let tag = document.createElement("div");
-                tag.innerText = "[ 已加入討論室，開始聊天吧! ]";
+                tag.innerText = "[ 已加入討論室，開始討論吧! ]";
                 document.getElementById("message").appendChild(tag);
             }
 
             // 當websocket接收到服務端的消息，會自動觸發
             socket.onmessage = function (event) {
+                // let tag3 = document.createElement("div");
+                // let tag2 = document.getElementById("username");
+                // tag3.innerText = tag2.value;
+                // document.getElementById("message").appendChild(tag3);
+
+                // let tag2 = document.getElementById("txt2");
+                // tag2.innerText = "tag2.value";
+                // document.getElementById("message").appendChild(tag2);
+
+
                 let tag = document.createElement("div");
                 tag.innerText = event.data;
                 document.getElementById("message").appendChild(tag);
@@ -297,7 +310,11 @@
 
             function sendMessage() {
                 let tag = document.getElementById("txt");
-                socket.send(tag.value);
+                if(tag.value != null){
+                    let tag2 = document.getElementById("username");
+                    socket.send(tag2.value);
+                    socket.send(tag.value);
+                }
             }
 
             function closeConn() {

@@ -32,8 +32,9 @@ class ChatConsumer(WebsocketConsumer):
         # # 給channel_layer裡整個組的人發送
         # self.send(text)
 
-        datetime_str = datetime.datetime.now().strftime('%H:%M:%S')
-        res = datetime_str + "　{}".format(text)
+        # datetime_str = datetime.datetime.now().strftime('%H:%M:%S')
+        # res = datetime_str + "　{}".format(text)
+        res = text
         # 給channel_layer裡整個組的人發送
         self.send(res)
 
