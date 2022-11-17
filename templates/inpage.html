@@ -284,16 +284,6 @@
 
             // 當websocket接收到服務端的消息，會自動觸發
             socket.onmessage = function (event) {
-                // let tag3 = document.createElement("div");
-                // let tag2 = document.getElementById("username");
-                // tag3.innerText = tag2.value;
-                // document.getElementById("message").appendChild(tag3);
-
-                // let tag2 = document.getElementById("txt2");
-                // tag2.innerText = "tag2.value";
-                // document.getElementById("message").appendChild(tag2);
-
-
                 let tag = document.createElement("div");
                 tag.innerText = event.data;
                 document.getElementById("message").appendChild(tag);
@@ -321,11 +311,6 @@
                     //設定使用者名
                     let username = document.getElementById("username");
                     let allmsg = username.innerHTML + ' ' + username.value + ' ' + tag.value;
-
-
-                    // socket.send(tag2.innerHTML);
-                    // socket.send(tag2.value);
-                    // socket.send(tag.value);
                     socket.send(allmsg);
                 }
             }
