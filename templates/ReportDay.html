@@ -204,7 +204,7 @@
                                               var myChart = new Chart(ctx, {
                                                 type: 'pie',
                                                 data: {
-                                                  labels: [{{dchart_list.dsubject_name.sub_name}}],
+                                                  labels: ["{{dchart_list.dsubject_name.sub_name}}"],
                                                   datasets: [{
                                                     backgroundColor: [
                                                       'rgb(75, 192, 192)',
@@ -214,8 +214,8 @@
                                                     ],
                                                     borderColor: 'rgb(240,240,240)',
                                                     borderWidth: 2.5,
-                                                    label: '標籤名稱',
-                                                    data: [{{dchart_list.user_daysubtotal_hours}}],
+                                                    label: ["{{dchart_list.dsubject_name.sub_name}}"],
+                                                    data: ["{{dchart_list.user_daysubtotal_hours}}"],
                                                     fill: false, // 是否填滿色彩
                                                   }]
                                                 },
