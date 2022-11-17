@@ -94,11 +94,12 @@
     <section id="contact" class="padd-section">
 
         <div class="container" data-aos="fade-up">
-            <div class="section-title text-center">
-                <br><br>
+           <div class="section-title text-center">
 
-                <!--          <p class="separator">請於下方登入</p>-->
-            </div>
+            <br><br>
+            <h3>請確認是否刪除此項讀書規劃</h3>
+            <!--          <p class="separator">Integer cursus bibendum augue ac cursus .</p>-->
+         </div>
 
             <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
                 <!--                {% csrf_token %}-->
@@ -111,12 +112,12 @@
                       </div>
                     </div>
                     <br>
-                    <div class="info">
-                        <div>
-                            <i class=" bi bi-pencil"></i>
-                            <h3>&emsp;代辦事項進度</h3>
-                      </div>
-                    </div>
+<!--                    <div class="info">-->
+<!--                        <div>-->
+<!--                            <i class=" bi bi-pencil"></i>-->
+<!--                            <h3>&emsp;代辦事項進度</h3>-->
+<!--                      </div>-->
+<!--                    </div>-->
 
                 </div>
 
@@ -128,22 +129,22 @@
                             <div class="row mb-3">
                                 <div class="col-sm-9 text-secondary">
                                     <input type="text" class="form-control" name="name" id="name"
-                                           value="{{ plan.name }}" required>
+                                           value="{{ plan.name }}" required readonly>
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <select class="form-control" name="settime_no_id" id="settime_no_id">
-                                    <option disabled="true" selected>--請選擇讀書規劃進度--</option>
+<!--                            <div class="form-group">-->
+<!--                                <select class="form-control" name="settime_no_id" id="settime_no_id">-->
+<!--                                    <option disabled="true" selected>&#45;&#45;請選擇讀書規劃進度&#45;&#45;</option>-->
 
-                                    <option value="{{set_list.set_no}}" id="op_settime_no_id" name="op_settime_no_id">
-                                       完成
-                                    </option>
-                                    <option value="{{set_list.set_no}}" id="op_settime_no_id1" name="op_settime_no_id">
-                                       尚未完成
-                                    </option>
-                                </select>
-                            </div>
+<!--                                    <option value="{{set_list.set_no}}" id="op_settime_no_id" name="op_settime_no_id">-->
+<!--                                       完成-->
+<!--                                    </option>-->
+<!--                                    <option value="{{set_list.set_no}}" id="op_settime_no_id1" name="op_settime_no_id">-->
+<!--                                       尚未完成-->
+<!--                                    </option>-->
+<!--                                </select>-->
+<!--                            </div>-->
                             <!--<div class="my-3">
                                 <div class="loading">Loading</div>
                                 <div class="error-message"></div>
@@ -152,9 +153,10 @@
                             <br>
                             <div class="btn-get-started scrollto">
 
-                                <!--<a class="btn link_button" style="margin: auto; width: 120px;"
-                                   type="color:#71c55d" >確認</a>-->
-                                <input class="btn btn-primary px-4" type="submit" value="確認">
+                                <input class="btn btn-primary px-4" style="margin: auto; width: 72px; height:40px;" type="submit" value="確認">&emsp;
+                                <a class="btn link_button" style="margin: auto; width: 72px; height:40px; background-color:#71c55d;"
+                                  href="/studyplan/">取消</a>
+
                             </div>
                         </form>
                     </div>
