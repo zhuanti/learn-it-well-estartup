@@ -32,6 +32,7 @@
             integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <!-- =======================================================
     * Template Name: eStartup - v4.7.1
     * Template URL: https://bootstrapmade.com/estartup-bootstrap-landing-page-template/
@@ -257,21 +258,11 @@
                                     <h3 class="d-flex align-items-center mb-3"><i
                                             class="material-icons text-info mr-2"></i>成就進度</h3>
                                     {% for wsuccess_list in inform.wsuccess_lists %}
-
-
-
-<!--                                    <small>{% for success_name in wsuccess_list.success_names %}{{success_name.suc_name}}{% endfor %}</small>&nbsp;&nbsp;-->
-                                    <!--                                    文字顯示-->
                                     <td>{% for success_name in wsuccess_list.success_names %}{{success_name.suc_name}}{% endfor %}&nbsp;&nbsp;&nbsp;&nbsp;{{ wsuccess_list.pace }} /
                                     {% for success_name in wsuccess_list.success_names %}
                                     {{ success_name.suc_pace }}
                                     {% endfor %}
                                     </td>
-
-                                    <!--                                    進度條顯示-->
-<!--                                    <div class="progress mb-3" style="height: 5px">-->
-<!--                                        <div class="progress-bar bg-primary" role="progressbar" style="width: {{ wsuccess_list.pace }}%"-->
-<!--                                             aria-valuenow="{{ wsuccess_list.pace }}" aria-valuemin="0" aria-valuemax="100"></div>-->
                                     {% for success_name in wsuccess_list.success_names %}
                                     <progress value="{{ wsuccess_list.pace }}" max="{{ success_name.suc_pace }}"> </progress>
                                     {% endfor %}
@@ -306,9 +297,55 @@
                                           background: #66B3FF;
                                         }
                                     </style>
-                                                                            <br>
                                     <br>
-                                    </div>
+
+
+<!--                                    <small>{% for success_name in wsuccess_list.success_names %}{{success_name.suc_name}}{% endfor %}</small>&nbsp;&nbsp;-->
+                                    <!--                                    文字顯示-->
+
+<!--
+
+                                                                     進度條顯示-->
+<!--                                    <div class="progress mb-3" style="height: 5px">-->
+<!--                                        <div class="progress-bar bg-primary" role="progressbar" style="width: {{ wsuccess_list.pace }}%"-->
+<!--                                             aria-valuenow="{{ wsuccess_list.pace }}" aria-valuemin="0" aria-valuemax="100"></div>-->
+<!--                                    {% for success_name in wsuccess_list.success_names %}-->
+<!--                                    <progress value="{{ wsuccess_list.pace }}" max="{{ success_name.suc_pace }}"> </progress>-->
+<!--                                    {% endfor %}-->
+<!--                                    <style>-->
+<!--                                        progress {-->
+<!--                                          color: lightblue;-->
+<!--                                        }-->
+
+<!--                                        progress {-->
+<!--                                          border: none;-->
+<!--                                          width: 100%;-->
+<!--                                          background: crimson;-->
+<!--                                        }-->
+
+<!--                                        progress::-webkit-progress-value {-->
+<!--                                          background: lightblue;-->
+<!--                                        }-->
+
+<!--                                        progress::-moz-progress-bar {-->
+<!--                                          background: lightcolor;-->
+<!--                                        }-->
+
+<!--                                        progress::-webkit-progress-value {-->
+<!--                                          background: #66B3FF;-->
+<!--                                        }-->
+
+<!--                                        progress::-webkit-progress-bar {-->
+<!--                                          background: lightgray;-->
+<!--                                        }-->
+
+<!--                                        .progress .progress-bar {-->
+<!--                                          background: #66B3FF;-->
+<!--                                        }-->
+<!--                                    </style>-->
+<!--                                    <br>-->
+<!--                                    <br>-->
+<!--                                    </div>-->
 <!--                                    <small>討論一小時</small>-->
 <!--                                    <div class="progress mb-3" style="height: 5px">-->
 <!--                                        <div class="progress-bar bg-primary" role="progressbar" style="width: 72%"-->
@@ -321,6 +358,7 @@
 <!--                                    </div>-->
                                     {% endfor%}
                                 </div>
+
                             </div>
                         </div>
 <!--一周學習規劃                        -->
