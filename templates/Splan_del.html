@@ -107,14 +107,14 @@
                     <div class="info">
                         <div>
                             <i class=" bi bi-pencil"></i>
-                            <h3>&emsp;編輯代辦事項</h3>
+                            <h3>&emsp;代辦事項</h3>
                       </div>
                     </div>
                     <br>
                     <div class="info">
                         <div>
                             <i class=" bi bi-pencil"></i>
-                            <h3>&emsp;編輯代辦事項進度</h3>
+                            <h3>&emsp;代辦事項進度</h3>
                       </div>
                     </div>
 
@@ -122,7 +122,7 @@
 
                 <div class="col-lg-5 col-md-8">
                     <div class="form">
-                        <form action="/edit/{{plan.no}}/" method="post">
+                        <form action="/delete/{{plan.no}}/" method="post">
                             {% csrf_token %}
 
                             <div class="row mb-3">
