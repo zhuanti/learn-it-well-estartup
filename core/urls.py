@@ -49,7 +49,7 @@ urlpatterns = [
     path('studyplan/', plan_review_views.get_all_reviews_test),  # 讀書規劃顯示
     path('plansadd/', plan_review_views.addplans),  # 讀書規劃新增
     path('edit/<int:pk>/', plan_review_views.editplans),  # 讀書規劃編輯
-    # path('plansdelete/', plan_review_views.deleteplans),
+    path('delete/<int:pk>', plan_review_views.deleteplans),
 
     # report
     path('report/', report_review_views.report),  # 選擇週或日報表
