@@ -198,13 +198,14 @@
                                 <div class="card-body">
                                     <h3 class="title">科目時長占比圓餅圖</h3>
                                     <canvas id="myChart-4"></canvas>
-
+                                    {% for dchart_list in inform.dchart_lists %}
+                                     {% for subject_name in dchart_lists.subject_name %}
                                     <script>
                                   var ctx = document.getElementById('myChart-4');
                                   var myChart = new Chart(ctx, {
                                     type: 'pie',
                                     data: {
-                                      labels: ['自然', '數學', '國文', '社會'],
+                                      labels: [{{subject_name.sub_name}}],
                                       datasets: [{
                                         backgroundColor: [
                                           'rgb(75, 192, 192)',
@@ -215,7 +216,7 @@
                                         borderColor: 'rgb(240,240,240)',
                                         borderWidth: 2.5,
                                         label: '標籤名稱',
-                                        data: [5, 3, 7, 3],
+                                        data: [{{dchart_list.user_total_hours}}],
                                         fill: false, // 是否填滿色彩
                                       }]
                                     },
@@ -236,6 +237,8 @@
 
 
                                     </script>
+                                    {% endfor%}
+                                    {% endfor%}
                                 </div>
                             </div>
                         </div>
