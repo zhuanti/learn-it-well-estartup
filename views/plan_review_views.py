@@ -309,7 +309,7 @@ def deleteplans(request, pk):
     if request.method == 'GET':
         user_id = request.COOKIES['user_id'],
         r = requests.get(
-            f'{root}plan/get/',
+            f'{root}plan/showedittest/',
             params={'no': pk, 'user_id': user_id},
             # 'user_id': request.COOKIES['user_id'],
             cookies={'sessionid': request.COOKIES['sessionid']}
@@ -324,9 +324,11 @@ def deleteplans(request, pk):
             return ret
 
     if request.method == 'POST':
-        user_id = request.COOKIES['user_id']
+        name = request.POST['name']
+
         data = {
-            'no': pk
+            'no': pk,
+            'name': name
         }
         r = requests.post(
             f'{root}plan/deletetest/',
