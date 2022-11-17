@@ -161,13 +161,16 @@
             <div class="d-inline-block" style=" color: #535461;">
 
                 ★ 公告 ★ &nbsp;&nbsp;&nbsp;歡迎登入！&nbsp;
+
+                您的讀書規劃：
                 {% for plan in plans %}
                 {% if plan in plans %}
-                您的讀書規劃：
                 {{plan.name }}&nbsp;
-                尚未完成
                 {% endif %}
                 {% endfor %}
+                尚未完成
+
+
 
             </div>
         </span>
