@@ -34,7 +34,6 @@
     * License: https://bootstrapmade.com/license/
     ======================================================== -->
 </head>
-
 <body>
 
 
@@ -42,12 +41,12 @@
 <header id="header" class="header fixed-top d-flex align-items-center">
     {% if 'user_id' not in request.COOKIES.keys %}
     <script type="text/javascript">
-      var v = confirm("將網站加入書籤更方便喔!");
+        var v = confirm("將網站加入書籤更方便喔!");
 
-      if(v){
-        popup();
-      }
-     </script>
+        if (v) {
+            popup();
+        }
+    </script>
     {% endif %}
     <div class="container d-flex align-items-center justify-content-between">
 
@@ -80,7 +79,7 @@
                     </ul>
                 <li><a class="nav-link scrollto" href="/studyroom/">自習室</a></li>
                 <li><a class="nav-link scrollto" href="/discusroom/">討論室</a></li>
-<!--                <li><a class="nav-link scrollto" href="/award/">獎勵兌換</a></li>-->
+                <!--                <li><a class="nav-link scrollto" href="/award/">獎勵兌換</a></li>-->
                 <li><a class="nav-link scrollto" href="/developer/">開發人員</a></li>
                 {% if 'user_id' not in request.COOKIES.keys %}
                 <li><a class="nav-link scrollto" href="/login/">登入</a></li>
@@ -98,68 +97,69 @@
 <!-- ======= Hero Section ======= -->
 <section id="hero">
     <br><br>
-<!--    <div class="rightCSS li">-->
-<!--              <span class="d-inline-block float-left">-->
-<!--      {% if 'user_id' not in request.COOKIES.keys %}-->
-<!--      <div class="d-inline-block" style=" color: #535461;">-->
-<!--          公告🔊🔊 &nbsp;&nbsp;&nbsp;提醒使用者記得將此頁加入 🔖書籤 方便之後使用喔~-->
-<!--      </div>-->
-<!--              </span>-->
-<!--        <style>-->
-<!--            .rightCSS {-->
-<!--                background: #ceebc7;-->
-<!--                overflow: hidden;-->
-<!--            }-->
+    <!--    <div class="rightCSS li">-->
+    <!--              <span class="d-inline-block float-left">-->
+    <!--      {% if 'user_id' not in request.COOKIES.keys %}-->
+    <!--      <div class="d-inline-block" style=" color: #535461;">-->
+    <!--          公告🔊🔊 &nbsp;&nbsp;&nbsp;提醒使用者記得將此頁加入 🔖書籤 方便之後使用喔~-->
+    <!--      </div>-->
+    <!--              </span>-->
+    <!--        <style>-->
+    <!--            .rightCSS {-->
+    <!--                background: #ceebc7;-->
+    <!--                overflow: hidden;-->
+    <!--            }-->
 
-<!--            .rightCSS div {-->
-<!--                position: relative;-->
-<!--                animation: CSSright linear 25s infinite;-->
-<!--            }-->
+    <!--            .rightCSS div {-->
+    <!--                position: relative;-->
+    <!--                animation: CSSright linear 25s infinite;-->
+    <!--            }-->
 
-<!--            @keyframes CSSright {-->
-<!--                0% {-->
-<!--                    right: -100%-->
-<!--                }-->
-<!--                100% {-->
-<!--                    right: 100%-->
-<!--                }-->
-<!--            }-->
+    <!--            @keyframes CSSright {-->
+    <!--                0% {-->
+    <!--                    right: -100%-->
+    <!--                }-->
+    <!--                100% {-->
+    <!--                    right: 100%-->
+    <!--                }-->
+    <!--            }-->
 
-<!--            .rightCSS:hover div {-->
-<!--                animation-play-state: paused;-->
-<!--            }-->
+    <!--            .rightCSS:hover div {-->
+    <!--                animation-play-state: paused;-->
+    <!--            }-->
 
-<!--            .li {-->
-<!--                float: left;-->
-<!--                width: 80%;-->
-<!--                padding: 1%;-->
-<!--                margin: 1% 10%;-->
-<!--                height: 4%;-->
-<!--                border-radius: 0.6em;-->
-<!--            &lt;!&ndash; box-shadow: 0 0.1 em 0.5 em;-->
-<!--            盒子陰影&#45;&#45; >-->
-<!--            }-->
+    <!--            .li {-->
+    <!--                float: left;-->
+    <!--                width: 80%;-->
+    <!--                padding: 1%;-->
+    <!--                margin: 1% 10%;-->
+    <!--                height: 4%;-->
+    <!--                border-radius: 0.6em;-->
+    <!--            &lt;!&ndash; box-shadow: 0 0.1 em 0.5 em;-->
+    <!--            盒子陰影&#45;&#45; >-->
+    <!--            }-->
 
-<!--        </style>-->
-<!--    </div>-->
-<!--    {% endif %}-->
+    <!--        </style>-->
+    <!--    </div>-->
+    <!--    {% endif %}-->
 
-    <div class="rightCSS li">
+    <div class="hero-container" data-aos="fade-in">
+
+        <div class="rightCSS li">
+
         <span class="d-inline-block float-left">
-            {% for plan in plans %}
+
             <div class="d-inline-block" style=" color: #535461;">
 
-                {% for user_list in plan.user_lists %}
-                ★ 公告 ★ &nbsp;&nbsp;&nbsp;歡迎回來 "{{user_list.user_name}}" ！&nbsp;
-                {% endfor %}
+                ★ 公告 ★ &nbsp;&nbsp;&nbsp;歡迎登入！&nbsp;
+
                 您的讀書計畫：
                 {% for plan in plans %}
-                {{plan.name}}&nbsp;
+                {{ plan.name }}&nbsp;
                 {% endfor %}
                 尚未完成
 
             </div>
-            {% endfor %}
         </span>
             <style>
                 .rightCSS {
@@ -190,17 +190,16 @@
                     width: 80%;
                     padding: 1%;
                     margin: 1% 10%;
-                    height:5.4%;
-    <!--                line-height:34%;-->
+                    height: 5.4%;
+                    line-height: 124%;
                     border-radius: 0.6em;
-                <!-- box-shadow: 0 0.1 em 0.5 em;
-                盒子陰影-- >
+                    /*box-shadow: 0 0.1 em 0.5 em;*/
+                    box-shadow: #0c4128;
                 }
 
             </style>
         </div>
 
-    <div class="hero-container" data-aos="fade-in">
         {% for message in messages %}
         <div class="alert alert-success">
             <a class="close" href="#" data-dismiss="alert"></a>
@@ -208,16 +207,18 @@
 
         </div>
         {% endfor %}
-        <br><br><br><br><br>
-        <h1>做伙來讀冊</h1>
-        <h2>LEARN IT WELL</h2>
-        <img src="/static/images/hero-img.png" alt="Hero Imgs" data-aos="zoom-out" data-aos-delay="100">
-        <P>
-            <a href="/studyroom/" class="btn-get-started scrollto">自習室</a>&emsp;
-            <!--        <a href="#get-started" class="btn-get-started scrollto">Get Started</a>-->
-            <a href="/discusroom/" class="btn-get-started scrollto">討論室</a>
-        </P>
-
+        <header>
+            <div>
+                <h1>做伙來讀冊</h1>
+                <h2>LEARN IT WELL</h2>
+                <img src="/static/images/hero-img.png" alt="Hero Imgs" data-aos="zoom-out" data-aos-delay="100">
+                <P>
+                    <a href="/studyroom/" class="btn-get-started scrollto">自習室</a>&emsp;
+                    <!--        <a href="#get-started" class="btn-get-started scrollto">Get Started</a>-->
+                    <a href="/discusroom/" class="btn-get-started scrollto">討論室</a>
+                </P>
+            </div>
+        </header>
     </div>
 </section><!-- End Hero Section -->
 
