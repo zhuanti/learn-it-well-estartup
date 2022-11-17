@@ -199,35 +199,35 @@
                                     <h3 class="title">科目時長占比圓餅圖</h3>
                                     <canvas id="myChart-4"></canvas>
                                     {% for dchart_list in inform.dchart_lists %}
-                                            <script>
-                                              var ctx = document.getElementById('myChart-4');
-                                              var myChart = new Chart(ctx, {
+                                        <script>
+                                            var ctx = document.getElementById('myChart-4');
+                                            var myChart = new Chart(ctx, {
                                                 type: 'pie',
                                                 data: {
-                                                  labels: ["{{dchart_list.dsubject_name.sub_name}}"],
-                                                  datasets: [{
-                                                    backgroundColor: [
-                                                      'rgb(75, 192, 192)',
-                                                      'rgb(54, 162, 235)',
-                                                      'rgb(255, 99, 132)',
-                                                      'rgb(243,204,79)'
-                                                    ],
-                                                    borderColor: 'rgb(240,240,240)',
-                                                    borderWidth: 2.5,
-                                                    label: ["{{dchart_list.dsubject_name.sub_name}}"],
-                                                    data: ["{{dchart_list.user_daysubtotal_hours}}"],
-                                                    fill: false, // 是否填滿色彩
-                                                  }]
+                                                    labels: ["{{dchart_list.subject_no_id}}","{{dchart_list.subject_no_id}}","{{dchart_list.subject_no_id}}","{{dchart_list.subject_no_id}}",],
+                                                    datasets: [{
+                                                        backgroundColor: [
+                                                            'rgb(75, 192, 192)',
+                                                            'rgb(54, 162, 235)',
+                                                            'rgb(255, 99, 132)',
+                                                            'rgb(243,204,79)'
+                                                        ],
+                                                        borderColor: 'rgb(240,240,240)',
+                                                        borderWidth: 2.5,
+                                                        label: ["{{dchart_list.subject_no_id}}","{{dchart_list.subject_no_id}}","{{dchart_list.subject_no_id}}","{{dchart_list.subject_no_id}}",],
+                                                        data: ["{{dchart_list.user_daysubtotal_hours}}","{{dchart_list.user_daysubtotal_hours}}","{{dchart_list.user_daysubtotal_hours}}","{{dchart_list.user_daysubtotal_hours}}",],
+                                                        fill: false, // 是否填滿色彩
+                                                    }]
                                                 },
                                                 options: {
-                                                  legend: {
-                                                    labels: {
-                                                      fontColor: 'white' // 標籤顏色
+                                                    legend: {
+                                                        labels: {
+                                                          fontColor: 'white' // 標籤顏色
+                                                        }
                                                     }
-                                                  }
                                                 }
-                                              });
-                                            </script>
+                                            });
+                                        </script>
                                     {% endfor%}
                                 </div>
                             </div>
