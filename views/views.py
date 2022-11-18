@@ -248,14 +248,6 @@ def developer(request):
 #多人自習室內部
 @user_login_required
 def Sroominpage(request, pk):
-    if 'num' in request.COOKIES:
-        num = int(request.COOKIES['num'])
-        num += 1
-    else:
-        num = 1
-    rsp = HttpResponse('網頁瀏覽人數 = '+ str(num))
-    rsp.set_cookie('num',num)
-    # return rsp
     user_id = request.COOKIES['user_id'],
     r = requests.get(
         f'{root}studyroom/get/{pk}',
@@ -265,7 +257,6 @@ def Sroominpage(request, pk):
     result = r.json()
     if result['success'] is True:
         studyroom = result['data']
-        # print(studyroom)
         return render(request, 'Sroominpage.html', {'studyroom': studyroom})
 
     else:
