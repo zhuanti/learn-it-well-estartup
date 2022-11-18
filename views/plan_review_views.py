@@ -101,7 +101,7 @@ from utils.decorators import user_login_required
 def get_all_reviews_test(request):
     user_id = request.COOKIES['user_id'],
     r = requests.get(
-        f'{root}plan/gettest/',
+        f'{root}plan/get/',
         params={'user_id': user_id},
         # 'user_id': request.COOKIES['user_id'],
         cookies={'sessionid': request.COOKIES['sessionid']}
@@ -180,7 +180,7 @@ def addplans(request):
     if request.method == 'GET':
         user_id = request.COOKIES['user_id'],
         r = requests.get(
-            f'{root}plan/gettest/',
+            f'{root}plan/get/',
             params={'user_id': user_id},
             cookies={'sessionid': request.COOKIES['sessionid']}
         )
@@ -198,7 +198,7 @@ def addplans(request):
             'datetime': "",
         }
         r = requests.post(
-            f'{root}plan/addplantest/',
+            f'{root}plan/add/',
             data=data,
             cookies={'sessionid': request.COOKIES['sessionid']}
         )
@@ -266,7 +266,7 @@ def editplans(request, pk):
     if request.method == 'GET':
         user_id = request.COOKIES['user_id']
         r = requests.get(
-            f'{root}plan/showedittest/',
+            f'{root}plan/showedit/',
             params={'no': pk, 'user_id': user_id},
             cookies={'sessionid': request.COOKIES['sessionid']}
         )
@@ -288,7 +288,7 @@ def editplans(request, pk):
             'name': name
         }
         r = requests.post(
-            f'{root}plan/editplantest/',
+            f'{root}plan/editplan/',
             data=data,
             cookies={'sessionid': request.COOKIES['sessionid']}
         )
@@ -309,7 +309,7 @@ def deleteplans(request, pk):
     if request.method == 'GET':
         user_id = request.COOKIES['user_id'],
         r = requests.get(
-            f'{root}plan/showedittest/',
+            f'{root}plan/showedit/',
             params={'no': pk, 'user_id': user_id},
             # 'user_id': request.COOKIES['user_id'],
             cookies={'sessionid': request.COOKIES['sessionid']}
@@ -331,7 +331,7 @@ def deleteplans(request, pk):
             'name': name
         }
         r = requests.post(
-            f'{root}plan/deletetest/',
+            f'{root}plan/delete/',
             data=data,
             cookies={'sessionid': request.COOKIES['sessionid']}
         )
