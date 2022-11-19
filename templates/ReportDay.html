@@ -205,7 +205,7 @@
                                                 type: 'pie',
                                                 data: {
                                                     {% for dsubject_name in dchart_list.dsubject_name %}
-                                                    labels: ["{{dsubject_name.sub_name}}",],
+                                                    labels: ["{{ dsubject_name.sub_name }}",],
                                                     {% endfor %}
                                                     datasets: [{
                                                         backgroundColor: [
@@ -217,9 +217,9 @@
                                                         borderColor: 'rgb(240,240,240)',
                                                         borderWidth: 2.5,
                                                         {% for dsubject_name in dchart_list.dsubject_name %}
-                                                        label: ["{{dsubject_name.sub_name}}",],
+                                                        label: ["{{ dsubject_name.sub_name }}",],
                                                         {% endfor %}
-                                                        data: ["{{dchart_list.user_daysubtotal_hours}}",],
+                                                        data: ["{{ dchart_list.user_daysubtotal_hours }}",],
                                                         fill: false, // 是否填滿色彩
                                                     }]
                                                 },
