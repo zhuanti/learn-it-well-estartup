@@ -252,6 +252,14 @@ i.bi-house-door-fill:hover{
   width: 74%;
   cursor: pointer;
 }
+
+.countnum{
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top:80%;
+    left: 89%;
+}
+
 /*時鐘*/
 
 .clock1{
