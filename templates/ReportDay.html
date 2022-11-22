@@ -196,17 +196,29 @@
                         <div class="col-sm-6 mb-3">
                             <div class="card h-100">
                                 <div class="card-body">
+                                    {% for dchart_list in inform.dchart_lists %}
+                                     {% for dsubject_name in dchart_list.dsubject_name %}
+                                    <script>
+                                        var my=[];
+                                        my.push('{{ dsubject_name.sub_name }}');
+                                        document.write(my);
+                                    </script>
+                                    {% endfor %}
+                                    {% endfor %}
                                     <h3 class="title">科目時長占比圓餅圖</h3>
                                     <canvas id="myChart-4"></canvas>
                                     {% for dchart_list in inform.dchart_lists %}
+                                      {% for dsubject_name in dchart_list.dsubject_name %}
                                         <script>
+                                            var subname=[];
+                                            subname.push('{{ dsubject_name.sub_name }}');
+                                            var hours=[];
+                                            hours.push('{{ dchart_list.user_daysubtotal_hours }}');
                                             var ctx = document.getElementById('myChart-4');
                                             var myChart = new Chart(ctx, {
                                                 type: 'pie',
                                                 data: {
-                                                    {% for dsubject_name in dchart_list.dsubject_name %}
-                                                    labels: ["{{ dsubject_name.sub_name }}",],
-                                                    {% endfor %}
+                                                    labels: [subname,],
                                                     datasets: [{
                                                         backgroundColor: [
                                                             'rgb(75, 192, 192)',
@@ -216,10 +228,10 @@
                                                         ],
                                                         borderColor: 'rgb(240,240,240)',
                                                         borderWidth: 2.5,
-                                                        {% for dsubject_name in dchart_list.dsubject_name %}
-                                                        label: ["{{ dsubject_name.sub_name }}",],
-                                                        {% endfor %}
-                                                        data: ["{{ dchart_list.user_daysubtotal_hours }}",],
+
+                                                        label: [subname,],
+
+                                                        data: [hours,],
                                                         fill: false, // 是否填滿色彩
                                                     }]
                                                 },
@@ -232,6 +244,7 @@
                                                 }
                                             });
                                         </script>
+                                    {% endfor%}
                                     {% endfor%}
                                 </div>
                             </div>
