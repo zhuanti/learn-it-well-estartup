@@ -258,22 +258,62 @@
                                         {% for day_list in inform.day_lists %}
                                         dayshow.push('{{ day_list.current_date }}');
                                         {% endfor%}
-                                        var subname=[];
-                                        var hours=[];
-                                        {% for dchart_list in inform.dchart_lists %}
-                                        {% for dsubject_name in dchart_list.dsubject_name %}
-                                        subname.push('{{ dsubject_name.sub_name }}');
-                                        hours.push('{{ dchart_list.user_daysubtotal_hours }}');
+                                        var chinese=[];
+                                        var chours=[];
+                                        {% for chinese_list in inform.chinese_lists %}
+                                        {% for dsubject_name in chinese_list.dsubject_name %}
+                                        chinese.push('{{ dsubject_name.sub_name }}');
+                                        chours.push('{{ chinese_list.user_daysubtotal_hours }}');
+                                        {% endfor%}
+                                        {% endfor%}
+                                        var english=[];
+                                        var ehours=[];
+                                        {% for english_list in inform.english_lists %}
+                                        {% for dsubject_name in english_list.dsubject_name %}
+                                        english.push('{{ dsubject_name.sub_name }}');
+                                        ehours.push('{{ english_list.user_daysubtotal_hours }}');
+                                        {% endfor%}
+                                        {% endfor%}
+                                        var math=[];
+                                        var mhours=[];
+                                        {% for math_list in inform.math_lists %}
+                                        {% for dsubject_name in math_list.dsubject_name %}
+                                        math.push('{{ dsubject_name.sub_name }}');
+                                        mhours.push('{{ math_list.user_daysubtotal_hours }}');
+                                        {% endfor%}
+                                        {% endfor%}
+                                        var science=[];
+                                        var shours=[];
+                                        {% for science_list in inform.science_lists %}
+                                        {% for dsubject_name in science_list.dsubject_name %}
+                                        science.push('{{ dsubject_name.sub_name }}');
+                                        shours.push('{{ science_list.user_daysubtotal_hours }}');
+                                        {% endfor%}
+                                        {% endfor%}
+                                        var social=[];
+                                        var sohours=[];
+                                        {% for social_list in inform.social_lists %}
+                                        {% for dsubject_name in social_list.dsubject_name %}
+                                        social.push('{{ dsubject_name.sub_name }}');
+                                        sohours.push('{{ social_list.user_daysubtotal_hours }}');
+                                        {% endfor%}
+                                        {% endfor%}
+                                        var other=[];
+                                        var ohours=[];
+                                        {% for other_list in inform.other_lists %}
+                                        {% for dsubject_name in other_list.dsubject_name %}
+                                        other.push('{{ dsubject_name.sub_name }}');
+                                        ohours.push('{{ other_list.user_daysubtotal_hours}}');
                                         {% endfor%}
                                         {% endfor%}
                                             window.chartColors = {
-                                              red: 'rgb(255, 99, 132)',
+                                              red: 'rgb(241, 148, 131)',
                                               orange: 'rgb(255, 159, 64)',
-                                              yellow: 'rgb(255, 205, 86)',
-                                              green: 'rgb(75, 192, 192)',
-                                              blue: 'rgb(54, 162, 235)',
-                                              purple: 'rgb(153, 102, 255)',
-                                              grey: 'rgb(231,233,237)'
+                                              yellow: 'rgb(251, 226, 81)',
+                                              green: 'rgb(168, 216, 185)',
+                                              blue: 'rgb(129,199,212)',
+                                              purple: 'rgb(155, 144, 194)',
+                                              brown: 'rgb(180, 165, 130)'
                                             };
 
                                             var ctx = document.getElementById("canvas").getContext("2d");
@@ -284,28 +324,40 @@
                                                 labels: dayshow,
                                                 datasets: [{
                                                   type: 'bar',
-                                                  label: '國文',
+                                                  label: chinese,
                                                   backgroundColor: window.chartColors.red,
                                                   stack: 'Stack 0',
-                                                  data: [2],
-                                                }, {
+                                                  data: chours
+                                                },{
                                                   type: 'bar',
-                                                  label: '數學',
+                                                  label: english,
+                                                  backgroundColor: window.chartColors.purple,
+                                                  stack: 'Stack 0',
+                                                  data: ehours
+                                                },{
+                                                  type: 'bar',
+                                                  label: math,
                                                   backgroundColor: window.chartColors.blue,
                                                   stack: 'Stack 0',
-                                                  data: [7]
-                                                },{
+                                                  data: mhours,
+                                                }, {
                                                   type: 'bar',
-                                                  label: '自然',
+                                                  label: science,
                                                   backgroundColor: window.chartColors.green,
                                                   stack: 'Stack 0',
-                                                  data: [6]
+                                                  data: shours
                                                 },{
                                                   type: 'bar',
-                                                  label: '社會',
+                                                  label: social,
                                                   backgroundColor: window.chartColors.yellow,
                                                   stack: 'Stack 0',
-                                                  data: [1]
+                                                  data: sohours
+                                                },{
+                                                  type: 'bar',
+                                                  label: other,
+                                                  backgroundColor: window.chartColors.brown,
+                                                  stack: 'Stack 0',
+                                                  data: ohours
                                                 }]
                                               },
                                               options: {
