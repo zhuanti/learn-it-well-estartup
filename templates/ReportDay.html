@@ -196,42 +196,39 @@
                         <div class="col-sm-6 mb-3">
                             <div class="card h-100">
                                 <div class="card-body">
-                                    {% for dchart_list in inform.dchart_lists %}
-                                     {% for dsubject_name in dchart_list.dsubject_name %}
-                                    <script>
-                                        var my=[];
-                                        my.push('{{ dsubject_name.sub_name }}');
-                                        document.write(my);
-                                    </script>
-                                    {% endfor %}
-                                    {% endfor %}
                                     <h3 class="title">科目時長占比圓餅圖</h3>
                                     <canvas id="myChart-4"></canvas>
-                                    {% for dchart_list in inform.dchart_lists %}
-                                      {% for dsubject_name in dchart_list.dsubject_name %}
+
                                         <script>
                                             var subname=[];
-                                            subname.push('{{ dsubject_name.sub_name }}');
                                             var hours=[];
+                                            {% for dchart_list in inform.dchart_lists %}
+                                            {% for dsubject_name in dchart_list.dsubject_name %}
+                                            subname.push('{{ dsubject_name.sub_name }}');
                                             hours.push('{{ dchart_list.user_daysubtotal_hours }}');
+                                            {% endfor%}
+                                            {% endfor%}
                                             var ctx = document.getElementById('myChart-4');
                                             var myChart = new Chart(ctx, {
                                                 type: 'pie',
                                                 data: {
-                                                    labels: [subname,],
+                                                    labels: subname,
                                                     datasets: [{
                                                         backgroundColor: [
-                                                            'rgb(75, 192, 192)',
-                                                            'rgb(54, 162, 235)',
-                                                            'rgb(255, 99, 132)',
-                                                            'rgb(243,204,79)'
+                                                            'rgb(241, 148, 131)',
+                                                            'rgb(155, 144, 194)',
+                                                            'rgb(129,199,212)',
+                                                            'rgb(168, 216, 185)',
+                                                            'rgb(251, 226, 81)',
+                                                            'rgb(180, 165, 130)'
+
                                                         ],
                                                         borderColor: 'rgb(240,240,240)',
                                                         borderWidth: 2.5,
 
-                                                        label: [subname,],
+                                                        label:subname,
 
-                                                        data: [hours,],
+                                                        data:hours,
                                                         fill: false, // 是否填滿色彩
                                                     }]
                                                 },
@@ -243,9 +240,9 @@
                                                     }
                                                 }
                                             });
+
                                         </script>
-                                    {% endfor%}
-                                    {% endfor%}
+
                                 </div>
                             </div>
                         </div>
@@ -257,6 +254,18 @@
                                         <h3 class="title">本日各科讀書時長(小時)</h3>
                                         <canvas id="canvas"></canvas>
                                         <script>
+                                        var dayshow=[];
+                                        {% for day_list in inform.day_lists %}
+                                        dayshow.push('{{ day_list.current_date }}');
+                                        {% endfor%}
+                                        var subname=[];
+                                        var hours=[];
+                                        {% for dchart_list in inform.dchart_lists %}
+                                        {% for dsubject_name in dchart_list.dsubject_name %}
+                                        subname.push('{{ dsubject_name.sub_name }}');
+                                        hours.push('{{ dchart_list.user_daysubtotal_hours }}');
+                                        {% endfor%}
+                                        {% endfor%}
                                             window.chartColors = {
                                               red: 'rgb(255, 99, 132)',
                                               orange: 'rgb(255, 159, 64)',
@@ -272,7 +281,7 @@
                                             var myChart = new Chart(ctx, {
                                               type: 'bar',
                                               data: {
-                                                labels: ["10/10"],
+                                                labels: dayshow,
                                                 datasets: [{
                                                   type: 'bar',
                                                   label: '國文',
@@ -317,6 +326,7 @@
                                                 }
                                               }
                                             });
+
                                         </script>
                                     </div>
                                 </div>

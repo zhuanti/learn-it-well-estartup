@@ -215,22 +215,32 @@
                                     <h3 class="title">科目時長占比圓餅圖</h3>
                                     <canvas id="myChart-4"></canvas>
                                     <script>
+                                    var subname=[];
+                                    var hours=[];
+                                    {% for wchart_list in inform.wchart_lists %}
+                                    {% for subject_name in wchart_list.subject_name %}
+                                    subname.push('{{ subject_name.sub_name }}');
+                                    hours.push('{{ wchart_list.user_total_hours }}');
+                                    {% endfor%}
+                                    {% endfor%}
                                   var ctx = document.getElementById('myChart-4');
                                   var myChart = new Chart(ctx, {
                                     type: 'pie',
                                     data: {
-                                      labels: ['自然', '數學', '國文', '社會'],
+                                      labels: subname,
                                       datasets: [{
                                         backgroundColor: [
-                                          'rgb(75, 192, 192)',
-                                          'rgb(54, 162, 235)',
-                                          'rgb(255, 99, 132)',
-                                          'rgb(255, 205, 86)'
+                                            'rgb(241, 148, 131)',
+                                            'rgb(155, 144, 194)',
+                                            'rgb(129,199,212)',
+                                            'rgb(168, 216, 185)',
+                                            'rgb(251, 226, 81)',
+                                            'rgb(180, 165, 130)'
                                         ],
                                         borderColor: 'rgb(240,240,240)',
                                         borderWidth: 2.5,
-                                        label: '標籤名稱',
-                                        data: [80, 20, 78, 30],
+                                        label: subname,
+                                        data: hours,
                                         fill: false, // 是否填滿色彩
                                       }]
                                     },
