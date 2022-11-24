@@ -154,6 +154,8 @@
 
         </div>
         {% endfor %}
+        {% if 'user_id' in request.COOKIES.keys %}
+        {% if 'plans' in plans %}
         <div class="rightCSS li">
 
         <span class="d-inline-block float-left">
@@ -212,7 +214,8 @@
 
             </style>
         </div>
-
+        {% endif %}
+        {% endif %}
         <header>
             <div>
                 <h1>做伙來讀冊</h1>
