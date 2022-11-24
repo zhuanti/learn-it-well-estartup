@@ -137,9 +137,22 @@
                     <div class="card mb-3">
                         <div class="card-body">
                             <div>
+<!--                                {% for weekdate_list in inform.weekdate_lists %}-->
+<!--                                    <script>-->
+<!--                                        var my=[];-->
+<!--                                        my.push({{weekdate_list.startdate}});-->
+<!--                                        document.write(my);-->
+<!--                                    </script>-->
+<!--                                {% endfor%}-->
                                 <h3 class="title">一週各科讀書時長(小時)</h3>
                                 <canvas id="canvas"></canvas>
+                                {% for weekdate_list in inform.weekdate_lists %}
+
                                 <script>
+                                var cd=[];
+                                {% for cstart_list in inform.chinesestart_lists %}
+                                cd.push('{{ cstart_list.user_total_hours }}');
+                                {% endfor%}
                                 window.chartColors = {
                                   red: 'rgb(255, 99, 132)',
                                   orange: 'rgb(255, 159, 64)',
@@ -155,13 +168,13 @@
                                 var myChart = new Chart(ctx, {
                                   type: 'bar',
                                   data: {
-                                    labels: ["9/26", "9/27", "9/28", "9/29", "9/30", "10/01", "10/02"],
+                                    labels: [{{weekdate_list.startdate}}, {{weekdate_list.secdate}}, {{weekdate_list.thirddate}}, {{weekdate_list.forthdate}}, {{weekdate_list.fifdate}}, {{weekdate_list.sixdate}}, {{weekdate_list.enddate}}],
                                     datasets: [{
                                       type: 'bar',
                                       label: '國文',
                                       backgroundColor: window.chartColors.red,
                                       stack: 'Stack 0',
-                                      data: [2, 4, 1, 3, 7, 3, 6],
+                                      data: ["{{ cstart_list.user_total_hours }}", "{{ csec_list.user_total_hours }}", "{{ cthird_list.user_total_hours }}", "{{ cforth_list.user_total_hours }}","{{ cfif_list.user_total_hours }}" , "{{ csix_list.user_total_hours }}", "{{ cend_list.user_total_hours }}"],
                                     }, {
                                       type: 'bar',
                                       label: '數學',
@@ -199,11 +212,9 @@
                                     }
                                   }
                                 });
-
-
-
-
                                 </script>
+                                {% endfor%}
+
                             </div>
                         </div>
                     </div>
