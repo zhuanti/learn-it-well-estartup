@@ -98,6 +98,7 @@ def droom(request):
     if request.method == 'POST':
         # no = request.POST['ano']
         subject_no_id = request.POST['asubject_no']
+        schoolsys_no_id = request.POST['aschoolsys_no_id']
         name = request.POST['aname']
         total_people = request.POST['atotal_people']
 

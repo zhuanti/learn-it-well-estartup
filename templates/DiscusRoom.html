@@ -144,6 +144,8 @@
             transform: translate(-50%, -50%) scale(0.7);
         }
 
+
+
     </style>
 
 </head>
@@ -326,7 +328,8 @@
                 <br>
                 <center>
                     <div class="wrap">
-                        <a class="btn popup-btn" style="width:120px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;"
+                        <a class="btn popup-btn"
+                           style="width:120px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;"
                            href="#letmeopen">新增房間</a>
                     </div>
                     <div class="popup-wrap" id="letmeopen">
@@ -344,26 +347,42 @@
                                 </h3><br>
                                 <h3>科目&emsp;&emsp;&thinsp; <input class="text" id="asubject_no" name="asubject_no"
                                                                   required="required"></h3>
-                                <br>
-                                <!--                                <h3>科目 <input type="text" id="subject_no" name="subject_no" required="required"></h3><br>-->
+                                <div class="form">
+                                    <form action="/studyroom-togethersub/{{ studyroom.no }}/" method="post">
+                                        {% csrf_token %}
+                                        <div class="form-group">
+                                            <select class="form-control" name="subject_no_id" id="subject_no_id">
+                                                <!--value={{ report.subject_no_id }}-->
+                                                <option disabled="true" selected>--請選擇要讀的科目--</option>
+                                                {% for sub_list in studyroom.sub_lists %}
+                                                <option value="{{sub_list.sub_no}}" id="op_subject_no_id"
+                                                        name="op_subject_no_id">
+                                                    {{sub_list.sub_name}}
+                                                </option>
+                                                {% endfor%}
+                                            </select>
+                                        </div>
+                                    </form>
+                                    <br>
+                                    <!--                                <h3>科目 <input type="text" id="subject_no" name="subject_no" required="required"></h3><br>-->
 
-                                <!--                                    <h3>科目 <select name="total_people" required>-->
-                                <!--                                        {% for subject in subjects %}-->
-                                <!--                                        <option>-->
-                                <!--                                            {{subject.name}}-->
-                                <!--                                        </option>-->
-                                <!--                                        {% endfor %}-->
-                                <!--                                    </select></h3>-->
-                                <!--                                    <br>-->
-                                <!--                                <button type="submit"-->
-                                <!--                                        style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">-->
-                                <!--                                    確認-->
-                                <!--                                </button>-->
+                                    <!--                                    <h3>科目 <select name="total_people" required>-->
+                                    <!--                                        {% for subject in subjects %}-->
+                                    <!--                                        <option>-->
+                                    <!--                                            {{subject.name}}-->
+                                    <!--                                        </option>-->
+                                    <!--                                        {% endfor %}-->
+                                    <!--                                    </select></h3>-->
+                                    <!--                                    <br>-->
+                                    <!--                                <button type="submit"-->
+                                    <!--                                        style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">-->
+                                    <!--                                    確認-->
+                                    <!--                                </button>-->
 
-                                <button type="submit" class="btn msger-send-btn">
-                                    確認
-                                </button>
-                                <a class="close-btn popup-close" href="#">x</a>
+                                    <button type="submit" class="btn msger-send-btn">
+                                        確認
+                                    </button>
+                                    <a class="close-btn popup-close" href="#">x</a>
                             </form>
                         </div>
                     </div>
