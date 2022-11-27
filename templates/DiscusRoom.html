@@ -144,6 +144,7 @@
             transform: translate(-50%, -50%) scale(0.7);
         }
 
+
     </style>
 
 </head>
@@ -173,8 +174,8 @@
                         <li class="dropdown"><a href="/report/"><span>讀書報表</span> <i
                                 class="bi bi-chevron-right"></i></a>
                             <ul>
-                                <li><a href="/week-report/">週報表</a></li>
-                                <li><a href="/day-report/">日報表</a></li>
+                                <li><a href="/ReportWeek/">週報表</a></li>
+                                <li><a href="/ReportDay/">日報表</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -206,33 +207,6 @@
                     <!-- Grid column -->
                     <div class="col-md-12">
                         <h2 class="pt-3 pb-4 text-center font-bold font-up deep-purple-text">搜尋討論室</h2>
-
-                        <!--                        <div class="input-group md-form form-sm form-2 pl-0">-->
-                        <!--                            <input class="form-control my-0 py-1 pl-3 purple-border" type="text"-->
-                        <!--                                   placeholder="Search something here..." aria-label="Search">-->
-                        <!--                            <span class="input-group-addon waves-effect purple lighten-2" id="basic-addon1"><a><i-->
-                        <!--                                    class="fa fa-search white-text" aria-hidden="true"></i></a></span>-->
-                        <!--                            <button style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">-->
-                        <!--                                搜尋-->
-                        <!--                            </button>-->
-                        <!--                        <table class="table">-->
-                        <!--                        <form style="margin: auto; width: 220px;" class="form-inline float-right mb-4"-->
-                        <!--                              action="/discusroom/search/" method="get">-->
-
-                        <!--                            <td>-->
-                        <!--                                <input class="form-control my-0 py-1 pl-3 purple-border" type="text" name="name"-->
-                        <!--                                       placeholder="請輸入房間名稱" required/>-->
-                        <!--                                <br>-->
-                        <!--                            </td>-->
-                        <!--                            <td>-->
-                        <!--                                <button class="btn btn-primary" type="submit"-->
-                        <!--                                        style="width:120px;height:50px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;">-->
-                        <!--                                    搜尋-->
-                        <!--                                </button>-->
-                        <!--                            </td>-->
-
-                        <!--                        </form>-->
-
                         <table align="right">
                             <form style="margin: auto; width: 220px;" class="form-inline float-right mb-4"
                                   action="/discusroom/search/" method="get">
@@ -275,9 +249,8 @@
                         <!--Table head-->
                         <thead>
                         <tr>
-                            <th>房間編號</th>
-                            <!--                            <th>學制</th>-->
-                            <!--                            <th>科目</th>-->
+                            <th>學制</th>
+                            <th>科目</th>
                             <th>房間名稱</th>
                             <th>最多容納人數</th>
                             <th></th>
@@ -288,29 +261,28 @@
 
                         <tbody>
                         {% for discussroom in discussrooms %}
+                        {% for dis_data in discussroom.dis_datas %}
                         <tr>
+
+                            {% for sch_list in dis_data.sch_lists %}
                             <td>
-                                <!--                                    <a href="/reviews/{{discussroom.id}}/"> </a>-->
-                                {{discussroom.no}}
+                                {{sch_list.sch_name}}
                             </td>
-                            <!--                                <td>-->
-                            <!--                                    {{discussroom.schoolsys_no}}-->
-                            <!--                                </td>-->
-                            <!--                                <td>-->
-                            <!--                                    {{discussroom.subject_no}}-->
-                            <!--                                </td>-->
+                            {% endfor %}
+
+                            {% for sub_list in dis_data.sub_lists %}
                             <td>
-                                {{discussroom.name}}
+                                {{sub_list.sub_name}}
+                            </td>
+                            {% endfor %}
+
+                            <td>
+                                {{dis_data.name}}
                             </td>
                             <td>
-                                {{discussroom.total_people}}
+                                {{dis_data.total_people}}
                             </td>
                             <td>
-                                <!--                                    <a href="/discusroom/inpage/{{discussroom.no}}/">-->
-                                <!--                                            <button class="button" herf="/inpage/{{discussroom.no}}/"> 加入 </button>-->
-                                <!--                                    </a>-->
-                                <!--api 連線時使用的button-->
-                                <!--                                <center><a class="nav-link scrollto active" href="/discusroom/inpage/{{discussroom.no}}/">加入</a></center>-->
                                 <center><a class="btn btn-primary"
                                            style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;"
                                            href="/inpage/{{discussroom.no}}/">加入</a>
@@ -320,51 +292,67 @@
 
                         </tr>
                         {% endfor %}
+                        {% endfor %}
                         </tbody>
                     </table>
                 </div>
                 <br>
                 <center>
                     <div class="wrap">
-                        <a class="btn popup-btn" style="width:120px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;"
+                        <a class="btn popup-btn"
+                           style="width:120px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;"
                            href="#letmeopen">新增房間</a>
                     </div>
                     <div class="popup-wrap" id="letmeopen">
                         <div class="popup-box transform-out">
-                            <form action="" method="post">
-                                {% csrf_token %}
-                                <h2>新增房間 </h2><br>
-                                <br>
-                                <!--                                <h3>no&emsp;&emsp;&ensp;&thinsp; <input type="text" id="ano" name="ano"-->
-                                <!--                                                                        required="required"></h3><br>-->
-                                <h3>名稱&emsp;&emsp;&thinsp; <input type="text" id="aname" name="aname"
-                                                                  required="required"></h3><br>
-                                <h3>人數上限&thinsp; <input type="text" id="atotal_people" name="atotal_people"
-                                                        required="required">
-                                </h3><br>
-                                <h3>科目&emsp;&emsp;&thinsp; <input class="text" id="asubject_no" name="asubject_no"
-                                                                  required="required"></h3>
-                                <br>
-                                <!--                                <h3>科目 <input type="text" id="subject_no" name="subject_no" required="required"></h3><br>-->
+                            <div class="form">
+                                <form action="/discusroom/" method="post">
+                                    {% csrf_token %}
+                                    <h2>新增房間 </h2><br>
+                                    <br>
+                                    <h3>名稱&emsp;&emsp;&thinsp; <input type="text" id="aname" name="aname"
+                                                                      required="required"></h3><br>
+                                    <h3>人數上限&thinsp; <input type="text" id="atotal_people" name="atotal_people"
+                                                            required="required">
+                                    </h3><br>
+                                    <div class="form-group">
+                                        <h3>學制&emsp;&emsp;&thinsp;</h3><br>
+                                        <select class="form-control" name="schoolsys_no_id" id="schoolsys_no_id">
+                                            <option disabled="true" selected>--請選擇目前學制--</option>
+                                            {% for discussroom in discussrooms %}
+                                            {% for sch_lists_all in discussroom.sch_lists_alls %}
+                                            <option value="{{sch_lists_all.sch_no_all}}" id="op_schoolsys_no_id"
+                                                    name="op_schoolsys_no_id">
+                                                {{sch_lists_all.sch_name_all}}
+                                            </option>
+                                            {% endfor%}
+                                            {% endfor%}
+                                        </select>
+                                    </div>
 
-                                <!--                                    <h3>科目 <select name="total_people" required>-->
-                                <!--                                        {% for subject in subjects %}-->
-                                <!--                                        <option>-->
-                                <!--                                            {{subject.name}}-->
-                                <!--                                        </option>-->
-                                <!--                                        {% endfor %}-->
-                                <!--                                    </select></h3>-->
-                                <!--                                    <br>-->
-                                <!--                                <button type="submit"-->
-                                <!--                                        style="width:120px;height:50px;border:2px blue none;background-color:#71c55d;color:white;margin-left:5px;">-->
-                                <!--                                    確認-->
-                                <!--                                </button>-->
+                                    <br>
 
-                                <button type="submit" class="btn msger-send-btn">
-                                    確認
-                                </button>
-                                <a class="close-btn popup-close" href="#">x</a>
-                            </form>
+                                    <div class="form-group">
+                                        <h3>科目&emsp;&emsp;&thinsp;</h3><br>
+                                        <select class="form-control" name="subject_no_id" id="subject_no_id">
+                                            <option disabled="true" selected>--請選擇要讀的科目--</option>
+                                            {% for discussroom in discussrooms %}
+                                            {% for sub_lists_all in discussroom.sub_lists_alls %}
+                                            <option value="{{sub_lists_all.sub_no_all}}" id="op_subject_no_id"
+                                                    name="op_subject_no_id">
+                                                {{sub_lists_all.sub_name_all}}
+                                            </option>
+                                            {% endfor%}
+                                            {% endfor%}
+                                        </select>
+                                    </div>
+                                    <br>
+                                    <button type="submit" class="btn msger-send-btn">
+                                        確認
+                                    </button>
+                                    <a class="close-btn popup-close" href="#">x</a>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </center>

@@ -154,6 +154,8 @@
 
         </div>
         {% endfor %}
+
+        {% if 'user_id' in request.COOKIES.keys %}
         <div class="rightCSS li">
 
         <span class="d-inline-block float-left">
@@ -170,9 +172,8 @@
                 {% endfor %}
                 尚未完成
 
-
-
             </div>
+
         </span>
             <style>
                 .rightCSS {
@@ -212,7 +213,7 @@
 
             </style>
         </div>
-
+        {% endif %}
         <header>
             <div>
                 <h1>做伙來讀冊</h1>
