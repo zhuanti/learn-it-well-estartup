@@ -107,6 +107,7 @@ def droom(request):
             'subject_no_id': subject_no_id,
             'name': name,
             'total_people': total_people,
+            'schoolsys_no_id': schoolsys_no_id,
         }
 
         r = requests.post(
