@@ -97,17 +97,17 @@ def addqus(request, pk):
 def droom(request):
     if request.method == 'POST':
         # no = request.POST['ano']
-        subject_no_id = request.POST['asubject_no']
-        schoolsys_no_id = request.POST['aschoolsys_no_id']
+        subject_no_id = request.POST.get('op_subject_no_id')
+        schoolsys_no_id = request.POST.get('op_schoolsys_no_id')
         name = request.POST['aname']
         total_people = request.POST['atotal_people']
 
         data = {
             # 'no': no,
             'subject_no_id': subject_no_id,
+            'schoolsys_no_id': schoolsys_no_id,
             'name': name,
             'total_people': total_people,
-            'schoolsys_no_id': schoolsys_no_id,
         }
 
         r = requests.post(
