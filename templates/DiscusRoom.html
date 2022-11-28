@@ -285,7 +285,7 @@
                             <td>
                                 <center><a class="btn btn-primary"
                                            style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;"
-                                           href="/inpage/{{discussroom.no}}/">加入</a>
+                                           href="/inpage/{{dis_data.no}}/">加入</a>
                                 </center>
 
                             </td>
@@ -323,7 +323,8 @@
                                             {% for sch_lists_all in discussroom.sch_lists_alls %}
                                             <option value="{{sch_lists_all.sch_no_all}}" id="op_schoolsys_no_id"
                                                     name="op_schoolsys_no_id">
-                                                {{sch_lists_all.sch_name_all}}
+<!--                                                {{sch_lists_all.sch_name_all}}-->
+                                                {{sch_lists_all.sch_no_all}}
                                             </option>
                                             {% endfor%}
                                             {% endfor%}
@@ -340,7 +341,8 @@
                                             {% for sub_lists_all in discussroom.sub_lists_alls %}
                                             <option value="{{sub_lists_all.sub_no_all}}" id="op_subject_no_id"
                                                     name="op_subject_no_id">
-                                                {{sub_lists_all.sub_name_all}}
+<!--                                                {{sub_lists_all.sub_name_all}}-->
+                                                {{sub_lists_all.sub_no_all}}
                                             </option>
                                             {% endfor%}
                                             {% endfor%}
