@@ -229,13 +229,16 @@
                         <span class="separator" style="font-size:65px; color:#fff">:</span>
                         <span id="js-seconds">00</span>
                     </div>
-                    <button class="main-button" data-action="start" id="js-btn">
+<!--                    <form action="/Sroominpage-self/" method="post">-->
+                        {% csrf_token %}
+                        <button class="main-button" data-action="start" id="entry_time" name="entry_time">
                         開始
-                    </button>
-                    <button class="main-button" data-action="over" id="js-overbtn"
+                        </button>
+                        <button class="main-button" data-action="over" id="js-overbtn"
                             onclick="window.location.href='/studyroom-self/'" title="倒數計時結束才能按下!" disabled>
                         結束
-                    </button>
+                        </button>
+<!--                    </form>-->
                 </div>
                 <br><br><br><br><br><br><br><br><br><br><br>
                 <button onclick="closeDialog1()" class="dialoginsidetimebtn">關閉</button>
@@ -255,7 +258,7 @@
                     let interval;
 
                     const buttonSound = new Audio('/static/music/button-sound.mp3');
-                    const mainButton = document.getElementById('js-btn');
+                    const mainButton = document.getElementById('entry_time');
                     mainButton.addEventListener('click', () => {
                         buttonSound.play();
                         const {action} = mainButton.dataset;
