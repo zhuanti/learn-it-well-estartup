@@ -249,10 +249,10 @@
                         <!--Table head-->
                         <thead>
                         <tr>
+                            <th>房間名稱</th>
                             <th>學制</th>
                             <th>科目</th>
-                            <th>房間名稱</th>
-                            <th>最多容納人數</th>
+<!--                            <th>最多容納人數</th>-->
                             <th></th>
                         </tr>
                         </thead>
@@ -263,7 +263,9 @@
                         {% for discussroom in discussrooms %}
                         {% for dis_data in discussroom.dis_datas %}
                         <tr>
-
+                            <td>
+                                {{dis_data.name}}
+                            </td>
                             {% for sch_list in dis_data.sch_lists %}
                             <td>
                                 {{sch_list.sch_name}}
@@ -275,13 +277,9 @@
                                 {{sub_list.sub_name}}
                             </td>
                             {% endfor %}
-
-                            <td>
-                                {{dis_data.name}}
-                            </td>
-                            <td>
-                                {{dis_data.total_people}}
-                            </td>
+<!--                            <td>-->
+<!--                                {{dis_data.total_people}}-->
+<!--                            </td>-->
                             <td>
                                 <center><a class="btn btn-primary"
                                            style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;"
@@ -312,9 +310,9 @@
                                     <br>
                                     <h3>名稱&emsp;&emsp;&thinsp; <input type="text" id="aname" name="aname"
                                                                       required="required"></h3><br>
-                                    <h3>人數上限&thinsp; <input type="text" id="atotal_people" name="atotal_people"
-                                                            required="required">
-                                    </h3><br>
+<!--                                    <h3>人數上限&thinsp; <input type="text" id="atotal_people" name="atotal_people"-->
+<!--                                                            required="required">-->
+<!--                                    </h3><br>-->
                                     <div class="form-group">
                                         <h3>學制&emsp;&emsp;&thinsp;</h3><br>
                                         <select class="form-control" name="schoolsys_no_id" id="schoolsys_no_id">
@@ -323,8 +321,8 @@
                                             {% for sch_lists_all in discussroom.sch_lists_alls %}
                                             <option value="{{sch_lists_all.sch_no_all}}" id="op_schoolsys_no_id"
                                                     name="op_schoolsys_no_id">
-<!--                                                {{sch_lists_all.sch_name_all}}-->
-                                                {{sch_lists_all.sch_no_all}}
+                                                {{sch_lists_all.sch_name_all}}
+<!--                                                {{sch_lists_all.sch_no_all}}-->
                                             </option>
                                             {% endfor%}
                                             {% endfor%}
@@ -341,8 +339,8 @@
                                             {% for sub_lists_all in discussroom.sub_lists_alls %}
                                             <option value="{{sub_lists_all.sub_no_all}}" id="op_subject_no_id"
                                                     name="op_subject_no_id">
-<!--                                                {{sub_lists_all.sub_name_all}}-->
-                                                {{sub_lists_all.sub_no_all}}
+                                                {{sub_lists_all.sub_name_all}}
+<!--                                                {{sub_lists_all.sub_no_all}}-->
                                             </option>
                                             {% endfor%}
                                             {% endfor%}
