@@ -155,10 +155,37 @@ def adduinfo(request, pk):
 
         if result['success'] is True:
             ret = redirect(f'/inpage/{pk}/')
-            messages.success(request, '已成功')
+            # messages.success(request, '已成功')
             return ret
         else:
-            messages.error(request, '新增房間失敗')
+            messages.error(request, '加入房間失敗')
+            return redirect('/discusroom')
+            return ret
+
+# 新增離開時間
+@user_login_required
+def addLeave(request):
+    if request.method == 'POST':
+
+        user = request.COOKIES['user_id']
+
+        data = {
+            'user': user,
+        }
+        r = requests.post(
+            f'{root}/add/info/Leavetime/',
+            data=data,
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
+
+        if result['success'] is True:
+            ret = redirect('/discusroom')
+            messages.success(request, '已成功離開討論室')
+            return ret
+
+        else:
+            messages.error(request, '離開討論室')
             return redirect('/discusroom')
             return ret
 
@@ -188,18 +215,6 @@ def inpage(request, pk):
         result = r.json()
         discussroom = result['data']
         return render(request, 'inpage.html', {'discussroom': discussroom})
-
-    # elif request.method == 'GET':
-    #     user_id = request.COOKIES['user_id']
-    #     r = requests.get(
-    #         f'{root}user/detail/',
-    #         params={'user_id': user_id},
-    #         cookies={'sessionid': request.COOKIES['sessionid']}
-    #     )
-    #     result = r.json()
-    #     user = result['data']
-    #     return render(request, 'inpage.html', {'user': user})
-
 
 # 提問寫入
 @user_login_required

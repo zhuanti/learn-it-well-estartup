@@ -170,10 +170,19 @@
 <!--<center>-->
 <section class="msger">
     <header class="msger-header">
-        <div class="msger-header-title">
-            <!--            <i class="fas fa-comment-alt"></i>-->
-            <a class="btn button" href="/discusroom/">退出</a>
-        </div>
+<!--        <div class="msger-header-title">-->
+<!--            &lt;!&ndash;            <i class="fas fa-comment-alt"></i>&ndash;&gt;-->
+<!--            <a class="btn button" href="/discusroom/">完成討論</a>-->
+<!--        </div>-->
+        <form action="/discusroom/addLeave/" method="post">
+            {% csrf_token %}
+            <div class="btn-get-started scrollto">
+                <button type="submit" class="btn msger-send-btn"
+                        style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;">
+                    完成討論
+                </button>
+            </div>
+        </form>
         <center><h3>當前房間名稱：{{discussroom.name}}</h3></center>
         <div class="msger-header-options">
             <span><i class="fas fa-cog"></i></span>
@@ -188,10 +197,6 @@
                 {{ message }}
             </div>
             {% endfor %}
-
-            <!--        <div class="msg left-msg" id="left-msg"></div>-->
-
-            <!--        <div class="msg right-msg" id="right-msg"></div>-->
 
             <div class="message" id="message"></div>
         </main>
