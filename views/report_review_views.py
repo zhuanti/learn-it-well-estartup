@@ -63,14 +63,23 @@ def addroom(request):
 # 個人自習室內部
 @user_login_required
 def get_reviews_insideshow(request):
+    if request.method == 'GET':
+        user_id = request.COOKIES['user_id'],
+        r = requests.get(
+            f'{root}/reporttest/',
+            params={'user_id': user_id},
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
+        report = result['data']
+        # print(report)
+        return render(request, 'Sroominpage-self.html', {'report': report})
     if request.method == 'POST':
 
-        user_id = request.COOKIES['user_id']
-        entry_time = datetime.now()
+        user = request.COOKIES['user_id']
 
         data = {
-            'user_id': user_id,
-            'entrty_time': entry_time,
+            'user': user,
         }
         r = requests.post(
             f'{root}studyroom/self/update/entrytime/',
@@ -88,18 +97,34 @@ def get_reviews_insideshow(request):
             return redirect('/Sroominpage-self/')
             return ret
 
-    if request.method == 'GET':
-        user_id = request.COOKIES['user_id'],
-        r = requests.get(
-            f'{root}/reporttest/',
-            params={'user_id': user_id},
+
+
+#個人自習室更新離開時間
+@user_login_required
+def self_exittime(request):
+    if request.method == 'POST':
+
+        user = request.COOKIES['user_id']
+
+        data = {
+            'user': user,
+        }
+        r = requests.post(
+            f'{root}studyroom/self/update/exittime/',
+            data=data,
             cookies={'sessionid': request.COOKIES['sessionid']}
         )
         result = r.json()
-        report = result['data']
-        # print(report)
-        return render(request, 'Sroominpage-self.html', {'report': report})
 
+        if result['success'] is True:
+            ret = redirect('/Sroominpage-self/')
+            messages.success(request, '已成功離開討論室')
+            return ret
+
+        else:
+            messages.error(request, '離開討論室')
+            return redirect('/Sroominpage-self/')
+            return ret
 
 # 編輯讀書時間
 @user_login_required

@@ -229,15 +229,18 @@
                         <span class="separator" style="font-size:65px; color:#fff">:</span>
                         <span id="js-seconds">00</span>
                     </div>
-<!--                    <form action="/Sroominpage-self/" method="post">-->
+                    <form action="/Sroominpage-self/" method="post">
                         {% csrf_token %}
-                        <button class="main-button" data-action="start" id="entry_time" name="entry_time">
-                        開始
-                        </button>
+                            <button type="submit" class="main-button" data-action="start" id="js_btn">
+                                開始
+                            </button>
                         <button class="main-button" data-action="over" id="js-overbtn"
                             onclick="window.location.href='/studyroom-self/'" title="倒數計時結束才能按下!" disabled>
                         結束
                         </button>
+                    </form>
+
+
 <!--                    </form>-->
                 </div>
                 <br><br><br><br><br><br><br><br><br><br><br>
@@ -258,7 +261,7 @@
                     let interval;
 
                     const buttonSound = new Audio('/static/music/button-sound.mp3');
-                    const mainButton = document.getElementById('entry_time');
+                    const mainButton = document.getElementById('js_btn');
                     mainButton.addEventListener('click', () => {
                         buttonSound.play();
                         const {action} = mainButton.dataset;
