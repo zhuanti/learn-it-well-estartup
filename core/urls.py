@@ -38,6 +38,7 @@ urlpatterns = [
 
     # discusroom
     path('discusroom/', discusroom_review_views.droom),
+    path('discusroom/adduinfo/<int:pk>/', discusroom_review_views.adduinfo),
     path('inpage/<int:pk>/', discusroom_review_views.inpage),
     path('dis_test/', discusroom_review_views.WebChatTest),
     path('discusroom/search/', discusroom_review_views.search),

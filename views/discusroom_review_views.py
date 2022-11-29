@@ -135,6 +135,32 @@ def droom(request):
         discussrooms = result['data']
         return render(request, 'DiscusRoom.html', {'discussrooms': discussrooms})
 
+@user_login_required
+def adduinfo(request, pk):
+    if request.method == 'POST':
+
+        subject_no_id = request.POST['info_subject_no_id']
+        user_id = request.COOKIES['user_id']
+
+        data = {
+            'user_id': user_id,
+            'subject_no_id': subject_no_id,
+        }
+        r = requests.post(
+            f'{root}/add/info/',
+            data=data,
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
+
+        if result['success'] is True:
+            ret = redirect(f'/inpage/{pk}/')
+            messages.success(request, '已成功')
+            return ret
+        else:
+            messages.error(request, '新增房間失敗')
+            return redirect('/discusroom')
+            return ret
 
 @user_login_required
 def search(request):
