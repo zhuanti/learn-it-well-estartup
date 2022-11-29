@@ -75,7 +75,8 @@ urlpatterns = [
 
     # path('studyroom-together/', views.Sserch),
     path('Sroominpage/<int:pk>/', views.Sroominpage),  # 多人自習室內部
-    path('Sroominpage-self/', report_review_views.get_reviews_insideshow),  # 個人自習室內部
+    path('Sroominpage-self/', report_review_views.get_reviews_insideshow),  # 個人自習室內部新增時間
+    path('Sroominpage-self/existtime/', report_review_views.self_exittime),  # 個人自習室內部離開時間
 
     path('developer/', views.developer),
     path('PrivacyPolicies/', views.PrivacyPolicies),
