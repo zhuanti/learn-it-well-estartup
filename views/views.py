@@ -293,10 +293,10 @@ def entry(request):
 def exit(request):
     if request.method == 'POST':
 
-        user = request.COOKIES['user_id']
+        user_id = request.COOKIES['user_id']
 
         data = {
-            'user': user
+            'user_id': user_id
         }
         r = requests.post(
             f'{root}studyroom/self/update/exittime/',
@@ -306,10 +306,10 @@ def exit(request):
         result = r.json()
 
         if result['success'] is True:
-            ret = redirect('/Sroominpage-self/')
+            ret = redirect('/studyroom-self/')
             return ret
         else:
-            return redirect('/Sroominpage-self/')
+            return redirect('/studyroom-self/')
             return ret
 
 
