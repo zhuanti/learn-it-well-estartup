@@ -130,7 +130,10 @@
                             </td>
                             <td>100 Point</td>
                             <td>
-                                <button class="btn btn-primary"
+<!--                                <button class="btn btn-primary px-4" type="submit" id="js-btnget" title="達成成就才能按下!"-->
+<!--                                        style="width:100px;height:40px;background-color:#7B7B7B;color:white;" disabled>未完成-->
+<!--                                </button>-->
+                                <button class="btn btn-primary px-4 "
                                            style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;" id="btnget" title="達成成就才能按下!"
                                         onclick="window.location.href='/studyroom-together/'"
                                         style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;">
@@ -153,7 +156,12 @@
 
                                             }
                                         }
-
+<!--                                if ( {{ success_list.pace }}=== {% for success_name in success_list.success_names %}{{ success_name.suc_pace }}-->
+<!--                                {% endfor %} ) {-->
+<!--                                           document.getElementById("btnget").disabled = false;-->
+<!--                                            } else {-->
+<!--                                           document.getElementById("btnget").disabled = true;-->
+<!--                                            }-->
 
                                     </script>
 <!--                                    {% endfor %}-->
