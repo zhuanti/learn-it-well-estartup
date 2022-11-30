@@ -82,14 +82,14 @@ def get_reviews_insideshow(request):
             'user': user
         }
         r = requests.post(
-            f'{root}/studyroom/self/update/entrytime/',
+            f'{root}/studyroom/self/update/exittime/',
             data=data,
             cookies={'sessionid': request.COOKIES['sessionid']}
         )
         result = r.json()
 
         if result['success'] is True:
-            ret = redirect('/Sroominpage-self/')
+            ret = redirect('/studyroom-self/')
             messages.success(request, '已成功')
             return ret
         else:
