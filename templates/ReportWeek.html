@@ -145,75 +145,168 @@
 <!--                                    </script>-->
 <!--                                {% endfor%}-->
                                 <h3 class="title">一週各科讀書時長(小時)</h3>
-                                <canvas id="canvas"></canvas>
-                                {% for weekdate_list in inform.weekdate_lists %}
+                                  <canvas id="canvas"></canvas>
+                                        <script>
+                                            var cinfo=[];
+                                            {% for chinese_list in inform.chinese_lists %}
+                                            cinfo.push('{{ chinese_list.subtotal_hours }}');
+                                            {% endfor%}
+                                            var einfo=[];
+                                            {% for english_list in inform.english_lists %}
+                                            einfo.push('{{ english_list.subtotal_hours }}');
+                                            {% endfor%}
+                                            var minfo=[];
+                                            {% for math_list in inform.math_lists %}
+                                            minfo.push('{{ math_list.subtotal_hours }}');
+                                            {% endfor%}
+                                            var sinfo=[];
+                                            {% for science_list in inform.science_lists %}
+                                            sinfo.push('{{ science_list.subtotal_hours }}');
+                                            {% endfor%}
+                                            var soinfo=[];
+                                            {% for social_list in inform.social_lists %}
+                                            soinfo.push('{{ social_list.subtotal_hours }}');
+                                            {% endfor%}
+                                            var oinfo=[];
+                                            {% for other_list in inform.other_lists %}
+                                            oinfo.push('{{ other_list.subtotal_hours }}');
+                                            {% endfor%}
+                                            window.chartColors = {
+                                              red: 'rgb(241, 148, 131)',
+                                              orange: 'rgb(255, 159, 64)',
+                                              yellow: 'rgb(251, 226, 81)',
+                                              green: 'rgb(168, 216, 185)',
+                                              blue: 'rgb(129,199,212)',
+                                              purple: 'rgb(155, 144, 194)',
+                                              brown: 'rgb(180, 165, 130)'
+                                            };
 
-                                <script>
-                                var cd=[];
-                                {% for cstart_list in inform.chinesestart_lists %}
-                                cd.push('{{ cstart_list.user_total_hours }}');
-                                {% endfor%}
-                                window.chartColors = {
-                                  red: 'rgb(255, 99, 132)',
-                                  orange: 'rgb(255, 159, 64)',
-                                  yellow: 'rgb(255, 205, 86)',
-                                  green: 'rgb(75, 192, 192)',
-                                  blue: 'rgb(54, 162, 235)',
-                                  purple: 'rgb(153, 102, 255)',
-                                  grey: 'rgb(231,233,237)'
-                                };
+                                            var ctx = document.getElementById("canvas").getContext("2d");
 
-                                var ctx = document.getElementById("canvas").getContext("2d");
+                                            var myChart = new Chart(ctx, {
+                                              type: 'bar',
+                                              data: {
+                                                labels: ["週一", "週二", "週三", "週四", "週五", "週六", "週日"],
+                                                datasets: [{
+                                                  type: 'bar',
+                                                  label: '國文',
+                                                  backgroundColor: window.chartColors.red,
+                                                  stack: 'Stack 0',
+                                                  data: cinfo
+                                                },{
+                                                  type: 'bar',
+                                                  label: '英文',
+                                                  backgroundColor: window.chartColors.purple,
+                                                  stack: 'Stack 0',
+                                                  data: einfo
+                                                },{
+                                                  type: 'bar',
+                                                  label: '數學',
+                                                  backgroundColor: window.chartColors.blue,
+                                                  stack: 'Stack 0',
+                                                  data: minfo
+                                                }, {
+                                                  type: 'bar',
+                                                  label: '自然',
+                                                  backgroundColor: window.chartColors.green,
+                                                  stack: 'Stack 0',
+                                                  data: sinfo
+                                                },{
+                                                  type: 'bar',
+                                                  label: '社會',
+                                                  backgroundColor: window.chartColors.yellow,
+                                                  stack: 'Stack 0',
+                                                  data: soinfo
+                                                },{
+                                                  type: 'bar',
+                                                  label: '其他',
+                                                  backgroundColor: window.chartColors.brown,
+                                                  stack: 'Stack 0',
+                                                  data: oinfo
+                                                }]
+                                              },
+                                              options: {
+                                                responsive: true,
+                                                title: {
+                                                  display: true,
+                                                  text: 'Chart.js Stacked Bar and Unstacked Line Combo Chart'
+                                                },
+                                                tooltips: {
+                                                  mode: 'index',
+                                                  intersect: true
+                                                },
+                                                scales: {
+                                                  xAxes: [{
+                                                    stacked: true,
+                                                  }]
+                                                }
+                                              }
+                                            });
 
-                                var myChart = new Chart(ctx, {
-                                  type: 'bar',
-                                  data: {
-                                    labels: [{{weekdate_list.startdate}}, {{weekdate_list.secdate}}, {{weekdate_list.thirddate}}, {{weekdate_list.forthdate}}, {{weekdate_list.fifdate}}, {{weekdate_list.sixdate}}, {{weekdate_list.enddate}}],
-                                    datasets: [{
-                                      type: 'bar',
-                                      label: '國文',
-                                      backgroundColor: window.chartColors.red,
-                                      stack: 'Stack 0',
-                                      data: ["{{ cstart_list.user_total_hours }}", "{{ csec_list.user_total_hours }}", "{{ cthird_list.user_total_hours }}", "{{ cforth_list.user_total_hours }}","{{ cfif_list.user_total_hours }}" , "{{ csix_list.user_total_hours }}", "{{ cend_list.user_total_hours }}"],
-                                    }, {
-                                      type: 'bar',
-                                      label: '數學',
-                                      backgroundColor: window.chartColors.blue,
-                                      stack: 'Stack 0',
-                                      data: [7, 2, 4, 5, 6, 4, 2]
-                                    },{
-                                      type: 'bar',
-                                      label: '自然',
-                                      backgroundColor: window.chartColors.green,
-                                      stack: 'Stack 0',
-                                      data: [6, 5, 4, 1, 8, 4, 2]
-                                    },{
-                                      type: 'bar',
-                                      label: '社會',
-                                      backgroundColor: window.chartColors.yellow,
-                                      stack: 'Stack 0',
-                                      data: [1, 2, 3, 5, 6, 3, 2]
-                                    }]
-                                  },
-                                  options: {
-                                    responsive: true,
-                                    title: {
-                                      display: true,
-                                      text: 'Chart.js Stacked Bar and Unstacked Line Combo Chart'
-                                    },
-                                    tooltips: {
-                                      mode: 'index',
-                                      intersect: true
-                                    },
-                                    scales: {
-                                      xAxes: [{
-                                        stacked: true,
-                                      }]
-                                    }
-                                  }
-                                });
-                                </script>
-                                {% endfor%}
+                                        </script>
+<!--                                <canvas id="canvas"></canvas>-->
+
+<!--                                <script>-->
+<!--                                window.chartColors = {-->
+<!--                                  red: 'rgb(255, 99, 132)',-->
+<!--                                  orange: 'rgb(255, 159, 64)',-->
+<!--                                  yellow: 'rgb(255, 205, 86)',-->
+<!--                                  green: 'rgb(75, 192, 192)',-->
+<!--                                  blue: 'rgb(54, 162, 235)',-->
+<!--                                  purple: 'rgb(153, 102, 255)',-->
+<!--                                  grey: 'rgb(231,233,237)'-->
+<!--                                };-->
+
+<!--                                var ctx = document.getElementById("canvas").getContext("2d");-->
+
+<!--                                var myChart = new Chart(ctx, {-->
+<!--                                  type: 'bar',-->
+<!--                                  data: {-->
+<!--                                    labels: ["11/28", "11/29", "11/30""", "12/1", "12/2", "12/3", "12/4"],-->
+<!--                                    datasets: [{-->
+<!--                                      type: 'bar',-->
+<!--                                      label: '國文',-->
+<!--                                      backgroundColor: window.chartColors.red,-->
+<!--                                      stack: 'Stack 0',-->
+<!--                                      data: [7, 2, 4, 5, 6, 4, 2]-->
+<!--                                    }, {-->
+<!--                                      type: 'bar',-->
+<!--                                      label: '數學',-->
+<!--                                      backgroundColor: window.chartColors.blue,-->
+<!--                                      stack: 'Stack 0',-->
+<!--                                      data: [7, 2, 4, 5, 6, 4, 2]-->
+<!--                                    },{-->
+<!--                                      type: 'bar',-->
+<!--                                      label: '自然',-->
+<!--                                      backgroundColor: window.chartColors.green,-->
+<!--                                      stack: 'Stack 0',-->
+<!--                                      data: [6, 5, 4, 1, 8, 4, 2]-->
+<!--                                    },{-->
+<!--                                      type: 'bar',-->
+<!--                                      label: '社會',-->
+<!--                                      backgroundColor: window.chartColors.yellow,-->
+<!--                                      stack: 'Stack 0',-->
+<!--                                      data: [1, 2, 3, 5, 6, 3, 2]-->
+<!--                                    }]-->
+<!--                                  },-->
+<!--                                  options: {-->
+<!--                                    responsive: true,-->
+<!--                                    title: {-->
+<!--                                      display: true,-->
+<!--                                      text: 'Chart.js Stacked Bar and Unstacked Line Combo Chart'-->
+<!--                                    },-->
+<!--                                    tooltips: {-->
+<!--                                      mode: 'index',-->
+<!--                                      intersect: true-->
+<!--                                    },-->
+<!--                                    scales: {-->
+<!--                                      xAxes: [{-->
+<!--                                        stacked: true,-->
+<!--                                      }]-->
+<!--                                    }-->
+<!--                                  }-->
+<!--                                });-->
+<!--                                </script>-->
 
                             </div>
                         </div>
