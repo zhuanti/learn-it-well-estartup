@@ -65,15 +65,13 @@ def addroom(request):
 def get_reviews_insideshow(request):
     if request.method == 'POST':
 
-        user_id = request.COOKIES['user_id']
-        entry_time = datetime.now()
+        user = request.COOKIES['user_id']
 
         data = {
-            'user_id': user_id,
-            'entrty_time': entry_time,
+            'user': user
         }
         r = requests.post(
-            f'{root}studyroom/self/update/entrytime/',
+            f'{root}/studyroom/self/update/entrytime/',
             data=data,
             cookies={'sessionid': request.COOKIES['sessionid']}
         )

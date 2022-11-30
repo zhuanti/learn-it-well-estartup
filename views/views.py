@@ -264,6 +264,60 @@ def Sroominpage(request, pk):
         return redirect('/studyroom-together/')
         return ret
 
+#個人自習室內部更新進入時間
+@user_login_required
+def entry(request):
+    if request.method == 'POST':
+
+        user = request.COOKIES['user_id']
+
+        data = {
+            'user': user
+        }
+        r = requests.post(
+            f'{root}studyroom/self/update/entrytime/',
+            data=data,
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
+
+        if result['success'] is True:
+            ret = redirect('/Sroominpage-self/')
+            messages.success(request, '已成功')
+            return ret
+        else:
+            messages.error(request, '失敗')
+            return redirect('/Sroominpage-self/')
+            return ret
+
+#個人自習室內部更新離開時間
+@user_login_required
+def exit(request):
+    if request.method == 'POST':
+
+        user = request.COOKIES['user_id']
+
+        data = {
+            'user': user
+        }
+        r = requests.post(
+            f'{root}studyroom/self/update/exittime/',
+            data=data,
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
+
+        if result['success'] is True:
+            ret = redirect('/Sroominpage-self/')
+            messages.success(request, '已成功')
+            return ret
+        else:
+            messages.error(request, '失敗')
+            return redirect('/Sroominpage-self/')
+            return ret
+
+
+
 # 個人自習室填寫讀書資訊
 @user_login_required
 def Sroom_self(request):

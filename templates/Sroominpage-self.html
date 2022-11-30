@@ -155,14 +155,6 @@
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
             </center>
 
-            {% for message in messages %}
-            <br>
-            <div class="alert alert-success">
-                <a class="close" href="#" data-dismiss="alert"></a>
-                {{ message }}
-            </div>
-            <br>
-            {% endfor %}
             <button id="close" class="dialoginsidebtn">關閉</button>
         </dialog>
     </div>
@@ -220,25 +212,32 @@
                                     class="button active mode-button"
                                     id="js-pomodoro"
                             >
-                                讀書倒數計時
+                                先按此鍵確認時間
                             </button>
                         </div>
                     </div>
                     <div data-mode="pomodoro" class="clock" id="js-clock">
-                        <span id="js-minutes">25</span>
+                        <span id="js-minutes">{{ report.settime_no }}</span>
                         <span class="separator" style="font-size:65px; color:#fff">:</span>
                         <span id="js-seconds">00</span>
                     </div>
-<!--                    <form action="/Sroominpage-self/" method="post">-->
+                    <!--                    <button class="main-button" data-action="start" id="entry_time" name="entry_time">-->
+                    <!--                        開始-->
+                    <!--                    </button>-->
+                    <form action="/Sroominpage-self/entry/" method="post">
                         {% csrf_token %}
-                        <button class="main-button" data-action="start" id="entry_time" name="entry_time">
-                        開始
-                        </button>
-                        <button class="main-button" data-action="over" id="js-overbtn"
-                            onclick="window.location.href='/studyroom-self/'" title="倒數計時結束才能按下!" disabled>
-                        結束
-                        </button>
-<!--                    </form>-->
+                            <button type="submit" class="main-button" data-action="start" id="entry_time"
+                                    name="entry_time">
+                                開始
+                            </button>
+                    </form>
+                    <form action="/Sroominpage-self/exit/" method="post">
+                        {% csrf_token %}
+                            <button class="main-button" data-action="over" id="js-overbtn"
+                                    onclick="window.location.href='/studyroom-self/'" title="倒數計時結束才能按下!" disabled>
+                                結束
+                            </button>
+                    </form>
                 </div>
                 <br><br><br><br><br><br><br><br><br><br><br>
                 <button onclick="closeDialog1()" class="dialoginsidetimebtn">關閉</button>
