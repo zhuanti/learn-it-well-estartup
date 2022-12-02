@@ -282,10 +282,11 @@ def editplans(request, pk):
 
     if request.method == 'POST':
         name = request.POST['name']
-
+        pace_no_id = request.POST['pace_no_id']
         data = {
             'no': pk,
-            'name': name
+            'name': name,
+            'pace_no_id': pace_no_id
         }
         r = requests.post(
             f'{root}plan/editplan/',

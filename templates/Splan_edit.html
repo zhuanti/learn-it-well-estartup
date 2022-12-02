@@ -135,13 +135,17 @@
                             <div class="form-group">
                                 <select class="form-control" name="settime_no_id" id="settime_no_id">
                                     <option disabled="true" selected>--請選擇讀書規劃進度--</option>
-
-                                    <option value="{{set_list.set_no}}" id="op_settime_no_id" name="op_settime_no_id">
-                                       完成
+                                    {% for pace_name in plan.pace_names %}
+                                    <option value="{{pace_name.no}}" id="pace_no_id" name="pace_no_id">
+                                        {{pace_name.name}}
                                     </option>
-                                    <option value="{{set_list.set_no}}" id="op_settime_no_id1" name="op_settime_no_id">
-                                       尚未完成
-                                    </option>
+                                    {% endfor%}
+<!--                                    <option value="{{set_list.set_no}}" id="op_settime_no_id" name="op_settime_no_id">-->
+<!--                                       完成-->
+<!--                                    </option>-->
+<!--                                    <option value="{{set_list.set_no}}" id="op_settime_no_id1" name="op_settime_no_id">-->
+<!--                                       尚未完成-->
+<!--                                    </option>-->
                                 </select>
                             </div>
                             <!--<div class="my-3">
