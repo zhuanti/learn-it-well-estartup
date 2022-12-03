@@ -52,7 +52,7 @@ def get_togall_reviews(request, pk):
 
 #多人自習室內部更新離開時間
 @user_login_required
-def exit(request):
+def exit(request, pk):
     if request.method == 'POST':
 
         user_id = request.COOKIES['user_id']
@@ -61,16 +61,16 @@ def exit(request):
             'user_id': user_id
         }
         r = requests.post(
-            f'{root}studyroom/exittime/',
+            f'{root}/studyroom/exittime/',
             data=data,
             cookies={'sessionid': request.COOKIES['sessionid']}
         )
         result = r.json()
 
         if result['success'] is True:
-            ret = redirect('/studyroom-togethersub/<int:pk>/')
+            ret = redirect(f'/studyroom-togethersub/{pk}/')
             return ret
         else:
-            return redirect('/studyroom-togethersub/<int:pk>/')
+            return redirect(f'/studyroom-togethersub/{pk}/')
             return ret
 

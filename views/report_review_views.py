@@ -72,7 +72,6 @@ def get_reviews_insideshow(request):
         )
         result = r.json()
         report = result['data']
-        # print(report)
         return render(request, 'Sroominpage-self.html', {'report': report})
     if request.method == 'POST':
 
