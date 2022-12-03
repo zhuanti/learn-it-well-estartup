@@ -151,10 +151,15 @@
             <br>
             <center>
                 <iframe style="border-radius:12px"
-                        src="https://open.spotify.com/embed/playlist/6wObnEPQ63a4kei1sEcMdH?utm_source=generator"
+                        src="https://open.spotify.com/embed/playlist/0vvXsWCC9xrXsKd4FyS8kM?utm_source=generator"
                         width="90%"
                         height="250" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+<!--                <iframe style="border-radius:12px"-->
+<!--                        src="https://open.spotify.com/embed/playlist/6wObnEPQ63a4kei1sEcMdH?utm_source=generator"-->
+<!--                        width="90%"-->
+<!--                        height="250" frameBorder="0" allowfullscreen=""-->
+<!--                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>-->
             </center>
             {% for message in messages %}
             <br>
@@ -207,7 +212,7 @@
     <div>
         <progress id="js-progress" value="0"></progress>
         <div class="progress-bar"></div>
-        <dialog id="timeDialog" class="timedialog">   <!--計時器-->
+        <dialog id="timeDialog" class="timedialog" open>   <!--計時器-->
             <br>
             <main class="app">
                 <!--佑慈提供可能js-->
@@ -215,23 +220,23 @@
                 <script type="text/javascript" src="countdowntimer.js"></script>
 
                 <div class="timer">
-                    <div class="button-group mode-buttons" id="js-mode-buttons">
-                        <div>
-                            <button
-                                    data-mode="pomodoro"
-                                    class="button active mode-button"
-                                    id="js-pomodoro"
-                            >
-                                先按此鍵確認時間
-                            </button>
-                        </div>
-                    </div>
+<!--                    <div class="button-group mode-buttons" id="js-mode-buttons">-->
+<!--                        <div>-->
+<!--                            <button-->
+<!--                                    data-mode="pomodoro"-->
+<!--                                    class="button active mode-button"-->
+<!--                                    id="js-pomodoro"-->
+<!--                            >-->
+<!--                                先按此鍵確認時間-->
+<!--                            </button>-->
+<!--                        </div>-->
+<!--                    </div>-->
                     <div data-mode="pomodoro" class="clock" id="js-clock">
                         <span id="js-minutes">{{ studyroom.settime_no }}</span>
                         <span class="separator" style="font-size:65px; color:#fff">:</span>
                         <span id="js-seconds">00</span>
                     </div>
-                    <button class="main-button" data-action="start" id="js-btn">
+                    <button class="main-button" data-action="start" id="js-btn" data-mode="pomodoro">
                         開始
                     </button>
                     <form action="/Sroominpage/exit/" method="post">
@@ -261,6 +266,8 @@
 
                     const buttonSound = new Audio('/static/music/button-sound.mp3');
                     const mainButton = document.getElementById('js-btn');
+                    const mainButtons = document.querySelector('#js-btn');
+                    mainButtons.addEventListener('click', handleMode);
                     mainButton.addEventListener('click', () => {
                         buttonSound.play();
                         const {action} = mainButton.dataset;
@@ -271,8 +278,7 @@
                         }
                     });
 
-                    const modeButtons = document.querySelector('#js-mode-buttons');
-                    modeButtons.addEventListener('click', handleMode);
+
 
                     function getRemainingTime(endTime) {
                         const currentTime = Date.parse(new Date());
@@ -295,15 +301,17 @@
 
                         if (timer.mode === 'pomodoro') timer.sessions++;
 
-                        mainButton.dataset.action = 'stop';
-                        mainButton.textContent = '暫停';
-                        mainButton.classList.add('active');
+<!--                        mainButton.dataset.action = 'stop';-->
+<!--                        mainButton.textContent = '暫停';-->
+<!--                        mainButton.classList.add('active');-->
 
                         interval = setInterval(function () {
                             timer.remainingTime = getRemainingTime(endTime);
                             updateClock();
 
                             total = timer.remainingTime.total;
+                            //按下開始後 開始鍵會消失
+                            mainButton.style.display = "none";
                             if (total <= 0) {
                                 clearInterval(interval);
 
