@@ -20,24 +20,6 @@ def get_all_reviews_test(request):
         return render(request, 'StudyPlan.html', {'plans': plans})
     else:
         return render(request, 'StudyPlan.html')
-    # return render(request, 'StudyPlan.html', {'plans': plans})
-
-    # if 'user_id' in request.COOKIES:
-    #     user_id = request.COOKIES['user_id'],
-    #     r = requests.get(
-    #         f'{root}news/',
-    #         params={'user_id': user_id},
-    #         cookies={'sessionid': request.COOKIES['sessionid']}
-    #     )
-    #     result = r.json()
-    #
-    #     if result['success'] is True:
-    #         plans = result['data']
-    #         return render(request, 'index.html', {'plans': plans})
-    #     else:
-    #         return render(request, 'index.html')
-    #
-    # return render(request, 'index.html')
 
 # 新增讀書規劃
 @user_login_required
