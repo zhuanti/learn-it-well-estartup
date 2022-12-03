@@ -249,11 +249,12 @@
                         <!--Table head-->
                         <thead>
                         <tr>
+                            <th></th>
                             <th>房間名稱</th>
                             <th>學制</th>
                             <th>科目</th>
                             <!--                            <th>最多容納人數</th>-->
-                            <th></th>
+
                         </tr>
                         </thead>
                         <!--Table head-->
@@ -263,6 +264,7 @@
                         {% for discussroom in discussrooms %}
                         {% for dis_data in discussroom.dis_datas %}
                         <tr>
+                            <td></td>
                             <td>
                                 {{dis_data.name}}
                             </td>

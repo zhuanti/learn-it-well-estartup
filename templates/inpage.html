@@ -163,6 +163,7 @@
         }
 
 
+
     </style>
 
 </head>
@@ -170,10 +171,10 @@
 <!--<center>-->
 <section class="msger">
     <header class="msger-header">
-<!--        <div class="msger-header-title">-->
-<!--            &lt;!&ndash;            <i class="fas fa-comment-alt"></i>&ndash;&gt;-->
-<!--            <a class="btn button" href="/discusroom/">完成討論</a>-->
-<!--        </div>-->
+        <!--        <div class="msger-header-title">-->
+        <!--            &lt;!&ndash;            <i class="fas fa-comment-alt"></i>&ndash;&gt;-->
+        <!--            <a class="btn button" href="/discusroom/">完成討論</a>-->
+        <!--        </div>-->
         <form action="/discusroom/addLeave/" method="post">
             {% csrf_token %}
             <div class="btn-get-started scrollto">
@@ -224,12 +225,19 @@
                     <div class="vertical-menu">
                         {% for discussroom_qus_list in discussroom.discussroom_qus_lists %}
                         <button class="accordion">
-                            {{discussroom_qus_list.dis_ques_no}}.&emsp;問題：{{discussroom_qus_list.title}}&emsp;提問者：{{discussroom_qus_list.quser_id}}
+                            {{discussroom_qus_list.dis_ques_no}}.&emsp;問題：{{discussroom_qus_list.title}}&emsp;
+                            {% for quser_id_list in discussroom_qus_list.quser_id_lists %}
+                            提問者：{{quser_id_list.quser_name}}
+                            {% endfor %}
                         </button>
                         <div class="panel" align="left"><br>
                             其他人的回答：
                             {% for discussroom_ans_list in discussroom_qus_list.discussroom_ans_lists %}
-                            <blockquote>{{discussroom_ans_list.dis_ans_no}}.&emsp;&emsp;答案：{{discussroom_ans_list.comment}}&emsp;回答者：{{discussroom_ans_list.auser_id}}</blockquote>
+                            <blockquote>{{discussroom_ans_list.dis_ans_no}}.&emsp;&emsp;答案：{{discussroom_ans_list.comment}}&emsp;
+                                {% for auser_id_list in discussroom_ans_list.auser_id_lists %}
+                                回答者：{{auser_id_list.auser_name}}
+                                {% endfor %}
+                            </blockquote>
                             {% endfor %}
                             <center>
 
@@ -254,6 +262,7 @@
                                     }
                                 });
                             }
+
 
 
                         </script>
@@ -323,6 +332,7 @@
             function closeConn() {
                 socket.close(); //向服務端發送端開連結的請求(客戶端主動斷開連接)
             }
+
 
         </script>
         <!--        </form>-->
