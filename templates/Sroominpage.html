@@ -222,22 +222,25 @@
                                     class="button active mode-button"
                                     id="js-pomodoro"
                             >
-                                讀書倒數計時
+                                先按此鍵確認時間
                             </button>
                         </div>
                     </div>
                     <div data-mode="pomodoro" class="clock" id="js-clock">
-                        <span id="js-minutes">25</span>
+                        <span id="js-minutes">{{ studyroom.settime_no }}</span>
                         <span class="separator" style="font-size:65px; color:#fff">:</span>
                         <span id="js-seconds">00</span>
                     </div>
                     <button class="main-button" data-action="start" id="js-btn">
                         開始
                     </button>
-                    <button class="main-button" data-action="over" id="js-overbtn"
-                            onclick="window.location.href='/studyroom-together/'" title="倒數計時結束才能按下!" disabled>
-                        結束
-                    </button>
+                    <form action="/Sroominpage/exit/" method="post">
+                        {% csrf_token %}
+                            <button class="main-button" data-action="over" id="js-overbtn"
+                                    onclick="window.location.href='/studyroom-together/'" title="倒數計時結束才能按下!" disabled>
+                                結束
+                            </button>
+                    </form>
                 </div>
                 <br><br><br><br><br><br><br><br><br><br><br>
                 <button onclick="closeDialog1()" class="dialoginsidetimebtn">關閉</button>

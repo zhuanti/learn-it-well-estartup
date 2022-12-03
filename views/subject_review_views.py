@@ -50,5 +50,27 @@ def get_togall_reviews(request, pk):
         studyroom = result['data']
         return render(request, 'Sroom-togethersub.html', {'studyroom': studyroom})
 
+#多人自習室內部更新離開時間
+@user_login_required
+def exit(request):
+    if request.method == 'POST':
 
+        user_id = request.COOKIES['user_id']
+
+        data = {
+            'user_id': user_id
+        }
+        r = requests.post(
+            f'{root}studyroom/exittime/',
+            data=data,
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
+
+        if result['success'] is True:
+            ret = redirect('/studyroom-togethersub/<int:pk>/')
+            return ret
+        else:
+            return redirect('/studyroom-togethersub/<int:pk>/')
+            return ret
 
