@@ -133,31 +133,17 @@
                             </div>
 
                             <div class="form-group">
-                                <select class="form-control" name="settime_no_id" id="settime_no_id">
+                                <select class="form-control" name="pace_no_id" id="pace_no_id">
                                     <option disabled="true" selected>--請選擇讀書規劃進度--</option>
-                                    {% for pace_name in plan.pace_names %}
-                                    <option value="{{pace_name.no}}" id="pace_no_id" name="pace_no_id">
-                                        {{pace_name.name}}
+                                    {% for all_pace in plan.all_paces %}
+                                    <option value="{{all_pace.no}}" id="op_pace_no_id" name="op_pace_no_id">
+                                        {{all_pace.name}}
                                     </option>
                                     {% endfor%}
-<!--                                    <option value="{{set_list.set_no}}" id="op_settime_no_id" name="op_settime_no_id">-->
-<!--                                       完成-->
-<!--                                    </option>-->
-<!--                                    <option value="{{set_list.set_no}}" id="op_settime_no_id1" name="op_settime_no_id">-->
-<!--                                       尚未完成-->
-<!--                                    </option>-->
                                 </select>
                             </div>
-                            <!--<div class="my-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-                            </div>-->
                             <br>
                             <div class="btn-get-started scrollto">
-
-                                <!--<a class="btn link_button" style="margin: auto; width: 120px;"
-                                   type="color:#71c55d" >確認</a>-->
                                 <input class="btn btn-primary px-4" type="submit" value="確認">
                             </div>
                         </form>
