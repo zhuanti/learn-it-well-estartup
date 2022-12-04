@@ -41,7 +41,7 @@ def reportday(request):
     # return render(request, 'ReportDay.html', {'inform': inform,'labels':labels,'data':data})
     return render(request, 'ReportDay.html', {'inform': inform})
 
-
+#週或日報表選擇
 @user_login_required
 def report(request):
     return render(request, 'report.html')  # 完成
