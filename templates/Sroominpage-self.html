@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>做伙來讀冊 - Learn it well</title>
     <link href="/static/images/hello.png" rel="icon">
-    <link rel="stylesheet" href="/static/css/test.css?v=<?=time()?>">
+    <link rel="stylesheet" href="/static/css/Sroominpage-self.css?v=<?=time()?>">
     <!-- Bootstrap 連結 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -220,13 +220,9 @@
                         <span class="separator" style="font-size:65px; color:#fff">:</span>
                         <span id="js-seconds">00</span>
                     </div>
-<!--                    <form action="/Sroominpage-self/entry/" method="post">-->
-                        {% csrf_token %}
-                            <button type="submit" class="main-button" data-action="start" id="entry_time" data-mode="pomodoro"
-                                    name="entry_time">
-                                開始
-                            </button>
-<!--                    </form>-->
+                    <button type="submit" class="main-button" data-action="start" id="entry_time" data-mode="pomodoro" name="entry_time">
+                        開始
+                    </button>
                     <form action="/Sroominpage-self/exit/" method="post">
                         {% csrf_token %}
                             <button class="main-button" data-action="over" id="js-overbtn"
@@ -235,6 +231,7 @@
                             </button>
                     </form>
                 </div>
+                <br><br><br><br><br><br><br><br><br><br><br>
                 <button onclick="closeDialog1()" class="dialoginsidetimebtn">關閉</button>
             </main>
 
