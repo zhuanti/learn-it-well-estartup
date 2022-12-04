@@ -75,6 +75,17 @@
         </nav><!-- .navbar -->
 
     </div>
+    <style>
+        .btn {
+            background-color: #71c55d;
+            text-decoration: none;
+            color: #FFF;
+            padding: 10px;
+            /*width: 5px;*/
+            /*height: 20px;*/
+            border-radius: 10px;
+        }
+    </style>
 </header><!-- End Header -->
 </body>
 <!-- 表格開始-->
@@ -115,56 +126,102 @@
                         <!--Table head-->
                         <!--Table body-->
                         <tbody>
-                        {% for success_list in success_lists %}
+                        {% for sus_all in all_all.sus_all %}
                         <tr>
-                            <th scope="row">{{ success_list.success_no }}</th>
+                            <th scope="row">{{ sus_all.success_no }}</th>
                             <td>
-                                {% for success_name in success_list.success_names %}
+                                {% for success_name in sus_all.success_names %}
                                 {{ success_name.suc_name }}
                                 {% endfor %}
                             </td>
-                            <td>{{ success_list.pace }} /
-                                {% for success_name in success_list.success_names %}
+                            <td>
+                                {% for success_name in sus_all.success_names %}
+
+                                <!-- 自習 -->
+                                {% if success_name.suc_classroom == 1 %}
+                                {% for study_tot_time in all_all.study_tot_time %}
+                                {{ study_tot_time.study_total_min }}
+                                {% endfor %}
+                                {% endif %}
+
+                                <!-- 討論 -->
+                                {% if success_name.suc_classroom == 3 %}
+                                {% for dis_tot_time in all_all.dis_tot_time %}
+                                {{ dis_tot_time.dis_total_min }}
+                                {% endfor %}
+                                {% endif %}
+
+                                <!-- all -->
+                                {% if success_name.suc_classroom == 4 %}
+                                {% for all_tot_time in all_all.all_tot_time %}
+                                {{ all_tot_time.total_min }}
+                                {% endfor %}
+                                {% endif %}
+
+                                {% endfor %}
+                                /
+                                {% for success_name in sus_all.success_names %}
                                 {{ success_name.suc_pace }}
                                 {% endfor %}
                             </td>
                             <td>100 Point</td>
                             <td>
-<!--                                <button class="btn btn-primary px-4" type="submit" id="js-btnget" title="達成成就才能按下!"-->
-<!--                                        style="width:100px;height:40px;background-color:#7B7B7B;color:white;" disabled>未完成-->
-<!--                                </button>-->
+                                <!--                                <button class="btn btn-primary px-4" type="submit" id="js-btnget" title="達成成就才能按下!"-->
+                                <!--                                        style="width:100px;height:40px;background-color:#7B7B7B;color:white;" disabled>未完成-->
+                                <!--                                </button>-->
                                 <button class="btn btn-primary px-4 "
-                                           style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;" id="btnget" title="達成成就才能按下!"
+                                        style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;"
+                                        id="btnget" title="達成成就才能按下!"
                                         onclick="window.location.href='/studyroom-together/'"
                                         style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;">
                                     領取
-<!--                                    {% for success_list in success_lists %}-->
+                                    <!--                                    {% for success_list in success_lists %}-->
                                     <script>
                                         let button = document.querySelector(".button");
+
                                         function disbtn(e) {
                                             if (
-                                            {% for success_list in success_lists %}
-                                            {{ success_list.pace }}
-                                            {% endfor %})
-                                            ===
-                                            {% for success_name in success_list.success_names %}
-                                            {{ success_name.suc_pace }}
-                                            {% endfor %}) {
-                                               button.disabled = false;
-                                            } else {
-                                               button.disabled = true;
+                                                { % for success_list in success_lists %}
+                                            {
+                                                {
+                                                    success_list.pace
+                                                }
+                                            }
+                                            {%
+                                                endfor %
+                                            }
+                                        )
+                                        ===
+                                            {%
+                                                for success_name in success_list.success_names %}
+                                            {
+                                                {
+                                                    success_name.suc_pace
+                                                }
+                                            }
+                                            {%
+                                                endfor %
+                                            }
+                                        )
+                                            {
+                                                button.disabled = false;
+                                            }
+                                        else
+                                            {
+                                                button.disabled = true;
 
                                             }
                                         }
-<!--                                if ( {{ success_list.pace }}=== {% for success_name in success_list.success_names %}{{ success_name.suc_pace }}-->
-<!--                                {% endfor %} ) {-->
-<!--                                           document.getElementById("btnget").disabled = false;-->
-<!--                                            } else {-->
-<!--                                           document.getElementById("btnget").disabled = true;-->
-<!--                                            }-->
+
+                                        <!--                                if ( {{ success_list.pace }}=== {% for success_name in success_list.success_names %}{{ success_name.suc_pace }}-->
+                                        <!--                                {% endfor %} ) {-->
+                                        <!--                                           document.getElementById("btnget").disabled = false;-->
+                                        <!--                                            } else {-->
+                                        <!--                                           document.getElementById("btnget").disabled = true;-->
+                                        <!--                                            }-->
 
                                     </script>
-<!--                                    {% endfor %}-->
+                                    <!--                                    {% endfor %}-->
                                 </button>
                             </td>
                         </tr>

@@ -14,5 +14,5 @@ def achievement(request):
         cookies={'sessionid': request.COOKIES['sessionid']}
     )
     result = r.json()
-    success_lists = result['data']
-    return render(request, 'achievement.html', {'success_lists': success_lists})
+    all_all = result['data']
+    return render(request, 'achievement.html', {'all_all': all_all})
