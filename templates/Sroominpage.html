@@ -239,7 +239,7 @@
                     <button class="main-button" data-action="start" id="js-btn" data-mode="pomodoro">
                         開始
                     </button>
-                    <form action="/Sroominpage/exit/{{studyroom.no}}" method="post">
+                    <form action="/Sroominpage/exit/{{studyroom.no}}/" method="post">
                         {% csrf_token %}
                             <button class="main-button" data-action="over" id="js-overbtn"
                                     onclick="window.location.href='/studyroom-togethersub/{{studyroom.no}}/'" title="倒數計時結束才能按下!" disabled>
