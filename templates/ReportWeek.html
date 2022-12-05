@@ -405,32 +405,34 @@
                                     </td>
                                     <div>
                                         {% for success_name in wsuccess_list.success_names %}
-                                    <progress
-                                            value="{% for success_name in wsuccess_list.success_names %}
 
-                                            {% if success_name.suc_classroom == 1 %}
-                                            {% for study_tot_time in inform.study_tot_time %}
-                                            {{ study_tot_time.study_total_min }}
+                                        {% if success_name.suc_classroom == 1 %}
+                                             {% for study_tot_time in inform.study_tot_time %}
+                                         <progress
+                                            value="{{ study_tot_time.study_total_min }}"
+                                            max="{{ success_name.suc_pace }}">
+                                         </progress>
                                             {% endfor %}
-                                            {% endif %}
-                                            {% endfor %}
-                                            {% for success_name in wsuccess_list.success_names %}
-                                            {% if success_name.suc_classroom == 3 %}
+                                        {% endif %}
+                                        {% if success_name.suc_classroom == 3 %}
                                             {% for dis_tot_time in inform.dis_tot_time %}
-                                            {{ dis_tot_time.dis_total_min }}
+                                        <progress
+                                            value="{{ dis_tot_time.dis_total_min }}"
+                                            max="{{ success_name.suc_pace }}">
+                                         </progress>
                                             {% endfor %}
-                                            {% endif %}
-                                            {% endfor %}
-                                            {% for success_name in wsuccess_list.success_names %}
-                                            {% if success_name.suc_classroom == 4 %}
-                                            {% for all_tot_time in inform.all_tot_time %}
-                                            {{ all_tot_time.total_min }}
-                                            {% endfor %}
-                                            {% endif %}
+                                        {% endif %}
 
-                                            {% endfor %}"
-                                            max="{{ success_name.suc_pace }}"> </progress>
-                                    {% endfor %}
+                                        {% if success_name.suc_classroom == 4 %}
+                                            {% for all_tot_time in inform.all_tot_time %}
+                                        <progress
+                                            value="{{ all_tot_time.total_min }}"
+                                            max="{{ success_name.suc_pace }}">
+                                         </progress>
+                                            {% endfor %}
+                                        {% endif %}
+
+                                         {% endfor %}
                                     <style>
                                         progress {
                                           color: lightblue;
