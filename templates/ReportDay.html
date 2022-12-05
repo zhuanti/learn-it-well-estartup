@@ -172,35 +172,37 @@
                                 {{ success_name.suc_pace }}
                                 {% endfor %}
                             </td>
-<!--                            <div class="progress mb-3" style="height: 5px">-->
-<!--                                <div class="progress-bar bg-primary" role="progressbar" style="width: {{ dsuccess_list.pace }}%"-->
-<!--                                     aria-valuenow="{{ dsuccess_list.pace }}" aria-valuemin="0" aria-valuemax="60"></div>-->
-<!--                            </div>-->
-                            {% for success_name in dsuccess_list.success_names %}
                             <div>
                                 {% for success_name in dsuccess_list.success_names %}
-                                 <progress
-                                    value="
 
-                                    {% if success_name.suc_classroom == 1 %}
+                                {% if success_name.suc_classroom == 1 %}
                                     {% for study_tot_time in inform.study_tot_time %}
-                                    {{ study_tot_time.study_total_min }}
-                                    {% endfor %}
-                                    {% endif %}
-
-                                    {% if success_name.suc_classroom == 3 %}
-                                    {% for dis_tot_time in inform.dis_tot_time %}
-                                    {{ dis_tot_time.dis_total_min }}
-                                    {% endfor %}
-                                    {% endif %}
-
-                                    {% if success_name.suc_classroom == 4 %}
-                                    {% for all_tot_time in inform.all_tot_time %}
-                                    {{ all_tot_time.total_min }}
-                                    {% endfor %}
-                                    {% endif %}"
+                                 <progress
+                                    value="{{ study_tot_time.study_total_min }}"
                                     max="{{ success_name.suc_pace }}">
                                  </progress>
+                                    {% endfor %}
+                                {% endif %}
+
+
+                                {% if success_name.suc_classroom == 3 %}
+                                    {% for dis_tot_time in inform.dis_tot_time %}
+                                <progress
+                                    value="{{ dis_tot_time.dis_total_min }}"
+                                    max="{{ success_name.suc_pace }}">
+                                 </progress>
+                                    {% endfor %}
+                                {% endif %}
+
+                                {% if success_name.suc_classroom == 4 %}
+                                    {% for all_tot_time in inform.all_tot_time %}
+                                <progress
+                                    value="{{ all_tot_time.total_min }}"
+                                    max="{{ success_name.suc_pace }}">
+                                 </progress>
+                                    {% endfor %}
+                                {% endif %}
+
                                  {% endfor %}
 
                             <style>
@@ -235,11 +237,8 @@
                                 }
                             </style>
                             <br>
-                            {% endfor %}
                             </div>
-
-
-                            {% endfor%}
+                            {% endfor %}
                         </div>
                     </div>
 <!--科目時長占比圓餅圖-->
