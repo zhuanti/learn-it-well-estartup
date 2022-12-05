@@ -141,8 +141,33 @@
                             <h3 class="d-flex align-items-center mb-3"><i
                                     class="material-icons text-info mr-2"></i>成就進度</h3>
                             {% for dsuccess_list in inform.dsuccess_lists %}
-                            <small> {% for success_name in dsuccess_list.success_names %}{{success_name.suc_name}}{% endfor %}</small>&nbsp;&nbsp;
-                            <td>{{ dsuccess_list.pace }} /
+                            <small>{% for success_name in dsuccess_list.success_names %} {{ success_name.suc_name }} {% endfor %}</small>&nbsp;&nbsp;
+                            <td>
+                                {% for success_name in dsuccess_list.success_names %}
+
+                                <!-- 自習 -->
+                                {% if success_name.suc_classroom == 1 %}
+                                {% for study_tot_time in inform.study_tot_time %}
+                                {{ study_tot_time.study_total_min }}
+                                {% endfor %}
+                                {% endif %}
+
+                                <!-- 討論 -->
+                                {% if success_name.suc_classroom == 3 %}
+                                {% for dis_tot_time in inform.dis_tot_time %}
+                                {{ dis_tot_time.dis_total_min }}
+                                {% endfor %}
+                                {% endif %}
+
+                                <!-- all -->
+                                {% if success_name.suc_classroom == 4 %}
+                                {% for all_tot_time in inform.all_tot_time %}
+                                {{ all_tot_time.total_min }}
+                                {% endfor %}
+                                {% endif %}
+
+                                {% endfor %}
+                                /
                                 {% for success_name in dsuccess_list.success_names %}
                                 {{ success_name.suc_pace }}
                                 {% endfor %}
@@ -152,8 +177,32 @@
 <!--                                     aria-valuenow="{{ dsuccess_list.pace }}" aria-valuemin="0" aria-valuemax="60"></div>-->
 <!--                            </div>-->
                             {% for success_name in dsuccess_list.success_names %}
-                            <progress value="{{ dsuccess_list.pace }}" max="{{ success_name.suc_pace }}"> </progress>
-                            {% endfor %}
+                            <div>
+                                {% for success_name in dsuccess_list.success_names %}
+                                 <progress
+                                    value="
+
+                                    {% if success_name.suc_classroom == 1 %}
+                                    {% for study_tot_time in inform.study_tot_time %}
+                                    {{ study_tot_time.study_total_min }}
+                                    {% endfor %}
+                                    {% endif %}
+
+                                    {% if success_name.suc_classroom == 3 %}
+                                    {% for dis_tot_time in inform.dis_tot_time %}
+                                    {{ dis_tot_time.dis_total_min }}
+                                    {% endfor %}
+                                    {% endif %}
+
+                                    {% if success_name.suc_classroom == 4 %}
+                                    {% for all_tot_time in inform.all_tot_time %}
+                                    {{ all_tot_time.total_min }}
+                                    {% endfor %}
+                                    {% endif %}"
+                                    max="{{ success_name.suc_pace }}">
+                                 </progress>
+                                 {% endfor %}
+
                             <style>
                                 progress {
                                   color: lightblue;
@@ -186,6 +235,8 @@
                                 }
                             </style>
                             <br>
+                            {% endfor %}
+                            </div>
 
 
                             {% endfor%}
