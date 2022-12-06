@@ -169,56 +169,64 @@
                                 <!--                                <button class="btn btn-primary px-4" type="submit" id="js-btnget" title="達成成就才能按下!"-->
                                 <!--                                        style="width:100px;height:40px;background-color:#7B7B7B;color:white;" disabled>未完成-->
                                 <!--                                </button>-->
-                                <button class="btn btn-primary px-4 "
-                                        style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;"
-                                        id="btnget" title="達成成就才能按下!"
-                                        onclick="window.location.href='/studyroom-together/'"
-                                        style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;">
-                                    領取
+<!--                                <button class="btn btn-primary px-4 "-->
+<!--                                        style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;"-->
+<!--                                        id="js-btnget" title="達成成就才能按下!"-->
+<!--                                        onclick="window.location.href='/studyroom-together/'"-->
+<!--                                        style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;">-->
+                                    <button class="button" type="submit" id="js-btnget"  title="達成成就才能按下!" disabled >領取
+
                                     <!--                                    {% for success_list in success_lists %}-->
-                                    <script>
-                                        let button = document.querySelector(".button");
+                                    <script type="text/javascript">
+                                            if(1319.0===600){
+                                                   document.getElementById("js-btnget").disabled = false;
+                                            } else{
+                                                   document.getElementById("js-btnget").disabled = true;
+                                            }
 
-                                        function disbtn(e) {
-                                            if (
-                                                { % for success_list in success_lists %}
-                                            {
-                                                {
-                                                    success_list.pace
-                                                }
-                                            }
-                                            {%
-                                                endfor %
-                                            }
-                                        )
-                                        ===
-                                            {%
-                                                for success_name in success_list.success_names %}
-                                            {
-                                                {
-                                                    success_name.suc_pace
-                                                }
-                                            }
-                                            {%
-                                                endfor %
-                                            }
-                                        )
-                                            {
-                                                button.disabled = false;
-                                            }
-                                        else
-                                            {
-                                                button.disabled = true;
 
-                                            }
-                                        }
+<!--                                        let button = document.querySelector(".button");-->
 
-                                        <!--                                if ( {{ success_list.pace }}=== {% for success_name in success_list.success_names %}{{ success_name.suc_pace }}-->
-                                        <!--                                {% endfor %} ) {-->
-                                        <!--                                           document.getElementById("btnget").disabled = false;-->
-                                        <!--                                            } else {-->
-                                        <!--                                           document.getElementById("btnget").disabled = true;-->
-                                        <!--                                            }-->
+<!--                                        function disbtn(e) {-->
+<!--                                            if (-->
+<!--                                                { % for success_list in success_lists %}-->
+<!--                                            {-->
+<!--                                                {-->
+<!--                                                    success_list.pace-->
+<!--                                                }-->
+<!--                                            }-->
+<!--                                            {%-->
+<!--                                                endfor %-->
+<!--                                            }-->
+<!--                                        )-->
+<!--                                        ===-->
+<!--                                            {%-->
+<!--                                                for success_name in success_list.success_names %}-->
+<!--                                            {-->
+<!--                                                {-->
+<!--                                                    success_name.suc_pace-->
+<!--                                                }-->
+<!--                                            }-->
+<!--                                            {%-->
+<!--                                                endfor %-->
+<!--                                            }-->
+<!--                                        )-->
+<!--                                            {-->
+<!--                                                button.disabled = false;-->
+<!--                                            }-->
+<!--                                        else-->
+<!--                                            {-->
+<!--                                                button.disabled = true;-->
+
+<!--                                            }-->
+<!--                                        }-->
+
+<!--                                                                        if ( {{ success_list.pace }}=== {% for success_name in success_list.success_names %}{{ success_name.suc_pace }}-->
+<!--                                                                        {% endfor %} ) {-->
+<!--                                                                                   document.getElementById("btnget").disabled = false;-->
+<!--                                                                                    } else {-->
+<!--                                                                                   document.getElementById("btnget").disabled = true;-->
+<!--                                                                                    }-->
 
                                     </script>
                                     <!--                                    {% endfor %}-->
