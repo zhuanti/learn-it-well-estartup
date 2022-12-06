@@ -89,7 +89,7 @@
 
         .popup-box {
             width: 40%;
-            height: 60%;
+            height: 80%;
             padding: 50px 75px;
             transform: translate(-50%, -50%) scale(0.5);
             position: absolute;
@@ -143,6 +143,9 @@
             -webkit-transform: translate(-50%, -50%) scale(0.7);
             transform: translate(-50%, -50%) scale(0.7);
         }
+
+
+
 
 
     </style>
@@ -322,15 +325,17 @@
                                     {% csrf_token %}
                                     <h2>新增房間 </h2><br>
                                     <br>
-                                    <h3>名稱&emsp;&emsp;&thinsp; <input type="text" id="aname" name="aname"
-                                                                      required="required"></h3><br>
+
+                                    <h3 style="text-align:left;">名稱<br>&emsp;&thinsp; <input type="text" id="aname" name="aname"
+                                                                    required="required" style="width:calc(100% - 5px);border:0.5px solid #E3E4E8"></h3><br>
                                     <!--                                    <h3>人數上限&thinsp; <input type="text" id="atotal_people" name="atotal_people"-->
                                     <!--                                                            required="required">-->
                                     <!--                                    </h3><br>-->
-                                    <div class="form-group">
+                                    <div class="form-group" style="text-align:left;">
                                         <h3>學制&emsp;&emsp;&thinsp;</h3><br>
                                         <select class="form-control" name="schoolsys_no_id" id="schoolsys_no_id">
-                                            <option disabled="true" selected>--請選擇目前學制--</option>
+                                            <option disabled="true" selected style="font-size:20px;">--請選擇目前學制--
+                                            </option>
                                             {% for discussroom in discussrooms %}
                                             {% for sch_lists_all in discussroom.sch_lists_alls %}
                                             <option value="{{sch_lists_all.sch_no_all}}" id="op_schoolsys_no_id"
@@ -345,10 +350,11 @@
 
                                     <br>
 
-                                    <div class="form-group">
+                                    <div class="form-group" style="text-align:left;">
                                         <h3>科目&emsp;&emsp;&thinsp;</h3><br>
                                         <select class="form-control" name="subject_no_id" id="subject_no_id">
-                                            <option disabled="true" selected>--請選擇要讀的科目--</option>
+                                            <option disabled="true" selected style="font-size:20px;">--請選擇要讀的科目--
+                                            </option>
                                             {% for discussroom in discussrooms %}
                                             {% for sub_lists_all in discussroom.sub_lists_alls %}
                                             <option value="{{sub_lists_all.sub_no_all}}" id="op_subject_no_id"
@@ -361,9 +367,13 @@
                                         </select>
                                     </div>
                                     <br>
-                                    <button type="submit" class="btn msger-send-btn">
-                                        確認
-                                    </button>
+                                    <center>
+                                        <button type="submit" class="btn msger-send-btn"
+                                                style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;font-size:20px;">
+                                            確認
+                                        </button>
+                                    </center>
+
                                     <a class="close-btn popup-close" href="#">x</a>
                                 </form>
                             </div>
