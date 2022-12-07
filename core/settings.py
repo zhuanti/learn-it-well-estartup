@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure-$^cj&s%f6ehv=aa44rh1l*j-_2ke%%y_#m3=)$e-09e^bggjxv
 
 # on school's server
 DEBUG = True
-ALLOWED_HOSTS = ['140.131.114.169']
+ALLOWED_HOSTS = ['140.131.114.169', '127.0.0.1']
 
 # # 在Heroku連線時用
 # DEBUG = False
@@ -160,11 +160,11 @@ API_URL = 'http://140.131.114.169:9001/api/'
 
 ASGI_APPLICATION = "core.asgi.application"
 
-CHANNEL_LAYERS = {
-    "default": {
-        "BACKEND": "channels.layers.InMemoryChannelLayer",
-    }
-}
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "BACKEND": "channels.layers.InMemoryChannelLayer",
+#     }
+# }
 
 # CHANNEL_LAYERS = {
 #     "default": {
@@ -174,6 +174,15 @@ CHANNEL_LAYERS = {
 #         },
 #     },
 # }
+
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("140.131.114.169", 6379)],
+        },
+    },
+}
 
 # CHANNEL_LAYERS = {
 #     "default": {
