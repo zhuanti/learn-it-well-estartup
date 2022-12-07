@@ -151,10 +151,10 @@ STATICFILES_DIRS = (
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # API_URL = 'http://localhost:8000/api/'
-# API_URL = 'http://127.0.0.1:9001/api/'
+API_URL = 'http://127.0.0.1:9001/api/'
 
 # on school's server
-API_URL = 'http://140.131.114.169:9001/api/'
+# API_URL = 'http://140.131.114.169:9001/api/'
 
 # API_URL = 'https://learn-it-well-estartup-api.herokuapp.com/api/'
 
@@ -166,23 +166,23 @@ ASGI_APPLICATION = "core.asgi.application"
 #     }
 # }
 
-# CHANNEL_LAYERS = {
-#     "default": {
-#         "BACKEND": "channels_redis.core.RedisChannelLayer",
-#         "CONFIG": {
-#             "hosts": [("127.0.0.1", 6379)],
-#         },
-#     },
-# }
-
 CHANNEL_LAYERS = {
     "default": {
         "BACKEND": "channels_redis.core.RedisChannelLayer",
         "CONFIG": {
-            "hosts": [("140.131.114.169", 6379)],
+            "hosts": [("127.0.0.1", 6379)],
         },
     },
 }
+
+# CHANNEL_LAYERS = {
+#     "default": {
+#         "BACKEND": "channels_redis.core.RedisChannelLayer",
+#         "CONFIG": {
+#             "hosts": [("140.131.114.169", 6379)],
+#         },
+#     },
+# }
 
 # CHANNEL_LAYERS = {
 #     "default": {
