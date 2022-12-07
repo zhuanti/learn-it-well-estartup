@@ -27,12 +27,12 @@ SECRET_KEY = 'django-insecure-$^cj&s%f6ehv=aa44rh1l*j-_2ke%%y_#m3=)$e-09e^bggjxv
 # SECURITY WARNING: don't run with debug turned on in production!
 
 # 在本地連線時用
-DEBUG = True
-ALLOWED_HOSTS = []
+# DEBUG = True
+# ALLOWED_HOSTS = []
 
 # on school's server
-# DEBUG = True
-# ALLOWED_HOSTS = ['140.131.114.169']
+DEBUG = True
+ALLOWED_HOSTS = ['140.131.114.169']
 
 # # 在Heroku連線時用
 # DEBUG = False
@@ -151,10 +151,10 @@ STATICFILES_DIRS = (
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # API_URL = 'http://localhost:8000/api/'
-API_URL = 'http://127.0.0.1:9001/api/'
+# API_URL = 'http://127.0.0.1:9001/api/'
 
 # on school's server
-# API_URL = 'http://140.131.114.169:9001/api/'
+API_URL = 'http://140.131.114.169:9001/api/'
 
 # API_URL = 'https://learn-it-well-estartup-api.herokuapp.com/api/'
 
