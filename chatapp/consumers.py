@@ -18,6 +18,12 @@ class ChatConsumer(WebsocketConsumer):
         async_to_sync(self.channel_layer.group_add)(group, self.channel_name) # 將異步改為同步
 
     def websocket_receive(self, message):
+        # for test
+        # print(message)
+        # self.send("no response")
+
+
+
         # 瀏覽器基於websocket向後端發送數據，自動觸發接收消息
 
         # 獲取討論室號碼(在路由匹配中的)

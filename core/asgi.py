@@ -16,9 +16,11 @@ from core import routings
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings')
 
 # 默認只處理http
-# application = get_asgi_application()
+application = get_asgi_application()
 
 application = ProtocolTypeRouter({
     "http": get_asgi_application(),
     "websocket": URLRouter(routings.websocket_urlpatterns),
 })
+
+# application = ProtocolTypeRouter()
