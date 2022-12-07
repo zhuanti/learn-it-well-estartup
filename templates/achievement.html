@@ -168,51 +168,51 @@
                             <td>
                                 <button class="button" id="js-btnget" onclick="myFunction()" title="達成成就才能按下!" style="border-radius: 10px; width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white; font-size:15px;">領取</button>
 
-                            <script>
-                            var a=23;
-                            if(a>=21){
-                                document.getElementById("js-btnget").disabled = false;}
-                            else{
-                                document.getElementById("js-btnget").disabled = true;
-                            }
-
-
-                            </script>
-<!--                                <script>-->
-<!--                            var a;-->
-<!--                            {% for success_name in sus_all.success_names %}-->
-
-<!--                            {% if success_name.suc_classroom == 1 %}-->
-<!--                            {% for study_tot_time in all_all.study_tot_time %}-->
-<!--                            a.push({{ study_tot_time.study_total_min }})-->
-<!--                            {% endfor %}-->
-<!--                            {% endif %}-->
-
-<!--                            {% if success_name.suc_classroom == 3 %}-->
-<!--                            {% for dis_tot_time in all_all.dis_tot_time %}-->
-<!--                            a.({{ dis_tot_time.dis_total_min }})-->
-<!--                            {% endfor %}-->
-<!--                            {% endif %}-->
-
-<!--                            {% if success_name.suc_classroom == 4 %}-->
-<!--                            {% for all_tot_time in all_all.all_tot_time %}-->
-<!--                            a.({{ all_tot_time.total_min }})-->
-<!--                            {% endfor %}-->
-<!--                            {% endif %}-->
-
-<!--                            {% endfor %}-->
-<!--                            var b;-->
-<!--                            {% for success_name in sus_all.success_names %}-->
-<!--                            b.push({{ success_name.suc_pace }})-->
-<!--                            {% endfor %}-->
-<!--                            if(a>=b){-->
+<!--                            <script>-->
+<!--                            var a=23;-->
+<!--                            if(a>=21){-->
 <!--                                document.getElementById("js-btnget").disabled = false;}-->
 <!--                            else{-->
 <!--                                document.getElementById("js-btnget").disabled = true;-->
 <!--                            }-->
 
 
-<!--                            </script>    -->
+<!--                            </script>-->
+                                <script>
+                                var a=[];
+                                {% for success_name in sus_all.success_names %}
+
+                                {% if success_name.suc_classroom == 1 %}
+                                {% for study_tot_time in all_all.study_tot_time %}
+                                a.push({{ study_tot_time.study_total_min }})
+                                {% endfor %}
+                                {% endif %}
+
+                                {% if success_name.suc_classroom == 3 %}
+                                {% for dis_tot_time in all_all.dis_tot_time %}
+                                a.({{ dis_tot_time.dis_total_min }})
+                                {% endfor %}
+                                {% endif %}
+
+                                {% if success_name.suc_classroom == 4 %}
+                                {% for all_tot_time in all_all.all_tot_time %}
+                                a.({{ all_tot_time.total_min }})
+                                {% endfor %}
+                                {% endif %}
+
+                                {% endfor %}
+                                var b=[];
+                                {% for success_name in sus_all.success_names %}
+                                b.push({{ success_name.suc_pace }})
+                                {% endfor %}
+                                if(a>=b){
+                                    document.getElementById("js-btnget").disabled = false;}
+                                else{
+                                    document.getElementById("js-btnget").disabled = true;
+                                }
+
+
+                                </script>
 
                                 <!--                                <button class="btn btn-primary px-4" type="submit" id="js-btnget" title="達成成就才能按下!"-->
                                 <!--                                        style="width:100px;height:40px;background-color:#7B7B7B;color:white;" disabled>未完成-->
