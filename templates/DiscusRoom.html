@@ -88,8 +88,8 @@
         }
 
         .popup-box {
-            width: 80%;
-            height: 80%;
+            width: 95%;
+            height: 95%;
             padding: 50px 75px;
             transform: translate(-50%, -50%) scale(0.5);
             position: absolute;
@@ -319,22 +319,19 @@
                            href="#letmeopen">新增房間</a>
                     </div>
                     <div class="popup-wrap" id="letmeopen">
-                        <div class="popup-box transform-out">
+                        <div class="popup-box transform-out" style="overflow-x: auto;white-space: nowrap;">
                             <div class="form">
                                 <form action="/discusroom/" method="post">
                                     {% csrf_token %}
                                     <h2>新增房間 </h2><br>
                                     <br>
 
-                                    <h3 style="text-align:left;">名稱<br>&emsp;&thinsp; <input type="text" id="aname" name="aname"
+                                    <h3 style="text-align:left;">名稱<br><br><input type="text" id="aname" name="aname"
                                                                     required="required" style="width:calc(100% - 5px);border:0.5px solid #E3E4E8"></h3><br>
-                                    <!--                                    <h3>人數上限&thinsp; <input type="text" id="atotal_people" name="atotal_people"-->
-                                    <!--                                                            required="required">-->
-                                    <!--                                    </h3><br>-->
                                     <div class="form-group" style="text-align:left;">
                                         <h3>學制&emsp;&emsp;&thinsp;</h3><br>
                                         <select class="form-control" name="schoolsys_no_id" id="schoolsys_no_id">
-                                            <option disabled="true" selected style="font-size:20px;">--請選擇目前學制--
+                                            <option disabled="true" selected style="font-size:20px;">--請選擇學制--
                                             </option>
                                             {% for discussroom in discussrooms %}
                                             {% for sch_lists_all in discussroom.sch_lists_alls %}
@@ -353,7 +350,7 @@
                                     <div class="form-group" style="text-align:left;">
                                         <h3>科目&emsp;&emsp;&thinsp;</h3><br>
                                         <select class="form-control" name="subject_no_id" id="subject_no_id">
-                                            <option disabled="true" selected style="font-size:20px;">--請選擇要讀的科目--
+                                            <option disabled="true" selected style="font-size:20px;">--請選擇科目--
                                             </option>
                                             {% for discussroom in discussrooms %}
                                             {% for sub_lists_all in discussroom.sub_lists_alls %}
