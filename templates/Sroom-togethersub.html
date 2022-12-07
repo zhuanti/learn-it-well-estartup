@@ -45,6 +45,9 @@
             border-radius: 10px;
         }
 
+
+
+
     </style>
 
 
@@ -93,7 +96,7 @@
 </header><!-- End Header -->
 
 <main id="main">
-<!--多人自習室讀書資訊填寫-->
+    <!--多人自習室讀書資訊填寫-->
     <!-- ======= Breadcrumbs ======= -->
     <section id="contact" class="padd-section">
 
@@ -105,68 +108,64 @@
 
             <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
                 {% csrf_token %}
-                <div class="col-lg-3 col-md-4">
-
-                    <div class="info">
-                        <div>
-                            <i class=" bi bi-pencil"></i>
-                            <p>科目</p>
-                        </div>
-                        <br>
-                        <div>
-                            <i class=" bi bi-info-circle"></i>
-                            <p>詳細資訊</p>
-                        </div>
-                        <br>
-                        <div>
-                            <i class="bi bi-alarm"></i>
-                            <p>時間</p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-lg-5 col-md-8">
+                <div class="col-lg-6 col-md-4">
                     <div class="form">
                         <form action="/studyroom-togethersub/{{ studyroom.no }}/" method="post">
                             {% csrf_token %}
-                            <div class="form-group">
-                                <select class="form-control" name="subject_no_id" id="subject_no_id">
-                                    <!--value={{ report.subject_no_id }}-->
-                                    <option disabled="true" selected>--請選擇要讀的科目--</option>
-                                    {% for sub_list in studyroom.sub_lists %}
-                                    <option value="{{sub_list.sub_no}}" id="op_subject_no_id" name="op_subject_no_id">
-                                        {{sub_list.sub_name}}
-                                    </option>
-                                    {% endfor%}
-                                </select>
-                            </div>
-                            <br>
-                            <br>
-                            <div class="form-group">
-                                <input type="text" name="subject_detail" class="form-control" id="subject_detail"
-                                       placeholder="請輸入科目詳細資訊"
-                                       required="required">
-                            </div>
-                            <br>
-                            <br>
-                            <div class="form-group">
-                                <select class="form-control" name="settime_no_id" id="settime_no_id">
-                                    <option disabled="true" selected>--請選擇預計讀書時長(1小時=60分鐘)--</option>
+                            <div class="info">
+                                <div>
+                                    <i class=" bi bi-pencil"></i>
+                                    <p>科目</p>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" name="subject_no_id" id="subject_no_id">
+                                        <!--value={{ report.subject_no_id }}-->
+                                        <option disabled="true" selected>--請選擇要讀的科目--</option>
+                                        {% for sub_list in studyroom.sub_lists %}
+                                        <option value="{{sub_list.sub_no}}" id="op_subject_no_id"
+                                                name="op_subject_no_id">
+                                            {{sub_list.sub_name}}
+                                        </option>
+                                        {% endfor%}
+                                    </select>
+                                </div>
+                                <br>
+                                <div>
+                                    <i class=" bi bi-info-circle"></i>
+                                    <p>詳細資訊</p>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="subject_detail" class="form-control" id="subject_detail"
+                                           placeholder="請輸入科目詳細資訊"
+                                           required="required">
+                                </div>
+                                <br>
+                                <div>
+                                    <i class="bi bi-alarm"></i>
+                                    <p>時間</p>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control" name="settime_no_id" id="settime_no_id">
+                                        <option disabled="true" selected>--請選擇預計讀書時長(1小時=60分鐘)--</option>
 
-                                    {% for set_list in studyroom.set_lists %}
-                                    <option value="{{set_list.set_no}}" id="op_settime_no_id" name="op_settime_no_id">
-                                        {{set_list.set_time}}分鐘
-                                    </option>
-                                    {% endfor%}
-                                </select>
+                                        {% for set_list in studyroom.set_lists %}
+                                        <option value="{{set_list.set_no}}" id="op_settime_no_id"
+                                                name="op_settime_no_id">
+                                            {{set_list.set_time}}分鐘
+                                        </option>
+                                        {% endfor%}
+                                    </select>
+                                </div>
                             </div>
                             <br>
-                            <div class="btn-get-started scrollto">
-                                <button type="submit" class="btn msger-send-btn">
-                                    確認
-                                </button>
-                            </div>
+                            <center>
+                                <div class="btn-get-started scrollto">
+                                    <button type="submit" class="btn msger-send-btn">
+                                        確認
+                                    </button>
+                                </div>
+                            </center>
+
                         </form>
                     </div>
                 </div>
