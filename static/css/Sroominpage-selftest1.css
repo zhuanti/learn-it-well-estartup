@@ -33,6 +33,7 @@
   top: 50%;
   left: 40%;
   transform: translate(0, -50%);
+
 }
 
 .sounddialog{
@@ -44,14 +45,15 @@
   top: 50%;
   left:40%;
   transform: translate(0, -50%);
+
 }
 .timedialog{
 /*-------------------------
   width: 30%;
   height: 47%
 --------------------------*/
-  width: 480px;
-  height: 300px;
+  width: 30%;
+  height: 47%;
   border: none;
   box-shadow: 0 2px 6px #ccc;
   border-radius: 10px;
