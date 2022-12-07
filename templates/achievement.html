@@ -166,7 +166,20 @@
                             </td>
                             <td>100 Point</td>
                             <td>
-                                <button class="button" id="js-btnget" onclick="myFunction()" title="達成成就才能按下!" style="border-radius: 10px; width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white; font-size:15px;">領取</button>
+                                <div class="form-group">
+                                    <input type="text" name="info_success_no_id" class="form-control"
+                                    id="info_success_id"
+                                    value="{{ sus_all.success_no }}"
+                                    required="required" hidden="true">
+                                </div>
+                                <div>
+                                    <button class="button" id="js-btnget"
+                                            title="達成成就才能按下!"
+                                            style="border-radius: 10px; width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white; font-size:15px;">
+                                            領取
+                                    </button>
+                                </div>
+
 
 <!--                            <script>-->
 <!--                            var a=23;-->
@@ -205,6 +218,7 @@
                                 {% for success_name in sus_all.success_names %}
                                 b.push({{ success_name.suc_pace }})
                                 {% endfor %}
+                                alert(b);
                                 if(a>=b){
                                     document.getElementById("js-btnget").disabled = false;}
                                 else{
