@@ -59,8 +59,8 @@
         }
 
         .popup-box {
-            width: 70%;
-            height: 70%;
+            width: 90%;
+            height: 90%;
             padding: 50px 75px;
             transform: translate(-50%, -50%) scale(0.5);
             position: absolute;
@@ -169,7 +169,7 @@
 </head>
 <body>
 <!--<center>-->
-<section class="msger">
+<section class="msger" style="overflow-x:auto;overflow-y:auto">
     <header class="msger-header">
         <!--        <div class="msger-header-title">-->
         <!--            &lt;!&ndash;            <i class="fas fa-comment-alt"></i>&ndash;&gt;-->
@@ -205,7 +205,7 @@
     </div>
     <!--聊天 block-->
 
-    <div class="msger-inputarea">
+    <div class="msger-inputarea" >
         <!--        <form class="msger-inputarea" action="" method="post">-->
         {% csrf_token %}
         <div class="wrap">
@@ -216,8 +216,8 @@
             <a class="btn popup-btn" style="..." href="/addqus/{{discussroom.no}}/">新增問題</a>
         </div>
         <div class="popup-wrap" id="letmeopen">
-            <div class="popup-box transform-out">
-                <form action="/inpage/{{discussroom.no}}/" method="post">
+            <div class="popup-box transform-out" >
+                <form action="/inpage/{{discussroom.no}}/" method="post" >
                     {% csrf_token %}
                     <!--                    /inpage/{{discussroom.no}}/-->
                     <h2>提問版</h2>

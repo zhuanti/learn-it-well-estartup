@@ -83,6 +83,10 @@
             /*height: 20px;*/
             border-radius: 10px;
         }
+
+
+
+
     </style>
 
 
@@ -101,41 +105,30 @@
 
             <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
                 <!--                {% csrf_token %}-->
-                <div class="col-lg-3 col-md-4">
-
-                    <div class="info">
-                        <div>
-                            <i class=" bi bi-pencil"></i>
-                            <p>新增讀書規劃</p>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="col-lg-5 col-md-8">
+                <div class="col-lg-5 col-md-4">
                     <div class="form">
                         <form action="/plansadd/" method="post">
                             {% csrf_token %}
-
+                            <div class="info">
+                                <div>
+                                    <i class=" bi bi-pencil"></i>
+                                    <p>新增讀書規劃</p>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <input type="text" name="plans_name" class="form-control" id="plans_name"
                                        placeholder="請輸入要新增的內容"
                                        required="required">
                             </div>
-                            <!--<div class="my-3">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-                            </div>-->
-                            <div class="btn-get-started scrollto">
-                                <br>
-                                <!--<a class="btn link_button" style="margin: auto; width: 120px;"
-                                   type="color:#71c55d">確認</a>-->
-                                <!--<button type="submit" class="btn msger-send-btn" style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;">
-                                    確認
-                                </button>-->
-                                <input class="btn btn-primary px-4" style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;" type="submit" value="確認">
-                            </div>
+                            <center>
+                                <div class="btn-get-started scrollto">
+                                    <br>
+                                    <input class="btn btn-primary px-4"
+                                           style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;"
+                                           type="submit" value="確認">
+                                </div>
+                            </center>
+
                         </form>
                     </div>
                 </div>
