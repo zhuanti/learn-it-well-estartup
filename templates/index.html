@@ -46,6 +46,10 @@
         if (v) {
             popup();
         }
+
+
+
+
     </script>
     {% endif %}
     <div class="container d-flex align-items-center justify-content-between">
@@ -159,22 +163,17 @@
         <div class="rightCSS li">
 
         <span class="d-inline-block float-left">
+            <marquee direction="left" behavior="scroll" scrollamount="10" scrolldelay="100" loop="-1">
+                     ★ 公告 ★ &nbsp;&nbsp;&nbsp;歡迎登入！&nbsp;
+                    您的讀書規劃：
+                    {% for plan in plans %}
+                    {% if plan in plans %}
+                    {{plan.name }}&nbsp;
+                    {% endif %}
+                    {% endfor %}
+                    尚未完成
+            </marquee>
 
-            <div class="d-inline-block" style=" color: #535461;">
-
-                ★ 公告 ★ &nbsp;&nbsp;&nbsp;歡迎登入！&nbsp;
-
-                您的讀書規劃：
-                {% for plan in plans %}
-                {% if plan in plans %}
-                {{plan.name }}&nbsp;
-                {% endif %}
-                {% endfor %}
-                尚未完成
-
-                <marquee direction="right" behavior="alternate" scrollamount="7">這裡放要跑的文字</marquee>
-
-            </div>
 
 
         </span>
@@ -204,15 +203,19 @@
 
                 .li {
                     float: left;
-                    width: 80%;
-                    padding: 1%;
+                    width: 70%;
+                    padding: 0.5%;
                     margin: 1% 10%;
                     height: 5.4%;
-                    line-height: 124%;
-                    border-radius: 0.6em;
+                    line-height: 200%;
+                    border-radius: 1em;
                     /*box-shadow: 0 0.1 em 0.5 em;*/
                     box-shadow: #0c4128;
                 }
+
+
+
+
 
             </style>
         </div>
@@ -224,7 +227,6 @@
                 <img src="/static/images/hero-img.png" alt="Hero Imgs" data-aos="zoom-out" data-aos-delay="100">
                 <P>
                     <a href="/studyroom/" class="btn-get-started scrollto">自習室</a>&emsp;
-                    <!--        <a href="#get-started" class="btn-get-started scrollto">Get Started</a>-->
                     <a href="/discusroom/" class="btn-get-started scrollto">討論室</a>
                 </P>
             </div>
