@@ -140,33 +140,45 @@
                             </td>
                             <td>100 Point</td>
                             <td>
-                                <form action="/discusroom/" method="get">
+                                <form action="/achievement/update/{{ sus_all.no }}/" method="post">
                                     {% csrf_token %}
                                     <div class="form-group">
-                                        <input type="text" name="info_success_no_id" class="form-control"
+                                        <input type="text" name="info_success_id" class="form-control"
                                                id="info_success_id"
-                                               value="{{ sus_all.success_no }}"
-                                               required="required" hidden="true">
+                                               value="{{ sus_all.no }}"
+                                               disabled="true"
+                                               required="required"
+                                               hidden="true"
+                                        >
                                     </div>
 
-                                    {% if  sus_all.res_time >= sus_all.suc_pace %}
+                                    {% if  sus_all.res_time >= sus_all.suc_pace and sus_all.lockif == '0' %}
                                     <button class="button" id="js-btnget1"
                                             title="達成成就才能按下!"
                                             style="border-radius: 10px; width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white; font-size:15px;"
-
-
                                     >
                                         領取
                                     </button>
-                                    {% else %}
+                                    {% elif sus_all.res_time >= sus_all.suc_pace and sus_all.lockif == '1' %}
                                     <button class="button" id="js-btnget2"
                                             title="達成成就才能按下!"
-                                            style="border-radius: 10px; width:100px;height:40px;border:12px blue none;background-color:#5db7c5;color:white; font-size:15px;"
+                                            style="border-radius: 10px; width:100px;height:40px;border:12px blue none;background-color:#d4d4d4;color:white; font-size:15px;"
+                                            disabled="true"
+
+                                    >
+                                        已領取
+                                    </button>
+
+                                    {% else %}
+                                    <button class="button" id="js-btnget3"
+                                            title="達成成就才能按下!"
+                                            style="border-radius: 10px; width:100px;height:40px;border:12px blue none;background-color:#bcbcbc;color:white; font-size:15px;"
                                             disabled="true"
 
                                     >
                                         領取
                                     </button>
+
                                     {% endif %}
 
                                 </form>

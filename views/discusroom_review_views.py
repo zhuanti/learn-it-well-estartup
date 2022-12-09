@@ -181,11 +181,11 @@ def addLeave(request):
 
         if result['success'] is True:
             ret = redirect('/discusroom')
-            messages.success(request, '已成功離開討論室')
+            # messages.success(request, '已成功離開討論室')
             return ret
 
         else:
-            messages.error(request, '離開討論室')
+            # messages.error(request, '離開討論室')
             return redirect('/discusroom')
             return ret
 

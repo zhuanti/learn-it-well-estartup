@@ -32,10 +32,10 @@ def get_togall_reviews(request, pk):
 
         if result['success'] is True:
             ret = redirect(f'/Sroominpage/{pk}')
-            messages.success(request, '已成功')
+            # messages.success(request, '已成功')
             return ret
         else:
-            messages.error(request, '失敗')
+            # messages.error(request, '失敗')
             return redirect('/studyroom-together/')
             return ret
 

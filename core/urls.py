@@ -60,6 +60,7 @@ urlpatterns = [
 
     # success
     path('achievement/', success_review_views.achievement),
+    path('achievement/update/<int:pk>/', success_review_views.achievementup),
 
     # user
     path('userdetail/', user_review_views.Udetail),  # 使用者個人資訊
