@@ -159,7 +159,7 @@ def adduinfo(request, pk):
             return ret
         else:
             messages.error(request, '加入房間失敗')
-            return redirect('/discusroom')
+            return redirect('/discusroom/')
             return ret
 
 # 新增離開時間
@@ -180,13 +180,13 @@ def addLeave(request):
         result = r.json()
 
         if result['success'] is True:
-            ret = redirect('/discusroom')
+            ret = redirect('/discusroom/')
             # messages.success(request, '已成功離開討論室')
             return ret
 
         else:
             # messages.error(request, '離開討論室')
-            return redirect('/discusroom')
+            return redirect('/discusroom/')
             return ret
 
 @user_login_required

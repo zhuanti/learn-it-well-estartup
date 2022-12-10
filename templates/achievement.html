@@ -133,55 +133,57 @@
                                 {{ sus_all.suc_name }}
                             </td>
                             <td>
-                                    <!-- 自習 -->
+                                <!-- 自習 -->
                                 {{ sus_all.res_time }}
-                                    /
+                                /
                                 {{ sus_all.suc_pace }}
                             </td>
                             <td>100 Point</td>
                             <td>
+                                <!--                                <div class="form">-->
                                 <form action="/achievement/update/{{ sus_all.no }}/" method="post">
                                     {% csrf_token %}
-                                    <div class="form-group">
-                                        <input type="text" name="info_success_id" class="form-control"
-                                               id="info_success_id"
-                                               value="{{ sus_all.no }}"
-                                               disabled="true"
-                                               required="required"
-                                               hidden="true"
+<!--                                    <div class="form-group">-->
+<!--                                        {% for sus_all in sus_alls %}-->
+<!--                                        <input type="text" name="no_suc" class="form-control"-->
+<!--                                               id="no_suc"-->
+<!--                                               value="{{ sus_all.no }}"-->
+<!--                                               required="required" hidden="true">-->
+<!--                                        {% endfor %}-->
+<!--                                    </div>-->
+                                    {% if sus_all.res_time >= sus_all.suc_pace and sus_all.lockif == '0' %}
+                                    <div class="btn-get-started scrollto">
+                                        <button type="submit" class="button" id="js-btnget1"
+                                                title="達成成就才能按下!"
+                                                style="border-radius: 10px; width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white; font-size:15px;"
                                         >
+                                            領取
+                                        </button>
+                                        {% elif sus_all.res_time >= sus_all.suc_pace and sus_all.lockif == '1' %}
+                                        <button type="submit" class="button" id="js-btnget2"
+                                                title="達成成就才能按下!"
+                                                style="border-radius: 10px; width:100px;height:40px;border:12px blue none;background-color:#d4d4d4;color:white; font-size:15px;"
+                                                disabled="true"
+
+                                        >
+                                            已領取
+                                        </button>
+
+                                        {% else %}
+                                        <button type="submit" class="button" id="js-btnget3"
+                                                title="達成成就才能按下!"
+                                                style="border-radius: 10px; width:100px;height:40px;border:12px blue none;background-color:#bcbcbc;color:white; font-size:15px;"
+                                                disabled="true"
+
+                                        >
+                                            領取
+                                        </button>
+
+                                        {% endif %}
                                     </div>
 
-                                    {% if  sus_all.res_time >= sus_all.suc_pace and sus_all.lockif == '0' %}
-                                    <button class="button" id="js-btnget1"
-                                            title="達成成就才能按下!"
-                                            style="border-radius: 10px; width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white; font-size:15px;"
-                                    >
-                                        領取
-                                    </button>
-                                    {% elif sus_all.res_time >= sus_all.suc_pace and sus_all.lockif == '1' %}
-                                    <button class="button" id="js-btnget2"
-                                            title="達成成就才能按下!"
-                                            style="border-radius: 10px; width:100px;height:40px;border:12px blue none;background-color:#d4d4d4;color:white; font-size:15px;"
-                                            disabled="true"
-
-                                    >
-                                        已領取
-                                    </button>
-
-                                    {% else %}
-                                    <button class="button" id="js-btnget3"
-                                            title="達成成就才能按下!"
-                                            style="border-radius: 10px; width:100px;height:40px;border:12px blue none;background-color:#bcbcbc;color:white; font-size:15px;"
-                                            disabled="true"
-
-                                    >
-                                        領取
-                                    </button>
-
-                                    {% endif %}
-
                                 </form>
+                                <!--                                </div>-->
                             </td>
 
                         </tr>

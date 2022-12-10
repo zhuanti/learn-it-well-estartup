@@ -23,16 +23,18 @@ def achievement(request):
 def achievementup(request, pk):
     if request.method == 'POST':
 
+        no = pk
+        user_id = request.COOKIES['user_id']
+
         data = {
-            'no': pk,
-            'user_id': request.COOKIES['user_id'],
+            'user_id': user_id,
+            'no': no,
         }
         r = requests.post(
             f'{root}/list/update/',
             data=data,
             cookies={'sessionid': request.COOKIES['sessionid']}
         )
-
         result = r.json()
 
         if result['success'] is True:

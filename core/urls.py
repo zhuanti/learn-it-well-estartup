@@ -38,8 +38,8 @@ urlpatterns = [
 
     # discusroom
     path('discusroom/', discusroom_review_views.droom),
-    path('discusroom/adduinfo/<int:pk>/', discusroom_review_views.adduinfo), # 寫資訊到報表
-    path('discusroom/addLeave/', discusroom_review_views.addLeave), # 新增離開時間
+    path('discusroom/adduinfo/<int:pk>/', discusroom_review_views.adduinfo),  # 寫資訊到報表
+    path('discusroom/addLeave/', discusroom_review_views.addLeave),  # 新增離開時間
     path('inpage/<int:pk>/', discusroom_review_views.inpage),
     path('dis_test/', discusroom_review_views.WebChatTest),
     path('discusroom/search/', discusroom_review_views.search),
@@ -61,6 +61,7 @@ urlpatterns = [
     # success
     path('achievement/', success_review_views.achievement),
     path('achievement/update/<int:pk>/', success_review_views.achievementup),
+    # path('achievement/update/', success_review_views.achievementup),
 
     # user
     path('userdetail/', user_review_views.Udetail),  # 使用者個人資訊
