@@ -123,13 +123,17 @@
                             <div class="d-flex flex-column align-items-center text-center">
                                 <img src="/static/images/Headshot.jpg" alt="Admin"
                                      class="rounded-circle" width="150">
-                                {% for duser_list in inform.duser_lists %}
+
                                 <div class="mt-3">
+                                    {% for duser_list in inform.duser_lists %}
                                     <h4>{{ duser_list.name }}</h4>
-                                    <p class="text-secondary mb-1"></p>
-                                    <p class="text-muted font-size-sm">{{ duser_list.live }}</p>
+                                        {% for live_list in duser_list.live_list %}
+                                        <p class="text-secondary mb-1"></p>
+                                        <p class="text-muted font-size-sm">{{ live_list.live_name }}</p>
+                                        {% endfor%}
+                                    {% endfor%}
                                 </div>
-                                {% endfor%}
+
                             </div>
                         </div>
                     </div>
