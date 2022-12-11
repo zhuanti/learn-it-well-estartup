@@ -148,7 +148,7 @@
         <dialog class="dialog"> <!--音樂--><!--height="250"-->
             <br>
             <center>
-                <iframe style="border-radius:12px"
+                <iframe style="border-radius:12px;width:70%;"
                         src="https://open.spotify.com/embed/playlist/37i9dQZF1DWXUpC6mczRpA?utm_source=generator"
                         width="90%"
                         height="80%" frameBorder="0" allowfullscreen=""
@@ -159,7 +159,7 @@
         </dialog>
     </div>
     <div>
-        <dialog id="soundDialog" class="sounddialog">   <!--白噪音-->
+        <dialog id="soundDialog" class="sounddialog" style="width:40%;">   <!--白噪音-->
             <center>
                 <b>夏天夜晚-蟬聲</b>
                 <br>
@@ -198,7 +198,7 @@
     <div>
         <progress id="js-progress" value="0"></progress>
         <div class="progress-bar"></div>
-        <dialog id="timeDialog" class="timedialog" open>   <!--計時器-->
+        <dialog id="timeDialog" class="timedialog" open style="width: 40%;height:60%;">   <!--計時器-->
             <br>
             <main class="app">
                 <!--佑慈提供可能js-->
@@ -232,8 +232,10 @@
                             </button>
                     </form>
                 </div>
-                <br><br><br><br><br><br><br><br><br><br><br>
-                <button onclick="closeDialog1()" class="dialoginsidetimebtn">關閉</button>
+                <div>
+                    <button onclick="closeDialog1()" class="dialoginsidetimebtn" style="position: absolute;right:3px;width:auto;">x</button>
+                </div>
+
             </main>
 
             <div class="hidden">
