@@ -90,7 +90,6 @@ def register(request):
             'borth': borth,
             'gender': gender,
             'live': live,
-            'purview': 0,
         }
 
         r = requests.post(

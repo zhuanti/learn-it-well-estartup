@@ -126,7 +126,7 @@
                                     <h4>{{ wuser_list.name }}</h4>
                                     {% for live_list in wuser_list.live_list %}
                                     <p class="text-secondary mb-1"></p>
-                                    <p class="text-muted font-size-sm">{{ live_list.live_name }}</p>
+                                    <p class="text-muted font-size-sm">{{ live_list.live_name }}<br>累積點數：{{wuser_list.point}}</p>
                                     {% endfor%}
                                 </div>
                                 {% endfor%}
@@ -536,7 +536,7 @@
                         <div class="card mb-3 ">
                             <div class="card-body  ">
                                 <div>
-                                    <h3 class="title">一周讀書規劃</h3>
+                                    <h3 class="title">一週讀書規劃</h3>
                                     <div class="table-responsive">
                                         <table class="table">
                                             <thead>

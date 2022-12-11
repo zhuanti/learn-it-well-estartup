@@ -129,7 +129,7 @@
                                     <h4>{{ duser_list.name }}</h4>
                                         {% for live_list in duser_list.live_list %}
                                         <p class="text-secondary mb-1"></p>
-                                        <p class="text-muted font-size-sm">{{ live_list.live_name }}</p>
+                                        <p class="text-muted font-size-sm">{{ live_list.live_name }}<br>累積點數：{{duser_list.point}}</p>
                                         {% endfor%}
                                     {% endfor%}
                                 </div>
