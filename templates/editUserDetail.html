@@ -238,10 +238,15 @@
                                                     <h6 class="mb-0">居住縣市</h6>
                                                 </div>
                                                 <div class="col-sm-9 text-secondary">
-                                                    {% for live_list in user.live_list %}
-                                                    <input type="text" class="form-control" name="live" id="live"
-                                                           value={{ live_list.live_name }} required>
-                                                    {% endfor %}
+                                                    <select class="form-control" name="live_no_id" id="live_no_id" style="margin:0px;">
+                                                        {% for all_live in user.all_live_list %}
+                                                        <!--<input type="text" class="form-control" name="live" id="live"
+                                                               value={{ live_list.live_name }} required>-->
+                                                        <option value="{{all_live.live_no}}" id="op_live_no_id" name="op_live_no_id">
+                                                            {{ all_live.live_name }}
+                                                        </option>
+                                                        {% endfor %}
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
