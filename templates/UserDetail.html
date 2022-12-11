@@ -212,7 +212,10 @@
                                     <h6 class="mb-0">性別</h6>
                                 </div>
                                 <div class="col-sm-9 text-secondary">
-                                    {{ user.gender }}
+                                    {% for gender_list in user.gender_list %}
+                                    {{ gender_list.gender_gender }}
+                                    {% endfor %}
+                                    <!-- {{ user.gender }} -->
                                 </div>
                             </div>
                             <hr>
