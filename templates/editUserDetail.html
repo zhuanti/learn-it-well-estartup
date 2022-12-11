@@ -238,7 +238,8 @@
                                                     <h6 class="mb-0">居住縣市</h6>
                                                 </div>
                                                 <div class="col-sm-9 text-secondary">
-                                                    <select class="form-control" name="live_no_id" id="live_no_id" style="margin:0px;">
+                                                    <select class="form-control" name="live" id="live" style="margin:0px;">
+                                                        <option disabled="true" selected>--請選擇居住地--</option>
                                                         {% for all_live in user.all_live_list %}
                                                         <!--<input type="text" class="form-control" name="live" id="live"
                                                                value={{ live_list.live_name }} required>-->
