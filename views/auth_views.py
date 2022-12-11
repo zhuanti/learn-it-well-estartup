@@ -65,14 +65,23 @@ def logout(request):
 # 註冊
 def register(request):
     if request.method == 'GET':
-        return render(request, 'register.html')
+        r = requests.get(
+            f'{root}/live_gender/',
+        )
+        result = r.json()
+
+        inform = result['data']
+        return render(request, 'register.html', {'inform': inform})
+
+        # return render(request, 'register.html')
+
     if request.POST['pass'] == request.POST['re_pass']:
         id = request.POST['email']
         name = request.POST['name']
         pwd = request.POST['pass']
-        borth = request.POST.get('bir', False)
-        gender = request.POST.get('gender', False)
-        live = request.POST.get('live', False)
+        borth = request.POST['bir']
+        gender = request.POST['gender']
+        live = request.POST['live']
 
         data = {
             'id': id,

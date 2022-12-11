@@ -156,29 +156,29 @@
                             <!--                            </div>-->
 
                             <div class="form-group">
-                                <label for="pass"><i class="zmdi zmdi-male-female"></i></label>
-                                <input type="text" name="gender" id="gender" placeholder="性別" required="required"/>
-                                <!-- <select class="form-control" name="gender" id="gender" style="margin:0px;">
+<!--                                <label for="pass"><i class="zmdi zmdi-male-female"></i></label>-->
+<!--                                <input type="text" name="gender" id="gender" placeholder="性別" required="required"/>-->
+                                <select class="zmdi form-control" name="gender" id="gender" style="margin:0px;">
                                     <option disabled="true" selected>--請選擇性別--</option>
-                                    {% for all_gender in live_gender.gender_lists %}
-                                    <option value="{{all_gender.gender_no}}" id="op_gender_no_id" name="op_gender_no_id">
-                                        {{ all_gender.gender_gender }}
+                                    {% for gender_list in inform.gender_lists %}
+                                    <option value="{{gender_list.gender_no}}" id="op_gender_no_id" name="op_gender_no_id">
+                                        {{ gender_list.gender_gender }}
                                     </option>
                                     {% endfor %}
-                                </select> -->
+                                </select>
                             </div>
 
                             <div class="form-group">
-                                <label for="pass"><i class="zmdi zmdi-home"></i></label>
-                                <input type="text" name="live" id="live" placeholder="居住縣市" required="required"/>
-                                <!-- <select class="form-control" name="live" id="live" style="margin:0px;">
-                                    <option disabled="true" selected>--請選擇居住地--</option>
-                                    {% for all_live in live_gender.live_lists %}
-                                    <option value="{{all_live.live_no}}" id="op_live_no_id" name="op_live_no_id">
-                                        {{ all_live.live_name }}
-                                    </option>
-                                    {% endfor %}
-                                </select> -->
+<!--                                <label for="pass"><i class="zmdi zmdi-home"></i></label>-->
+<!--                                <input type="text" name="live" id="live" placeholder="居住縣市" required="required"/>-->
+                                    <select class="zmdi form-control" name="live" id="live" style="margin:0px;">
+                                        <option disabled="true" selected>--請選擇居住地--</option>
+                                        {% for live_list in inform.live_lists %}
+                                        <option value="{{live_list.live_no}}" id="op_live_no_id" name="op_live_no_id">
+                                            {{ live_list.live_name }}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
                             </div>
 
                             <!--                            <div class="form-group input-group">-->
@@ -220,7 +220,7 @@
                             <!--                                       required="required"/>-->
                             <!--                            </div>-->
                             <div class="form-group">
-                                <input type="checkbox" name="agree-term" id="agree-term" class="agree-term"
+                                <input type="checkbox" name="agree-term" id="agree-term" class="zmdi agree-term"
                                        required="required"/>
                                 <label for="agree-term" class="label-agree-term"><span><span></span></span>我已經閱讀並同意
                                     <a href="/PrivacyPolicies/" class="term-service">隱私權政策</a></label>
@@ -259,7 +259,7 @@
                              </div>-->
                             <div class="form-group form-button">
                                 <input type="submit" name="signin" id="signin" class="btn form-submit"
-                                       style="height: 50px;width: 120px;" value="註冊"/>
+                                       style="height: 50px;width: 120px; background-color: #71c55d" value="註冊"/>
                             </div>
                         </form>
                     </div>
