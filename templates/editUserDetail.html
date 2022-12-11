@@ -115,7 +115,11 @@
                                         <div class="mt-3">
                                             <h4>{{ user.name }}</h4>
                                             <p class="text-secondary mb-1"></p>
-                                            <p class="text-muted font-size-sm">{{ user.live }}</p>
+                                            <p class="text-muted font-size-sm">
+                                                {% for live_list in user.live_list %}
+                                                {{ live_list.live_name }}
+                                                {% endfor %}
+                                            </p>
                                         </div>
                                     </div>
                                     <hr class="my-4">
@@ -234,8 +238,10 @@
                                                     <h6 class="mb-0">居住縣市</h6>
                                                 </div>
                                                 <div class="col-sm-9 text-secondary">
+                                                    {% for live_list in user.live_list %}
                                                     <input type="text" class="form-control" name="live" id="live"
-                                                           value={{ user.live }} required>
+                                                           value={{ live_list.live_name }} required>
+                                                    {% endfor %}
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
