@@ -158,11 +158,27 @@
                             <div class="form-group">
                                 <label for="pass"><i class="zmdi zmdi-male-female"></i></label>
                                 <input type="text" name="gender" id="gender" placeholder="性別" required="required"/>
+                                <!-- <select class="form-control" name="gender" id="gender" style="margin:0px;">
+                                    <option disabled="true" selected>--請選擇性別--</option>
+                                    {% for all_gender in live_gender.gender_lists %}
+                                    <option value="{{all_gender.gender_no}}" id="op_gender_no_id" name="op_gender_no_id">
+                                        {{ all_gender.gender_gender }}
+                                    </option>
+                                    {% endfor %}
+                                </select> -->
                             </div>
 
                             <div class="form-group">
                                 <label for="pass"><i class="zmdi zmdi-home"></i></label>
                                 <input type="text" name="live" id="live" placeholder="居住縣市" required="required"/>
+                                <!-- <select class="form-control" name="live" id="live" style="margin:0px;">
+                                    <option disabled="true" selected>--請選擇居住地--</option>
+                                    {% for all_live in live_gender.live_lists %}
+                                    <option value="{{all_live.live_no}}" id="op_live_no_id" name="op_live_no_id">
+                                        {{ all_live.live_name }}
+                                    </option>
+                                    {% endfor %}
+                                </select> -->
                             </div>
 
                             <!--                            <div class="form-group input-group">-->
