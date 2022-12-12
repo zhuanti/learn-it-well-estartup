@@ -83,6 +83,7 @@ urlpatterns = [
     path('Sroominpage/exit/<int:pk>/', subject_review_views.exit),
 
     path('developer/', views.developer),
+    path('team/', views.team),
     path('PrivacyPolicies/', views.PrivacyPolicies),
 
     # 各類測試用
