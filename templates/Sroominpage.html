@@ -212,7 +212,7 @@
     <div>
         <progress id="js-progress" value="0"></progress>
         <div class="progress-bar"></div>
-        <dialog id="timeDialog" class="timedialog" open>   <!--計時器-->
+        <dialog id="timeDialog" class="timedialog" open style="width: 40%;height:60%;">   <!--計時器-->
             <br>
             <main class="app">
                 <!--佑慈提供可能js-->
@@ -505,7 +505,7 @@
             </script>
         </div>
     </div><br><br><br>
-    <div class="countnum" style="width:auto; background-color:#fff; border-radius: 10px; border: 2px solid #8dd586"><b><font size="4">&ensp;今日累積人數：{% for countnum_list in studyroom.countnum_lists %}{{countnum_list.num}}{% endfor %}人 &ensp;</font></b></div>
+    <div class="countnum" style="width:auto; background-color:#fff; border-radius: 10px; border: 2px solid #8dd586"><b><font size="4" style="top: 15%; left: 50%;">&ensp;今日累積人數：{% for countnum_list in studyroom.countnum_lists %}{{countnum_list.num}}{% endfor %}人 &ensp;</font></b></div>
     <div class="clock1">
         <div id="hour"><font size="4">00</font></div>
         <span><font size="4">:</font></span>

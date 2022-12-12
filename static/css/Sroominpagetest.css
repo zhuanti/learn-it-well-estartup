@@ -466,7 +466,7 @@ button:focus, button:active {
     position: relative;
     background-color: #ffffff;
     height: 100%;
-    width: 150px;
+    width: 90%;
     display: flex;
     align-items: center;
     justify-content: center;
