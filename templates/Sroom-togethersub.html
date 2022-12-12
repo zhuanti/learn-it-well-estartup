@@ -115,12 +115,12 @@
                             <div class="info">
                                 <div>
                                     <i class=" bi bi-pencil"></i>
-                                    <p>科目</p>
+                                    <p>選擇科目</p>
                                 </div>
                                 <div class="form-group">
                                     <select class="form-control" name="subject_no_id" id="subject_no_id">
                                         <!--value={{ report.subject_no_id }}-->
-                                        <option disabled="true" selected>--請選擇要讀的科目--</option>
+<!--                                        <option disabled="true" selected>&#45;&#45;請選擇要讀的科目&#45;&#45;</option>-->
                                         {% for sub_list in studyroom.sub_lists %}
                                         <option value="{{sub_list.sub_no}}" id="op_subject_no_id"
                                                 name="op_subject_no_id">
@@ -137,16 +137,16 @@
                                 <div class="form-group">
                                     <input type="text" name="subject_detail" class="form-control" id="subject_detail"
                                            placeholder="請輸入科目詳細資訊"
-                                           required="required">
+                                           >
                                 </div>
                                 <br>
                                 <div>
                                     <i class="bi bi-alarm"></i>
-                                    <p>時間</p>
+                                    <p>選擇時間</p>
                                 </div>
                                 <div class="form-group">
                                     <select class="form-control" name="settime_no_id" id="settime_no_id">
-                                        <option disabled="true" selected>--請選擇預計讀書時長(1小時=60分鐘)--</option>
+<!--                                        <option disabled="true" selected>&#45;&#45;請選擇預計讀書時長(1小時=60分鐘)&#45;&#45;</option>-->
 
                                         {% for set_list in studyroom.set_lists %}
                                         <option value="{{set_list.set_no}}" id="op_settime_no_id"

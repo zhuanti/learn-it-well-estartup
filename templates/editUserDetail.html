@@ -242,7 +242,14 @@
                                                 <div class="col-sm-9 text-secondary">
                                                     <select class="form-control" name="live" id="live"
                                                             style="margin:0px;">
-                                                        <option disabled="true" selected>--請選擇居住地--</option>
+                                                        {% for live_lis in user.live_list %}
+                                                        <!--<input type="text" class="form-control" name="live" id="live"
+                                                               value={{ live_list.live_name }} required>-->
+                                                        <option value="{{live_lis.live_no}}" id="op_live_no_id_1"
+                                                                name="op_live_no_id">
+                                                            {{ live_lis.live_name }}
+                                                        </option>
+                                                        {% endfor %}
                                                         {% for all_live in user.all_live_list %}
                                                         <!--<input type="text" class="form-control" name="live" id="live"
                                                                value={{ live_list.live_name }} required>-->
