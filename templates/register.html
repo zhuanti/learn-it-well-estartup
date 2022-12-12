@@ -52,6 +52,7 @@
             /*height: 20px;*/
             border-radius: 10px;
         }
+
     </style>
 </head>
 
@@ -157,9 +158,9 @@
                             <!--                            </div>-->
 
                             <div class="form-group">
-                                <!--                                <label for="pass"><i class="zmdi zmdi-male-female"></i></label>-->
+                                <label for="pass"><i class="zmdi zmdi-male-female"></i></label>
                                 <!--                                <input type="text" name="gender" id="gender" placeholder="性別" required="required"/>-->
-                                <select class="zmdi form-control" name="gender" id="gender" style="margin:0px;">
+                                <select class="zmdi form-control" name="gender" id="gender" style="margin:0px;width:95%;right:0px;">
                                     <option disabled="true" selected>--請選擇性別--</option>
                                     {% for gender_list in inform.gender_lists %}
                                     <option value="{{gender_list.gender_no}}" id="op_gender_no_id"
@@ -171,9 +172,9 @@
                             </div>
 
                             <div class="form-group">
-                                <!--                                <label for="pass"><i class="zmdi zmdi-home"></i></label>-->
+                                <label for="pass"><i class="zmdi zmdi-home"></i></label>
                                 <!--                                <input type="text" name="live" id="live" placeholder="居住縣市" required="required"/>-->
-                                <select class="zmdi form-control" name="live" id="live" style="margin:0px;">
+                                <select class="zmdi form-control" name="live" id="live" style="margin:0px;width:95%;right:0px;">
                                     <option disabled="true" selected>--請選擇居住地--</option>
                                     {% for live_list in inform.live_lists %}
                                     <option value="{{live_list.live_no}}" id="op_live_no_id" name="op_live_no_id">
