@@ -40,6 +40,19 @@
     * Author: BootstrapMade.com
     * License: https://bootstrapmade.com/license/
     ======================================================== -->
+    <style>
+        .btn {
+            /*background-color: #71c55d;*/
+            text-decoration: none;
+            color: #FFF;
+            padding: 10px;
+            height: 50px;
+            width: 120px;
+            /*width: 5px;*/
+            /*height: 20px;*/
+            border-radius: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -82,18 +95,6 @@
         </nav><!-- .navbar -->
 
     </div>
-
-    <style>
-        .btn {
-            background-color: #71c55d;
-            text-decoration: none;
-            color: #FFF;
-            padding: 10px;
-            /*width: 5px;*/
-            /*height: 20px;*/
-            border-radius: 10px;
-        }
-    </style>
 
 </header><!-- End Header -->
 
@@ -156,12 +157,13 @@
                             <!--                            </div>-->
 
                             <div class="form-group">
-<!--                                <label for="pass"><i class="zmdi zmdi-male-female"></i></label>-->
-<!--                                <input type="text" name="gender" id="gender" placeholder="性別" required="required"/>-->
+                                <!--                                <label for="pass"><i class="zmdi zmdi-male-female"></i></label>-->
+                                <!--                                <input type="text" name="gender" id="gender" placeholder="性別" required="required"/>-->
                                 <select class="zmdi form-control" name="gender" id="gender" style="margin:0px;">
                                     <option disabled="true" selected>--請選擇性別--</option>
                                     {% for gender_list in inform.gender_lists %}
-                                    <option value="{{gender_list.gender_no}}" id="op_gender_no_id" name="op_gender_no_id">
+                                    <option value="{{gender_list.gender_no}}" id="op_gender_no_id"
+                                            name="op_gender_no_id">
                                         {{ gender_list.gender_gender }}
                                     </option>
                                     {% endfor %}
@@ -169,56 +171,17 @@
                             </div>
 
                             <div class="form-group">
-<!--                                <label for="pass"><i class="zmdi zmdi-home"></i></label>-->
-<!--                                <input type="text" name="live" id="live" placeholder="居住縣市" required="required"/>-->
-                                    <select class="zmdi form-control" name="live" id="live" style="margin:0px;">
-                                        <option disabled="true" selected>--請選擇居住地--</option>
-                                        {% for live_list in inform.live_lists %}
-                                        <option value="{{live_list.live_no}}" id="op_live_no_id" name="op_live_no_id">
-                                            {{ live_list.live_name }}
-                                        </option>
-                                        {% endfor %}
-                                    </select>
+                                <!--                                <label for="pass"><i class="zmdi zmdi-home"></i></label>-->
+                                <!--                                <input type="text" name="live" id="live" placeholder="居住縣市" required="required"/>-->
+                                <select class="zmdi form-control" name="live" id="live" style="margin:0px;">
+                                    <option disabled="true" selected>--請選擇居住地--</option>
+                                    {% for live_list in inform.live_lists %}
+                                    <option value="{{live_list.live_no}}" id="op_live_no_id" name="op_live_no_id">
+                                        {{ live_list.live_name }}
+                                    </option>
+                                    {% endfor %}
+                                </select>
                             </div>
-
-                            <!--                            <div class="form-group input-group">-->
-                            <!--                                <i class="zmdi zmdi-home" required="required"></i>&ensp;-->
-                            <!--                                <select class="form-control">-->
-                            <!--                                    <option selected="" disabled id="live"> 選擇居住縣市</option>-->
-                            <!--                                    <option>臺北市</option>-->
-                            <!--                                    <option>新北市</option>-->
-                            <!--                                    <option>基隆市</option>-->
-                            <!--                                    <option>桃園市</option>-->
-                            <!--                                    <option>新竹市</option>-->
-                            <!--                                    <option>新竹縣</option>-->
-                            <!--                                    <option>宜蘭縣</option>-->
-                            <!--                                    <option>臺中市</option>-->
-                            <!--                                    <option>苗栗縣</option>-->
-                            <!--                                    <option>彰化縣</option>-->
-                            <!--                                    <option>南投縣</option>-->
-                            <!--                                    <option>雲林縣</option>-->
-                            <!--                                    <option>高雄市</option>-->
-                            <!--                                    <option>臺南市</option>-->
-                            <!--                                    <option>嘉義市</option>-->
-                            <!--                                    <option>嘉義縣</option>-->
-                            <!--                                    <option>屏東縣</option>-->
-                            <!--                                    <option>澎湖縣</option>-->
-                            <!--                                    <option>花蓮縣</option>-->
-                            <!--                                    <option>臺東縣</option>-->
-                            <!--                                    <option>金門縣</option>-->
-                            <!--                                    <option>連江縣</option>-->
-                            <!--                                </select>-->
-                            <!--                            </div>-->
-                            <!--                            <div class="form-group">-->
-                            <!--                                <label for="address"><i class="zmdi zmdi-home" required="required"></i></label>-->
-                            <!--                                <input type="address" name="addrss" id="address" placeholder="居住縣市"-->
-                            <!--                                       required="required"/>-->
-                            <!--                            </div>-->
-                            <!--                            <div class="form-group">-->
-                            <!--                                <label for="bir"><i class="zmdi zmdi-calendar-note"></i></label>-->
-                            <!--                                <input type="birthday" name="birthday" id="bir" placeholder="生日日期"-->
-                            <!--                                       required="required"/>-->
-                            <!--                            </div>-->
                             <div class="form-group">
                                 <input type="checkbox" name="agree-term" id="agree-term" class="zmdi agree-term"
                                        required="required"/>
@@ -259,7 +222,7 @@
                              </div>-->
                             <div class="form-group form-button">
                                 <input type="submit" name="signin" id="signin" class="btn form-submit"
-                                       style="height: 50px;width: 120px; background-color: #71c55d" value="註冊"/>
+                                       style="height: 50px;width: 120px;" value="註冊"/>
                             </div>
                         </form>
                     </div>
