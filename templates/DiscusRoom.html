@@ -67,7 +67,8 @@
         }
 
         .btn {
-            background-color: #71c55d;
+            margin-top: 0px;
+            /*background-color: #71c55d;*/
             text-decoration: none;
             color: #FFF;
             padding: 10px;
@@ -219,8 +220,7 @@
                                                placeholder="請輸入房間名稱" required/>
                                     </td>
                                     <td>
-                                        <button class="btn btn-primary" type="submit"
-                                                style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;">
+                                        <button class="btn form-submit" type="submit" style="width: 100px; height: 40px;">
                                             搜尋
                                         </button>
                                     </td>
@@ -297,10 +297,13 @@
                                         {% endfor %}
                                     </div>
                                     <div class="btn-get-started scrollto">
-                                        <button type="submit" class="btn msger-send-btn"
-                                                style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;">
-                                            加入
-                                        </button>
+                                        <center>
+                                            <button type="submit" class="btn form-submit"
+                                                    style="width:100px;height:40px;">
+                                                加入
+                                            </button>
+                                        </center>
+
                                     </div>
                                 </form>
                             </td>
