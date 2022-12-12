@@ -437,6 +437,17 @@ button:focus, button:active {
   --longBreak: hsl(58, 35%, 71%);
 }*/
 
+.countnum{
+    width: 120px;
+    height: 40px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 15%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
 
 /*時鐘*/
 
@@ -446,7 +457,7 @@ button:focus, button:active {
     position: absolute;
     transform: translate(-50%,-50%);
     top: 7%;
-    left: 93%;
+    left: 83%;
     display: flex;
     align-items: center;
     justify-content: space-between;
