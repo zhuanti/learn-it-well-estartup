@@ -331,6 +331,37 @@ figure {
   .form-group:last-child {
     margin-bottom: 0px; }
 
+.form-control{
+    float:right;
+}
+
+.text-h-center {
+  text-align: center;
+}
+
+/* 文字垂直置中 */
+.text-v-center {
+  vertical-align: top;
+}
+.text-v-center:before {
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 100%;
+  vertical-align: middle;
+}
+.text-v-center p {
+  display: inline-block;
+}
+.section {
+  display: inline-block;
+  height: 200px;
+  margin: 0;
+  width: 32%;
+  border: 1px solid #000;
+}
+
+
 input {
   width: 100%;
   display: block;
