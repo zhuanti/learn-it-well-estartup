@@ -65,6 +65,7 @@ def get_reviews_insideshow(request):
         result = r.json()
         report = result['data']
         return render(request, 'Sroominpage-self.html', {'report': report})
+
     if request.method == 'POST':
 
         user = request.COOKIES['user_id']
@@ -81,10 +82,10 @@ def get_reviews_insideshow(request):
 
         if result['success'] is True:
             ret = redirect('/studyroom-self/')
-            messages.success(request, '已成功')
+            # messages.success(request, '已成功')
             return ret
         else:
-            messages.error(request, '失敗')
+            # messages.error(request, '失敗')
             return redirect('/Sroominpage-self/')
             return ret
 
@@ -109,11 +110,11 @@ def self_exittime(request):
 
         if result['success'] is True:
             ret = redirect('/Sroominpage-self/')
-            messages.success(request, '已成功離開討論室')
+            # messages.success(request, '已成功離開討論室')
             return ret
 
         else:
-            messages.error(request, '離開討論室')
+            # messages.error(request, '離開討論室')
             return redirect('/Sroominpage-self/')
             return ret
 
@@ -143,7 +144,7 @@ def report_recordtime_edit(request):
             messages.success(request, '已修改資料成功')
             return ret
         else:
-            messages.error(request, '發生錯誤')
+            messages.error(request, '連線錯誤，請重新嘗試')
             return redirect('/')
 #
 #     r = requests.get(

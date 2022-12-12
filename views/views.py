@@ -282,10 +282,10 @@ def Sroom_self(request):
 
         if result['success'] is True:
             ret = redirect('/Sroominpage-self/')
-            messages.success(request, '已成功')
+            # messages.success(request, '已成功')
             return ret
         else:
-            messages.error(request, '失敗')
+            # messages.error(request, '失敗')
             return redirect('/Sroominpage-self/')
             return ret
 
