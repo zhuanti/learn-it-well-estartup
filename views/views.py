@@ -398,13 +398,6 @@ def Sroomtogethersub(request):
 def Splan_edit(request):
     return render(request, 'Splan_edit.html')
 
-# 顯示此頁在現人數
-def shownum(request):
-    if 'num' in request.COOKIES:
-        num = int(request.COOKIES['num'])
-        num += 1
-    else:
-        num = 1
-    rsp = HttpResponse('網頁瀏覽人數 = '+ str(num))
-    rsp.set_cookie('num',num)
-    return rsp
+# 開發人員頁面
+def team(request):
+    return render(request, 'team.html')
