@@ -45,6 +45,7 @@
 
 
 
+
     </style>
 
 </head>
@@ -71,11 +72,15 @@
                 <input class="text" type="hidden" id="discussroom_no_id" name="discussroom_no_id"
                        value="{{discussroom.no}}" required="required" disabled>
                 <br>
-                <h3><textarea class="text" id="title" name="title" rows="6"
-                              cols="40" required="required" value="在這裡打上你想要跟大家討論的問題吧!"></textarea></h3><br>
-                <script type=”text/javascript”>
+                <center>
+                    <h3><textarea class="text" id="title" name="title" rows="6"
+                                  cols="35" required="required" value="">在這裡打上你想要跟大家討論的問題吧!</textarea></h3><br>
+                    <script type=”text/javascript”>
                     function clearDefault(el) {if (el.defaultValue==el.value) el.value = “”   }
-                </script>
+
+                    </script>
+                </center>
+
                 <center>
                     <button type="submit" class="btn msger-send-btn"
                             style="width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white;margin-left:5px;">
