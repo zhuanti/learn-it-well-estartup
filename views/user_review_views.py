@@ -67,3 +67,42 @@ def EditUserDetail(request):
             messages.error(request, '兩次所輸入密碼不同，請重新輸入')
             return redirect('/edituser-detail')
             return ret
+
+
+# 修改使用者密碼
+@user_login_required
+def EditUserPwd(request):
+    if request.method == 'GET':
+        user_id = request.COOKIES['user_id']
+        r = requests.get(
+            f'{root}user/detail/',
+            params={'user_id': user_id},
+            cookies={'sessionid': request.COOKIES['sessionid']}
+        )
+        result = r.json()
+        user = result['data']
+        return render(request, 'ForgetPwdReset.html', {'user': user})
+
+    if request.method == 'POST':
+        if request.POST['pwd'] == request.POST['pwd2']:
+            pwd = request.POST['pwd']
+            data = {
+                'user_id': request.COOKIES['user_id'],
+                'pwd': pwd,
+            }
+            r = requests.post(
+                f'{root}user/pwd/edit/',
+                # params={'user_id': user_id},
+                data=data,
+                cookies={'sessionid': request.COOKIES['sessionid']}
+            )
+            result = r.json()
+
+            if result['success'] is True:
+                ret = redirect('/userdetail')
+                messages.success(request, '密碼修改成功')
+                return ret
+        else:
+            messages.error(request, '兩次所輸入密碼不同，請重新輸入')
+            return redirect('/edituser-detail')
+            return ret
