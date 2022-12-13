@@ -60,7 +60,7 @@
         <nav id="navbar" class="navbar">
             <ul>
                 <li><a class="nav-link scrollto active" href="/">首頁</a></li>
-                <li><a class="nav-link scrollto" href="/login/">登入</a></li>
+                <!-- <li><a class="nav-link scrollto" href="/login/">登入</a></li> -->
                 <li class="dropdown"><a href="#"><span>使用者</span> <i class="bi bi-chevron-down"></i></a>
                     <ul>
                         <li><a href="/userdetail/">個人資料</a></li>
@@ -77,6 +77,7 @@
                 <li><a class="nav-link scrollto" href="/studyroom/">自習室</a></li>
                 <li><a class="nav-link scrollto" href="/discusroom/">討論室</a></li>
                 <li><a class="nav-link scrollto" href="/developer/">開發人員</a></li>
+                <li><a class="nav-link scrollto" href="/logout/">登出</a></li>
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->
@@ -90,7 +91,7 @@
             <div class="containers">
                 <div class="signup-content">
                     <div class="signup-form">
-                        <h2 class="form-title">忘記密碼</h2>
+                        <h2 class="form-title">修改密碼</h2>
                         <!--<h2 class="form-title">Sign up</h2>-->
                         <form method="POST" class="register-form" id="register-form">
                             {% csrf_token %}
@@ -99,12 +100,12 @@
                             <!--                                <input type="text" name="name" id="name" placeholder="名稱" required="required"/>-->
                             <!--                            </div>-->
                             <div class="form-group">
-                                <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                                <input type="password" name="pass" id="pass" placeholder="密碼" required="required"/>
+                                <label for="pwd"><i class="zmdi zmdi-lock"></i></label>
+                                <input type="password" name="pwd" id="pwd" placeholder="密碼" required="required"/>
                             </div>
                             <div class="form-group">
-                                <label for="re_pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                                <input type="password" name="re_pass" id="re_pass" placeholder="重複密碼"
+                                <label for="pwd2"><i class="zmdi zmdi-lock-outline"></i></label>
+                                <input type="password" name="pwd2" id="pwd2" placeholder="重複密碼"
                                        required="required"/>
                             </div>
 
@@ -117,8 +118,8 @@
                         <figure><img src="/static/images/signup-image.jpg" alt="sing up image"></figure>
                         <div style="width: 100%; display: table;">
                             <div style="display: table-row">
-                                <a href="/login/" class="signup-image-link" style=" display: table-cell;">回到登入</a>
-                                <a href="/register/" class="signup-image-link">還沒有帳號</a>
+                                <a href="/userdetail/" class="signup-image-link" style=" display: table-cell;">回到個人資料</a>
+                                <!-- <a href="/register/" class="signup-image-link">還沒有帳號</a> -->
                             </div>
                         </div>
                     </div>
