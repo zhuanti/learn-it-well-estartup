@@ -97,5 +97,5 @@ def EditUserPwd(request):
                 return ret
         else:
             messages.error(request, '兩次所輸入密碼不同，請重新輸入')
-            return redirect('/edituser-detail')
+            return redirect('/edituser-pwd')
             return ret
