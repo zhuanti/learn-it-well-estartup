@@ -36,12 +36,14 @@ def EditUserDetail(request):
     if request.method == 'POST':
         if request.POST['pwd'] == request.POST['pwd2']:
             pwd = request.POST['pwd']
+            gender = request.POST['gender']
             name = request.POST['name']
             live = request.POST['live']
             borth = request.POST['borth']
             data = {
                 'user_id': request.COOKIES['user_id'],
                 'pwd': pwd,
+                'gender': gender,
                 'name': name,
                 'live': live,
                 'borth': borth
