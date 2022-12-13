@@ -50,6 +50,15 @@
 
 
 
+
+
+
+
+
+
+
+
+
     </script>
     {% endif %}
     <div class="container d-flex align-items-center justify-content-between">
@@ -149,87 +158,90 @@
     <p></p>
     <p></p>
     <div class="hero-container" data-aos="fade-in">
-        <p></p>
-        <p></p>
-        {% for message in messages %}
-        <div class="alert alert-success">
-            <a class="close" href="#" data-dismiss="alert"></a>
-            {{ message }}
-
-        </div>
-        {% endfor %}
-
-        {% if 'user_id' in request.COOKIES.keys %}
-        <div class="rightCSS li">
-
-        <span class="d-inline-block float-left">
-            <marquee direction="left" behavior="scroll" scrollamount="7" scrolldelay="100" loop="-1">
-                     ★ 公告 ★ &nbsp;&nbsp;&nbsp;歡迎登入！&nbsp;
-                    您的讀書規劃：
-                    {% for plan in plans %}
-                    {% if plan in plans %}
-                    {{plan.name }}&nbsp;
-                    {% endif %}
-                    {% endfor %}
-                    尚未完成
-            </marquee>
-
-
-
-        </span>
-            <style>
-                .rightCSS {
-                    background: #ceebc7;
-                    overflow: hidden;
-                }
-
-                .rightCSS div {
-                    position: relative;
-                    animation: CSSright linear 25s infinite;
-                }
-
-                @keyframes CSSright {
-                    0% {
-                        right: -100%
-                    }
-                    100% {
-                        right: 100%
-                    }
-                }
-
-                .rightCSS:hover div {
-                    animation-play-state: paused;
-                }
-
-                .li {
-                    float: left;
-                    width: 70%;
-                    padding: 0.5%;
-                    margin: 1% 10%;
-                    height: 5.4%;
-                    line-height: 200%;
-                    border-radius: 1em;
-                    /*box-shadow: 0 0.1 em 0.5 em;*/
-                    box-shadow: #0c4128;
-                }
-
-
-
-
-
-            </style>
-        </div>
-        {% endif %}
         <header>
+            <p></p>
+            <p></p>
+
             <div>
-                <h1>做伙來讀冊</h1>
-                <h2>LEARN IT WELL</h2>
-                <img src="/static/images/hero-img.png" alt="Hero Imgs" data-aos="zoom-out" data-aos-delay="100">
-                <P>
-                    <a href="/studyroom/" class="btn-get-started scrollto">自習室</a>&emsp;
-                    <a href="/discusroom/" class="btn-get-started scrollto">討論室</a>
-                </P>
+                <br><br><br><br>
+                <br><br><br><br>
+                <center>
+                    {% for message in messages %}
+                    <div class="alert alert-success" style="width: 30%;">
+                        <a class="close" href="#" data-dismiss="alert"></a>
+                        {{ message }}
+
+                    </div>
+                    {% endfor %}
+                </center>
+
             </div>
+
+            {% if 'user_id' in request.COOKIES.keys %}
+            <div class="rightCSS li">
+                <span class="d-inline-block float-left">
+                    <marquee direction="left" behavior="scroll" scrollamount="7" scrolldelay="100" loop="-1">
+                             ★ 公告 ★ &nbsp;&nbsp;&nbsp;歡迎登入！&nbsp;
+                            您的讀書規劃：
+                            {% for plan in plans %}
+                            {% if plan in plans %}
+                            {{plan.name }}&nbsp;
+                            {% endif %}
+                            {% endfor %}
+                            尚未完成
+                    </marquee>
+                </span>
+                <style>
+                    .rightCSS {
+                        background: #ceebc7;
+                        overflow: hidden;
+                    }
+
+                    .rightCSS div {
+                        position: relative;
+                        animation: CSSright linear 25s infinite;
+                    }
+
+                    @keyframes CSSright {
+                        0% {
+                            right: -100%
+                        }
+                        100% {
+                            right: 100%
+                        }
+                    }
+
+                    .rightCSS:hover div {
+                        animation-play-state: paused;
+                    }
+
+                    .li {
+                        float: center;
+                        width: 80%;
+                        padding: 0.5%;
+                        margin: 0.5% 10%;
+                        height: 5.4%;
+                        line-height: 200%;
+                        border-radius: 0.5em;
+                        /*box-shadow: 0 0.1 em 0.5 em;*/
+                        box-shadow: #0c4128;
+                    }
+
+
+
+
+                </style>
+            </div>
+            {% endif %}
+            <br><br><br>
+            <h1>做伙來讀冊</h1>
+            <h2>LEARN IT WELL</h2>
+            <img src="/static/images/hero-img.png" alt="Hero Imgs" data-aos="zoom-out" data-aos-delay="100">
+            <P>
+                <a href="/studyroom/" class="btn-get-started scrollto">自習室</a>&emsp;
+                <a href="/discusroom/" class="btn-get-started scrollto">討論室</a>
+            </P>
+
         </header>
     </div>
 </section><!-- End Hero Section -->
