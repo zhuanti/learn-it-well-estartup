@@ -41,7 +41,7 @@
 <!-- HTML -->
 <!--個人自習室-->
 <div class="banner">
-    <div class="sidebar-contact">
+    <div class="sidebar-contact" style="z-index:2;">
         <div class="toggle"></div>
         {% csrf_token %}
         <center>
@@ -198,7 +198,7 @@
     <div>
         <progress id="js-progress" value="0"></progress>
         <div class="progress-bar"></div>
-        <dialog id="timeDialog" class="timedialog" open style="width: 55%;height:60%;left:25%;">   <!--計時器-->
+        <dialog id="timeDialog" class="timedialog" open style="width: 55%;height:60%;left:25%;z-index:1;">   <!--計時器-->
             <br>
             <main class="app">
                 <!--佑慈提供可能js-->

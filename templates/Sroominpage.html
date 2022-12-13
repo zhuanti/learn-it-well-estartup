@@ -42,7 +42,7 @@
 <!--多人自習室-->
 <!-- HTML -->
 <div class="banner">
-    <div class="sidebar-contact">
+    <div class="sidebar-contact" style=" z-index:2;">
         <div class="toggle"></div>
         <center>
             {% for subject_no_list in studyroom.subject_no_lists %}
@@ -212,7 +212,7 @@
     <div>
         <progress id="js-progress" value="0"></progress>
         <div class="progress-bar"></div>
-        <dialog id="timeDialog" class="timedialog" open style="width: 40%;height:60%;">   <!--計時器-->
+        <dialog id="timeDialog" class="timedialog" open style="width: 55%;height:60%;left:25%; z-index:1;">   <!--計時器-->
             <br>
             <main class="app">
                 <!--佑慈提供可能js-->
