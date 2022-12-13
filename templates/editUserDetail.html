@@ -237,17 +237,43 @@
                                             </div>
                                             <div class="row mb-3">
                                                 <div class="col-sm-3">
+                                                    <h6 class="mb-0">性別</h6>
+                                                </div>
+                                                <div class="col-sm-9 text-secondary">
+                                                    <select class="form-control" name="gender" id="gender"
+                                                            style="margin:0px;">
+                                                        {% for gender_list in user.gender_list %}
+                                                        <!--<input type="text" class="form-control" name="live" id="live"
+                                                               value={{ live_list.live_name }} required>-->
+                                                        <option value="{{gender_list.gender_no}}" id="op_gender_no_id_1"
+                                                                name="op_gender_no_id">
+                                                            {{ gender_list.gender_gender }}
+                                                        </option>
+                                                        {% endfor %}
+                                                        {% for all_gender in user.all_gender_list %}
+                                                        <!--<input type="text" class="form-control" name="live" id="live"
+                                                               value={{ live_list.live_name }} required>-->
+                                                        <option value="{{all_gender.gender_no}}" id="op_gender_no_id"
+                                                                name="op_gender_no_id">
+                                                            {{ all_gender.gender_gender }}
+                                                        </option>
+                                                        {% endfor %}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-3">
+                                                <div class="col-sm-3">
                                                     <h6 class="mb-0">居住縣市</h6>
                                                 </div>
                                                 <div class="col-sm-9 text-secondary">
                                                     <select class="form-control" name="live" id="live"
                                                             style="margin:0px;">
-                                                        {% for live_lis in user.live_list %}
+                                                        {% for live_list in user.live_list %}
                                                         <!--<input type="text" class="form-control" name="live" id="live"
                                                                value={{ live_list.live_name }} required>-->
-                                                        <option value="{{live_lis.live_no}}" id="op_live_no_id_1"
+                                                        <option value="{{live_list.live_no}}" id="op_live_no_id_1"
                                                                 name="op_live_no_id">
-                                                            {{ live_lis.live_name }}
+                                                            {{ live_list.live_name }}
                                                         </option>
                                                         {% endfor %}
                                                         {% for all_live in user.all_live_list %}
