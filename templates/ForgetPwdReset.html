@@ -85,12 +85,19 @@
     </div>
 </header><!-- End Header -->
 
+
 <section>
     <div class="main">
         <section class="signup">
             <div class="containers">
                 <div class="signup-content">
                     <div class="signup-form">
+                        {% for message in messages %}
+                        <div class="alert alert-success">
+                            <a class="close" href="#" data-dismiss="alert"></a>
+                            {{ message }}
+                        </div>
+                        {% endfor %}
                         <h2 class="form-title">修改密碼</h2>
                         <!--<h2 class="form-title">Sign up</h2>-->
                         <form method="POST" class="register-form" id="register-form">
@@ -118,7 +125,8 @@
                         <figure><img src="/static/images/signup-image.jpg" alt="sing up image"></figure>
                         <div style="width: 100%; display: table;">
                             <div style="display: table-row">
-                                <a href="/userdetail/" class="signup-image-link" style=" display: table-cell;">回到個人資料</a>
+                                <a href="/userdetail/" class="signup-image-link"
+                                   style=" display: table-cell;">回到個人資料</a>
                                 <!-- <a href="/register/" class="signup-image-link">還沒有帳號</a> -->
                             </div>
                         </div>
