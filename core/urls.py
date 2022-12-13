@@ -66,6 +66,7 @@ urlpatterns = [
     # user
     path('userdetail/', user_review_views.Udetail),  # 使用者個人資訊
     path('edituser-detail/', user_review_views.EditUserDetail),  # 使用者個人資訊編輯
+    path('edituser-pwd/', user_review_views.EditUserPwd),  # 使用者密碼修改
 
     # views (other)
     # studyroom
