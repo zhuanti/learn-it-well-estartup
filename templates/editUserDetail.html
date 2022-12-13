@@ -122,9 +122,14 @@
                                                 <br>
                                                 累積點數：{{ user.point }}
                                             </p>
+                                            <div style="display: table-row">
+                                                <a href="/userdetail/" class="signup-image-link"
+                                                   style=" display: table-cell;">回到個人資料</a>
+                                                <!-- <a href="/register/" class="signup-image-link">還沒有帳號</a> -->
+                                            </div>
                                         </div>
                                     </div>
-<!--                                    <hr class="my-4">-->
+                                    <!--                                    <hr class="my-4">-->
                                     <!--                                    <ul class="list-group list-group-flush">-->
                                     <!--                                        <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">-->
                                     <!--                                            <h6 class="mb-0">-->
@@ -216,23 +221,6 @@
                                                 <div class="col-sm-9 text-secondary">
                                                     <input type="text" class="form-control" name="auser_id" id="id"
                                                            value={{ user.id }} disabled>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col-sm-3">
-                                                    <h6 class="mb-0">更改密碼</h6>
-                                                </div>
-                                                <div class="col-sm-9 text-secondary">
-                                                    <input type="password" class="form-control" name="pwd" id="pwd"
-                                                           value={{ user.pwd }}>
-                                                </div>
-                                            </div>
-                                            <div class="row mb-3">
-                                                <div class="col-sm-3">
-                                                    <h6 class="mb-0">確認更改密碼</h6>
-                                                </div>
-                                                <div class="col-sm-9 text-secondary">
-                                                    <input type="password" class="form-control" name="pwd2" id="pwd2">
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
