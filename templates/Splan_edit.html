@@ -133,7 +133,7 @@
                             <br>
                             <div class="form-group">
                                 <select class="form-control" name="pace_no_id" id="pace_no_id" style="margin:0px;">
-                                    <option disabled="true" selected>--請選擇讀書規劃進度--</option>
+<!--                                    <option disabled="true" selected>&#45;&#45;請選擇讀書規劃進度&#45;&#45;</option>-->
                                     {% for all_pace in plan.all_paces %}
                                     <option value="{{all_pace.no}}" id="op_pace_no_id" name="op_pace_no_id">
                                         {{all_pace.name}}
