@@ -163,7 +163,6 @@
         }
 
 
-
     </style>
 
 </head>
@@ -184,7 +183,7 @@
                 </button>
             </div>
         </form>
-        <center><h3>當前房間名稱：{{discussroom.name}}</h3></center>
+        <center><h3>房間名稱：{{discussroom.name}}</h3></center>
         <div class="msger-header-options">
             <span><i class="fas fa-cog"></i></span>
         </div>
@@ -205,7 +204,7 @@
     </div>
     <!--聊天 block-->
 
-    <div class="msger-inputarea" >
+    <div class="msger-inputarea">
         <!--        <form class="msger-inputarea" action="" method="post">-->
         {% csrf_token %}
         <div class="wrap">
@@ -216,8 +215,8 @@
             <a class="btn popup-btn" style="..." href="/addqus/{{discussroom.no}}/">提問</a>
         </div>
         <div class="popup-wrap" id="letmeopen">
-            <div class="popup-box transform-out" >
-                <form action="/inpage/{{discussroom.no}}/" method="post" >
+            <div class="popup-box transform-out">
+                <form action="/inpage/{{discussroom.no}}/" method="post">
                     {% csrf_token %}
                     <!--                    /inpage/{{discussroom.no}}/-->
                     <h2>提問版</h2>
@@ -264,7 +263,6 @@
                             }
 
 
-
                         </script>
                         <a class="close-btn popup-close" href="#">x</a>
                     </div>
@@ -280,7 +278,7 @@
         {% for user in discussroom.user %}
         <input type="text" class="msger-input" value="{{user.user_name}}:" id="username" hidden></imput>
         {% endfor %}
-        <button type="submit" class="btn msger-send-btn" onclick="sendMessage()">
+        <button type="reset" class="btn msger-send-btn" onclick="sendMessage()">
             發送
         </button>
         <script>
@@ -289,7 +287,7 @@
             // var socket = new WebSocket("ws://127.0.0.1:9000/ws/{{ group }}/");
 
              <!-- 在本地聊天 -->
-<!--            socket = new WebSocket("ws://127.0.0.1:9000/room/{{discussroom.no}}/");-->
+            // socket = new WebSocket("ws://127.0.0.1:9000/room/{{discussroom.no}}/");
 
             <!-- 在遠端聊天 -->
             socket = new WebSocket("ws://140.131.114.169:9000/room/{{discussroom.no}}/");
@@ -332,6 +330,7 @@
                     let allmsg = username.innerHTML + ' ' + username.value + ' ' + tag.value;
                     socket.send(allmsg);
                 }
+                document.getElementById("txt").value="";
             }
 
             function closeConn() {
@@ -352,7 +351,7 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="/static/js/popup.js?v=<?=time()?>"></script>
-<script src="/static/js/chatroommsg.js"></script>
+<!--<script src="/static/js/chatroommsg.js"></script>-->
 <!--<script src="/static/js/popup.js"></script>-->
 
 
