@@ -189,6 +189,8 @@ i:hover + .dialoginsidebtn, .dialoginsidebtn:hover {
 }
 
 .msger-inputarea {
+    height: 80%;
+    width: 80%;
     display: flex;
     padding: 10px;
     border-top: var(--border);
@@ -196,6 +198,7 @@ i:hover + .dialoginsidebtn, .dialoginsidebtn:hover {
 }
 
 .msger-inputarea * {
+    
     padding: 10px;
     border: none;
     border-radius: 3px;
