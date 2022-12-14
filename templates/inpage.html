@@ -315,21 +315,25 @@
 
             function sendMessage() {
                 //抓取現在時間
-                Today = new Date();
-                h = Today.getHours();
-                m = Today.getMinutes();
-                s = Today.getSeconds();
+                // Today = new Date();
+                // h = Today.getHours();
+                // m = Today.getMinutes();
+                // s = Today.getSeconds();
 
                 // 使用者傳的文字內容
                 let tag = document.getElementById("txt");
-                if (tag.value != null) {
-                    //設定時間
-                    document.getElementById("username").innerHTML = h + ":" + m + ":" + s;
-                    //設定使用者名
-                    let username = document.getElementById("username");
-                    let allmsg = username.innerHTML + ' ' + username.value + ' ' + tag.value;
-                    socket.send(allmsg);
-                }
+                let username = document.getElementById("username");
+                let allmsg = username.innerHTML + ' ' + username.value + ' ' + tag.value;
+                socket.send(allmsg);
+
+                // if (tag.value != null) {
+                //     //設定時間
+                //     document.getElementById("username").innerHTML = h + ":" + m + ":" + s;
+                //     //設定使用者名
+                //     let username = document.getElementById("username");
+                //     let allmsg = username.innerHTML + ' ' + username.value + ' ' + tag.value;
+                //     socket.send(allmsg);
+                // }
                 document.getElementById("txt").value="";
             }
 
