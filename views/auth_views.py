@@ -14,7 +14,7 @@ def login(request):
 
     # 設置若已經登入過，所導向的畫面
     if 'user_id' in request.COOKIES:
-        messages.success(request, '已成功登入')
+        # messages.success(request, '已成功登入')
         return redirect('/')
 
     if request.method == 'GET':
@@ -41,7 +41,7 @@ def login(request):
         ret.set_cookie('sessionid', result['sessionid'])
         # ret.set_cookie('sessionid', result['sessionid'], max_age=60 * 60) 登入時間
         ret.set_cookie('user_id', user_id)
-        messages.success(request, '已成功登入')
+        # messages.success(request, '已成功登入')
         return ret
     else:
         messages.error(request, '帳號或密碼錯誤')

@@ -223,6 +223,7 @@
                                         <button class="btn form-submit" type="submit" style="width: 100px; height: 40px;">
                                             搜尋
                                         </button>
+
                                     </td>
                                 </tr>
 
@@ -233,15 +234,18 @@
                         <!--                        </table>-->
 
                         <!--                        </div>-->
-                        <br>
+
                     </div>
+
                     <!-- Grid column -->
 
                     {% for message in messages %}
+                    <p></p>
                     <div class="alert alert-success">
                         <a class="close" href="#" data-dismiss="alert"></a>
                         {{ message }}
                     </div>
+                    <p></p>
                     {% endfor %}
 
                 </div>
