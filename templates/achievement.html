@@ -154,14 +154,14 @@
                                     {% if sus_all.res_time >= sus_all.suc_pace and sus_all.lockif == '0' %}
                                     <div class="btn-get-started scrollto">
                                         <button type="submit" class="button" id="js-btnget1"
-                                                title="達成成就才能按下!"
+                                                title="按下即可領取!"
                                                 style="border-radius: 10px; width:100px;height:40px;border:12px blue none;background-color:#71c55d;color:white; font-size:15px;"
                                         >
                                             領取
                                         </button>
                                         {% elif sus_all.res_time >= sus_all.suc_pace and sus_all.lockif == '1' %}
                                         <button type="submit" class="button" id="js-btnget2"
-                                                title="達成成就才能按下!"
+                                                title="已領取過!"
                                                 style="border-radius: 10px; width:100px;height:40px;border:12px blue none;background-color:#d4d4d4;color:white; font-size:15px;"
                                                 disabled="true"
 
@@ -171,7 +171,7 @@
 
                                         {% else %}
                                         <button type="submit" class="button" id="js-btnget3"
-                                                title="達成成就才能按下!"
+                                                title="達成後才能按下!"
                                                 style="border-radius: 10px; width:100px;height:40px;border:12px blue none;background-color:#bcbcbc;color:white; font-size:15px;"
                                                 disabled="true"
 
