@@ -397,7 +397,3 @@ def Sroomtogethersub(request):
 
 def Splan_edit(request):
     return render(request, 'Splan_edit.html')
-
-# 開發人員頁面
-def team(request):
-    return render(request, 'team.html')
